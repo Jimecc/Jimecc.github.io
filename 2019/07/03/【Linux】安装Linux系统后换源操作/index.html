@@ -1,0 +1,707 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="black">
+  <meta name="description" content="猫是我">
+  <meta name="author" content="不食花生的猫">
+  <meta name="keywords" content="">
+  <meta name="description" content="Linux 换源  换源简介  什么是源？  源是 Linux 系统中的一个文件，可以说是 Linux 的灵魂，一个 Linux 配置的源文件决定了 Linux 系统可以获取哪些资源，获取哪些文件，源文件损坏意味着 Linux 系统无法下载  &#x2F; 更新等；  为什么要换源？  除了部分国内的 Linux 系统（Deepin &#x2F; 麒麟 集成了国内的源，所以不用换）以外，国外的系统，类似于Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Linux】安装Linux系统后换源操作">
+<meta property="og:url" content="http://jjjime.github.io/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85Linux%E7%B3%BB%E7%BB%9F%E5%90%8E%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="我是猫">
+<meta property="og:description" content="Linux 换源  换源简介  什么是源？  源是 Linux 系统中的一个文件，可以说是 Linux 的灵魂，一个 Linux 配置的源文件决定了 Linux 系统可以获取哪些资源，获取哪些文件，源文件损坏意味着 Linux 系统无法下载  &#x2F; 更新等；  为什么要换源？  除了部分国内的 Linux 系统（Deepin &#x2F; 麒麟 集成了国内的源，所以不用换）以外，国外的系统，类似于Ubuntu">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-07-03T02:33:59.000Z">
+<meta property="article:modified_time" content="2022-06-17T22:14:31.330Z">
+<meta property="article:author" content="不食花生的猫">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="入门">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>【Linux】安装Linux系统后换源操作 ｜ 我是猫</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我是猫</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">
+                <i class="iconfont icon-link-fill"></i>
+                登录
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="http://110.40.191.51:5000/">
+                <i class="iconfont icon-apple-fill"></i>
+                桌面
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" false
+         style="background: url('/images/uploads/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【Linux】安装Linux系统后换源操作">
+              
+                【Linux】安装Linux系统后换源操作
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      不食花生的猫
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-07-03 10:33" pubdate>
+        July 3, 2019 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【Linux】安装Linux系统后换源操作</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h3 id="Linux-换源"><a href="#Linux-换源" class="headerlink" title="Linux 换源"></a>Linux 换源</h3><hr>
+<p><br><br></p>
+<h4 id="换源简介"><a href="#换源简介" class="headerlink" title="换源简介"></a>换源简介</h4><hr>
+<ul>
+<li>什么是源？</li>
+</ul>
+<p>源是 Linux 系统中的一个文件，可以说是 Linux 的灵魂，一个 Linux 配置的源文件决定了 Linux 系统可以获取哪些资源，获取哪些文件，源文件损坏意味着 Linux 系统无法下载  / 更新等；</p>
+<ul>
+<li>为什么要换源？</li>
+</ul>
+<p>除了部分国内的 Linux 系统（Deepin / 麒麟 集成了国内的源，所以不用换）以外，国外的系统，类似于Ubuntu / Kali / Parrot 这一类系统，默认集成的源是国外的源，可能用过 Maven 编程的小伙伴都有过给 Maven 换源的经历，只因为使用国外的源下载 / 更新十分缓慢，并且由于速度慢，可能会导致下载错误，中途停止等状况发生，所以国内的源还是十分重要的；</p>
+<ul>
+<li>源文件存储在哪里？</li>
+</ul>
+<p>从 Linux 的根目录出发，源文件就存储在了 <code>/etc/apt</code>文件夹下，具体地址是：<code>/etc/apt/source.list</code>文件；</p>
+<ul>
+<li>如何换源？</li>
+</ul>
+<p>使用 vim 编辑器进行换源，如果没有使用过 vim 编辑器，可以<a target="_blank" rel="noopener" href="https://www.cnblogs.com/C-Noah/p/14223399.html">【点击此处】</a>查看 vim 编辑器的使用方式；</p>
+<p><br><br></p>
+<h4 id="开始换源"><a href="#开始换源" class="headerlink" title="开始换源"></a>开始换源</h4><hr>
+<ul>
+<li>打开终端；</li>
+<li>【如果你不是 root 用户登录的话】请执行 <code>sudo su</code>命令，进入超级用户模式，root 用户可以跳过此步，如果你不确定自己是不是 root 用户的话，也请执行一次；</li>
+<li>在终端中输入：<code>vim /etc/src/source.list</code>打开源文件；</li>
+<li>点击<code>i</code>键进入编辑模式；</li>
+<li>我们观察文件可以看到，有几行代码的前面是有一个<code>#</code>的，这是被注释掉的代码，不发挥作用，换源前我们需要将所有的代码都注释掉，可以选择在没被注释掉的代码前输入两个<code>##</code>，注释的同时，区分出这一行是系统自带的源（如果你想的话，也可以将所有的代码删除掉，但是不建议这么做）；</li>
+<li>点到本博客的最下方，寻找你想要的源，复制后粘贴进源文件（就是当前正在编辑的文件）中，注意：命令行下的粘贴键是：ctrl + shift + c;</li>
+<li>点击<code>Esc</code>键，进入到底行模式；</li>
+<li>输入<code>:wq</code>，这时候你会发现你输入的内容出现在了 终端 的最底部，这就是命令行模式，详情可以<a target="_blank" rel="noopener" href="https://www.cnblogs.com/C-Noah/p/14223399.html">【点击此处】</a>看我这一篇博客；</li>
+<li>执行命令：<code>apt-get update</code>进行一次源文件的重新识别；</li>
+<li>执行命令：<code>apt-get upgrade</code>进行一次更新；</li>
+<li>换源结束；</li>
+</ul>
+<p><br><br><br></p>
+<h3 id="国内源"><a href="#国内源" class="headerlink" title="国内源"></a>国内源</h3><hr>
+<br>
+
+<h4 id="清华源："><a href="#清华源：" class="headerlink" title="清华源："></a>清华源：</h4><hr>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java">deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial main restricted
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial<span class="token operator">-</span>updates main restricted
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial universe
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial<span class="token operator">-</span>updates universe
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial multiverse
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial<span class="token operator">-</span>updates multiverse
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial<span class="token operator">-</span>backports main restricted universe multiverse
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial<span class="token operator">-</span>security main restricted
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial<span class="token operator">-</span>security universe 
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> xenial<span class="token operator">-</span>security multiverse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+<h4 id="深度（Deepin）源："><a href="#深度（Deepin）源：" class="headerlink" title="深度（Deepin）源："></a>深度（Deepin）源：</h4><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java">deb <span class="token punctuation">[</span>by<span class="token operator">-</span>hash<span class="token operator">=</span>force<span class="token punctuation">]</span> https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>deepin<span class="token operator">/</span> unstable main contrib non<span class="token operator">-</span>free<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+
+
+<br>
+
+
+
+<h4 id="中科大源："><a href="#中科大源：" class="headerlink" title="中科大源："></a>中科大源：</h4><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java">deb https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic main restricted universe multiverse
+deb<span class="token operator">-</span>src https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic main restricted universe multiverse
+deb https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>updates main restricted universe multiverse
+deb<span class="token operator">-</span>src https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>updates main restricted universe multiverse
+deb https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>backports main restricted universe multiverse
+deb<span class="token operator">-</span>src https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>backports main restricted universe multiverse
+deb https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>security main restricted universe multiverse
+deb<span class="token operator">-</span>src https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>security main restricted universe multiverse
+deb https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>proposed main restricted universe multiverse
+deb<span class="token operator">-</span>src https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>proposed main restricted universe multiverse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+<h4 id="阿里源："><a href="#阿里源：" class="headerlink" title="阿里源："></a>阿里源：</h4><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"># 阿里镜像源
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic main restricted universe multiverse
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>security main restricted universe multiverse
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>updates main restricted universe multiverse
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>proposed main restricted universe multiverse
+deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>backports main restricted universe multiverse
+deb<span class="token operator">-</span>src http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic main restricted universe multiverse
+deb<span class="token operator">-</span>src http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>security main restricted universe multiverse
+deb<span class="token operator">-</span>src http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>updates main restricted universe multiverse
+deb<span class="token operator">-</span>src http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>proposed main restricted universe multiverse
+deb<span class="token operator">-</span>src http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>ubuntu<span class="token operator">/</span> bionic<span class="token operator">-</span>backports main restricted universe multiverse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%85%A5%E9%97%A8/">入门</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/07/03/%E3%80%90Linux%E3%80%91-Kali-%E5%88%87%E6%8D%A2%E8%AF%AD%E8%A8%80%E4%B8%BA%E4%B8%AD%E6%96%87/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【Linux】 Kali 切换语言为中文</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E5%80%99%E9%81%87%E5%88%B0grub-install-Error-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%EF%BC%8C%E8%B6%85%E8%AF%A6%E7%BB%86%E5%82%BB%E7%93%9C%E5%BC%8F%E6%95%99%E7%A8%8B/">
+                        <span class="hidden-mobile">【Linux】安装系统的时候遇到grub-install Error 问题的解决，超详细傻瓜式教程</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81NDM5Mi8zMDg2Mw==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">请在下方输入内容：</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            &nbsp✨&nbsp 
+            <span id="busuanzi_value_site_pv"></span>
+             times
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            &nbsp💫&nbsp 
+            <span id="busuanzi_value_site_uv"></span>
+             nums
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        备案号：鲁ICP备2022010174号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

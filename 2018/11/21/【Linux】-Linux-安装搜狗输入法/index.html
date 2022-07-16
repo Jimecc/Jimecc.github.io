@@ -1,0 +1,697 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="black">
+  <meta name="description" content="猫是我">
+  <meta name="author" content="不食花生的猫">
+  <meta name="keywords" content="">
+  <meta name="description" content="前言罗里吧嗦的话；可以跳过；  搜狗输入法，作为我体验最好的一个输入法，一直陪我从小学走到了现在，优麒麟线上发布会时，搜狗团队代表用“聪明”来形同它，事实也确实如此，它能十分人性地记录使用者常用的热词，并且会“猜测”使用者想表达的意思，一个工具思考变多了，就意味着它的使用者思考变少了，这也正是我一直习惯于搜狗的原因，所以在安装Linux系统之后，第一时间并不是想着如何去安装各种编程工具，而是安装一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Linux】 Debian 系 Linux 安装搜狗输入法">
+<meta property="og:url" content="http://jjjime.github.io/2018/11/21/%E3%80%90Linux%E3%80%91-Linux-%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/index.html">
+<meta property="og:site_name" content="我是猫">
+<meta property="og:description" content="前言罗里吧嗦的话；可以跳过；  搜狗输入法，作为我体验最好的一个输入法，一直陪我从小学走到了现在，优麒麟线上发布会时，搜狗团队代表用“聪明”来形同它，事实也确实如此，它能十分人性地记录使用者常用的热词，并且会“猜测”使用者想表达的意思，一个工具思考变多了，就意味着它的使用者思考变少了，这也正是我一直习惯于搜狗的原因，所以在安装Linux系统之后，第一时间并不是想着如何去安装各种编程工具，而是安装一">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-11-21T02:33:59.000Z">
+<meta property="article:modified_time" content="2022-06-17T21:58:00.773Z">
+<meta property="article:author" content="不食花生的猫">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Debian">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>【Linux】 Debian 系 Linux 安装搜狗输入法 ｜ 我是猫</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我是猫</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">
+                <i class="iconfont icon-link-fill"></i>
+                登录
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="http://110.40.191.51:5000/">
+                <i class="iconfont icon-apple-fill"></i>
+                桌面
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" false
+         style="background: url('/images/uploads/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【Linux】 Debian 系 Linux 安装搜狗输入法">
+              
+                【Linux】 Debian 系 Linux 安装搜狗输入法
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      不食花生的猫
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-11-21 10:33" pubdate>
+        November 21, 2018 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【Linux】 Debian 系 Linux 安装搜狗输入法</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><font color=Darkgray size=2>罗里吧嗦的话；<font color=7baf23 >可以跳过；</font></font></p>
+<hr>
+<p>搜狗输入法，作为我体验最好的一个输入法，一直陪我从小学走到了现在，优麒麟线上发布会时，搜狗团队代表用“聪明”来形同它，事实也确实如此，它能十分人性地记录使用者常用的热词，并且会“猜测”使用者想表达的意思，一个工具思考变多了，就意味着它的使用者思考变少了，这也正是我一直习惯于搜狗的原因，所以在安装Linux系统之后，第一时间并不是想着如何去安装各种编程工具，而是安装一个搜狗输入法，不过，搜狗对Linux的支持并不是十分友好（主要原因应该是Linux用户还是太少了，并且Linux的不同发行版本太多了，详情可以<a target="_blank" rel="noopener" href="https://www.cnblogs.com/C-Noah/p/14221495.html">【点击此处】</a>查看我的另一篇博客），但是好在，国内的几个系统还是跟搜狗公司合作，并且发行了搜狗的Linux版本，接下来看教程。</p>
+<h3 id="避坑介绍"><a href="#避坑介绍" class="headerlink" title="避坑介绍"></a>避坑介绍</h3><p><font color=DarkGray size=2>安装搜狗前的准备工作；<font color=red>不可跳过；</font></font></p>
+<hr>
+<p>在安装之前，要先介绍两个东西，他们分别叫：  fcitx  与 ibus ，这两个工具是 Linux 最原始的输入法工具，其在 Linux 中的地位不下于10年前我们常用的最原始的 拼音 / 五笔 输入法，这两个工具都有自己的中文输入法，也都支持拼音，其中 ibus 自带的是谷歌拼音输入法， fcitx 自带的是简体拼音，而搜狗输入法的 Linux 版正是在 fcitx 的基础上开发出来的，所以如果想在 Linux 上使用搜狗，你的 Linux 必须要安装 fcitx 。</p>
+<p>在这里就可以将系统分为两类，一类是自己系统里集成了 fcitx 的系统，好比较为常见的 Ubuntu ，还有一种就是没有集成 fcitx 的，拿 Kali 举例（首页的背景图就是Kali自带的桌面背景，后面会介绍一下这个系统），除此之外，由于国产系统的逐渐崛起（大部分是基于Linux的），出现了许多自带 搜狗 输入法的系统，我常用的<code>Deepin</code>、优麒麟 等都自己集成了搜狗，这一类系统大部分是使用了一个叫 wine 的微型虚拟机，在这类系统上安装搜狗，只要进入<code>软件商店</code>查找搜狗就可以进行安装。</p>
+<p>在安装搜狗之前，先进入系统的<code>菜单</code>界面（类似于 Win10 的开始界面），在搜索栏输入 fcitx ，如果查找到 fcitx 或者是 “输入法配置”，则证明是系统自己集成了 fcitx 的系统，可以跳过第三步，否则，请从第三步开始执行。</p>
+<h3 id="安装-fcitx"><a href="#安装-fcitx" class="headerlink" title="安装 fcitx"></a>安装 fcitx</h3><p><font color=DarkGray size=2>安装搜狗的准备工作；</font></p>
+<hr>
+<p>看到这里，你的系统应该是没有集成 fcitx 了，这时候请进入软件商店，搜索 <code>fcitx configuration </code>，并进行安装，如果你的系统没有 软件商店的话（Kali就没有），则打开终端运行以下命令：</p>
+<blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java">apt<span class="token operator">-</span>get install fcitx<span class="token operator">-</span>table<span class="token operator">-</span>wbpy ttf<span class="token operator">-</span>wqy<span class="token operator">-</span>microhei ttf<span class="token operator">-</span>wqy<span class="token operator">-</span>zenhei<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</blockquote>
+<p>命令运行成功，则重启一下计算机，进入 <strong>第四步</strong> ，如果提示 找不到资源，那么请[【点击此处】]给Linux换源（博文中有详细介绍什么是换源，为什么换源）；</p>
+<h3 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h3><p><font color=DarkGray size=2>进入安装步骤；</font></p>
+<hr>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://pinyin.sogou.com/">【点击进入搜狗官网】</a>下载安装包，其中 Linux 版本的在最上方，下载后的文件是一个<code>.deb</code>文件，这是 Debain 系 Linux 的标准安装包，如果有疑问的话，后期我会介绍一下 Linux 的发展史。</p>
+</li>
+<li><p>打开终端，逐步执行以下命令：</p>
+<ul>
+<li><p>执行<font color=7baf23>cd Downloads</font>命令，进入 <code>下载</code> 文件夹；</p>
+</li>
+<li><p>执行 <font color=7baf23>sudo su</font> 进入超级用户模式，如果你是 root 登录的话，可以跳过这一步（执行也无妨）；</p>
+</li>
+<li><p>执行上面那步会提示输入密码，输入你的解锁密码就可以，输入的内容不会显示在 终端 中，也不会出现<code>*</code>，所以大胆输就行了；</p>
+</li>
+<li><p>执行<font color=7baf23>dpkg -i sogouimebs………….deb</font>安装搜狗输入法，请注意，不要直接复制这条命令，因为随着版本的不同，版本号会出现变化，所以即使我给你完整的命令，这条命令也会随着时间失效，正确的做法如下：</p>
+<blockquote>
+<p>在终端中输入 <font color=7baf23>dpkg -i sogou</font> 后点击<code>tab</code>键进行自动补圈，然后点击回车，其中 tab 键是大写锁定上面的键；</p>
+</blockquote>
+</li>
+<li><p>如果你的安装过程中没有出现报错，那么就已经安装成功了，跳过下面的<code>空心圆圈</code>步骤，直接进入<code>实心圆圈</code>步骤就可以了；</p>
+</li>
+<li><p>如果出现了<code>E</code>或者<code>Err</code>类型的提示，那么就是安装依赖出错，请执行<font color=7baf23>sudo apt –fix-broken install</font>命令，让系统自动解决依赖问题，如果还报错，请执行<font color=7baf23>sudo -f install -y</font>；</p>
+</li>
+<li><p>解决完依赖问题之后，再次执行第四个小圆圈圈的安装命令；</p>
+</li>
+<li><p>重启计算机；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="配置搜狗输入法"><a href="#配置搜狗输入法" class="headerlink" title="配置搜狗输入法"></a>配置搜狗输入法</h3><p><font color=DarkGray size=2>对输入法进行配置；</font></p>
+<hr>
+<ul>
+<li><p>配置：</p>
+<ul>
+<li>在 菜单 中（也就是那个长的像 Win10的开始菜单的那里）搜索 fcitx</li>
+<li>打开 fcitx configuration，点击最下方加号，选择搜狗输入法：</li>
+<li>关闭界面，同时按下 ctrl + shift 键（部分系统默认是 ctrl + 空格 ）切换至搜狗输入法，如果想将搜狗设置成默认输入法，可以在上一步时，将搜狗输入法的位置调到第一个即可；</li>
+</ul>
+</li>
+<li><p>如果这个时候还没有切换成搜狗输入法，那极大可能是系统默认集成了 ibus ，所以安装了 fcitx 之后，系统默认的还是 ibus ，执行如下步骤进行切换：</p>
+<ul>
+<li><p>打开 系统设置    （settings）</p>
+</li>
+<li><p>进入 区域与语言（Region &amp; Language）</p>
+</li>
+<li><p>进入 管理已经安装的语言（Manag Installed Languages）</p>
+</li>
+<li><p>点击 Keyboard input method system，无论默认状态下是什么，点击选择换成 fcitx</p>
+</li>
+</ul>
+</li>
+<li><p>安装成功</p>
+</li>
+</ul>
+<blockquote>
+<p>有任何问题或不理解，欢迎博客下进行留言，看到后第一时间会进行回复并解决；</p>
+</blockquote>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>大家可以尝试一下【优麒麟】系统，自己集成了搜狗输入法、QQ、微信等许多常用软件，同时还支持部分安卓软件的安装。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Debian/">Debian</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/03/16/markdown/%E3%80%90%E5%8D%9A%E5%AE%A2%E3%80%91%E5%B8%B8%E7%94%A8%E9%A2%9C%E8%89%B2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【博客】常用颜色</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/09/16/%E3%80%90%E6%9D%82%E8%AE%B0%E3%80%91Linus-%E4%B8%8E-Linux/">
+                        <span class="hidden-mobile">【杂记】Linus 与 Linux</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81NDM5Mi8zMDg2Mw==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">请在下方输入内容：</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            &nbsp✨&nbsp 
+            <span id="busuanzi_value_site_pv"></span>
+             times
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            &nbsp💫&nbsp 
+            <span id="busuanzi_value_site_uv"></span>
+             nums
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        备案号：鲁ICP备2022010174号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

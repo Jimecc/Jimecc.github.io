@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="black">
+  <meta name="description" content="猫是我">
+  <meta name="author" content="不食花生的猫">
+  <meta name="keywords" content="">
+  <meta name="description" content="在CentOS 服务器部署 Springboot 项目                          准备工作 | 安装 JDk             依次执行下列命令，查看自己的处理器型号并安装对应的 jdk  注意！wget 并不是唯一下载文件的方式，如果下载太慢或者下载失败，可以考虑其他方式（比如我就是下载到本地后，用宝塔上传到服务器，解压缩重命名等一系列操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【服务器】在 CentOS 服务器部署 Springboot 项目(使用pm2托管)">
+<meta property="og:url" content="http://jjjime.github.io/2022/03/22/%E3%80%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%91%E5%9C%A8-CentOS-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2-Springboot-%E9%A1%B9%E7%9B%AE(%E4%BD%BF%E7%94%A8pm2-)/index.html">
+<meta property="og:site_name" content="我是猫">
+<meta property="og:description" content="在CentOS 服务器部署 Springboot 项目                          准备工作 | 安装 JDk             依次执行下列命令，查看自己的处理器型号并安装对应的 jdk  注意！wget 并不是唯一下载文件的方式，如果下载太慢或者下载失败，可以考虑其他方式（比如我就是下载到本地后，用宝塔上传到服务器，解压缩重命名等一系列操作">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/36b0c50031f6433eb6d94ffbd9f772f2.png">
+<meta property="article:published_time" content="2022-03-22T15:14:59.000Z">
+<meta property="article:modified_time" content="2022-06-17T21:46:48.380Z">
+<meta property="article:author" content="不食花生的猫">
+<meta property="article:tag" content="服务器">
+<meta property="article:tag" content="项目部署">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/36b0c50031f6433eb6d94ffbd9f772f2.png">
+  
+  <title>【服务器】在 CentOS 服务器部署 Springboot 项目(使用pm2托管) ｜ 我是猫</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我是猫</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">
+                <i class="iconfont icon-link-fill"></i>
+                登录
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="http://110.40.191.51:5000/">
+                <i class="iconfont icon-apple-fill"></i>
+                桌面
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" false
+         style="background: url('/images/uploads/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【服务器】在 CentOS 服务器部署 Springboot 项目(使用pm2托管)">
+              
+                【服务器】在 CentOS 服务器部署 Springboot 项目(使用pm2托管)
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      不食花生的猫
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-22 23:14" pubdate>
+        March 22, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【服务器】在 CentOS 服务器部署 Springboot 项目(使用pm2托管)</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <div class="note note-success">
+            <h2 id="在CentOS-服务器部署-Springboot-项目"><a href="#在CentOS-服务器部署-Springboot-项目" class="headerlink" title="在CentOS 服务器部署 Springboot 项目"></a>在CentOS 服务器部署 Springboot 项目</h2>
+          </div>
+
+<div class="note note-primary">
+            <h4 id="准备工作-安装-JDk"><a href="#准备工作-安装-JDk" class="headerlink" title="准备工作 | 安装 JDk"></a>准备工作 | 安装 JDk</h4>
+          </div>
+
+<span class="label label-warning">依次</span>执行下列命令，查看自己的处理器型号并安装对应的 jdk
+
+<p><font size=2 color=Orange><font color=red>注意！</font>wget 并不是唯一下载文件的方式，如果下载太慢或者下载失败，可以考虑其他方式（比如我就是下载到本地后，用宝塔上传到服务器，解压缩重命名等一系列操作都是在宝塔完成的。</font></p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 查看处理器型号 运行结果 x86_64
+uname -m
+
+# 执行下列命令，进入 &#96;&#x2F;usr&#x2F;local&#96; 文件夹下并创建 jdk 文件夹并进入该文件夹
+cd &#x2F;usr&#x2F;local
+mkdir jdk
+cd jdk
+
+# 使用 wget+url 的方式下载相应的 jdk 压缩文件（推荐）
+wget https:&#x2F;&#x2F;www.oracle.com&#x2F;java&#x2F;technologies&#x2F;downloads&#x2F;#license-lightbox
+
+#执行下列命令，解压缩文件 并 移动到 &#96;jdk1.8&#96; 文件夹下（压缩包文件名可能不一致，可以使用 ls 命令查看文件夹下有哪些文件
+sudo tar -xvf jdk-8u144-linux-x64.tar.gz
+mv jdk-8u144-linux-x64 jdk1.8
+
+# 删除压缩包
+rm -rf jdk-8u144-linux-x64.tar.gz
+
+# 修改环境变量（注意一定要在 root 模式下执行）
+sudo vim &#x2F;etc&#x2F;profile
+
+# 在该文件内加入以下内容 （vim 的基本使用操作不再赘述，可以去我的博客里面搜索&#96;vim&#96;找到相应的文档）
+# 记得查看 file 地址是否正确
+export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;jdk&#x2F;jdk1.8
+export JRE_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;jdk&#x2F;jdk1.8&#x2F;jre
+export CLASSPATH&#x3D;.:$JAVA_HOME&#x2F;LIB&#x2F;DT.JAR:$JAVA_HOME&#x2F;lib&#x2F;tools.jar:$JAVA_HOME&#x2F;lib:$CLASSPATH
+export PATH&#x3D;$JAVA_HOME&#x2F;bin:$PATH
+
+# 使用 esc + :wq 保存并退出文档后，执行下列命令，使配置生效
+sudo source &#x2F;etc&#x2F;profile
+
+# 使用下列命令查看是否生效
+java -version
+
+# 显示下列提示时，安装成功
+java version &quot;1.8.0_144&quot; 
+Java(TM) SE Runtime Environment (build 1.8.0_144-b03) 
+Java HotSpot(TM) 64-Bit Server VM (build 25.77-b03, mixed mode)
+
+# 不成功请回过头检查哪一步操作错误了，尤其是环境变量的文件地址是否正确（记得常使用 ls 随时查看）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+
+
+<div class="note note-primary">
+            <h4 id="在本地将项目打成-jar-包"><a href="#在本地将项目打成-jar-包" class="headerlink" title="在本地将项目打成 jar 包"></a>在本地将项目打成 jar 包</h4>
+          </div>
+
+
+
+<p>打开 IDEA 后，在右侧的 <span class="label label-success">Maven</span> 菜单中，执行一次’ <span class="label label-success">package</span> ‘，随后 Maven 会在左侧目录树中自动生成 target 目录，打开即可在下面找到与项目名同名的项目名称<span class="label label-success">.jar</span> 文件，将其上传到服务器的任意文件夹下（我推荐创建一个新的文件夹’/home/JavaDemo ‘并存放到该文件夹下）</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
+# 执行下列命令，进入到该文件夹下（文件夹名称按你的来）
+cd &#x2F;home&#x2F;JavaDemo
+
+# 执行下列命令，启动 Springboot 项目
+java -jar 项目名称.jar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>执行上述命令后，可以看到控制台开始打印日志，则项目启动成功</p>
+<p><br><br><br><br></p>
+<hr>
+<p>原本到这里应该就结束了，但是与 Hexo 项目一样，当你关闭 ssh 窗口后，ssh 连接断开，项目就会自动关闭了（该操作相当于你关闭了本地的 terminal 端口并且在跳出来的小弹窗中选择了<span class="label label-danger">kill</span>这个进程。</p>
+<p>于是接下来就要思考，如何保证 Springboot 项目稳定运行不关闭呢？在之前进行 Hexo 部署的时候，我考虑的解决方案是保持 ssh 长连接，首先不能关闭窗口这就比较麻烦，我本地的机器一关机服务器也不能用了，我还不如部署到本地；其次如果一段时间不进行操作，ssh 也会自动失去连接（这一点应该可以设置，但是我并没有进行尝试，毕竟这种方法太鸡肋了）。</p>
+<p>于是就想到了 pm2，将项目交由 pm2 托管，无论 ssh 连接如何都无所谓。</p>
+<div class="note note-success">
+            <h2 id="使用-pm2-托管-Springboot-项目"><a href="#使用-pm2-托管-Springboot-项目" class="headerlink" title="使用 pm2 托管 Springboot 项目"></a>使用 pm2 托管 Springboot 项目</h2>
+          </div>
+
+<div class="note note-primary">
+            <h4 id="安装-pm2"><a href="#安装-pm2" class="headerlink" title="安装 pm2"></a>安装 pm2</h4>
+          </div>
+
+
+
+<ul>
+<li>安装 nodejs</li>
+<li>npm install pm2 -g</li>
+</ul>
+<div class="note note-primary">
+            <h4 id="创建托管文件"><a href="#创建托管文件" class="headerlink" title="创建托管文件"></a>创建托管文件</h4>
+          </div>
+
+
+
+<p>在项目的同级目录下创建一个 name.json 文件（name 随你取，直接叫 name 也可以）</p>
+<p>将下列代码复制到 name.json 文件夹中去</p>
+<div class="code-wrapper"><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"my-server"</span><span class="token punctuation">,</span>
+    <span class="token property">"script"</span><span class="token operator">:</span> <span class="token string">"/usr/local/jdk/jdk8/bin/java"</span><span class="token punctuation">,</span>
+    <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"-jar"</span><span class="token punctuation">,</span>
+        <span class="token string">"demo4.jar"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"exec_interpreter"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token property">"exec_mode"</span><span class="token operator">:</span> <span class="token string">"fork"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>name 进程名称（显示在<code>pm2 list</code>命令中）</li>
+<li>script 执行进程名称，如果需要执行PHP脚本则填写php解释器的路径，本文为java(找到你的 jdk/bin/java)</li>
+<li>args 传给执行进程的参数，多个参数以数组单元分割</li>
+<li>exec_interpreter NodeJs解析器，本文不适用</li>
+<li>exec_mode 执行模式[cluster|fork]这个针对NodeJs应用的配置，非NodeJs应用统一fork</li>
+</ul>
+<p>保存并退出文件</p>
+<br>
+
+<div class="note note-primary">
+            <h4 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h4>
+          </div>
+
+
+
+<p>使用下列指令启动 pm2 项目</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pm2 start name.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+
+
+<p>项目启动后，控制台不会有任何输出，可以直接使用浏览器或者 postman 进行访问测试。</p>
+<p>进行其他操作可以参考下列命令</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 查看目前 pm2 托管了哪些项目
+pm2 list
+
+# 每一个交由 pm2 托管的项目都会获得一个 id，下列的 0 就是 一个 id
+# 停止某个 pm2 项目（ 0是 进程id 想关哪个就关哪个）
+pm2 stop 0
+
+# 已经交由 pm2 托管的项目，再次启动的话无需找到相应的 js&#x2F;JSON 文件，只需 start 相应的进程 id 就可以
+pm2 start 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+
+
+<br>
+
+<p><br><br><br></p>
+<div class="note note-primary">
+            <h2 id="访问效果"><a href="#访问效果" class="headerlink" title="访问效果"></a>访问效果</h2>
+          </div>
+
+<p>此时已经关闭了 ssh 连接了</p>
+<p><img src="https://img-blog.csdnimg.cn/36b0c50031f6433eb6d94ffbd9f772f2.png" srcset="/img/loading.gif" lazyload alt="访问效果"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">项目部署</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/23/%E3%80%90Java%E3%80%91-%E6%B3%9B%E5%9E%8B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【Java】 泛型</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/22/%E3%80%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%91%E5%9C%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E4%B8%8A%E5%90%AF%E7%94%A8-Nexus-%E7%A7%81%E6%9C%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">
+                        <span class="hidden-mobile">【服务器】在腾讯云上启用 Nexus 私服的一些问题</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81NDM5Mi8zMDg2Mw==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">请在下方输入内容：</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            &nbsp✨&nbsp 
+            <span id="busuanzi_value_site_pv"></span>
+             times
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            &nbsp💫&nbsp 
+            <span id="busuanzi_value_site_uv"></span>
+             nums
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        备案号：鲁ICP备2022010174号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

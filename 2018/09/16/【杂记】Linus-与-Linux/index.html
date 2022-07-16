@@ -1,0 +1,677 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="black">
+  <meta name="description" content="猫是我">
+  <meta name="author" content="不食花生的猫">
+  <meta name="keywords" content="">
+  <meta name="description" content="前言 在三年的我的眼中，世界上还只有三个系统，他们分别是：Window、Android、IOS；除去两个手机系统的话，那么世界上可能就只有一个Windows了； 三年前，我高三，在去食堂的时候，我的好哥们跟我聊到了手机，他问我：“你知不知道，以前好像有一个塞班系统的？”这句话，仿佛点亮了我对系统世界的认识，以至于后来才会对此有些锲而不舍的劲儿； 就现在来说，作为我知道的电脑系统，应该有：Docs、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【杂记】Linus 与 Linux">
+<meta property="og:url" content="http://jjjime.github.io/2018/09/16/%E3%80%90%E6%9D%82%E8%AE%B0%E3%80%91Linus-%E4%B8%8E-Linux/index.html">
+<meta property="og:site_name" content="我是猫">
+<meta property="og:description" content="前言 在三年的我的眼中，世界上还只有三个系统，他们分别是：Window、Android、IOS；除去两个手机系统的话，那么世界上可能就只有一个Windows了； 三年前，我高三，在去食堂的时候，我的好哥们跟我聊到了手机，他问我：“你知不知道，以前好像有一个塞班系统的？”这句话，仿佛点亮了我对系统世界的认识，以至于后来才会对此有些锲而不舍的劲儿； 就现在来说，作为我知道的电脑系统，应该有：Docs、">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-09-16T02:33:59.000Z">
+<meta property="article:modified_time" content="2022-06-17T21:49:32.912Z">
+<meta property="article:author" content="不食花生的猫">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="杂记">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>【杂记】Linus 与 Linux ｜ 我是猫</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我是猫</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">
+                <i class="iconfont icon-link-fill"></i>
+                登录
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="http://110.40.191.51:5000/">
+                <i class="iconfont icon-apple-fill"></i>
+                桌面
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" false
+         style="background: url('/images/uploads/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【杂记】Linus 与 Linux">
+              
+                【杂记】Linus 与 Linux
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      不食花生的猫
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-09-16 10:33" pubdate>
+        September 16, 2018 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【杂记】Linus 与 Linux</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><hr>
+<p>在三年的我的眼中，世界上还只有三个系统，他们分别是：Window、Android、IOS；除去两个手机系统的话，那么世界上可能就只有一个Windows了；</p>
+<p>三年前，我高三，在去食堂的时候，我的好哥们跟我聊到了手机，他问我：“你知不知道，以前好像有一个塞班系统的？”这句话，仿佛点亮了我对系统世界的认识，以至于后来才会对此有些锲而不舍的劲儿；</p>
+<p>就现在来说，作为我知道的电脑系统，应该有：Docs、Mac、Windows、Unix、Linux 等，这五个是我比较熟悉的，接下来让我说一下这几位在历史上的血雨腥风；</p>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><hr>
+<p>图灵创造计算机的过程，相信大家都懂，我不再过多赘述，不了解的同学可以去看一下电影<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A8%A1%E4%BB%BF%E6%B8%B8%E6%88%8F/316903?fr=aladdin">【模仿游戏】</a>，抖音里面也有影评，是一部十分不错的电影，我个人很喜欢；</p>
+<p>图灵制造计算机之后，计算机迎来了起步阶段，直到<a target="_blank" rel="noopener" href="https://www.sohu.com/a/211330060_286966">【星际旅行】</a>（一个计算机系统的名字，开发团队：贝尔实验室）开始之前，人们一直使用 纸带 来进行编码，有孔的位置为1，无孔的位置为0（没有考究过，或者是反过来表示），这时候的计算机还只是科学家才会使用的工具，星际旅行是一个多层次的电脑系统，类似于现在计算机的雏形，可是由于运行十分不理想，最终被搁置，这之后，贝尔实验室的两个人（Ken Thompson 和 Dernis Ritchie）将代码进行改造后，装在了一台游戏机上，最初的 Unics（UNiplexed Information and Computing Service，后改名为Unix） 就这样出现了；</p>
+<p>Unics 出现后，这个系统依旧是在流转在各种实验室的一个系统，在这个时候，计算机界（或者说是商界）出现了两种声音：一种声音支持将 Unics 系统作为人类智慧的结晶，开源并流传出去，供人们开发；另一个声音则支持将 Unics 作为商用工具，闭源出售用来赚钱，两拨势力针锋相对，最后在法院上，【闭源】胜出了，当时的 Unics 已经被谐音成了 Unix ，这就是最初的 Unix，一个价格昂贵的计算机系统；</p>
+<p>1991年时，一个叫 Linus 的大二计算机学生，十分想要一个 Unix 系统，但是作为赚钱工具的 Unix 对他来说十分昂贵，所以他有个大胆的想法，那就是自己做一个系统（在【鸟哥的Linux私房菜】中写道，Linus的父亲也是计算机从业者，所以他对计算机的敏感可以说是耳濡目染，是一个“少年骇客”）；</p>
+<p>Linus 用了6个月的时间，写出了一个电脑系统的雏形，并且用自己的名字 Linus 来命名了这个系统，这是一个十分不成熟的电脑系统，我个人猜测可能是十分的“垃圾”，当时的 Linus 在写完系统之后，为了能让系统成长起来，他把代码发布到了网上，让网友指出问题并进行改进，没想到他这一举动却在网上引起了轩然大波（个人感觉这像极了MIUI 第一次在国外的论坛上引起轩然大波的样子)，一下子计算机从业者们从世界各地发来邮件，给出代码改进意见，或者功能增加描述等，这所有的邮件都由 Linus 来审核，然后改进， Linus 成了最初的代码审核员；</p>
+<p>经过了一段时间的改进，Linus 系统已经成为了一个比较成熟的计算机系统，这时候的 Linus 系统依旧作为一个开源系统，广为流传，后来人们将 Linus 系统的最后一个字母改成 ‘x’，以纪念 Unix 的【开源战争】。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><hr>
+<p>Linux 出现至今，Linux系统都作为一个十分流行的系统被使用着，后来苹果公司发布了 麦金塔 系列的电脑（以 Unix 为内核），掀起了图形用户化界面的浪潮，这之后的一年，微软公司发布了 初代 的 Windows 电脑，但是由于 麦金塔 的内存小、Bug 多，图形用户化界面的市场最终被 Windows 占据（当然其中还有更多其他复杂的原因），再后来， Windows 与 Mac 你争我赶，这都是现在的事情了，如果有兴趣，可以去我十分喜欢的B站UP主【老师好我叫何同学】那里看一下Windows 与 Mac 的爱恨情长，顺便帮忙催一下更，<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cy4y1k7A2">【点击链接跳转】</a>;</p>
+<p>在 Linux 作为一个实力没有微软苹果雄厚的系统，且没有及时抓住图形用户化的大浪潮，在现在真正的使用用户并不是很多，然而为何它依旧没有被淘汰呢？原因很简单，安全；</p>
+<p>如果你认真的上过【计算机安全】这堂课，那么你就肯定知道 Linux 的安全等级是 2，Windows 系统的安全等级是 3，世界上暂时还没有安全等级是 1 的电脑系统，所以 Linux 系统基本上代表了全世界最安全的系统，并且由于 Linux 开源 且 免费，可以任意更改，所以就有了很多不同版本的“发行版”，在介绍Linux的发展历史之前，先说一些 Linux 有哪些优点：</p>
+<ul>
+<li><p>安全：安全系数要高于 Windows，这在日常使用中可能不会体验到什么优点，但是却是作为服务器的最优选择；</p>
+</li>
+<li><p>轻量：也就是小，安装 Winodows后，你的磁盘会被吃掉30~40Gb的内存，但是一个16Gb的内存卡上就可以安装一个 Linux 系统并且流畅运行（据说8Gb也可以但是我没尝试过）；</p>
+</li>
+<li><p>开源免费：代码公开且免费，任意更改，改个名字之后就可以闭源赚钱了；</p>
+<p>……</p>
+</li>
+</ul>
+<h3 id="Linux-发行版介绍"><a href="#Linux-发行版介绍" class="headerlink" title="Linux 发行版介绍"></a>Linux 发行版介绍</h3><p><font color=DarkGray size=2>国外系统</font></p>
+<hr>
+<blockquote>
+<p><font  color=black><strong>Debian</strong>：这应该是自 Linus 创造 Linux 以后的第一个正式发行版的 Linux 系统，最早出现于1993年，只是在Linus创造Linux之后两年就出现了，这是发展历史最久的发行版系统，经历了时间的洗礼，目前的 Debian 应该是最稳定的 Linux 的系统，也是“儿子”最多的Linux系统；</font></p>
+</blockquote>
+<blockquote>
+<p><font  color=black><strong>Ubuntu</strong>：是我认为最流行的发行版之一，它流行的原因在于：出现较早（2004）且改善了Debian的缺点；它的父亲是Debian，作为较早的 Linux 发行版，它改掉了 Debian 系统一些操作上的弊端，让 Linux 更加面向于大众用户，但是我个人觉得，它更适合的用户是程序员，而不是普通人，因为 生态 太差，目前发行了20.xxLTS版本（长期维护版本），界面变化不大，但是比以前已经好看一些了（18.xx以前很丑）；</font></p>
+</blockquote>
+<blockquote>
+<p><font  color=black><strong>BackTrack</strong>：一个用来做渗透 / 数字取证的系统，如果你不懂，那么跟你说 黑客工具 你应该会比较了解一些，但是现在已经不流行了，因为下面这个系统的出现；</font></p>
+</blockquote>
+<blockquote>
+<p><font  color=black><strong>Kali</strong>：“凯丽”，虽然它的原名也许不是这么叫的，但是我习惯这么称呼她，Kali 系统支持arm架构的芯片，同时也有x86版本，她也是用来做渗透的工具，父亲说是Backtrack应该毫不为过，甚至两者的标志都是一个样子的，是一个S型的西方龙的标志，Kali在BackTrack系统上做了升级，删减了一些工具，增加了一些工具；</font></p>
+<p><font  color=black>我从Kali2018版开始使用它，升级了20.xx版本之后，Kali的桌面环境改成了KDE版本，一开始还有些不适应，但是真的是我接触到的所有国外系统里面最好看的系统，同时我还认识一些使用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A0%91%E8%8E%93%E6%B4%BE/80427?fr=aladdin">【树莓派】</a>运行Kali的自称网络安全联盟的小黑客，很有意思；</font></p>
+</blockquote>
+<blockquote>
+<p><font color=black><strong>Parrot OS（鹦鹉）</strong>：与Kali几乎一致，用于渗透，在Linux圈被称为盗版Linux，与linux一样，界面很炫酷，集成的工具很多，图标是个鹦鹉，很好看，我只用过几天，且这几天我是在用了Deepin这样的<strong>友好型</strong>系统之后用的， 所以我甚至没能成功在Parrot上安装上搜狗输入法，就因为故障，后来卸载了；</font></p>
+</blockquote>
+<p><font color=DarkGray size=2>国产系统</font></p>
+<hr>
+<blockquote>
+<p><font  color=black><strong>优麒麟</strong>：界面美观，支持搜狗输入法 / QQ / 微信 (都是wine移植版)等，20.xx版本的系统在界面上集成了 Windows 系统与 Mac 系统的优点，但是由于刚发布出来，还不是很稳定，且操作有些生硬，这是我在日常体验中不选择优麒麟的主要原因，它太像 Win10 却不如 Win10 方便，所以暂时不考虑它；</font></p>
+<p><font  color=black>我之前有幸认识了几个优麒麟系统的开发人员，在之前一小段体验中，给过我一些指导，在此致谢！</font></p>
+</blockquote>
+<blockquote>
+<p><font  color=black><strong>Deepin（深度）</strong>:界面美观（十分美观，这美观像是Mac的美观，而不像是Kali和Parrot的酷炫）大气，方便使用，集成了 优麒麟 的几乎所有优点（今年几乎所有的Linux系统都发布了20.xx版本），Deepin和麒麟的20.xx版本几乎一模一样），但是Deepin比优麒麟要灵活，且有一个我很喜欢的功能：雷神终端；这个终端超级灵活，支持快捷键呼出 / 鼠标失去焦点后自动隐藏 / 且支持快捷命令（将几个命令集成成一个快捷键，好比我点击 ctrl + alt + r 自动进入某个文件夹并启动 redis 之类的软件，对开发很友好）；</font></p>
+<p><font  color=black>Deepin我还是使用了较长时间的，最后死在了不稳定上，且系统较大，吃配置，配置低带不动，配置高嫌浪费，有些鸡肋的一个系统；我是一机双系统，在有一次进入Deepin后，Win上被莫名其妙删除了很多文件，就放弃了这个系统；</font></p>
+</blockquote>
+<h3 id="其他系统"><a href="#其他系统" class="headerlink" title="其他系统"></a>其他系统</h3><hr>
+<p>塞班：没用过不评价，甚至不确定是手机系统还是电脑系统（应该是手机系统）</p>
+<p>MacOS：我很喜欢他的操作界面，且欣赏它的流畅程度，曾经使用过几个月的Mac Air、Mac Mini、在帮人装系统的时候接触过Mac Pro，最近M1芯片出来之后更是爱的不行，希望大学毕业之后能买一台M1芯片的Pro（目前不买的原因有二：是个资金不充足的学生 / M1 芯片尚不稳定，前者是坎儿，后者关系不是很大）</p>
+<p>我后来自己给自己装过黑苹果系统且有半年多的使用体验，较为稳定，有一两个Bug（蓝牙偶尔连不上  / 外接网卡有一两次不给力）、不能使用AirDrop（我最心痛的就是这一点），如果有想了解的话可以百度，或者B站搜索，或者去<strong>黑果小兵的部落阁</strong>去看教程，下软件，体验还行，安装麻烦，我折腾了一整个晚上；</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><hr>
+<p>建议小白用 Windows ，探索党用 Linux ，不嫌麻烦的可以体验黑苹果；</p>
+<p>Linux方面，入门建议 Ubuntu ，想用着方便些建议 Deepin  / 优麒麟 ，20.xx 版本会越来越稳定的，我如此相信着。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%9D%82%E8%AE%B0/">杂记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9D%82%E8%AE%B0/">杂记</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/11/21/%E3%80%90Linux%E3%80%91-Linux-%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【Linux】 Debian 系 Linux 安装搜狗输入法</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81NDM5Mi8zMDg2Mw==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">请在下方输入内容：</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            &nbsp✨&nbsp 
+            <span id="busuanzi_value_site_pv"></span>
+             times
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            &nbsp💫&nbsp 
+            <span id="busuanzi_value_site_uv"></span>
+             nums
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        备案号：鲁ICP备2022010174号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
