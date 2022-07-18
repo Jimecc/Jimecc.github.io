@@ -1,0 +1,814 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="black">
+  <meta name="description" content="猫是我">
+  <meta name="author" content="不食花生的猫">
+  <meta name="keywords" content="">
+  <meta name="description" content="闲聊              很离谱，刚搭建完成NexT没几天，就决定更换主题了             其实在最初接触Hexo的时候，我便搭建过Fluid博客，那大概已经是两年前了，同时介绍Hexo给我的前辈也是使用的Fluid，但是那次的博客没有进行保存，本地运行结束之后便弃用了。 而在最近搭建NexT主题的时候，频繁遇到NexT主题的配置文档，其页面非常的美观且比较严肃，于是便想用NexT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【维护小破站】搭建Fluid并美化">
+<meta property="og:url" content="http://jjjime.github.io/2021/10/09/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Fluid%E7%BE%8E%E5%8C%96/index.html">
+<meta property="og:site_name" content="我是猫">
+<meta property="og:description" content="闲聊              很离谱，刚搭建完成NexT没几天，就决定更换主题了             其实在最初接触Hexo的时候，我便搭建过Fluid博客，那大概已经是两年前了，同时介绍Hexo给我的前辈也是使用的Fluid，但是那次的博客没有进行保存，本地运行结束之后便弃用了。 而在最近搭建NexT主题的时候，频繁遇到NexT主题的配置文档，其页面非常的美观且比较严肃，于是便想用NexT">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/10/09/kdYTK42JVfGxyUl.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/09/m2sFMHQIj5bS9Nf.png">
+<meta property="article:published_time" content="2021-10-09T09:57:19.000Z">
+<meta property="article:modified_time" content="2022-06-17T22:18:19.426Z">
+<meta property="article:author" content="不食花生的猫">
+<meta property="article:tag" content="维护小破站">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2021/10/09/kdYTK42JVfGxyUl.png">
+  
+  <title>【维护小破站】搭建Fluid并美化 ｜ 我是猫</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我是猫</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="http://110.40.191.51:5000/">
+                <i class="iconfont icon-apple-fill"></i>
+                桌面
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">
+                <i class="iconfont icon-github-fill"></i>
+                登录
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" false
+         style="background: url('/images/uploads/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【维护小破站】搭建Fluid并美化">
+              
+                【维护小破站】搭建Fluid并美化
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      不食花生的猫
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-09 17:57" pubdate>
+        October 9, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【维护小破站】搭建Fluid并美化</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h2><hr>
+<div class="note note-primary">
+            <p>很离谱，刚搭建完成NexT没几天，就决定更换主题了</p>
+          </div>
+
+<p>其实在最初接触Hexo的时候，我便搭建过Fluid博客，那大概已经是两年前了，同时介绍Hexo给我的前辈也是使用的Fluid，但是那次的博客没有进行保存，本地运行结束之后便弃用了。</p>
+<p>而在最近搭建NexT主题的时候，频繁遇到<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">NexT主题的配置文档</a>，其页面非常的美观且比较严肃，于是便想用NexT实现一下这个界面，这其中遇到的最大问题便是文章的Banner图片的插入，在其中我参考了<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/75353138">这一篇文章</a>，文章发表于2019年，所使用的配置已经有些过时了，研究了半小时的代码之后，终于实现了，只不过Banner图片只是卡在中间，一点都不美观，于是乎我就进入了<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo主题</a>，想找一款合适的，最后锁定了Fluid。</p>
+<hr>
+<p>不知道大家有没有跟我一样的感觉，大多数的Fluid用户都是二次元，这也让我对Fluid一开始的印象不是很好，所以才有了后面尝试了Zzoman和NexT，当然我也很清楚Hexo的样子都是看个人的，而且Fluid装饰起来也很简单，如果要加乱七八糟的功能的话同样也会很麻烦，但是我这次是<strong>求简避烦</strong>，因此在搭建的时候基本只要对着Fluid的<span class="label label-warning">主题配置文件</span>不断修改就行了，于是今天下午最主要的工作就是盯着<span class="label label-warning">主题配置文件</span>来来回回看了四五遍，顺便修改了一些其他内容。</p>
+<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><hr>
+<div class="note note-primary">
+            <p>开始美化</p>
+          </div>
+
+<div class="note note-success">
+            <p>Part 1:  1～400行代码</p>
+          </div>
+
+
+
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th align="left">目标</th>
+<th>改动地方（行数）</th>
+<th>原来是</th>
+<th>改成了</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="left">修改菜单栏分隔符为 ｜</td>
+<td>- 29</td>
+<td>-</td>
+<td>｜</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="left">关闭打字效果</td>
+<td>- 82</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="left">默认是“亮”模式</td>
+<td>- 123</td>
+<td>auto</td>
+<td>light</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="left">修改了一些默认的颜色，这个自己改动</td>
+<td>- 128 ～ 184</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td align="left">更改了字体大小</td>
+<td>- 189</td>
+<td>18px</td>
+<td>13px</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="left">站点统计</td>
+<td>- 214</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td align="left">导航栏修改了标题并且将英文改成了中文</td>
+<td>- 290</td>
+<td>English</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="left">Banner（背景图）关闭了视觉差并更换图片为目前的图片</td>
+<td>- 346</td>
+<td>parallax: false</td>
+<td>parallax: true</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="left">网站统计</td>
+<td>- 396</td>
+<td>暂时没有配置完，需要配置LearnCloud</td>
+<td></td>
+</tr>
+</tbody></table>
+<div class="note note-success">
+            <p>Part 2:  400～800行</p>
+          </div>
+
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th align="left">目标</th>
+<th>改动地方（行数）</th>
+<th>原来是</th>
+<th>改成了</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="left">Banner默认图，这里我没有修改代码；<br />而是复制文件到image之后改了文件名称。</td>
+<td>- 431</td>
+<td>默认背景图</td>
+<td>现在背景图</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="left">副标题改成自己喜欢的</td>
+<td>- 450</td>
+<td>忘了</td>
+<td>这里看下面，一会儿详细介绍。</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="left">文章页（没什么要修改的）</td>
+<td>- 500</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td align="left">开启【文章最后更新】</td>
+<td>- 565</td>
+<td>Content:false</td>
+<td>Content:true</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="left">评论【这里用的是Livere】</td>
+<td>- 645</td>
+<td>false</td>
+<td>true</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="left">更改Banner图的高度</td>
+<td>- 790 ～ 933</td>
+<td>banner_img_height:60</td>
+<td>banner_img_height: 25</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="left">友情链接</td>
+<td>- 899 ～ 933</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<div class="note note-success">
+            <div class="code-wrapper"><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;br&gt;&lt;br&gt;&lt;font size&#x3D;6&gt; 保持饥饿 保持快乐 &lt;&#x2F;font&gt; &lt;br&gt; &lt;br&gt;&lt;font size&#x3D;3&gt;Stay Hungry &amp; be Happy &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;&#x2F;font&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><p><code>&lt;br&gt;</code>是换行</p><p><code>&lt;font size&gt;</code>是文字格式</p><p><code>&amp;nbsp;</code>是空格，为了让<code>&amp;</code>符号剧中</p>
+          </div>
+
+<div class="note note-success">
+            <p>除此之外还修改了<code>themes/fluid/languages/de.yml</code>文件，将英文全部改成了中文；</p><p>这里的内容修改的是菜单栏分隔符前面的内容（title）与除主页与文章页以外其他页面的副标题（subtitle）。</p>
+          </div>
+
+<div class="note note-success">
+            <p>另外，为了将下方的露出来的小头头给砍掉，我对<code>themes/f/source/css/_pages/_base/_widget/board.styl</code>文件进行了修改，修改如下：</p><div class="code-wrapper"><pre class="line-numbers language-stylus" data-language="stylus"><code class="language-stylus"><span class="token selector">#board</span>
+  <span class="token comment">// position relative</span>
+  <span class="token property-declaration"><span class="token property">margin-top</span> <span class="token number">-2</span><span class="token unit">rem</span></span>
+  <span class="token property-declaration"><span class="token property">background-color</span> <span class="token func"><span class="token function">var</span><span class="token punctuation">(</span><span class="token operator">-</span>-board-bg-color<span class="token punctuation">)</span></span></span>
+  <span class="token property-declaration"><span class="token property">transition</span> background-color <span class="token number">.9</span><span class="token unit">s</span> ease-<span class="token operator">in</span>-out</span>
+  <span class="token property-declaration"><span class="token property">border-radius</span> <span class="token number">0.1</span><span class="token unit">rem</span></span>
+  <span class="token property-declaration"><span class="token property">z-index</span> <span class="token number">3</span></span>
+  <span class="token comment">//-webkit-box-shadow 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)</span>
+  <span class="token comment">//box-shadow 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)</span>
+  <span class="token comment">// 第一行是凸起</span>
+  <span class="token comment">// 最后两行是阴影</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+          </div>
+
+<p><img src="https://i.loli.net/2021/10/09/kdYTK42JVfGxyUl.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><div class="note note-primary">
+            <p>最终效果</p>
+          </div>
+
+<p><img src="https://i.loli.net/2021/10/09/m2sFMHQIj5bS9Nf.png" srcset="/img/loading.gif" lazyload alt="最终效果图"></p>
+<div class="note note-primary">
+            <p>结束，由于从原网页荡下来的图片分辨率不是很高，所以自己P了一张背景图。</p>
+          </div>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BB%B4%E6%8A%A4%E5%B0%8F%E7%A0%B4%E7%AB%99/">维护小破站</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/10/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E8%A7%A3%E5%86%B3Hexo%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%96%AD%E5%BC%80SSH%E9%93%BE%E6%8E%A5%E5%90%8E%E5%B0%B1%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【维护小破站】解决Hexo在服务器上断开SSH链接后就自动断开的问题</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/07/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA/">
+                        <span class="hidden-mobile">【维护小破站】博客重新搭建</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81NDM5Mi8zMDg2Mw==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            &nbsp✨&nbsp 
+            <span id="busuanzi_value_site_pv"></span>
+             times
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            &nbsp💫&nbsp 
+            <span id="busuanzi_value_site_uv"></span>
+             nums
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        备案号：鲁ICP备2022010174号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

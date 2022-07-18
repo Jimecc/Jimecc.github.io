@@ -1,0 +1,952 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="black">
+  <meta name="description" content="猫是我">
+  <meta name="author" content="不食花生的猫">
+  <meta name="keywords" content="">
+  <meta name="description" content="【左程云 01】算法的 概念 与 性质 算法要求：在保证时间复杂度最低的前提下，尽可能减小空间复杂度与常数项时间复杂度；    优劣算法评估 时间复杂度（流程决定） 忽略低阶项 与 高阶项的系数，留下来的就是时间复杂度； 如一个流程最后得到的算式是 3 * N4 + 4 * N2 + C ，则最终时间复杂度就是 O( N4 )     额外空间复杂度（流程决定） 与功能无关，必须自己开辟的额外空间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学】左程云 算法的 概念 与 性质">
+<meta property="og:url" content="http://jjjime.github.io/2021/03/03/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E7%AE%97%E6%B3%95%E7%9A%84-%E6%A6%82%E5%BF%B5-%E4%B8%8E-%E6%80%A7%E8%B4%A8/index.html">
+<meta property="og:site_name" content="我是猫">
+<meta property="og:description" content="【左程云 01】算法的 概念 与 性质 算法要求：在保证时间复杂度最低的前提下，尽可能减小空间复杂度与常数项时间复杂度；    优劣算法评估 时间复杂度（流程决定） 忽略低阶项 与 高阶项的系数，留下来的就是时间复杂度； 如一个流程最后得到的算式是 3 * N4 + 4 * N2 + C ，则最终时间复杂度就是 O( N4 )     额外空间复杂度（流程决定） 与功能无关，必须自己开辟的额外空间">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-03-03T02:33:59.000Z">
+<meta property="article:modified_time" content="2022-06-17T22:00:15.722Z">
+<meta property="article:author" content="不食花生的猫">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>【学】左程云 算法的 概念 与 性质 ｜ 我是猫</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我是猫</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="http://110.40.191.51:5000/">
+                <i class="iconfont icon-apple-fill"></i>
+                桌面
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">
+                <i class="iconfont icon-github-fill"></i>
+                登录
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" false
+         style="background: url('/images/uploads/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【学】左程云 算法的 概念 与 性质">
+              
+                【学】左程云 算法的 概念 与 性质
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      不食花生的猫
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-03 10:33" pubdate>
+        March 3, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【学】左程云 算法的 概念 与 性质</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="【左程云-01】算法的-概念-与-性质"><a href="#【左程云-01】算法的-概念-与-性质" class="headerlink" title="【左程云 01】算法的 概念 与 性质"></a>【左程云 01】算法的 概念 与 性质</h3><p><br><br><br></p>
+<p><font color=DarkGray size=2>算法要求：在保证时间复杂度最低的前提下，尽可能减小空间复杂度与常数项时间复杂度；</font></p>
+<hr>
+<br>
+
+<h4 id="优劣算法评估"><a href="#优劣算法评估" class="headerlink" title="优劣算法评估"></a>优劣算法评估</h4><ul>
+<li><font color=7baf23 >时间</font>复杂度（流程决定）<ul>
+<li>忽略低阶项 与 高阶项的系数，留下来的就是时间复杂度；</li>
+<li>如一个流程最后得到的算式是 3 * N<sup>4</sup> + 4 * N<sup>2</sup> + C ，则最终时间复杂度就是 O( N<sup>4</sup> )  </li>
+</ul>
+</li>
+<li>额外<font color=7baf23 >空间</font>复杂度（流程决定）<ul>
+<li>与功能无关，必须自己开辟的额外空间</li>
+<li>用户要求的功能，（如复制一个数组），则实现这个功能所使用的代码空间不算</li>
+</ul>
+</li>
+<li>常数项时间（实现细节决定）</li>
+</ul>
+<br>
+
+<br>
+
+<h4 id="常数与非常数时间操作"><a href="#常数与非常数时间操作" class="headerlink" title="常数与非常数时间操作"></a>常数与非常数时间操作</h4><ul>
+<li><p>什么是<font color=DarkOrange>常数</font>时间操作？</p>
+<ul>
+<li><p>概念：一个数据改变偏移量，操作所需要的时间不变就是常数时间操作；</p>
+</li>
+<li><p>实例：从数组中取第一个与取第100000个元素所需要的时间一样，则这就是一个常数操作；</p>
+</li>
+<li><p>常见的此类操作：</p>
+<ul>
+<li>加 / 减 / 乘 / 除 / 取余 ：<code>+</code>  <code>-</code> <code>* </code> <code>/</code> <code>%</code></li>
+<li>常见的位运算操作（&gt;&gt; / &gt;&gt;&gt; / &lt;&lt; / | &amp; / ^ 等）</li>
+<li>赋值、比较、自增、自减操作等</li>
+<li>数组寻址操作</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>什么是<font color=orange>非</font>常数时间操作：</p>
+<ul>
+<li>除了常数时间操作都是非常数时间操作；</li>
+<li>举例：LinkedList，寻址的时候需要遍历；</li>
+</ul>
+</li>
+<li><p>排序算法中的常见优劣性</p>
+</li>
+</ul>
+<p><font color=darkgray size=2> 尽量可以背下来； </font></p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>中文名称</th>
+<th>英文名称</th>
+<th>平均时间复杂度</th>
+<th>最坏时间复杂度</th>
+<th>最好时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选择排序</td>
+<td>Selection</td>
+<td>n²</td>
+<td>n²</td>
+<td>n²</td>
+<td>1</td>
+<td><font color=red>×</font></td>
+</tr>
+<tr>
+<td>冒泡排序</td>
+<td>Bubble</td>
+<td>n²</td>
+<td>n²</td>
+<td>n</td>
+<td>1</td>
+<td><font color = 7baf23> √</font></td>
+</tr>
+<tr>
+<td>插入排序<font color = 7baf23> √</font></td>
+<td>Insertion</td>
+<td>n²</td>
+<td>n²</td>
+<td>n</td>
+<td>1</td>
+<td><font color = 7baf23> √</font></td>
+</tr>
+<tr>
+<td>堆排序<font color = 7baf23>     √</font></td>
+<td>Heap</td>
+<td>n log<sub>2</sub> n</td>
+<td>n log<sub>2</sub> n</td>
+<td>n log<sub>2</sub> n</td>
+<td>1</td>
+<td><font color=red>×</font></td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>Shell</td>
+<td>n<sup>1.3</sup></td>
+<td>n<sup>2</sup></td>
+<td>n</td>
+<td>1</td>
+<td><font color=red>×</font></td>
+</tr>
+<tr>
+<td>归并排序<font color = 7baf23> √</font></td>
+<td>Merge</td>
+<td>n log<sub>2</sub> n</td>
+<td>n log<sub>2</sub> n</td>
+<td>n log<sub>2</sub> n</td>
+<td>n</td>
+<td><font color = 7baf23>√</font></td>
+</tr>
+<tr>
+<td>快速排序<font color = 7baf23> √</font></td>
+<td>Quick</td>
+<td>n log<sub>2</sub> n</td>
+<td>n<sup>2</sup></td>
+<td>n log<sub>2</sub> n</td>
+<td>log<sub>2</sub> n</td>
+<td><font color=red>×</font></td>
+</tr>
+<tr>
+<td>桶排序</td>
+<td>Bucket</td>
+<td>n + k</td>
+<td>n<sup>2</sup></td>
+<td>n</td>
+<td>n + k</td>
+<td><font color = 7baf23>√</font></td>
+</tr>
+<tr>
+<td>计数排序</td>
+<td>Counting</td>
+<td>n + k</td>
+<td>n + k</td>
+<td>n + k</td>
+<td>n + k</td>
+<td><font color = 7baf23>√</font></td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td>Radix</td>
+<td>n * k</td>
+<td>n * k</td>
+<td>n * k</td>
+<td>n + k</td>
+<td><font color = 7baf23>√</font></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>举例：插入排序的最优与最差时间复杂度</p>
+<ul>
+<li>最优例子：【0 1 2 3 4 5 6 】</li>
+<li>最差例子：【6 5 4 3 2 1 0 】</li>
+</ul>
+</blockquote>
+<hr>
+<p><br><br></p>
+<h4 id="合理使用对数器"><a href="#合理使用对数器" class="headerlink" title="合理使用对数器"></a>合理使用对数器</h4><hr>
+<br>
+
+<blockquote>
+<ul>
+<li>认识对数器<ul>
+<li>想要测试的 方法 a</li>
+<li>实现复杂度不好但使用以实现的 方法 b</li>
+<li>实现一个随机样本产生器</li>
+<li>把 方法 a 和 方法 b 跑相同的随机样本，看得到的结果是否一致</li>
+<li>如果一个随机样本使比对结果不一致，打印样本进行人工干预，改对 方法 a 和 方法 b；</li>
+<li>当样本数量很多时比对测试依然正确，则可以确定方法 a 已经正确。 </li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><br><br><br><br></p>
+<h3 id="算法示例（重要！）"><a href="#算法示例（重要！）" class="headerlink" title="算法示例（重要！）"></a>算法示例（重要！）</h3><hr>
+<br>
+
+<ul>
+<li>从一个长度为 n 的 <font color=DarkOrange>有序数组 </font>中寻找一个数字 m；</li>
+</ul>
+<blockquote>
+<p>方法一：遍历： O（ n ）</p>
+<p>方法二：二分查找法： O（ log<sub>2</sub> N ）</p>
+</blockquote>
+<br>
+
+<hr>
+<br>
+
+<ul>
+<li>从一个长度为 n 的 <font color=red> <strong>无</strong> </font> <font color=DarkOrange>序数组（相邻不等）</font> 中寻找一个局部最小值（任意一个）；</li>
+</ul>
+<blockquote>
+<p>略</p>
+</blockquote>
+<br>
+
+<hr>
+<br>
+
+<ul>
+<li>一个数组中有一种数出现了奇数次，其他的都是偶数次，找出这个奇数次的数字：</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 用一个 0 从头异或到尾，最后这个 0 数字就会变成 那个 奇数数字；</span>
+<span class="token keyword">int</span> eor <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span>  arr <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+
+	eor <span class="token operator">=</span> aor<span class="token operator">^</span>arr<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+<hr>
+<br>
+
+<ul>
+<li>abcde 五个数字异或的结果一样，顺序无所谓（ 满足 <font color= 7baa2>交换律</font> 与 <font color= 7baf23>结合律</font> ）</li>
+</ul>
+<blockquote>
+<p>异或<font color=Orange>常用公式</font>：</p>
+<blockquote>
+<p>0  ^ N == N</p>
+<p>N ^ N == 0</p>
+</blockquote>
+<p>a b 两个数字交换值：（自己推导一下，很简单，不懂得可以看推导过程 <strong>A01</strong>。）</p>
+<p>a = a ^ b</p>
+<p>b = a ^ b</p>
+<p>a = a ^ b</p>
+</blockquote>
+<br>
+
+<hr>
+<br>
+
+<ul>
+<li>一个数字，取出最右侧的 1 ，如 14 二进制之后变成【 1 1 <u><code>1</code></u> 0】 取出下划线的 <code>1</code></li>
+</ul>
+<blockquote>
+<p>如 要计算的是 a</p>
+<p>则 b = a取反 + 1</p>
+<p>a = a ^ b;</p>
+</blockquote>
+<br>
+
+<hr>
+<br>
+
+<ul>
+<li>一个数组中有两种数（这两个数字不相等且 a ! = 0,b != 0 ）出现了奇数次，其他的都是偶数次，找出这两种奇数次的数字：</li>
+</ul>
+<blockquote>
+<p>根据第三题的理论：好比这两个数字是 a 和 b，eor 异或之后 得到的结果是 a ^ b（a != b）</p>
+<p>根据第五题的理论：eor 一定在某一个位置有个1（记此位置为 n ），那这个位置对于 a 和 b 来说，一定不一样，（a 和 b 在这一位上一定一个是 0 一个是 1）</p>
+<p>那整个数组一定可以分为两大类 ：第n位为 0 的数 与 第n位为 1 的数，出现偶数次的数无论怎么分都无所谓，所以执行下面的步骤：</p>
+<p>eor异或之前 + 一个条件，只要第 n 位为 0 （或者只异或 为 1的）</p>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> rightOne <span class="token operator">=</span> eor <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token operator">~</span>eor <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取出最右侧的那个 1</span>
+<span class="token keyword">int</span> onlyOne  <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">// eor'</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+ <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> rightOne<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+     onlyOne <span class="token operator">^=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+ <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>onlyOne<span class="token operator">+</span><span class="token string">""</span><span class="token operator">+</span><span class="token punctuation">(</span>eor<span class="token operator">^</span>onlyOne<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>那么一个数已经出来了，就是eor，另一个数就是 eor ^ eor’ （ eor 异或上 eor 取反）</p>
+</blockquote>
+<br>
+
+<hr>
+<br>
+
+<ul>
+<li>找一个二进制数字中所有的 1</li>
+</ul>
+<blockquote>
+<p>找出最右侧的 1 记为 rightOne</p>
+<p>rightOne 与 这个数字 异或，这就消除了最右侧的 1</p>
+<p>重复第一步与第二部，直到找不到 rightOne</p>
+</blockquote>
+<p><br><br><br><br></p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><hr>
+<br>
+
+<h4 id="推导过程-A01"><a href="#推导过程-A01" class="headerlink" title="推导过程 A01"></a>推导过程 A01</h4><blockquote>
+<p>甲 乙 两个数字交换值，让int a = 甲，int b = 乙：</p>
+<ul>
+<li>a = a ^ b </li>
+</ul>
+<blockquote>
+<p>此时 a = 甲 ^ 乙 ;b = 乙;</p>
+</blockquote>
+<ul>
+<li>b = a ^ b</li>
+</ul>
+<blockquote>
+<p>此时 b = 甲 ^ 乙 ^ 乙;（由于 a 在上一步已经等于 “甲 ^ 乙” 了）</p>
+</blockquote>
+<blockquote>
+<p>根据公式：N ^ N == 0，所以 b ^ b == 0；（异或满足交换定律，运算顺序无所谓）</p>
+</blockquote>
+<blockquote>
+<p>根据公式：0 ^ N == N，所以  a ^ 0 == a ， 所以 b = a;</p>
+</blockquote>
+<ul>
+<li>a = a ^ b</li>
+</ul>
+<blockquote>
+<p>此时的 a == 甲 ^ 乙，b == 甲，所以这个算是可以写成：a = 甲 ^ 乙 ^ 甲；</p>
+</blockquote>
+<blockquote>
+<p>所以得到 a = 乙（原理同第二步）</p>
+</blockquote>
+</blockquote>
+<hr>
+<br>
+
+<h4 id="二分法注意事项："><a href="#二分法注意事项：" class="headerlink" title="二分法注意事项："></a>二分法注意事项：</h4><blockquote>
+<p>方法一：mid = ( L + R ) / 2</p>
+<p>改    进：mid = L + ( R - L ) / 2</p>
+<p>N / 2 == N &gt;&gt; 1    （位运算速度比除运算快）</p>
+<p>mid = L + ( R - L ) &gt;&gt; 1</p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/10/%E3%80%90Linux%E3%80%91Debian-%E7%B3%BB-Kali-%E4%BD%BF%E7%94%A8-Wine-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-QQ%E5%BE%AE%E4%BF%A1-%E7%AD%89%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【Linux】Debian 系 Kali 使用 Wine 虚拟机安装 QQ/微信 等常用软件</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E3%80%90Java%E3%80%91%E8%B7%A8%E5%9F%9F-%E4%BB%A5%E5%8F%8A-%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%89%E7%A7%8D%E5%8A%9E%E6%B3%95/">
+                        <span class="hidden-mobile">【Java】跨域 以及 解决跨域的三种办法</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81NDM5Mi8zMDg2Mw==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            &nbsp✨&nbsp 
+            <span id="busuanzi_value_site_pv"></span>
+             times
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            &nbsp💫&nbsp 
+            <span id="busuanzi_value_site_uv"></span>
+             nums
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        备案号：鲁ICP备2022010174号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

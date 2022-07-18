@@ -1,0 +1,715 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="black">
+  <meta name="description" content="JVM 垃圾回收机制">
+  <meta name="author" content="不食花生的猫">
+  <meta name="keywords" content="">
+  <meta name="description" content="JVM 垃圾回收机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Java】JVM 垃圾回收机制">
+<meta property="og:url" content="http://jjjime.github.io/2022/07/02/%E3%80%90Java%E3%80%91JVM/index.html">
+<meta property="og:site_name" content="我是猫">
+<meta property="og:description" content="JVM 垃圾回收机制">
+<meta property="og:locale">
+<meta property="og:image" content="https://files.catbox.moe/mouvd2.png">
+<meta property="og:image" content="https://files.catbox.moe/sp8wp3.png">
+<meta property="og:image" content="https://files.catbox.moe/crzo1q.png">
+<meta property="og:image" content="https://files.catbox.moe/k8aw65.png">
+<meta property="og:image" content="https://files.catbox.moe/wadgvq.png">
+<meta property="og:image" content="https://files.catbox.moe/uooept.png">
+<meta property="article:published_time" content="2022-07-02T07:55:44.000Z">
+<meta property="article:modified_time" content="2022-07-05T22:42:55.321Z">
+<meta property="article:author" content="不食花生的猫">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="JVM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.catbox.moe/mouvd2.png">
+  
+  <title>【Java】JVM 垃圾回收机制 ｜ 我是猫</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我是猫</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="http://110.40.191.51:5000/">
+                <i class="iconfont icon-apple-fill"></i>
+                桌面
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">
+                <i class="iconfont icon-github-fill"></i>
+                登录
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" false
+         style="background: url('/images/uploads/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【Java】JVM 垃圾回收机制">
+              
+                【Java】JVM 垃圾回收机制
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      不食花生的猫
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-07-02 15:55" pubdate>
+        July 2, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      981 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【Java】JVM 垃圾回收机制</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：12 days ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="JVM-垃圾回收机制"><a href="#JVM-垃圾回收机制" class="headerlink" title="JVM 垃圾回收机制"></a>JVM 垃圾回收机制</h2><h4 id="定位垃圾的方法："><a href="#定位垃圾的方法：" class="headerlink" title="定位垃圾的方法："></a>定位垃圾的方法：</h4><ul>
+<li><strong>Reference Count（引用计数算法）：</strong>有没有引用指向？有则不是垃圾，没有则是垃圾<ul>
+<li><font color=red>缺点：</font>不可以解决循环引用</li>
+<li>举例：A-&gt;B-&gt;C-&gt;A <code>ABC是一坨垃圾</code></li>
+</ul>
+</li>
+<li><strong>（Root Searching）根可达算法：</strong>从根上往下捋，能捋到的不是垃圾，捋不到的是垃圾</li>
+</ul>
+<h4 id="垃圾清除的方法"><a href="#垃圾清除的方法" class="headerlink" title="垃圾清除的方法"></a>垃圾清除的方法</h4><ul>
+<li>Mark-Sweep：标记清除法<ul>
+<li>没有用的就标记为可用</li>
+</ul>
+</li>
+</ul>
+<div align=center><img src="https://files.catbox.moe/mouvd2.png" srcset="/img/loading.gif" lazyload style="width:70%"></div>
+
+<ul>
+<li>Copying 算法：<ul>
+<li>仅可在部分内存内使用引用，当执行垃圾回收的之后，将可用的复制到另一部分的内存，随后清空该内存。</li>
+<li><font color=green>优点：</font>效率高</li>
+<li><font color=red>缺点：</font>浪费内存</li>
+</ul>
+</li>
+</ul>
+<div align=center><img src="https://files.catbox.moe/sp8wp3.png" srcset="/img/loading.gif" lazyload style="width:70%"></div>
+
+<ul>
+<li>标记整理算法（处女座算法）<ul>
+<li>作用发现垃圾后，将有用的排列起来</li>
+<li><font color=green>优点：</font></li>
+<li><font color=red>缺点：</font>效率低</li>
+</ul>
+</li>
+</ul>
+<div align=center><img src="https://files.catbox.moe/crzo1q.png" srcset="/img/loading.gif" lazyload style="width:70%"></div>
+
+
+
+<h4 id="对于内存的管理"><a href="#对于内存的管理" class="headerlink" title="对于内存的管理"></a>对于内存的管理</h4><ul>
+<li>分代模型<ul>
+<li>年轻代 | 老年代</li>
+<li>内存一分为二</li>
+</ul>
+</li>
+<li>分区模型<ul>
+<li>分成一个个的小格子</li>
+</ul>
+</li>
+</ul>
+<div align=center><img src="https://files.catbox.moe/k8aw65.png" srcset="/img/loading.gif" lazyload style="width:70%"></div>
+
+<div align=center><img src="https://files.catbox.moe/wadgvq.png" srcset="/img/loading.gif" lazyload style="width:70%"></div>
+
+<p><font size=2 color=darkgray>左侧为分代，右侧有分区</font></p>
+<div align=center><img src="https://files.catbox.moe/uooept.png" srcset="/img/loading.gif" lazyload style="width:70%"></div>
+
+<p>左侧年轻代，当 new 了新的对象后进入 <code>eden</code>（年轻代），随后用 Copy 算法，将有用的内存复制到 Survivor1，下一次将 Survivor1 中的以及 Eden 中的放入Survivor2（Survivor1与Survivor2 不断交换，总有一个是空的），每次都没回收掉<code>年龄+1</code>，当成长到一定年龄后进入<code>tenured</code>（老年代）。</p>
+<h5 id="Serial（单线程-STW）"><a href="#Serial（单线程-STW）" class="headerlink" title="Serial（单线程 STW）"></a>Serial（单线程 STW）</h5><p><font size=2>A <strong>stop-the-world(STW)</strong>,copying collector which uses a single GC thread.</font></p>
+<p>当垃圾回收器开始干活的时候，所有的线程（业务线程）全部停止。</p>
+<ul>
+<li><font color=green>优点：</font>单 CPU 效率最高，虚拟机是 Client 模式的默认垃圾回收器</li>
+<li><font color=red>缺点：</font>会导致程序卡顿</li>
+</ul>
+<h5 id="Parallel-Scavenge-（多线程-STW）"><a href="#Parallel-Scavenge-（多线程-STW）" class="headerlink" title="Parallel Scavenge （多线程 STW）"></a>Parallel Scavenge （多线程 STW）</h5><p><font size=2>A <strong>stop-the-world(STW)</strong>,copying collector which uses a multiple GC threads.</font></p>
+<ul>
+<li><font color=orange>注意：</font>线程无法无限增加</li>
+<li><font color=green>优点：</font>效率更高</li>
+<li><font color=red>缺点：</font>线程需要切换，同样可能会造成卡顿</li>
+</ul>
+<h5 id="CMS（Concurrent-Mark-Sweep）并发"><a href="#CMS（Concurrent-Mark-Sweep）并发" class="headerlink" title="CMS（Concurrent Mark Sweep）并发"></a>CMS（Concurrent Mark Sweep）并发</h5><ul>
+<li><font color=orange>问题：</font><ul>
+<li>问题 1：可能会产生浮动垃圾（本次标记非垃圾后被弃用了）</li>
+<li>问题 2：已经被标记为垃圾的对象被业务线程建立连接了<ul>
+<li>解决办法 ：三色标记算法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font color=green>优点：</font>效率更高</li>
+<li><font color=red>缺点：</font>线程需要切换，同样可能会造成卡顿</li>
+</ul>
+<h1 id="相关算法"><a href="#相关算法" class="headerlink" title="相关算法"></a>相关算法</h1><h2 id="三色标记算法"><a href="#三色标记算法" class="headerlink" title="三色标记算法"></a>三色标记算法</h2><div style="background:darkgray;border-radius:10px;padding:5px 15px 5px 15px">没有遍历到的节点：白色；自己完成标记还没来得及标记 fields ：灰色；自己标记且 fields 全部完成标记：黑色</div>
+
+<p>优点：下一次只要从灰色开始就可以了，黑色就不用开始了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/JVM/">JVM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/06/SpringCloud/SpringCloud-01-%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【SpringCloud】 入门笔记 | 01 | 版本选择</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/30/%E6%9C%8D%E5%8A%A1%E5%99%A8/2022-06-30-%E3%80%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%91%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90--%E9%9A%90%E6%80%A7-URL/">
+                        <span class="hidden-mobile">【服务器】记录一次域名解析 | 隐性 URL</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81NDM5Mi8zMDg2Mw==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            &nbsp✨&nbsp 
+            <span id="busuanzi_value_site_pv"></span>
+             times
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            &nbsp💫&nbsp 
+            <span id="busuanzi_value_site_uv"></span>
+             nums
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        备案号：鲁ICP备2022010174号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

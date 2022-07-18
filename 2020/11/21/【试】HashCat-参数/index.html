@@ -1,0 +1,1196 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="black">
+  <meta name="description" content="猫是我">
+  <meta name="author" content="不食花生的猫">
+  <meta name="keywords" content="">
+  <meta name="description" content="HashCat 参数 直接运行hashcat（分为32和64位版本）会提示使用参数： Usage:hashcat64 [options]... hash|hashfile|hccapxfile [dictionary|mask|directory]...  也即hashcat [选项] 破解的哈希值或hash文件、hccapx文件 [字典|掩码|目录] … Hccapxfile对应无线包，其对应破">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【试】HashCat 参数">
+<meta property="og:url" content="http://jjjime.github.io/2020/11/21/%E3%80%90%E8%AF%95%E3%80%91HashCat-%E5%8F%82%E6%95%B0/index.html">
+<meta property="og:site_name" content="我是猫">
+<meta property="og:description" content="HashCat 参数 直接运行hashcat（分为32和64位版本）会提示使用参数： Usage:hashcat64 [options]... hash|hashfile|hccapxfile [dictionary|mask|directory]...  也即hashcat [选项] 破解的哈希值或hash文件、hccapx文件 [字典|掩码|目录] … Hccapxfile对应无线包，其对应破">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-11-21T02:33:59.000Z">
+<meta property="article:modified_time" content="2022-03-18T09:48:39.987Z">
+<meta property="article:author" content="不食花生的猫">
+<meta property="article:tag" content="Kali">
+<meta property="article:tag" content="HashCat">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>【试】HashCat 参数 ｜ 我是猫</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我是猫</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="http://110.40.191.51:5000/">
+                <i class="iconfont icon-apple-fill"></i>
+                桌面
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">
+                <i class="iconfont icon-github-fill"></i>
+                登录
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" false
+         style="background: url('/images/uploads/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【试】HashCat 参数">
+              
+                【试】HashCat 参数
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      不食花生的猫
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-21 10:33" pubdate>
+        November 21, 2020 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      22 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【试】HashCat 参数</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：4 months ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h3 id="HashCat-参数"><a href="#HashCat-参数" class="headerlink" title="HashCat 参数"></a>HashCat 参数</h3><hr>
+<p>直接运行hashcat（分为32和64位版本）会提示使用参数：</p>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Usage</span><span class="token operator">:</span>hashcat64 <span class="token punctuation">[</span>options<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> hash<span class="token operator">|</span>hashfile<span class="token operator">|</span>hccapxfile <span class="token punctuation">[</span>dictionary<span class="token operator">|</span>mask<span class="token operator">|</span>directory<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+<p>也即hashcat [选项] 破解的哈希值或hash文件、hccapx文件 [字典|掩码|目录] …</p>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Hccapxfile</span>对应无线包，其对应破解哈希类型为“<span class="token operator">-</span>m <span class="token number">2500</span> <span class="token operator">=</span> WPA<span class="token operator">/</span>WPA2”。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+
+<br>
+<br>
+
+<h4 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h4><ul>
+<li>普通</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">-m, —hash-type=NUM           哈希类别，其NUM值参考其帮助信息下面的哈希类别值，其值为数字。如果不指定m值则默认指md5，例如-m 1800是sha512 Linux加密。
+
+-a, --attack-mode=NUM         攻击模式，其值参考后面对参数。“-a 0”字典攻击，“-a 1” 组合攻击；“-a 3”掩码攻击。
+
+ -V, —version                 版本信息
+    
+ -h, --help                   帮助信息。
+    
+--quiet                       安静的模式, 抑制输出
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>基准测试</li>
+</ul>
+ <div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">-</span>b<span class="token punctuation">,</span> <span class="token operator">--</span>benchmark                       测试计算机破解速度和显示硬件相关信息<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+<ul>
+<li>杂项</li>
+</ul>
+ <div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">--</span>hex<span class="token operator">-</span>salt                     salt值是用十六进制给出的
+
+<span class="token operator">--</span>hex<span class="token operator">-</span>charset                  设定字符集是十六进制给出
+
+<span class="token operator">--</span>runtime<span class="token operator">=</span>NUM                  运行数秒（NUM值）后的中止会话
+
+<span class="token operator">--</span>status                       启用状态屏幕的自动更新
+
+<span class="token operator">--</span>status<span class="token operator">-</span>timer<span class="token operator">=</span>NUM             状态屏幕更新秒值
+
+<span class="token operator">--</span>status<span class="token operator">-</span>automat               以机器可读的格式显示状态视图
+
+<span class="token operator">--</span>session                      后跟会话名称，主要用于中止任务后的恢复破解。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>文件</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">-</span>o<span class="token punctuation">,</span>  <span class="token operator">--</span>outfile<span class="token operator">=</span>FILE             定义哈希文件恢复输出文件
+
+<span class="token operator">--</span>outfile<span class="token operator">-</span>format<span class="token operator">=</span>NUM            定义哈希文件输出格式，见下面的参考资料
+
+<span class="token operator">--</span>outfile<span class="token operator">-</span>autohex<span class="token operator">-</span>disable       禁止使用十六进制输出明文
+
+<span class="token operator">-</span>p<span class="token punctuation">,</span>  <span class="token operator">--</span>separator<span class="token operator">=</span>CHAR           为哈希列表<span class="token operator">/</span>输出文件定义分隔符字符
+
+<span class="token operator">--</span>show                          仅仅显示已经破解的密码
+
+<span class="token operator">--</span>left                          仅仅显示未破解的密码
+
+<span class="token operator">--</span>username                      忽略hash表中的用户名，对linux文件直接进行破解，不需要进行整理。
+
+<span class="token operator">--</span>remove                        移除破解成功的hash，当hash是从文本中读取时有用，避免自己手工移除已经破解的hash
+
+<span class="token operator">--</span>stdout                        控制台模式
+
+<span class="token operator">--</span>potfile<span class="token operator">-</span>disable               不写入pot文件
+
+<span class="token operator">--</span>debug<span class="token operator">-</span>mode<span class="token operator">=</span>NUM                定义调试模式（仅通过使用规则进行混合），参见下面的参考资料
+
+<span class="token operator">--</span>debug<span class="token operator">-</span>file<span class="token operator">=</span>FILE               调试规则的输出文件（请参阅调试模式）
+
+<span class="token operator">-</span>e<span class="token punctuation">,</span> <span class="token operator">--</span>salt<span class="token operator">-</span>file<span class="token operator">=</span>FILE            定义加盐文件列表
+
+<span class="token operator">--</span>logfile<span class="token operator">-</span>disable               禁止logfile
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>资源</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">-</span>c<span class="token punctuation">,</span> <span class="token operator">--</span>segment<span class="token operator">-</span>size<span class="token operator">=</span>NUM       字典文件缓存大小（<span class="token class-name">M</span>）
+
+<span class="token operator">-</span>n<span class="token punctuation">,</span> <span class="token operator">--</span>threads<span class="token operator">=</span>NUM            线程数
+
+<span class="token operator">-</span>s<span class="token punctuation">,</span>  <span class="token operator">--</span>words<span class="token operator">-</span>skip<span class="token operator">=</span>NUM        跳过单词数
+
+<span class="token operator">-</span>l<span class="token punctuation">,</span> <span class="token operator">--</span>words<span class="token operator">-</span>limit<span class="token operator">=</span>NUM        限制单词数<span class="token punctuation">(</span>分布式<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+<ul>
+<li>规则</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java">  <span class="token operator">-</span>r<span class="token punctuation">,</span> <span class="token operator">--</span>rules<span class="token operator">-</span>file<span class="token operator">=</span>FILE             使用规则文件<span class="token operator">:</span> <span class="token operator">-</span>r <span class="token number">1.</span>rule，
+
+ <span class="token operator">-</span>g<span class="token punctuation">,</span>  <span class="token operator">--</span>generate<span class="token operator">-</span>rules<span class="token operator">=</span>NUM          随机生成规则
+
+<span class="token operator">--</span>generate<span class="token operator">-</span>rules<span class="token operator">-</span>func<span class="token operator">-</span>min<span class="token operator">=</span>          每个随机规则最小值
+
+<span class="token operator">--</span>generate<span class="token operator">-</span>rules<span class="token operator">-</span>func<span class="token operator">-</span>max<span class="token operator">=</span>          每个随机规则最大值
+
+<span class="token operator">--</span>generate<span class="token operator">-</span>rules<span class="token operator">-</span>seed<span class="token operator">=</span>NUM           强制RNG种子数
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>自定义字符集</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>  <span class="token operator">--</span>custom<span class="token operator">-</span>charset1<span class="token operator">=</span>CS  用户定义的字符集
+
+<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">--</span>custom<span class="token operator">-</span>charset2<span class="token operator">=</span>CS  例如<span class="token operator">:</span>
+
+<span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token operator">--</span>custom<span class="token operator">-</span>charset3<span class="token operator">=</span>CS <span class="token operator">--</span>custom<span class="token operator">-</span>charset1<span class="token operator">=</span><span class="token operator">?</span>dabcdef <span class="token operator">:</span> 设置<span class="token operator">?</span><span class="token number">1</span> 为<span class="token number">0123456789</span>abcdef
+
+<span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">--</span>custom<span class="token operator">-</span>charset4<span class="token operator">=</span>CS   <span class="token operator">-</span><span class="token number">2</span>mycharset<span class="token punctuation">.</span>hcchr <span class="token operator">:</span> 设置 <span class="token operator">?</span><span class="token number">2</span> 包含在mycharset<span class="token punctuation">.</span>hcchr
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+<br>
+<br>
+
+<h4 id="攻击模式"><a href="#攻击模式" class="headerlink" title="攻击模式"></a>攻击模式</h4><hr>
+<p>大小写转换攻击:</p>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">--</span>toggle<span class="token operator">-</span>min<span class="token operator">=</span>NUM              在字典中字母的最小值
+
+<span class="token operator">--</span>toggle<span class="token operator">-</span>max<span class="token operator">=</span>NUM              在字典中字母的最大值
+   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>使用掩码攻击模式:</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">--</span>increment                   使用增强模式
+
+<span class="token operator">--</span>increment<span class="token operator">-</span>min<span class="token operator">=</span>NUM           增强模式开始值
+
+<span class="token operator">--</span>increment<span class="token operator">-</span>max<span class="token operator">=</span>NUM           增强模式结束值
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>排列攻击模式</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">--</span>perm<span class="token operator">-</span>min<span class="token operator">=</span>NUM                过滤比NUM数小的单词
+
+<span class="token operator">--</span>perm<span class="token operator">-</span>max<span class="token operator">=</span>NUM                过滤比NUM数大的单词
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>查找表攻击模式:</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">-t, --table-file&#x3D;FILE        表文件
+
+--table-min&#x3D;NUM               在字典中的最小字符值
+
+--table-max&#x3D;NUM               在字典中的最大字符值
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>打印攻击模式:</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">--</span>pw<span class="token operator">-</span>min<span class="token operator">=</span>NUM                  如果长度大于NUM，则打印候选字符 
+
+<span class="token operator">--</span>pw<span class="token operator">-</span>max<span class="token operator">=</span>NUM                  如果长度小于NUM，则打印候选字符
+
+<span class="token operator">--</span>elem<span class="token operator">-</span>cnt<span class="token operator">-</span>min<span class="token operator">=</span>NUM            每个链的最小元素数
+
+<span class="token operator">--</span>elem<span class="token operator">-</span>cnt<span class="token operator">-</span>max<span class="token operator">=</span>NUM            每个链的最大元素数
+
+<span class="token operator">--</span>wl<span class="token operator">-</span>dist<span class="token operator">-</span>len                 从字典表中计算输出长度分布
+
+<span class="token operator">--</span>wl<span class="token operator">-</span>max<span class="token operator">=</span>NUM                  从字典文件中加载NUM个单词，设置<span class="token number">0</span>禁止加载。
+
+<span class="token operator">--</span><span class="token keyword">case</span><span class="token operator">-</span>permute                在字典中对每一个单词进行反转
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+<br>
+<br>
+
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><hr>
+<ul>
+<li>输出文件格式:</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1</span> <span class="token operator">=</span> hash<span class="token punctuation">[</span><span class="token operator">:</span>salt<span class="token punctuation">]</span>
+
+<span class="token number">2</span> <span class="token operator">=</span> plain 明文
+
+<span class="token number">3</span> <span class="token operator">=</span> hash<span class="token punctuation">[</span><span class="token operator">:</span>salt<span class="token punctuation">]</span><span class="token operator">:</span>plain
+
+<span class="token number">4</span> <span class="token operator">=</span> hex_plain
+
+<span class="token number">5</span> <span class="token operator">=</span> hash<span class="token punctuation">[</span><span class="token operator">:</span>salt<span class="token punctuation">]</span><span class="token operator">:</span>hex_plain
+
+<span class="token number">6</span> <span class="token operator">=</span> plain<span class="token operator">:</span>hex_plain
+
+<span class="token number">7</span> <span class="token operator">=</span> hash<span class="token punctuation">[</span><span class="token operator">:</span>salt<span class="token punctuation">]</span><span class="token operator">:</span>plain<span class="token operator">:</span>hex_plain
+
+<span class="token number">8</span> <span class="token operator">=</span> crackpos
+
+<span class="token number">9</span> <span class="token operator">=</span> hash<span class="token punctuation">[</span><span class="token operator">:</span>salt<span class="token punctuation">]</span><span class="token operator">:</span>crackpos
+
+<span class="token number">10</span> <span class="token operator">=</span> plain<span class="token operator">:</span>crackpos
+
+<span class="token number">11</span> <span class="token operator">=</span> hash<span class="token punctuation">[</span><span class="token operator">:</span>salt<span class="token punctuation">]</span><span class="token operator">:</span>plain<span class="token operator">:</span>crackpos
+
+<span class="token number">12</span> <span class="token operator">=</span> hex_plain<span class="token operator">:</span>crackpos
+
+<span class="token number">13</span> <span class="token operator">=</span> hash<span class="token punctuation">[</span><span class="token operator">:</span>salt<span class="token punctuation">]</span><span class="token operator">:</span>hex_plain<span class="token operator">:</span>crackpos
+
+<span class="token number">14</span> <span class="token operator">=</span> plain<span class="token operator">:</span>hex_plain<span class="token operator">:</span>crackpos
+
+<span class="token number">15</span> <span class="token operator">=</span> hash<span class="token punctuation">[</span><span class="token operator">:</span>salt<span class="token punctuation">]</span><span class="token operator">:</span>plain<span class="token operator">:</span>hex_plain<span class="token operator">:</span>crackpos
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>调试模式输出文件 (for hybrid mode only, by using rules):</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1</span> <span class="token operator">=</span> save finding rule  
+
+<span class="token number">2</span> <span class="token operator">=</span> save original word
+
+<span class="token number">3</span> <span class="token operator">=</span> save original word and finding rule
+
+<span class="token number">4</span> <span class="token operator">=</span> save original word<span class="token punctuation">,</span> finding rule andmodified plain
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>内置的字符集:</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">?</span>l <span class="token operator">=</span> abcdefghijklmnopqrstuvwxyz 代表小写字母
+
+<span class="token operator">?</span>u <span class="token operator">=</span> ABCDEFGHIJKLMNOPQRSTUVWXYZ 代表大写字母
+
+<span class="token operator">?</span>d <span class="token operator">=</span> <span class="token number">0123456789</span> 代表数字
+
+<span class="token operator">?</span>s <span class="token operator">=</span> <span class="token operator">!</span>"#$<span class="token operator">%</span><span class="token operator">&amp;</span>'<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token operator">+</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token punctuation">.</span>/<span class="token operator">:</span><span class="token punctuation">;</span><span class="token operator">&lt;=</span><span class="token operator">></span><span class="token operator">?</span>@<span class="token punctuation">[</span>\<span class="token punctuation">]</span><span class="token operator">^</span>_`<span class="token punctuation">&#123;</span><span class="token operator">|</span><span class="token punctuation">&#125;</span><span class="token operator">~</span>  代表特殊字符
+
+<span class="token operator">?</span>a <span class="token operator">=</span> <span class="token operator">?</span>l<span class="token operator">?</span>u<span class="token operator">?</span>d<span class="token operator">?</span>s 大小写数字及特殊字符的组合
+
+<span class="token operator">?</span>b <span class="token operator">=</span> <span class="token number">0x00</span> <span class="token operator">-</span> <span class="token number">0xff</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>攻击模式</li>
+</ul>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">0</span> <span class="token operator">=</span> <span class="token class-name">Straight</span> （字典破解）
+
+<span class="token number">1</span> <span class="token operator">=</span> <span class="token class-name">Combination</span> （组合破解）
+
+<span class="token number">2</span> <span class="token operator">=</span> <span class="token class-name">Toggle</span><span class="token operator">-</span><span class="token class-name">Case</span> （大小写转换）
+
+<span class="token number">3</span> <span class="token operator">=</span> <span class="token class-name">Brute</span><span class="token operator">-</span>force（掩码暴力破解）
+
+<span class="token number">4</span> <span class="token operator">=</span> <span class="token class-name">Permutation</span>（序列破解）
+
+<span class="token number">5</span> <span class="token operator">=</span> <span class="token class-name">Table</span><span class="token operator">-</span><span class="token class-name">Lookup</span>（查表破解）
+
+<span class="token number">6</span> <span class="token operator">=</span> <span class="token class-name">Hybrid</span> dict <span class="token operator">+</span> mask 字典加掩码破解
+
+<span class="token number">7</span> <span class="token operator">=</span> <span class="token class-name">Hybrid</span> mask <span class="token operator">+</span> dict 掩码<span class="token operator">+</span>字典破解
+
+<span class="token number">8</span> <span class="token operator">=</span> <span class="token class-name">Prince</span>（王子破解）
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ul>
+<li>哈希类型</li>
+</ul>
+<p>有关哈希具体值示例可以参考 <a target="_blank" rel="noopener" href="https://hashcat.net/wiki/doku.php?id=example_hashes">https://hashcat.net/wiki/doku.php?id=example_hashes</a></p>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java">  <span class="token number">0</span> <span class="token operator">=</span> <span class="token class-name">MD5</span>
+
+  <span class="token number">10</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>$pass<span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">20</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span>$pass<span class="token punctuation">)</span>
+
+  <span class="token number">30</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">unicode</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">40</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span><span class="token function">unicode</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">50</span> <span class="token operator">=</span> HMAC<span class="token operator">-</span>MD5 <span class="token punctuation">(</span>key <span class="token operator">=</span> $pass<span class="token punctuation">)</span>
+
+  <span class="token number">60</span> <span class="token operator">=</span> HMAC<span class="token operator">-</span>MD5 <span class="token punctuation">(</span>key <span class="token operator">=</span> $salt<span class="token punctuation">)</span>
+
+  <span class="token number">100</span> <span class="token operator">=</span> <span class="token class-name">SHA1</span>
+
+  <span class="token number">110</span> <span class="token operator">=</span> <span class="token function">sha1</span><span class="token punctuation">(</span>$pass<span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">120</span> <span class="token operator">=</span> <span class="token function">sha1</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span>$pass<span class="token punctuation">)</span>
+
+  <span class="token number">130</span> <span class="token operator">=</span> <span class="token function">sha1</span><span class="token punctuation">(</span><span class="token function">unicode</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">140</span> <span class="token operator">=</span> <span class="token function">sha1</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span><span class="token function">unicode</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">150</span> <span class="token operator">=</span> HMAC<span class="token operator">-</span>SHA1 <span class="token punctuation">(</span>key <span class="token operator">=</span> $pass<span class="token punctuation">)</span>
+
+  <span class="token number">160</span> <span class="token operator">=</span> HMAC<span class="token operator">-</span>SHA1 <span class="token punctuation">(</span>key <span class="token operator">=</span> $salt<span class="token punctuation">)</span>
+
+  <span class="token number">200</span> <span class="token operator">=</span> <span class="token class-name">MySQL323</span>
+
+  <span class="token number">300</span> <span class="token operator">=</span> <span class="token class-name">MySQL4</span><span class="token number">.1</span><span class="token operator">/</span><span class="token class-name">MySQL5</span>
+
+  <span class="token number">400</span> <span class="token operator">=</span> phpass<span class="token punctuation">,</span> <span class="token function">MD5</span><span class="token punctuation">(</span><span class="token class-name">Wordpress</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">MD5</span><span class="token punctuation">(</span>phpBB3<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">MD5</span><span class="token punctuation">(</span><span class="token class-name">Joomla</span><span class="token punctuation">)</span>
+
+  <span class="token number">500</span> <span class="token operator">=</span> md5crypt<span class="token punctuation">,</span> <span class="token function">MD5</span><span class="token punctuation">(</span><span class="token class-name">Unix</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">FreeBSD</span> MD5<span class="token punctuation">,</span><span class="token class-name">Cisco</span><span class="token operator">-</span>IOS <span class="token class-name">MD5</span>
+
+  <span class="token number">900</span> <span class="token operator">=</span> <span class="token class-name">MD4</span>
+
+  <span class="token number">1000</span> <span class="token operator">=</span> <span class="token class-name">NTLM</span>
+
+  <span class="token number">1100</span> <span class="token operator">=</span> <span class="token class-name">Domain</span> <span class="token class-name">Cached</span> <span class="token class-name">Credentials</span> <span class="token punctuation">(</span>DCC<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">MSCache</span>
+
+  <span class="token number">1400</span> <span class="token operator">=</span> <span class="token class-name">SHA256</span>
+
+  <span class="token number">1410</span> <span class="token operator">=</span> <span class="token function">sha256</span><span class="token punctuation">(</span>$pass<span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">1420</span> <span class="token operator">=</span> <span class="token function">sha256</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span>$pass<span class="token punctuation">)</span>
+
+  <span class="token number">1430</span> <span class="token operator">=</span> <span class="token function">sha256</span><span class="token punctuation">(</span><span class="token function">unicode</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">1431</span> <span class="token operator">=</span> <span class="token function">base64</span><span class="token punctuation">(</span><span class="token function">sha256</span><span class="token punctuation">(</span><span class="token function">unicode</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">1440</span> <span class="token operator">=</span> <span class="token function">sha256</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span><span class="token function">unicode</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">1450</span> <span class="token operator">=</span> HMAC<span class="token operator">-</span>SHA256 <span class="token punctuation">(</span>key <span class="token operator">=</span> $pass<span class="token punctuation">)</span>
+
+  <span class="token number">1460</span> <span class="token operator">=</span> HMAC<span class="token operator">-</span>SHA256 <span class="token punctuation">(</span>key <span class="token operator">=</span> $salt<span class="token punctuation">)</span>
+
+  <span class="token number">1600</span> <span class="token operator">=</span> md5apr1<span class="token punctuation">,</span> <span class="token function">MD5</span><span class="token punctuation">(</span>APR<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Apache</span> <span class="token class-name">MD5</span>
+
+  <span class="token number">1700</span> <span class="token operator">=</span> <span class="token class-name">SHA512</span>
+
+  <span class="token number">1710</span> <span class="token operator">=</span> <span class="token function">sha512</span><span class="token punctuation">(</span>$pass<span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">1720</span> <span class="token operator">=</span> <span class="token function">sha512</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span>$pass<span class="token punctuation">)</span>
+
+  <span class="token number">1730</span> <span class="token operator">=</span> <span class="token function">sha512</span><span class="token punctuation">(</span><span class="token function">unicode</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">1740</span> <span class="token operator">=</span> <span class="token function">sha512</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span><span class="token function">unicode</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">1750</span> <span class="token operator">=</span> HMAC<span class="token operator">-</span>SHA512 <span class="token punctuation">(</span>key <span class="token operator">=</span> $pass<span class="token punctuation">)</span>
+
+  <span class="token number">1760</span> <span class="token operator">=</span> HMAC<span class="token operator">-</span>SHA512 <span class="token punctuation">(</span>key <span class="token operator">=</span> $salt<span class="token punctuation">)</span>
+
+  <span class="token number">1800</span> <span class="token operator">=</span> SHA<span class="token operator">-</span><span class="token function">512</span><span class="token punctuation">(</span><span class="token class-name">Unix</span><span class="token punctuation">)</span>
+
+  <span class="token number">2400</span> <span class="token operator">=</span> <span class="token class-name">Cisco</span><span class="token operator">-</span>PIX <span class="token class-name">MD5</span>
+
+  <span class="token number">2410</span> <span class="token operator">=</span> <span class="token class-name">Cisco</span><span class="token operator">-</span>ASA <span class="token class-name">MD5</span>
+
+  <span class="token number">2500</span> <span class="token operator">=</span> WPA<span class="token operator">/</span><span class="token class-name">WPA2</span>
+
+  <span class="token number">2600</span> <span class="token operator">=</span> <span class="token class-name">Double</span> <span class="token class-name">MD5</span>
+
+  <span class="token number">3200</span> <span class="token operator">=</span> bcrypt<span class="token punctuation">,</span> <span class="token class-name">Blowfish</span><span class="token punctuation">(</span><span class="token class-name">OpenBSD</span><span class="token punctuation">)</span>
+
+  <span class="token number">3300</span> <span class="token operator">=</span> <span class="token function">MD5</span><span class="token punctuation">(</span><span class="token class-name">Sun</span><span class="token punctuation">)</span>
+
+  <span class="token number">3500</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">3610</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">)</span><span class="token punctuation">.</span>$pass<span class="token punctuation">)</span>
+
+  <span class="token number">3710</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span><span class="token function">md5</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">3720</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>$pass<span class="token punctuation">.</span><span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">3800</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span>$pass<span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">3910</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">4010</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span><span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">4110</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span><span class="token function">md5</span><span class="token punctuation">(</span>$pass<span class="token punctuation">.</span>$salt<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">4210</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>$username<span class="token punctuation">.</span><span class="token number">0.</span>$pass<span class="token punctuation">)</span>
+
+  <span class="token number">4300</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">strtoupper</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">4400</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">sha1</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">4500</span> <span class="token operator">=</span> <span class="token class-name">Double</span> <span class="token class-name">SHA1</span>
+
+  <span class="token number">4600</span> <span class="token operator">=</span> <span class="token function">sha1</span><span class="token punctuation">(</span><span class="token function">sha1</span><span class="token punctuation">(</span><span class="token function">sha1</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">4700</span> <span class="token operator">=</span> <span class="token function">sha1</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span>$pass<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token number">4800</span> <span class="token operator">=</span> <span class="token function">MD5</span><span class="token punctuation">(</span><span class="token class-name">Chap</span><span class="token punctuation">)</span><span class="token punctuation">,</span> iSCSI CHAP authentication
+
+  <span class="token number">4900</span> <span class="token operator">=</span> <span class="token function">sha1</span><span class="token punctuation">(</span>$salt<span class="token punctuation">.</span>$pass<span class="token punctuation">.</span>$salt<span class="token punctuation">)</span>
+
+  <span class="token number">5000</span> <span class="token operator">=</span> SHA<span class="token operator">-</span><span class="token function">3</span><span class="token punctuation">(</span><span class="token class-name">Keccak</span><span class="token punctuation">)</span>
+
+  <span class="token number">5100</span> <span class="token operator">=</span> <span class="token class-name">Half</span> <span class="token class-name">MD5</span>
+
+  <span class="token number">5200</span> <span class="token operator">=</span> <span class="token class-name">Password</span> <span class="token class-name">Safe</span> SHA<span class="token operator">-</span><span class="token number">256</span>
+
+  <span class="token number">5300</span> <span class="token operator">=</span> IKE<span class="token operator">-</span>PSK <span class="token class-name">MD5</span>
+
+  <span class="token number">5400</span> <span class="token operator">=</span> IKE<span class="token operator">-</span>PSK <span class="token class-name">SHA1</span>
+
+  <span class="token number">5500</span> <span class="token operator">=</span> <span class="token class-name">NetNTLMv1</span><span class="token operator">-</span>VANILLA <span class="token operator">/</span> <span class="token class-name">NetNTLMv1</span><span class="token operator">-</span><span class="token class-name">ESS</span>
+
+  <span class="token number">5600</span> <span class="token operator">=</span> <span class="token class-name">NetNTLMv2</span>
+
+  <span class="token number">5700</span> <span class="token operator">=</span> <span class="token class-name">Cisco</span><span class="token operator">-</span>IOS <span class="token class-name">SHA256</span>
+
+  <span class="token number">5800</span> <span class="token operator">=</span> <span class="token class-name">Android</span> <span class="token class-name">PIN</span>
+
+  <span class="token number">6300</span> <span class="token operator">=</span> AIX <span class="token punctuation">&#123;</span>smd5<span class="token punctuation">&#125;</span>
+
+  <span class="token number">6400</span> <span class="token operator">=</span> AIX <span class="token punctuation">&#123;</span>ssha256<span class="token punctuation">&#125;</span>
+
+  <span class="token number">6500</span> <span class="token operator">=</span> AIX <span class="token punctuation">&#123;</span>ssha512<span class="token punctuation">&#125;</span>
+
+  <span class="token number">6700</span> <span class="token operator">=</span> AIX <span class="token punctuation">&#123;</span>ssha1<span class="token punctuation">&#125;</span>
+
+  <span class="token number">6900</span> <span class="token operator">=</span> GOST<span class="token punctuation">,</span> GOST <span class="token class-name">R</span> <span class="token number">34.11</span><span class="token operator">-</span><span class="token number">94</span>
+
+  <span class="token number">7000</span> <span class="token operator">=</span> <span class="token class-name">Fortigate</span> <span class="token punctuation">(</span><span class="token class-name">FortiOS</span><span class="token punctuation">)</span>
+
+  <span class="token number">7100</span> <span class="token operator">=</span> OS <span class="token class-name">X</span> v10<span class="token punctuation">.</span><span class="token number">8</span><span class="token operator">+</span>
+
+  <span class="token number">7200</span> <span class="token operator">=</span> GRUB <span class="token number">2</span>
+
+  <span class="token number">7300</span> <span class="token operator">=</span> IPMI2 RAKP HMAC<span class="token operator">-</span><span class="token class-name">SHA1</span>
+
+  <span class="token number">7400</span> <span class="token operator">=</span> sha256crypt<span class="token punctuation">,</span> <span class="token function">SHA256</span><span class="token punctuation">(</span><span class="token class-name">Unix</span><span class="token punctuation">)</span>
+
+  <span class="token number">7900</span> <span class="token operator">=</span> <span class="token class-name">Drupal7</span>
+
+  <span class="token number">8400</span> <span class="token operator">=</span> WBB3<span class="token punctuation">,</span> <span class="token class-name">Woltlab</span> <span class="token class-name">Burning</span> <span class="token class-name">Board</span> <span class="token number">3</span>
+
+  <span class="token number">8900</span> <span class="token operator">=</span> scrypt
+
+  <span class="token number">9200</span> <span class="token operator">=</span> <span class="token class-name">Cisco</span> $<span class="token number">8</span>$
+
+  <span class="token number">9300</span> <span class="token operator">=</span> <span class="token class-name">Cisco</span> $<span class="token number">9</span>$
+
+  <span class="token number">9800</span> <span class="token operator">=</span> <span class="token class-name">Radmin2</span>
+
+ <span class="token number">10000</span> <span class="token operator">=</span> <span class="token class-name">Django</span> <span class="token punctuation">(</span>PBKDF2<span class="token operator">-</span>SHA256<span class="token punctuation">)</span>
+
+ <span class="token number">10200</span> <span class="token operator">=</span> <span class="token class-name">Cram</span> <span class="token class-name">MD5</span>
+
+ <span class="token number">10300</span> <span class="token operator">=</span> SAP CODVN <span class="token class-name">H</span> <span class="token punctuation">(</span>PWDSALTEDHASH<span class="token punctuation">)</span> iSSHA<span class="token operator">-</span><span class="token number">1</span>
+
+ <span class="token number">11000</span> <span class="token operator">=</span> <span class="token class-name">PrestaShop</span>
+
+ <span class="token number">11100</span> <span class="token operator">=</span> <span class="token class-name">PostgreSQL</span> <span class="token class-name">Challenge</span><span class="token operator">-</span><span class="token class-name">ResponseAuthentication</span> <span class="token punctuation">(</span>MD5<span class="token punctuation">)</span>
+
+ <span class="token number">11200</span> <span class="token operator">=</span> <span class="token class-name">MySQL</span> <span class="token class-name">Challenge</span><span class="token operator">-</span><span class="token class-name">Response</span> <span class="token class-name">Authentication</span><span class="token punctuation">(</span>SHA1<span class="token punctuation">)</span>
+
+ <span class="token number">11400</span> <span class="token operator">=</span> SIP digest authentication <span class="token punctuation">(</span>MD5<span class="token punctuation">)</span>
+
+ <span class="token number">99999</span> <span class="token operator">=</span> <span class="token class-name">Plaintext</span>
+
+特殊哈希类型
+
+   <span class="token number">11</span> <span class="token operator">=</span> <span class="token class-name">Joomla</span> <span class="token operator">&lt;</span> <span class="token number">2.5</span><span class="token number">.18</span>
+
+   <span class="token number">12</span> <span class="token operator">=</span> <span class="token class-name">PostgreSQL</span>
+
+   <span class="token number">21</span> <span class="token operator">=</span> osCommerce<span class="token punctuation">,</span> xt<span class="token operator">:</span><span class="token class-name">Commerce</span>
+
+   <span class="token number">23</span> <span class="token operator">=</span> <span class="token class-name">Skype</span>
+
+  <span class="token number">101</span> <span class="token operator">=</span> nsldap<span class="token punctuation">,</span> SHA<span class="token operator">-</span><span class="token function">1</span><span class="token punctuation">(</span><span class="token class-name">Base64</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Netscape</span> <span class="token class-name">LDAPSHA</span>
+
+  <span class="token number">111</span> <span class="token operator">=</span> nsldaps<span class="token punctuation">,</span> SSHA<span class="token operator">-</span><span class="token function">1</span><span class="token punctuation">(</span><span class="token class-name">Base64</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Netscape</span> <span class="token class-name">LDAPSSHA</span>
+
+  <span class="token number">112</span> <span class="token operator">=</span> <span class="token class-name">Oracle</span> <span class="token class-name">S</span><span class="token operator">:</span> <span class="token class-name">Type</span> <span class="token punctuation">(</span><span class="token class-name">Oracle</span> <span class="token number">11</span><span class="token operator">+</span><span class="token punctuation">)</span>
+
+  <span class="token number">121</span> <span class="token operator">=</span> SMF <span class="token operator">></span> v1<span class="token punctuation">.</span><span class="token number">1</span>
+
+  <span class="token number">122</span> <span class="token operator">=</span> OS <span class="token class-name">X</span> v10<span class="token punctuation">.</span><span class="token number">4</span><span class="token punctuation">,</span> v10<span class="token punctuation">.</span><span class="token number">5</span><span class="token punctuation">,</span> v10<span class="token punctuation">.</span><span class="token number">6</span>
+
+  <span class="token number">123</span> <span class="token operator">=</span> <span class="token class-name">EPi</span>
+
+  <span class="token number">124</span> <span class="token operator">=</span> <span class="token class-name">Django</span> <span class="token punctuation">(</span>SHA<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+  <span class="token number">131</span> <span class="token operator">=</span> <span class="token function">MSSQL</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span>
+
+  <span class="token number">132</span> <span class="token operator">=</span> <span class="token function">MSSQL</span><span class="token punctuation">(</span><span class="token number">2005</span><span class="token punctuation">)</span>
+
+  <span class="token number">133</span> <span class="token operator">=</span> <span class="token class-name">PeopleSoft</span>
+
+  <span class="token number">141</span> <span class="token operator">=</span> <span class="token class-name">EPiServer</span> <span class="token number">6.</span>x <span class="token operator">&lt;</span> v4
+
+ <span class="token number">1421</span> <span class="token operator">=</span> hMailServer
+
+ <span class="token number">1441</span> <span class="token operator">=</span> <span class="token class-name">EPiServer</span> <span class="token number">6.</span>x <span class="token operator">></span> v4
+
+ <span class="token number">1711</span> <span class="token operator">=</span> SSHA<span class="token operator">-</span><span class="token function">512</span><span class="token punctuation">(</span><span class="token class-name">Base64</span><span class="token punctuation">)</span><span class="token punctuation">,</span> LDAP <span class="token punctuation">&#123;</span>SSHA512<span class="token punctuation">&#125;</span>
+
+ <span class="token number">1722</span> <span class="token operator">=</span> OS <span class="token class-name">X</span> v10<span class="token punctuation">.</span><span class="token number">7</span>
+
+ <span class="token number">1731</span> <span class="token operator">=</span> <span class="token function">MSSQL</span><span class="token punctuation">(</span><span class="token number">2012</span> <span class="token operator">&amp;</span> <span class="token number">2014</span><span class="token punctuation">)</span>
+
+ <span class="token number">2611</span> <span class="token operator">=</span> vBulletin <span class="token operator">&lt;</span> v3<span class="token punctuation">.</span><span class="token number">8.5</span>
+
+ <span class="token number">2612</span> <span class="token operator">=</span> <span class="token class-name">PHPS</span>
+
+ <span class="token number">2711</span> <span class="token operator">=</span> vBulletin <span class="token operator">></span> v3<span class="token punctuation">.</span><span class="token number">8.5</span>
+
+ <span class="token number">2811</span> <span class="token operator">=</span> IPB2<span class="token operator">+</span><span class="token punctuation">,</span> <span class="token class-name">MyBB1</span><span class="token number">.2</span><span class="token operator">+</span>
+
+ <span class="token number">3711</span> <span class="token operator">=</span> <span class="token class-name">Mediawiki</span> <span class="token class-name">B</span> type
+
+ <span class="token number">3721</span> <span class="token operator">=</span> <span class="token class-name">WebEdition</span> <span class="token class-name">CMS</span>
+
+ <span class="token number">7600</span> <span class="token operator">=</span> <span class="token class-name">Redmine</span> <span class="token class-name">Project</span> <span class="token class-name">Management</span> <span class="token class-name">Web</span> <span class="token class-name">App</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+<br>
+<br>
+
+<h3 id="密码破解推荐原则"><a href="#密码破解推荐原则" class="headerlink" title="密码破解推荐原则"></a>密码破解推荐原则</h3><hr>
+<p>破解时采取先易后难的原则，建议如下：</p>
+<ul>
+<li><p>利用收集的公开字典进行破解</p>
+</li>
+<li><p>使用1-8位数字进行破解。</p>
+</li>
+<li><p>使用1-8位小写字母进行破解</p>
+</li>
+<li><p>使用1-8位大写字母进行破解</p>
+</li>
+<li><p>使用1-8位混合大小写+数字+特殊字符进行破解</p>
+</li>
+</ul>
+<p>3.2 hashcat破解规则</p>
+<p>（1）字典攻击</p>
+<blockquote>
+<p>-a 0 password.lst</p>
+</blockquote>
+<p>（2）1到8为数字掩码攻击</p>
+<blockquote>
+<p>-a 3 –increment –increment-min 1–increment-max 8 ?d?d?d?d?d?d?d?d –O</p>
+</blockquote>
+<p>?d代表数字，可以换成小写字母?l，大写字母?u，特殊字符?s，大小写字母+特殊字符?a，–O表示最优化破解模式，可以加该参数，也可以不加该参数。</p>
+<p>（3）8为数字攻击</p>
+<blockquote>
+<p>-a 3 ?d?d?d?d?d?d?d?d </p>
+</blockquote>
+<p>同理可以根据位数设置为字母大写、小写、特殊字符等模式。</p>
+<p>（4）自定义字符</p>
+<p>现在纯数字或者纯字母的密码是比较少见的，根据密码专家对泄漏密码的分析，90%的个人密码是字母和数字的组合，可以是自定义字符了来进行暴力破解，Hashcat支持4个自定义字符集，分别是 -1 -2 -3 -4。定义时只需要这样-2  ?l?d ，然后就可以在后面指定?2，?2表示小写字母和数字。这时候要破解一个8位混合的小写字母加数字：</p>
+<blockquote>
+<p>Hashcat.exe -a 3 –force -2 ?l?d  hassh值或者hash文件  ?2?2?2?2?2?2?2?2</p>
+</blockquote>
+<p>例如破解dz小写字母+数字混合8位密码破解：</p>
+<blockquote>
+<p>Hashcat -m 2611  -a 3 -2 ?l?d  dz.hash    ?2?2?2?2?2?2?2?2</p>
+</blockquote>
+<p>（5）字典+掩码暴力破解</p>
+<p>Hashcat还支持一种字典加暴力的破解方法，就是在字典前后再加上暴力的字符序列，比如在字典后面加上3为数字，这种密码是很常见的。使用第六种攻击模式：</p>
+<blockquote>
+<p>a-6 (Hybrid dict + mask)</p>
+</blockquote>
+<p>如果是在字典前面加则使用第7中攻击模式也即( a-7 = Hybridmask + dict)，下面对字典文件加数字123进行破解：</p>
+<blockquote>
+<p>H.exe -a 6 ffe1cb31eb084cd7a8dd1228c23617c8  password.lst ?d?d?d</p>
+</blockquote>
+<p>假如ffe1cb31eb084cd7a8dd1228c23617c8的密码为password123，则只要password.lst包含123即可。</p>
+<p> （6）掩码+字典暴力破解</p>
+<blockquote>
+<p>H.exe -a 7  ffe1cb31eb084cd7a8dd1228c23617c8  password.lst ?d?d?d</p>
+</blockquote>
+<p>假如ffe1cb31eb084cd7a8dd1228c23617c8的密码为123password，则只要password.lst包含password即可。</p>
+<p>（7）大小写转换攻击，对password.lst中的单词进行大小写转换攻击</p>
+<blockquote>
+<p>H.exe-a 2  ffe1cb31eb084cd7a8dd1228c23617c8  password.lst</p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Kali/">Kali</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Kali/">Kali</a>
+                    
+                      <a class="hover-with-bg" href="/tags/HashCat/">HashCat</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/11/21/%E3%80%90Linux%E3%80%91-%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-JDK%E3%80%81Node.js%E3%80%81Npm%E3%80%81Yarn%E3%80%81Redis%E3%80%81Maven%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%90%AD%E5%BB%BA/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【Linux】 编程环境搭建 JDK、Node.js、Npm、Yarn、Redis、Maven的安装与搭建</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/07/03/%E3%80%90Java%E3%80%91%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91/">
+                        <span class="hidden-mobile">【Java】多线程与高并发</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81NDM5Mi8zMDg2Mw==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            &nbsp✨&nbsp 
+            <span id="busuanzi_value_site_pv"></span>
+             times
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            &nbsp💫&nbsp 
+            <span id="busuanzi_value_site_uv"></span>
+             nums
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        备案号：鲁ICP备2022010174号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

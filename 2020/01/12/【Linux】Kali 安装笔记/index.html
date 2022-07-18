@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="black">
+  <meta name="description" content="猫是我">
+  <meta name="author" content="不食花生的猫">
+  <meta name="keywords" content="">
+  <meta name="description" content="【试】Kali 安装笔记今天得到了一块新的固态硬盘，在物理机上安装了一次 Kali ，总结一下安装心得；     安装环境：    电脑型号 小米 Pro 备注    运行内存 8G    固态存储 256G    CPU x86 普普通通的CPU    安装过程 由于是单硬盘安装，只要不断 &gt; 下一步 &gt; 下一步 就好，在这里说几个注意事项；  检查网络硬件的时候，需要一个 路由器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Linux】Kali ｜ 物理机安装笔记">
+<meta property="og:url" content="http://jjjime.github.io/2020/01/12/%E3%80%90Linux%E3%80%91Kali%20%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="我是猫">
+<meta property="og:description" content="【试】Kali 安装笔记今天得到了一块新的固态硬盘，在物理机上安装了一次 Kali ，总结一下安装心得；     安装环境：    电脑型号 小米 Pro 备注    运行内存 8G    固态存储 256G    CPU x86 普普通通的CPU    安装过程 由于是单硬盘安装，只要不断 &gt; 下一步 &gt; 下一步 就好，在这里说几个注意事项；  检查网络硬件的时候，需要一个 路由器">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-01-12T09:33:59.000Z">
+<meta property="article:modified_time" content="2022-06-17T22:04:12.825Z">
+<meta property="article:author" content="不食花生的猫">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Kali">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>【Linux】Kali ｜ 物理机安装笔记 ｜ 我是猫</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scrollbar.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我是猫</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="http://110.40.191.51:5000/">
+                <i class="iconfont icon-apple-fill"></i>
+                桌面
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">
+                <i class="iconfont icon-github-fill"></i>
+                登录
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" false
+         style="background: url('/images/uploads/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【Linux】Kali ｜ 物理机安装笔记">
+              
+                【Linux】Kali ｜ 物理机安装笔记
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      不食花生的猫
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-01-12 17:33" pubdate>
+        January 12, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【Linux】Kali ｜ 物理机安装笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a month ago
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h3 id="【试】Kali-安装笔记"><a href="#【试】Kali-安装笔记" class="headerlink" title="【试】Kali 安装笔记"></a>【试】Kali 安装笔记</h3><p><font color=DarkGray size=2>今天得到了一块新的固态硬盘，在物理机上安装了一次 Kali ，总结一下安装心得；</font></p>
+<hr>
+<br>
+<br>
+
+<h4 id="安装环境："><a href="#安装环境：" class="headerlink" title="安装环境："></a>安装环境：</h4><hr>
+<table>
+<thead>
+<tr>
+<th align="center">电脑型号</th>
+<th align="center">小米 Pro</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">运行内存</td>
+<td align="center">8G</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">固态存储</td>
+<td align="center">256G</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">CPU</td>
+<td align="center">x86</td>
+<td align="center">普普通通的CPU</td>
+</tr>
+</tbody></table>
+<p><br><br></p>
+<h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><hr>
+<p>由于是单硬盘安装，只要不断 &gt; 下一步 &gt; 下一步 就好，在这里说几个注意事项；</p>
+<ul>
+<li>检查网络硬件的时候，需要一个 路由器 + 一根网线，这样可以让电脑自动获取 IP ，如果检测失败，拔插网线再来一遍；</li>
+<li>安装硬盘我选的是 &gt; 整个硬盘，然后就会自动安装，你可以自己考虑；</li>
+<li>引导，如果是两个硬盘的话，那么就有两种情况：<ul>
+<li>引导放在 Linux 固态上，那么就是 F12 进入系统选择；</li>
+<li>引导放在 Windows 引导下，可能会导致引导出错，导致后期自己搭引导，当然也可能成功；</li>
+</ul>
+</li>
+<li>grub 问题在但固态情况下未遇到；</li>
+<li>最后选择应用的时候，取消了最下方的一个勾选，否则会报错，原因不明；</li>
+<li>安装好第一件事先给<code>root</code>用户更改密码，登录<code>root</code>用户，换源更新，换源步骤如下；</li>
+<li>有一个小问题，安装 VSCode 之后无法安装插件，原来是给的权限不够，遇到相同问题的小伙伴去百度吧，网上挺多的；</li>
+</ul>
+<p><br><br></p>
+<h4 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h4><hr>
+<ul>
+<li>使用<code>vim</code>打开<code>/etc/apt/sources.list</code> 文件，注解内部未注解的代码行，并且粘贴进新的源链接；</li>
+<li>执行命令<code>apt-get update</code>；</li>
+<li>执行命令<code>apt-get upgrade</code>；</li>
+<li>遇到的问题：<ul>
+<li>居然没有自带 vim，很奇怪，所以先使用：<code>apt-get install leafpad</code> 命令，下载安装 leafpad；</li>
+<li>使用 leafpad 代替 vim ，从第一行向下执行；</li>
+<li>依赖错误，使用命令<code>apt -f install</code>解决，解决后重新执行依赖报错的命令；</li>
+<li><br><br></li>
+</ul>
+</li>
+</ul>
+<h4 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h4><hr>
+<p>不同于 Windows ，Linux 激活的时候用的并不是管理员，而是普通用户，我们需要通过普通用户更改管理员的密码，过程如下：</p>
+<ul>
+<li>登录普通用户，打开终端输入命令<code>passwd root</code>；</li>
+<li>输入普通用户的登录密码；</li>
+<li>输入两次你想给管理员的密码；</li>
+<li>更改成功，退出登录，重新登录；</li>
+<li>账号是<code>root</code>，密码是刚刚输入的密码；</li>
+</ul>
+<br>
+<br>
+
+<h4 id="给系统更换语言"><a href="#给系统更换语言" class="headerlink" title="给系统更换语言"></a>给系统更换语言</h4><p>由于暗转的过程比较简单，所以我直接选择了英文安装，然后更改成中文，保留Downloads、Desktop、Documents 等文件夹；<br>较为简单，需要执行的同学请看如<a target="_blank" rel="noopener" href="https://www.cnblogs.com/C-Noah/p/14227685.html">【点击这里】</a>；</p>
+<br>
+<br>
+
+<h4 id="步骤细分"><a href="#步骤细分" class="headerlink" title="步骤细分"></a>步骤细分</h4><hr>
+<ul>
+<li>先准备启动盘，使用的软件是 Deepin ，在接下来更新系统的时候会将资源写进去；</li>
+<li>换固态、装系统、一直下一步、解决问题、开机、给 root 用户设置密码、登录 root；</li>
+<li>换源；</li>
+<li>更换系统语言为中文；</li>
+<li>安装搜狗输入法；</li>
+</ul>
+<p><br><br></p>
+<h4 id="关于工具选择"><a href="#关于工具选择" class="headerlink" title="关于工具选择"></a>关于工具选择</h4><hr>
+<ul>
+<li>办公：摒弃了 Windows 的 Office 全家桶，换成了 WPS for Linux 版本；</li>
+<li>编程：毫无变化，最近准备学习一下 Eclipse 的使用（课程需要）；</li>
+<li>聊天：目前还没找到合适的替代品，不出意外的话，最近两天应该会尝试移植 wine 版本的 QQ / 微信；</li>
+<li>上网： FireFox / Chrome ，一直以来我的不二之选；</li>
+<li>网盘：百度网盘 for Linux；</li>
+<li>音乐：网易云音乐 for Linux；</li>
+<li>上网：小飞机 for Linux<br>目前这些软件已经包括我使用的了，但是还没有 PS / Pr 等软件（其实 Deepin 是有一个叫 Gxxx 的软件来代替 PS 的）不考虑移植，因为那个软件我用着很不习惯；另外在 Windows 上我一直有使用 WallpaperEngine ，在 Linux 上没有绚丽的动态壁纸，但是好在我有几个壁纸网站的永久会员，还有一些免费的壁纸软件可以选择，所以这一点倒不是十分必要；</li>
+</ul>
+<p><br><br></p>
+<h4 id="我使用的-Kali-源"><a href="#我使用的-Kali-源" class="headerlink" title="我使用的 Kali 源"></a>我使用的 Kali 源</h4><hr>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java">deb http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>kali kali<span class="token operator">-</span>rolling main non<span class="token operator">-</span>free contrib
+deb<span class="token operator">-</span>src http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>ustc<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>kali kali<span class="token operator">-</span>rolling main non<span class="token operator">-</span>free contrib<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+
+<p><br><br></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><hr>
+<p>这一篇博客就是在 Kali 实体机上写的，之前在 Windows 上使用的是 Typroa 来写 MarkDown，现在使用的是 VSCode 。每一个 MarkDown 的编辑器使用起来都不是很一样，现在正在慢慢适应，还是很不错的，有边写边预览的功能，嗯….好像也没什么要说的，我是用的源附在了上方，要使用的同学自取。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Kali/">Kali</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/03/IDEA/%E3%80%90%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8-IDEA%E3%80%91IDEA%E4%BD%BF%E7%94%A8Debug%E6%89%BE%E9%94%99/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【软件使用】IDEA使用Debug找错</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/03/%E4%B8%8A%E7%BD%91/-Windows%E7%BF%BB%E5%A2%99%E6%95%99%E5%AD%A6/">
+                        <span class="hidden-mobile">Windows/MacOS科学上网</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81NDM5Mi8zMDg2Mw==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            &nbsp✨&nbsp 
+            <span id="busuanzi_value_site_pv"></span>
+             times
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            &nbsp💫&nbsp 
+            <span id="busuanzi_value_site_uv"></span>
+             nums
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        备案号：鲁ICP备2022010174号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
