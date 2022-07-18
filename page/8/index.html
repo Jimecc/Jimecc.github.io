@@ -13,18 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="black">
-  <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="猫是我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我是猫">
-<meta property="og:url" content="http://jjjime.github.io/page/8/index.html">
-<meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="猫是我">
-<meta property="og:locale">
-<meta property="article:author" content="不食花生的猫">
-<meta name="twitter:card" content="summary_large_image">
+  
+    <meta name="description" content="猫是我">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
   
   <title>我是猫</title>
 
@@ -32,9 +28,12 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -43,7 +42,13 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
   
 <link rel="stylesheet" href="/css/scrollbar.css">
@@ -53,16 +58,46 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.9.2","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 </head>
 
 
 <body>
-  <header style="height: 57vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 57vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>我是猫</strong>
@@ -180,6 +215,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -192,31 +228,35 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" false
-         style="background: url('/images/uploads/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="&lt;br&gt;&lt;br&gt;&lt;font size=6&gt; 保持饥饿 保持快乐 &lt;/font&gt; &lt;br&gt; &lt;br&gt;&lt;font size=2&gt;我在网络之海种上一片净土&lt;/font&gt;">
-              
-                <br><br><font size=6> 保持饥饿 保持快乐 </font> <br> <br><font size=2>我在网络之海种上一片净土</font>
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" false
+     style="background: url('/images/uploads/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><br><br><font size=6> 保持饥饿 保持快乐 </font> <br> <br><font size=2>我在网络之海种上一片净土</font></span>
           
         </div>
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
+        <div id="board"
           >
           
           <div class="container">
@@ -229,38 +269,25 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85Linux%E7%B3%BB%E7%BB%9F%E5%90%8E%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/" target="_self">
-          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="【Linux】安装Linux系统后换源操作">
+        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E5%80%99%E9%81%87%E5%88%B0grub-install-Error-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%EF%BC%8C%E8%B6%85%E8%AF%A6%E7%BB%86%E5%82%BB%E7%93%9C%E5%BC%8F%E6%95%99%E7%A8%8B/" target="_self">
+          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="【Linux】安装系统的时候遇到grub-install Error 问题的解决，超详细傻瓜式教程">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85Linux%E7%B3%BB%E7%BB%9F%E5%90%8E%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/" target="_self">
-          【Linux】安装Linux系统后换源操作
+        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E5%80%99%E9%81%87%E5%88%B0grub-install-Error-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%EF%BC%8C%E8%B6%85%E8%AF%A6%E7%BB%86%E5%82%BB%E7%93%9C%E5%BC%8F%E6%95%99%E7%A8%8B/" target="_self">
+          【Linux】安装系统的时候遇到grub-install Error 问题的解决，超详细傻瓜式教程
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85Linux%E7%B3%BB%E7%BB%9F%E5%90%8E%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/" target="_self">
-          
-          
-            
-          
-          Linux 换源
-
-换源简介
-
-什么是源？
-
-源是 Linux 系统中的一个文件，可以说是 Linux 的灵魂，一个 Linux 配置的源文件决定了 Linux 系统可以获取哪些资源，获取哪些文件，源文件损坏意味着 Linux 系统无法下载  / 更新等；
-
-为什么要换源？
-
-除了部分国内的 Linux 系统（Deepin / 麒麟 集成了国内的源，所以不用换）以外，国外的系统，类似于Ubuntu
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E5%80%99%E9%81%87%E5%88%B0grub-install-Error-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%EF%BC%8C%E8%B6%85%E8%AF%A6%E7%BB%86%E5%82%BB%E7%93%9C%E5%BC%8F%E6%95%99%E7%A8%8B/" target="_self">
+        <div>
+          前言 这篇博客写于2020年5月11日，最初发布在我的 CSDN 博客上，当时的我刚玩烂了虚拟机，感觉有些卡顿，所以想换成实体机系统，最好的解决方案就是 双系统 ，一开始我只是实验性的安装了一次，装在了我的外接磁盘上，安装成功，在后面无论怎么安装都失败，我甚至尝试卸载了 Win 系统，只装一个 Ubuntu 系统，也是失败，后来就经历了大概一个月左右的拆机阶段，在一个月的时间里我的笔记本都处于各类
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -272,20 +299,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/Error/">#Error</a>
             
-              <a href="/tags/%E5%85%A5%E9%97%A8/">入门</a>
+              <a href="/tags/Linux/">#Linux</a>
             
           </div>
         
@@ -310,15 +351,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2019/03/16/markdown/%E3%80%90%E5%8D%9A%E5%AE%A2%E3%80%91%E5%B8%B8%E7%94%A8%E9%A2%9C%E8%89%B2/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt " href="/2019/03/16/markdown/%E3%80%90%E5%8D%9A%E5%AE%A2%E3%80%91%E5%B8%B8%E7%94%A8%E9%A2%9C%E8%89%B2/" target="_self">
+        <div>
           博客常用颜色表
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -330,20 +368,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
             
-              <a href="/tags/Markdown/">Markdown</a>
+              <a href="/tags/Markdown/">#Markdown</a>
             
           </div>
         
@@ -368,17 +420,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2018/11/21/%E3%80%90Linux%E3%80%91-Linux-%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/" target="_self">
-          
-          
-            
-          
-          前言罗里吧嗦的话；可以跳过；
-
-搜狗输入法，作为我体验最好的一个输入法，一直陪我从小学走到了现在，优麒麟线上发布会时，搜狗团队代表用“聪明”来形同它，事实也确实如此，它能十分人性地记录使用者常用的热词，并且会“猜测”使用者想表达的意思，一个工具思考变多了，就意味着它的使用者思考变少了，这也正是我一直习惯于搜狗的原因，所以在安装Linux系统之后，第一时间并不是想着如何去安装各种编程工具，而是安装一
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2018/11/21/%E3%80%90Linux%E3%80%91-Linux-%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/" target="_self">
+        <div>
+          前言罗里吧嗦的话；可以跳过；  搜狗输入法，作为我体验最好的一个输入法，一直陪我从小学走到了现在，优麒麟线上发布会时，搜狗团队代表用“聪明”来形同它，事实也确实如此，它能十分人性地记录使用者常用的热词，并且会“猜测”使用者想表达的意思，一个工具思考变多了，就意味着它的使用者思考变少了，这也正是我一直习惯于搜狗的原因，所以在安装Linux系统之后，第一时间并不是想着如何去安装各种编程工具，而是安装一
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -390,20 +437,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/Linux/">#Linux</a>
             
-              <a href="/tags/Debian/">Debian</a>
+              <a href="/tags/Debian/">#Debian</a>
             
           </div>
         
@@ -428,18 +489,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2018/09/16/%E3%80%90%E6%9D%82%E8%AE%B0%E3%80%91Linus-%E4%B8%8E-Linux/" target="_self">
-          
-          
-            
-          
-          前言
-在三年的我的眼中，世界上还只有三个系统，他们分别是：Window、Android、IOS；除去两个手机系统的话，那么世界上可能就只有一个Windows了；
-三年前，我高三，在去食堂的时候，我的好哥们跟我聊到了手机，他问我：“你知不知道，以前好像有一个塞班系统的？”这句话，仿佛点亮了我对系统世界的认识，以至于后来才会对此有些锲而不舍的劲儿；
-就现在来说，作为我知道的电脑系统，应该有：Docs、
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2018/09/16/%E3%80%90%E6%9D%82%E8%AE%B0%E3%80%91Linus-%E4%B8%8E-Linux/" target="_self">
+        <div>
+          前言 在三年的我的眼中，世界上还只有三个系统，他们分别是：Window、Android、IOS；除去两个手机系统的话，那么世界上可能就只有一个Windows了； 三年前，我高三，在去食堂的时候，我的好哥们跟我聊到了手机，他问我：“你知不知道，以前好像有一个塞班系统的？”这句话，仿佛点亮了我对系统世界的认识，以至于后来才会对此有些锲而不舍的劲儿； 就现在来说，作为我知道的电脑系统，应该有：Docs、
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -451,20 +506,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E6%9D%82%E8%AE%B0/">杂记</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9D%82%E8%AE%B0/" class="category-chain-item">杂记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/Linux/">#Linux</a>
             
-              <a href="/tags/%E6%9D%82%E8%AE%B0/">杂记</a>
+              <a href="/tags/%E6%9D%82%E8%AE%B0/">#杂记</a>
             
           </div>
         
@@ -501,7 +570,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -509,68 +578,69 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            &nbsp✨&nbsp 
-            <span id="busuanzi_value_site_pv"></span>
-             times
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            &nbsp💫&nbsp 
-            <span id="busuanzi_value_site_uv"></span>
-             nums
-          </span>
-      
-    
-  </div>
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        备案号：鲁ICP备2022010174号
-      </a>
-    </span>
     
-  </div>
-
+      <span id="busuanzi_container_site_pv" style="display: none">
+        &nbsp✨&nbsp 
+        <span id="busuanzi_value_site_pv"></span>
+         times
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        &nbsp💫&nbsp 
+        <span id="busuanzi_value_site_uv"></span>
+         nums
+      </span>
+    
+    
+  
+</div>
 
   
-</footer>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      备案号：鲁ICP备2022010174号
+    </a>
+  </span>
+  
+</div>
 
+  
+  
+</div>
 
+  </footer>
 
-
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -589,10 +659,7 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
 
-
-  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -602,13 +669,8 @@
 
 
 
-  
-    
-  
 
-
-
-
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -616,35 +678,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>

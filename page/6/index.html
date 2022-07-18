@@ -13,18 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="black">
-  <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="猫是我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我是猫">
-<meta property="og:url" content="http://jjjime.github.io/page/6/index.html">
-<meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="猫是我">
-<meta property="og:locale">
-<meta property="article:author" content="不食花生的猫">
-<meta name="twitter:card" content="summary_large_image">
+  
+    <meta name="description" content="猫是我">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
   
   <title>我是猫</title>
 
@@ -32,9 +28,12 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -43,7 +42,13 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
   
 <link rel="stylesheet" href="/css/scrollbar.css">
@@ -53,16 +58,46 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.9.2","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 </head>
 
 
 <body>
-  <header style="height: 57vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 57vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>我是猫</strong>
@@ -180,6 +215,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -192,31 +228,35 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" false
-         style="background: url('/images/uploads/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="&lt;br&gt;&lt;br&gt;&lt;font size=6&gt; 保持饥饿 保持快乐 &lt;/font&gt; &lt;br&gt; &lt;br&gt;&lt;font size=2&gt;我在网络之海种上一片净土&lt;/font&gt;">
-              
-                <br><br><font size=6> 保持饥饿 保持快乐 </font> <br> <br><font size=2>我在网络之海种上一片净土</font>
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" false
+     style="background: url('/images/uploads/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><br><br><font size=6> 保持饥饿 保持快乐 </font> <br> <br><font size=2>我在网络之海种上一片净土</font></span>
           
         </div>
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
+        <div id="board"
           >
           
           <div class="container">
@@ -242,32 +282,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/09/30/%E3%80%90Java%E3%80%91static-%E5%85%B3%E9%94%AE%E5%AD%97/" target="_self">
-          
-          
-            
-          
-          static静态的内容在内存中是保留一份的并且各个对象共享
-静态方法中不能使用 this
-一般使用类名访问
-
-数据共享
-属于类的，并不属于对象
-优先于对象产生
-
-通用构造器，静态构造器
-创建对象过程（简单）
-
-静态构造器
-通用构造器
-构造方法-&gt;创建对象
-
-public class Person&#123;
-  String name;
-  static String country = "
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2021/09/30/%E3%80%90Java%E3%80%91static-%E5%85%B3%E9%94%AE%E5%AD%97/" target="_self">
+        <div>
+          static静态的内容在内存中是保留一份的并且各个对象共享 静态方法中不能使用 this 一般使用类名访问  数据共享 属于类的，并不属于对象 优先于对象产生  通用构造器，静态构造器 创建对象过程（简单）  静态构造器 通用构造器 构造方法-&gt;创建对象  public class Person&amp;#123;   String name;   static String country &#x3D; &quot;
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -279,20 +299,34 @@ public class Person&#123;
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Java/">Java</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
+              <a href="/tags/Java/">#Java</a>
             
-              <a href="/tags/%E5%9F%BA%E7%A1%80/">基础</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80/">#基础</a>
             
           </div>
         
@@ -317,16 +351,12 @@ public class Person&#123;
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E8%AE%B02-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%961/" target="_self">
-          
-          
-            
-          
-          前言
-NexT主题在更新到8.0版本之后，将许多8.0之前需要自己改代码的部分全部添加到了_config.yml文件中去了，配置十分简单，需要自己更改代码的地方简直少之又少。
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E8%AE%B02-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%961/" target="_self">
+        <div>
+          前言 NexT主题在更新到8.0版本之后，将许多8.0之前需要自己改代码的部分全部添加到了_config.yml文件中去了，配置十分简单，需要自己更改代码的地方简直少之又少。
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -338,18 +368,32 @@ NexT主题在更新到8.0版本之后，将许多8.0之前需要自己改代码�
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="category-chain-item">博客</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%BB%B4%E6%8A%A4%E5%B0%8F%E7%A0%B4%E7%AB%99/">维护小破站</a>
+              <a href="/tags/%E7%BB%B4%E6%8A%A4%E5%B0%8F%E7%A0%B4%E7%AB%99/">#维护小破站</a>
             
           </div>
         
@@ -374,15 +418,12 @@ NexT主题在更新到8.0版本之后，将许多8.0之前需要自己改代码�
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E8%BF%9E%E6%8E%A5github%20%E4%BB%93%E5%BA%93/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt " href="/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E8%BF%9E%E6%8E%A5github%20%E4%BB%93%E5%BA%93/" target="_self">
+        <div>
           如题以下所有的设置都只是为了从本地仓库上载到自己的Github仓库而非clone，因为hexo博客的特点就是在本地创建库，生成相应的文件后使用命令hexo d上载到自己的博客仓库，因此连接自己的GitHub仓库是必不可少的步骤，否则只能localhost看看了，其他人无法访问的。
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -394,18 +435,32 @@ NexT主题在更新到8.0版本之后，将许多8.0之前需要自己改代码�
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="category-chain-item">博客</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%BB%B4%E6%8A%A4%E5%B0%8F%E7%A0%B4%E7%AB%99/">维护小破站</a>
+              <a href="/tags/%E7%BB%B4%E6%8A%A4%E5%B0%8F%E7%A0%B4%E7%AB%99/">#维护小破站</a>
             
           </div>
         
@@ -430,25 +485,12 @@ NexT主题在更新到8.0版本之后，将许多8.0之前需要自己改代码�
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/08/31/%E3%80%90Java%E3%80%91super%20%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
-          
-          
-            
-          
-          super 的使用如果 B 继承了 A，那么 B 可以通过 super 来调用 A 中的方法。
-
-
-// 父类 A
-public class A &#123;
-    public void say()&#123;
-        System.out.println("A");
-    &#125;
-
-    public void sayhello()&#123;
-        System
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2021/08/31/%E3%80%90Java%E3%80%91super%20%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
+        <div>
+          super 的使用如果 B 继承了 A，那么 B 可以通过 super 来调用 A 中的方法。   &#x2F;&#x2F; 父类 A public class A &amp;#123;     public void say()&amp;#123;         System.out.println(&quot;A&quot;);     &amp;#125;      public void sayhello()&amp;#123;         System
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -460,20 +502,34 @@ public class A &#123;
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Java/">Java</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
+              <a href="/tags/Java/">#Java</a>
             
-              <a href="/tags/%E5%9F%BA%E7%A1%80/">基础</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80/">#基础</a>
             
           </div>
         
@@ -498,24 +554,12 @@ public class A &#123;
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/03/10/%E3%80%90Linux%E3%80%91Debian-%E7%B3%BB-Kali-%E4%BD%BF%E7%94%A8-Wine-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-QQ%E5%BE%AE%E4%BF%A1-%E7%AD%89%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" target="_self">
-          
-          
-            
-          
-          前言
-
-
-前一段时间在 Kali 上安装了 Deepin-wine ，并且安装了QQ/微信，链接及教程【点击此处】可以查看，但是这种方式安装 wine 虚拟机存在小小的问题，具体如下：
-
-
-在 Ubuntu 上安装较顺利，但是 Kali 上安装出现的问题较多
-安装 KDE-install.sh的过程中提示 i386 错误
-使用 apt -f install并不能解决这个依赖问题
-直接安装以来也提示
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2021/03/10/%E3%80%90Linux%E3%80%91Debian-%E7%B3%BB-Kali-%E4%BD%BF%E7%94%A8-Wine-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-QQ%E5%BE%AE%E4%BF%A1-%E7%AD%89%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" target="_self">
+        <div>
+          前言   前一段时间在 Kali 上安装了 Deepin-wine ，并且安装了QQ&#x2F;微信，链接及教程【点击此处】可以查看，但是这种方式安装 wine 虚拟机存在小小的问题，具体如下：   在 Ubuntu 上安装较顺利，但是 Kali 上安装出现的问题较多 安装 KDE-install.sh的过程中提示 i386 错误 使用 apt -f install并不能解决这个依赖问题 直接安装以来也提示
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -527,22 +571,36 @@ public class A &#123;
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/Linux/">#Linux</a>
             
-              <a href="/tags/Debian/">Debian</a>
+              <a href="/tags/Debian/">#Debian</a>
             
-              <a href="/tags/Kali/">Kali</a>
+              <a href="/tags/Kali/">#Kali</a>
             
           </div>
         
@@ -567,27 +625,12 @@ public class A &#123;
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/03/03/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E7%AE%97%E6%B3%95%E7%9A%84-%E6%A6%82%E5%BF%B5-%E4%B8%8E-%E6%80%A7%E8%B4%A8/" target="_self">
-          
-          
-            
-          
-          【左程云 01】算法的 概念 与 性质
-算法要求：在保证时间复杂度最低的前提下，尽可能减小空间复杂度与常数项时间复杂度；
-
-
-
-优劣算法评估
-时间复杂度（流程决定）
-忽略低阶项 与 高阶项的系数，留下来的就是时间复杂度；
-如一个流程最后得到的算式是 3 * N4 + 4 * N2 + C ，则最终时间复杂度就是 O( N4 )  
-
-
-额外空间复杂度（流程决定）
-与功能无关，必须自己开辟的额外空间
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2021/03/03/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E7%AE%97%E6%B3%95%E7%9A%84-%E6%A6%82%E5%BF%B5-%E4%B8%8E-%E6%80%A7%E8%B4%A8/" target="_self">
+        <div>
+          【左程云 01】算法的 概念 与 性质 算法要求：在保证时间复杂度最低的前提下，尽可能减小空间复杂度与常数项时间复杂度；    优劣算法评估 时间复杂度（流程决定） 忽略低阶项 与 高阶项的系数，留下来的就是时间复杂度； 如一个流程最后得到的算式是 3 * N4 + 4 * N2 + C ，则最终时间复杂度就是 O( N4 )     额外空间复杂度（流程决定） 与功能无关，必须自己开辟的额外空间
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -599,18 +642,32 @@ public class A &#123;
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
             
           </div>
         
@@ -635,25 +692,12 @@ public class A &#123;
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/02/15/%E3%80%90Java%E3%80%91%E8%B7%A8%E5%9F%9F-%E4%BB%A5%E5%8F%8A-%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%89%E7%A7%8D%E5%8A%9E%E6%B3%95/" target="_self">
-          
-          
-            
-          
-          跨域 以及 解决跨域的三种办法浏览器的同源策略
-协议、域名、端口三者全部相同才算是同源
-
-            解决方案一
-          
-
-目标方法上添加注解
-@GetMapping(value="/hello")
-@CrossOrigin
-public String HelloController(@RequestParam("name") String name)&#123;
-   
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2021/02/15/%E3%80%90Java%E3%80%91%E8%B7%A8%E5%9F%9F-%E4%BB%A5%E5%8F%8A-%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%89%E7%A7%8D%E5%8A%9E%E6%B3%95/" target="_self">
+        <div>
+          跨域 以及 解决跨域的三种办法浏览器的同源策略 协议、域名、端口三者全部相同才算是同源              解决方案一             目标方法上添加注解 @GetMapping(value&#x3D;&quot;&#x2F;hello&quot;) @CrossOrigin public String HelloController(@RequestParam(&quot;name&quot;) String name)&amp;#123;
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -665,18 +709,32 @@ public String HelloController(@RequestParam("name") String name)&#123;
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Java/">Java</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
+              <a href="/tags/Java/">#Java</a>
             
           </div>
         
@@ -701,20 +759,12 @@ public String HelloController(@RequestParam("name") String name)&#123;
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/01/05/%E3%80%90Linux%E3%80%91-%E6%9D%83%E9%99%90-%E4%B8%8D%E5%A4%9F-%E5%8F%97%E9%98%BB-%E4%B8%80%E7%B1%BB%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" target="_self">
-          
-          
-            
-          
-          正文
-在 Linux 中可能会遇到两种权限问题，第一种只要在命令最前方＋sudo便可以执行，这是使用 root 身份进行执行，另一种则不仅会出现在使用命令中，如在某个文件夹右击删除某个内容时，也会出现权限不够，是否跳过？这一类提示，这时候只要执行如下命令便可以解决：
-
-chmod 777 文件（或文件夹）名称
-
-在所有使用 root 无法解决，或在图形用户化界面操作无法解决时，都可以打开 终端 并
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2021/01/05/%E3%80%90Linux%E3%80%91-%E6%9D%83%E9%99%90-%E4%B8%8D%E5%A4%9F-%E5%8F%97%E9%98%BB-%E4%B8%80%E7%B1%BB%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" target="_self">
+        <div>
+          正文 在 Linux 中可能会遇到两种权限问题，第一种只要在命令最前方＋sudo便可以执行，这是使用 root 身份进行执行，另一种则不仅会出现在使用命令中，如在某个文件夹右击删除某个内容时，也会出现权限不够，是否跳过？这一类提示，这时候只要执行如下命令便可以解决：  chmod 777 文件（或文件夹）名称  在所有使用 root 无法解决，或在图形用户化界面操作无法解决时，都可以打开 终端 并
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -726,20 +776,34 @@ chmod 777 文件（或文件夹）名称
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Error/">Error</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Error/" class="category-chain-item">Error</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Error/">Error</a>
+              <a href="/tags/Error/">#Error</a>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/Linux/">#Linux</a>
             
           </div>
         
@@ -764,30 +828,12 @@ chmod 777 文件（或文件夹）名称
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/01/05/%E3%80%90Springboot%E3%80%91Spring-Framework-5-%E6%A1%86%E6%9E%B6%E7%B3%BB%E5%88%97/" target="_self">
-          
-          
-            
-          
-          Spring Framework 5 框架系列
-概念
-
-什么是Spring？
-
-Spring 是一个轻量级的（对象）控制翻转（IOC/DI）和面向切面编程（AOP）的对象容器框架；
-极大简化开发过程，降低开发难度；
-
-
-什么是控制翻转（IOC）？
-
-Spring 用户相当于窃取 Spring 成果的存在
-举例：
-我 想要生一个孩子
-我 需要付出的代价是：生孩子、喂奶、教他读书……
-我 生孩子的目的
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2021/01/05/%E3%80%90Springboot%E3%80%91Spring-Framework-5-%E6%A1%86%E6%9E%B6%E7%B3%BB%E5%88%97/" target="_self">
+        <div>
+          Spring Framework 5 框架系列 概念  什么是Spring？  Spring 是一个轻量级的（对象）控制翻转（IOC&#x2F;DI）和面向切面编程（AOP）的对象容器框架； 极大简化开发过程，降低开发难度；   什么是控制翻转（IOC）？  Spring 用户相当于窃取 Spring 成果的存在 举例： 我 想要生一个孩子 我 需要付出的代价是：生孩子、喂奶、教他读书…… 我 生孩子的目的
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -799,20 +845,34 @@ Spring 用户相当于窃取 Spring 成果的存在
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Springboot/">Springboot</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Springboot/" class="category-chain-item">Springboot</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
+              <a href="/tags/Java/">#Java</a>
             
-              <a href="/tags/Springboot/">Springboot</a>
+              <a href="/tags/Springboot/">#Springboot</a>
             
           </div>
         
@@ -837,28 +897,12 @@ Spring 用户相当于窃取 Spring 成果的存在
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/01/05/%E3%80%90%E4%BF%AE%E7%90%86%E3%80%91%E7%94%B5%E8%84%91%E7%BB%B4%E4%BF%AE-%E6%98%BE%E5%8D%A1%E9%94%99%E8%AF%AF%EF%BC%88%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%EF%BC%9A43%EF%BC%89/" target="_self">
-          
-          
-            
-          
-          电脑维修 显卡错误（错误代码：43）
-
-问题描述
-今晚使用朋友的电脑的时候，重击了一下回车键，导致蓝屏，引起的原因在于：在之前拆机的时候，该朋友撕掉了键盘与主板之间的保护膜，导致键盘直接撞击主板原件，造成短路或主板原件松动。
-
-方案一：卸载驱动-重装驱动（失败）
-方案二：重装系统-从零开始（失败）
-方案三：拆机检查（成功）
-
-
-
-
-
-拆机描述重装系统还没有解决问题的时候，我怀疑是静电或者击穿的问题
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2021/01/05/%E3%80%90%E4%BF%AE%E7%90%86%E3%80%91%E7%94%B5%E8%84%91%E7%BB%B4%E4%BF%AE-%E6%98%BE%E5%8D%A1%E9%94%99%E8%AF%AF%EF%BC%88%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%EF%BC%9A43%EF%BC%89/" target="_self">
+        <div>
+          电脑维修 显卡错误（错误代码：43）  问题描述 今晚使用朋友的电脑的时候，重击了一下回车键，导致蓝屏，引起的原因在于：在之前拆机的时候，该朋友撕掉了键盘与主板之间的保护膜，导致键盘直接撞击主板原件，造成短路或主板原件松动。  方案一：卸载驱动-重装驱动（失败） 方案二：重装系统-从零开始（失败） 方案三：拆机检查（成功）      拆机描述重装系统还没有解决问题的时候，我怀疑是静电或者击穿的问题
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -870,20 +914,34 @@ Spring 用户相当于窃取 Spring 成果的存在
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%AE%E7%90%86/">修理</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BF%AE%E7%90%86/" class="category-chain-item">修理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E4%BF%AE%E7%90%86/">修理</a>
+              <a href="/tags/%E4%BF%AE%E7%90%86/">#修理</a>
             
-              <a href="/tags/Windows/">Windows</a>
+              <a href="/tags/Windows/">#Windows</a>
             
           </div>
         
@@ -920,7 +978,7 @@ Spring 用户相当于窃取 Spring 成果的存在
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -928,68 +986,69 @@ Spring 用户相当于窃取 Spring 成果的存在
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            &nbsp✨&nbsp 
-            <span id="busuanzi_value_site_pv"></span>
-             times
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            &nbsp💫&nbsp 
-            <span id="busuanzi_value_site_uv"></span>
-             nums
-          </span>
-      
-    
-  </div>
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        备案号：鲁ICP备2022010174号
-      </a>
-    </span>
     
-  </div>
-
+      <span id="busuanzi_container_site_pv" style="display: none">
+        &nbsp✨&nbsp 
+        <span id="busuanzi_value_site_pv"></span>
+         times
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        &nbsp💫&nbsp 
+        <span id="busuanzi_value_site_uv"></span>
+         nums
+      </span>
+    
+    
+  
+</div>
 
   
-</footer>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      备案号：鲁ICP备2022010174号
+    </a>
+  </span>
+  
+</div>
 
+  
+  
+</div>
 
+  </footer>
 
-
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -1008,10 +1067,7 @@ Spring 用户相当于窃取 Spring 成果的存在
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
 
-
-  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -1021,13 +1077,8 @@ Spring 用户相当于窃取 Spring 成果的存在
 
 
 
-  
-    
-  
 
-
-
-
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1035,35 +1086,15 @@ Spring 用户相当于窃取 Spring 成果的存在
 
 
 
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>

@@ -13,18 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="black">
-  <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="猫是我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我是猫">
-<meta property="og:url" content="http://jjjime.github.io/page/4/index.html">
-<meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="猫是我">
-<meta property="og:locale">
-<meta property="article:author" content="不食花生的猫">
-<meta name="twitter:card" content="summary_large_image">
+  
+    <meta name="description" content="猫是我">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
   
   <title>我是猫</title>
 
@@ -32,9 +28,12 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -43,7 +42,13 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
   
 <link rel="stylesheet" href="/css/scrollbar.css">
@@ -53,16 +58,46 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.9.2","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 </head>
 
 
 <body>
-  <header style="height: 57vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 57vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>我是猫</strong>
@@ -180,6 +215,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -192,31 +228,35 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" false
-         style="background: url('/images/uploads/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="&lt;br&gt;&lt;br&gt;&lt;font size=6&gt; 保持饥饿 保持快乐 &lt;/font&gt; &lt;br&gt; &lt;br&gt;&lt;font size=2&gt;我在网络之海种上一片净土&lt;/font&gt;">
-              
-                <br><br><font size=6> 保持饥饿 保持快乐 </font> <br> <br><font size=2>我在网络之海种上一片净土</font>
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" false
+     style="background: url('/images/uploads/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><br><br><font size=6> 保持饥饿 保持快乐 </font> <br> <br><font size=2>我在网络之海种上一片净土</font></span>
           
         </div>
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
+        <div id="board"
           >
           
           <div class="container">
@@ -224,64 +264,6 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/" target="_self">
-          <img src="https://files.catbox.moe/qxphc5.png" srcset="/img/loading.gif" lazyload alt="【Nginx】 Nginx 全">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/" target="_self">
-          【Nginx】 Nginx 全
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/" target="_self">
-          
-          
-            
-          
-          nginx 入门笔记
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-09 15:55" pubdate>
-              2022-06-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/nginx/">nginx</a>
-            
-              <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
   <div class="row mx-auto index-card">
     
@@ -300,15 +282,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/06/09/nginx/%E3%80%90%E7%BA%A0%E9%94%99%E7%AF%87%E3%80%91-%E5%AE%89%E8%A3%85-Nginx-%E6%8A%A5%E9%94%99/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt " href="/2022/06/09/nginx/%E3%80%90%E7%BA%A0%E9%94%99%E7%AF%87%E3%80%91-%E5%AE%89%E8%A3%85-Nginx-%E6%8A%A5%E9%94%99/" target="_self">
+        <div>
           nginx 安装过程中遇到的错误以及解决办法
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -320,20 +299,103 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-chain-item">中间件</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/nginx/">nginx</a>
+              <a href="/tags/nginx/">#nginx</a>
             
-              <a href="/tags/%E7%BA%A0%E9%94%99%E7%AF%87/">纠错篇</a>
+              <a href="/tags/%E7%BA%A0%E9%94%99%E7%AF%87/">#纠错篇</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/" target="_self">
+          <img src="https://files.catbox.moe/qxphc5.png" srcset="/img/loading.gif" lazyload alt="【初探篇】 Nginx 创建脚本文件（交由 systemctl 控制）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/" target="_self">
+          【初探篇】 Nginx 创建脚本文件（交由 systemctl 控制）
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/" target="_self">
+        <div>
+          新建一个脚本文件：&#96;&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;nginx.service&#96;（允许使用&#96;systemctl&#96;管理 nginx）
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-09 15:55" pubdate>
+              2022-06-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-chain-item">中间件</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/nginx/">#nginx</a>
+            
+              <a href="/tags/%E5%88%9D%E6%8E%A2%E7%AF%87/">#初探篇</a>
             
           </div>
         
@@ -358,25 +420,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/03/23/%E3%80%90Java%E3%80%91-%E6%B3%9B%E5%9E%8B/" target="_self">
-          
-          
-            
-          
-          泛型
-泛型类为类设置一个泛型，然后可以在类中使用它
-public class Person&lt;T>&#123;
-  private T name;
-  private T address;
-  
-  public void setName(T name)&#123;
-    this.name = name;
-  &#125;
-  
-  public void setAddress(T add
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2022/03/23/%E3%80%90Java%E3%80%91-%E6%B3%9B%E5%9E%8B/" target="_self">
+        <div>
+          泛型 泛型类为类设置一个泛型，然后可以在类中使用它 public class Person&lt;T&gt;&amp;#123;   private T name;   private T address;      public void setName(T name)&amp;#123;     this.name &#x3D; name;   &amp;#125;      public void setAddress(T add
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -388,20 +437,34 @@ public class Person&lt;T>&#123;
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Java/">Java</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
+              <a href="/tags/Java/">#Java</a>
             
-              <a href="/tags/%E8%BF%9B%E9%98%B6/">进阶</a>
+              <a href="/tags/%E8%BF%9B%E9%98%B6/">#进阶</a>
             
           </div>
         
@@ -426,25 +489,12 @@ public class Person&lt;T>&#123;
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/03/22/%E3%80%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%91%E5%9C%A8-CentOS-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2-Springboot-%E9%A1%B9%E7%9B%AE(%E4%BD%BF%E7%94%A8pm2-)/" target="_self">
-          
-          
-            
-          
-          
-            在CentOS 服务器部署 Springboot 项目
-          
-
-
-            准备工作 | 安装 JDk
-          
-
-依次执行下列命令，查看自己的处理器型号并安装对应的 jdk
-
-注意！wget 并不是唯一下载文件的方式，如果下载太慢或者下载失败，可以考虑其他方式（比如我就是下载到本地后，用宝塔上传到服务器，解压缩重命名等一系列操作
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2022/03/22/%E3%80%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%91%E5%9C%A8-CentOS-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2-Springboot-%E9%A1%B9%E7%9B%AE(%E4%BD%BF%E7%94%A8pm2-)/" target="_self">
+        <div>
+          在CentOS 服务器部署 Springboot 项目                          准备工作 | 安装 JDk             依次执行下列命令，查看自己的处理器型号并安装对应的 jdk  注意！wget 并不是唯一下载文件的方式，如果下载太慢或者下载失败，可以考虑其他方式（比如我就是下载到本地后，用宝塔上传到服务器，解压缩重命名等一系列操作
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -456,20 +506,34 @@ public class Person&lt;T>&#123;
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="category-chain-item">服务器</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">#服务器</a>
             
-              <a href="/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">项目部署</a>
+              <a href="/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">#项目部署</a>
             
           </div>
         
@@ -494,25 +558,12 @@ public class Person&lt;T>&#123;
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/03/22/%E3%80%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%91%E5%9C%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E4%B8%8A%E5%90%AF%E7%94%A8-Nexus-%E7%A7%81%E6%9C%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" target="_self">
-          
-          
-            
-          
-          在腾讯云上启用 Nexus 私服的一些问题
-Linux 服务器信息
-Linux VM-4-17-centos 4.18.0-305.19.1.el8_4.x86_64 #1 SMP Wed Sep 15 15:39:39 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
-x86_64
-
-
-
-            报错
-          
-
-WARNING: ***
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2022/03/22/%E3%80%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%91%E5%9C%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E4%B8%8A%E5%90%AF%E7%94%A8-Nexus-%E7%A7%81%E6%9C%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" target="_self">
+        <div>
+          在腾讯云上启用 Nexus 私服的一些问题 Linux 服务器信息 Linux VM-4-17-centos 4.18.0-305.19.1.el8_4.x86_64 #1 SMP Wed Sep 15 15:39:39 UTC 2021 x86_64 x86_64 x86_64 GNU&#x2F;Linux x86_64                报错             WARNING: ***
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -524,20 +575,34 @@ WARNING: ***
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="category-chain-item">服务器</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">#服务器</a>
             
-              <a href="/tags/Maven/">Maven</a>
+              <a href="/tags/Maven/">#Maven</a>
             
           </div>
         
@@ -562,15 +627,12 @@ WARNING: ***
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/03/20/IDEA/%E3%80%90IDEA%E3%80%91Mac-IDEA-%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          
-          
-            
-          
-          记录一些使用的快捷键，比如快速创建构造函数、set/get方法等
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2022/03/20/IDEA/%E3%80%90IDEA%E3%80%91Mac-IDEA-%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
+        <div>
+          记录一些使用的快捷键，比如快速创建构造函数、set&#x2F;get方法等
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -582,20 +644,34 @@ WARNING: ***
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/IDEA/">IDEA</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/IDEA/" class="category-chain-item">IDEA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/IDEA/">IDEA</a>
+              <a href="/tags/IDEA/">#IDEA</a>
             
-              <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">快捷键</a>
+              <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">#快捷键</a>
             
           </div>
         
@@ -620,27 +696,12 @@ WARNING: ***
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/03/19/%E3%80%90Springboot%E3%80%91Springboot-%E7%BA%A6%E5%AE%9A%E5%A4%A7%E4%BA%8E%E9%85%8D%E7%BD%AE/" target="_self">
-          
-          
-            
-          
-          Springboot 约定大于配置
-
-            关于约定大于配置。
-          
-
-首先这是一种开发思想，并不是说 Springboot 创造了这种思想，而是 Springboot 实践了这一思想。
-
-            Springboot 对于这种思想的实现过程
-          
-
-
-
-在我们创建 Springboot 项目的时候，框架会根据pom 文件中的dep
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2022/03/19/%E3%80%90Springboot%E3%80%91Springboot-%E7%BA%A6%E5%AE%9A%E5%A4%A7%E4%BA%8E%E9%85%8D%E7%BD%AE/" target="_self">
+        <div>
+          Springboot 约定大于配置              关于约定大于配置。             首先这是一种开发思想，并不是说 Springboot 创造了这种思想，而是 Springboot 实践了这一思想。              Springboot 对于这种思想的实现过程               在我们创建 Springboot 项目的时候，框架会根据pom 文件中的dep
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -652,20 +713,34 @@ WARNING: ***
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Springboot/">Springboot</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Springboot/" class="category-chain-item">Springboot</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Springboot/">Springboot</a>
+              <a href="/tags/Springboot/">#Springboot</a>
             
-              <a href="/tags/%E5%85%A5%E9%97%A8/">入门</a>
+              <a href="/tags/%E5%85%A5%E9%97%A8/">#入门</a>
             
           </div>
         
@@ -690,20 +765,12 @@ WARNING: ***
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/03/17/%E3%80%90Vue%E3%80%91-Vue-%EF%BD%9C-%E5%85%A5%E9%97%A8%E4%B8%8E%E8%BF%9B%E9%98%B6%EF%BC%88%E5%B0%9A%E6%9C%AA%E5%AE%8C%E6%88%90%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86%EF%BC%89/" target="_self">
-          
-          
-            
-          
-          
-            笔记地址https://github.com/Jimecc/Vue_Study
-          
-
-目前还未整理成笔记
-
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2022/03/17/%E3%80%90Vue%E3%80%91-Vue-%EF%BD%9C-%E5%85%A5%E9%97%A8%E4%B8%8E%E8%BF%9B%E9%98%B6%EF%BC%88%E5%B0%9A%E6%9C%AA%E5%AE%8C%E6%88%90%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86%EF%BC%89/" target="_self">
+        <div>
+          笔记地址https:&#x2F;&#x2F;github.com&#x2F;Jimecc&#x2F;Vue_Study             目前还未整理成笔记
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -715,20 +782,34 @@ WARNING: ***
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Vue/">Vue</a>
+              <a href="/tags/Vue/">#Vue</a>
             
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
             
           </div>
         
@@ -753,21 +834,12 @@ WARNING: ***
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/03/14/%E3%80%90Java%E3%80%91Java%20%E5%86%85%E9%83%A8%E7%B1%BB/" target="_self">
-          
-          
-            
-          
-          Java 内部类一般来说，类和类之间是互相独立的，但是内部类的出现打破了这种独立关系，让一个类成为另外一个类的内部信息，和成员变量、成员方法等同级别。
-为什么要使用内部类采用内部类可以隐藏细节和内部结构，封装性更好，让程序的结构更加合理。
-
-            非静态内部类
-          
-
-非静态内部类的使用就是将内部类作为外部类的一个成员变量/成员方法来使用，所以必须依赖外部类的对象
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2022/03/14/%E3%80%90Java%E3%80%91Java%20%E5%86%85%E9%83%A8%E7%B1%BB/" target="_self">
+        <div>
+          Java 内部类一般来说，类和类之间是互相独立的，但是内部类的出现打破了这种独立关系，让一个类成为另外一个类的内部信息，和成员变量、成员方法等同级别。 为什么要使用内部类采用内部类可以隐藏细节和内部结构，封装性更好，让程序的结构更加合理。              非静态内部类             非静态内部类的使用就是将内部类作为外部类的一个成员变量&#x2F;成员方法来使用，所以必须依赖外部类的对象
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -779,20 +851,34 @@ WARNING: ***
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Java/">Java</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
+              <a href="/tags/Java/">#Java</a>
             
-              <a href="/tags/%E8%BF%9B%E9%98%B6/">进阶</a>
+              <a href="/tags/%E8%BF%9B%E9%98%B6/">#进阶</a>
             
           </div>
         
@@ -817,63 +903,12 @@ WARNING: ***
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/03/12/%E3%80%90%E5%AD%A6%E3%80%91Java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E4%B8%8E%E6%8B%86%E7%AE%B1/" target="_self">
-          
-          
-            
-          
-          Java 自动装箱与拆箱
-            基本类与包装类
-          
-
-
-
-
-基本类
-大小
-包装类
-
-
-
-boolean
-/
-Boolean
-
-
-char
-16bit
-Character
-
-
-byte
-8bit
-Byte
-
-
-short
-16bit
-Short
-
-
-int
-32bit
-Integer
-
-
-long
-64bit
-Long
-
-
-float
-32bit
-Float
-
-
-
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2022/03/12/%E3%80%90%E5%AD%A6%E3%80%91Java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E4%B8%8E%E6%8B%86%E7%AE%B1/" target="_self">
+        <div>
+          Java 自动装箱与拆箱             基本类与包装类                基本类 大小 包装类    boolean &#x2F; Boolean   char 16bit Character   byte 8bit Byte   short 16bit Short   int 32bit Integer   long 64bit Long   float 32bit Float
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -885,20 +920,34 @@ Float
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Java/">Java</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
+              <a href="/tags/Java/">#Java</a>
             
-              <a href="/tags/%E5%9F%BA%E7%A1%80/">基础</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80/">#基础</a>
             
           </div>
         
@@ -935,7 +984,7 @@ Float
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -943,68 +992,69 @@ Float
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            &nbsp✨&nbsp 
-            <span id="busuanzi_value_site_pv"></span>
-             times
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            &nbsp💫&nbsp 
-            <span id="busuanzi_value_site_uv"></span>
-             nums
-          </span>
-      
-    
-  </div>
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        备案号：鲁ICP备2022010174号
-      </a>
-    </span>
     
-  </div>
-
+      <span id="busuanzi_container_site_pv" style="display: none">
+        &nbsp✨&nbsp 
+        <span id="busuanzi_value_site_pv"></span>
+         times
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        &nbsp💫&nbsp 
+        <span id="busuanzi_value_site_uv"></span>
+         nums
+      </span>
+    
+    
+  
+</div>
 
   
-</footer>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      备案号：鲁ICP备2022010174号
+    </a>
+  </span>
+  
+</div>
 
+  
+  
+</div>
 
+  </footer>
 
-
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -1023,10 +1073,7 @@ Float
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
 
-
-  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -1036,13 +1083,8 @@ Float
 
 
 
-  
-    
-  
 
-
-
-
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1050,35 +1092,15 @@ Float
 
 
 
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>

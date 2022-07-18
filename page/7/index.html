@@ -13,18 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="black">
-  <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="猫是我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我是猫">
-<meta property="og:url" content="http://jjjime.github.io/page/7/index.html">
-<meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="猫是我">
-<meta property="og:locale">
-<meta property="article:author" content="不食花生的猫">
-<meta name="twitter:card" content="summary_large_image">
+  
+    <meta name="description" content="猫是我">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
   
   <title>我是猫</title>
 
@@ -32,9 +28,12 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -43,7 +42,13 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
   
 <link rel="stylesheet" href="/css/scrollbar.css">
@@ -53,16 +58,46 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.8.12","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jjjime.github.io","root":"/","version":"1.9.2","typing":{"enable":false,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"touch","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 </head>
 
 
 <body>
-  <header style="height: 57vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 57vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>我是猫</strong>
@@ -180,6 +215,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -192,31 +228,35 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" false
-         style="background: url('/images/uploads/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="&lt;br&gt;&lt;br&gt;&lt;font size=6&gt; 保持饥饿 保持快乐 &lt;/font&gt; &lt;br&gt; &lt;br&gt;&lt;font size=2&gt;我在网络之海种上一片净土&lt;/font&gt;">
-              
-                <br><br><font size=6> 保持饥饿 保持快乐 </font> <br> <br><font size=2>我在网络之海种上一片净土</font>
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" false
+     style="background: url('/images/uploads/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle"><br><br><font size=6> 保持饥饿 保持快乐 </font> <br> <br><font size=2>我在网络之海种上一片净土</font></span>
           
         </div>
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
+        <div id="board"
           >
           
           <div class="container">
@@ -242,29 +282,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/11/21/%E3%80%90Linux%E3%80%91-%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-JDK%E3%80%81Node.js%E3%80%81Npm%E3%80%81Yarn%E3%80%81Redis%E3%80%81Maven%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%90%AD%E5%BB%BA/" target="_self">
-          
-          
-            
-          
-          Linux 编程环境搭建 JDK、Node.js、Npm、Yarn、Redis、Maven的安装与搭建
-JDK 的搭建：
-注：在进行所有的步骤之前，为了方便，请在终端输入sudo su进入管理员模式;【注：右侧目录可以跳转查看文章】
-
-
-下载资源：
-
-点击进入Oracle官网下载 JDK，版本要求如下如所示：
-
-
-
-
-解压缩资源：
-
-打开终端，使用 cd Downloads命令，进入下载文件夹，然
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2020/11/21/%E3%80%90Linux%E3%80%91-%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-JDK%E3%80%81Node.js%E3%80%81Npm%E3%80%81Yarn%E3%80%81Redis%E3%80%81Maven%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%90%AD%E5%BB%BA/" target="_self">
+        <div>
+          Linux 编程环境搭建 JDK、Node.js、Npm、Yarn、Redis、Maven的安装与搭建 JDK 的搭建： 注：在进行所有的步骤之前，为了方便，请在终端输入sudo su进入管理员模式;【注：右侧目录可以跳转查看文章】   下载资源：  点击进入Oracle官网下载 JDK，版本要求如下如所示：     解压缩资源：  打开终端，使用 cd Downloads命令，进入下载文件夹，然
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -276,20 +299,34 @@ JDK 的搭建：
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="category-chain-item">环境搭建</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/Linux/">#Linux</a>
             
-              <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a>
+              <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">#环境搭建</a>
             
           </div>
         
@@ -314,20 +351,12 @@ JDK 的搭建：
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/11/21/%E3%80%90%E8%AF%95%E3%80%91HashCat-%E5%8F%82%E6%95%B0/" target="_self">
-          
-          
-            
-          
-          HashCat 参数
-直接运行hashcat（分为32和64位版本）会提示使用参数：
-Usage:hashcat64 [options]... hash|hashfile|hccapxfile [dictionary|mask|directory]...
-
-也即hashcat [选项] 破解的哈希值或hash文件、hccapx文件 [字典|掩码|目录] …
-Hccapxfile对应无线包，其对应破
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2020/11/21/%E3%80%90%E8%AF%95%E3%80%91HashCat-%E5%8F%82%E6%95%B0/" target="_self">
+        <div>
+          HashCat 参数 直接运行hashcat（分为32和64位版本）会提示使用参数： Usage:hashcat64 [options]... hash|hashfile|hccapxfile [dictionary|mask|directory]...  也即hashcat [选项] 破解的哈希值或hash文件、hccapx文件 [字典|掩码|目录] … Hccapxfile对应无线包，其对应破
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -339,20 +368,34 @@ Hccapxfile对应无线包，其对应破
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Kali/">Kali</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Kali/" class="category-chain-item">Kali</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Kali/">Kali</a>
+              <a href="/tags/Kali/">#Kali</a>
             
-              <a href="/tags/HashCat/">HashCat</a>
+              <a href="/tags/HashCat/">#HashCat</a>
             
           </div>
         
@@ -377,22 +420,12 @@ Hccapxfile对应无线包，其对应破
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/07/03/%E3%80%90Java%E3%80%91%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91/" target="_self">
-          
-          
-            
-          
-          多线程与高并发 synchronized 篇进程 线程 协程/纤程（Quasur）
-
-
-线程：一个程序里不同的执行路径public static class T1 extends Thread&#123;
-  @Override 
-  public void run()&#123;
-    System.out.println("Override Theme 中的 run 方法");
-  &#12
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2020/07/03/%E3%80%90Java%E3%80%91%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91/" target="_self">
+        <div>
+          多线程与高并发 synchronized 篇进程 线程 协程&#x2F;纤程（Quasur）   线程：一个程序里不同的执行路径public static class T1 extends Thread&amp;#123;   @Override    public void run()&amp;#123;     System.out.println(&quot;Override Theme 中的 run 方法&quot;);   &amp;#12
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -404,20 +437,34 @@ Hccapxfile对应无线包，其对应破
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Java/">Java</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
+              <a href="/tags/Java/">#Java</a>
             
-              <a href="/tags/%E8%BF%9B%E9%98%B6/">进阶</a>
+              <a href="/tags/%E8%BF%9B%E9%98%B6/">#进阶</a>
             
           </div>
         
@@ -442,31 +489,12 @@ Hccapxfile对应无线包，其对应破
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/05/03/%E3%80%90Java%E3%80%91Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
-          
-          
-            
-          
-          Lambda 表达式
-
-初识 Lambda
-
-什么是   Lambda  表达式？
-
-自 Java 8 增加的新特性
-一个匿名方法(一个没有名字的方法，在定义变量的时候定义的方法)
-
-
-为什么使用    Lambda  ？
-
-简洁实现接口对接；
-
-虽然可以使用    Lambda   表达式对某些接口进行实现，但是并不是所有的接口都可以使用   Lambda  来实现；
-
-实现要求：要实现的抽象方
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2020/05/03/%E3%80%90Java%E3%80%91Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
+        <div>
+          Lambda 表达式  初识 Lambda  什么是   Lambda  表达式？  自 Java 8 增加的新特性 一个匿名方法(一个没有名字的方法，在定义变量的时候定义的方法)   为什么使用    Lambda  ？  简洁实现接口对接；  虽然可以使用    Lambda   表达式对某些接口进行实现，但是并不是所有的接口都可以使用   Lambda  来实现；  实现要求：要实现的抽象方
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -478,20 +506,34 @@ Hccapxfile对应无线包，其对应破
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Java/">Java</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
+              <a href="/tags/Java/">#Java</a>
             
-              <a href="/tags/%E8%BF%9B%E9%98%B6/">进阶</a>
+              <a href="/tags/%E8%BF%9B%E9%98%B6/">#进阶</a>
             
           </div>
         
@@ -516,53 +558,12 @@ Hccapxfile对应无线包，其对应破
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/05/03/IDEA/%E3%80%90%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8-IDEA%E3%80%91IDEA%E4%BD%BF%E7%94%A8Debug%E6%89%BE%E9%94%99/" target="_self">
-          
-          
-            
-          
-          单线程 Debug
-
-01_Debug
-
-什么是Debug
-
-Debug 程序调试
-开发：调试 = 1 : 1.5
-
-
-Debug能帮我们做什么
-
-追踪代码运行流程
-异常的定位与调试
-线上问题追踪
-
-
-Debug的意义
-
-熟悉执行流程
-方便理解复杂程序逻辑
-定位问题 提高解决问题的能力
-
-
-
-
-02_Idea中的Debug
-
-设置断点（F9）
-程序调试（按钮x8）
-
-
-
-
-按钮
-快捷方式
-说明
-
-
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2020/05/03/IDEA/%E3%80%90%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8-IDEA%E3%80%91IDEA%E4%BD%BF%E7%94%A8Debug%E6%89%BE%E9%94%99/" target="_self">
+        <div>
+          单线程 Debug  01_Debug  什么是Debug  Debug 程序调试 开发：调试 &#x3D; 1 : 1.5   Debug能帮我们做什么  追踪代码运行流程 异常的定位与调试 线上问题追踪   Debug的意义  熟悉执行流程 方便理解复杂程序逻辑 定位问题 提高解决问题的能力     02_Idea中的Debug  设置断点（F9） 程序调试（按钮x8）     按钮 快捷方式 说明
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -574,22 +575,36 @@ Debug的意义
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">软件使用</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" class="category-chain-item">软件使用</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Error/">Error</a>
+              <a href="/tags/Error/">#Error</a>
             
-              <a href="/tags/IDEA/">IDEA</a>
+              <a href="/tags/IDEA/">#IDEA</a>
             
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">软件使用</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
             
           </div>
         
@@ -614,49 +629,12 @@ Debug的意义
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/01/12/%E3%80%90Linux%E3%80%91Kali%20%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" target="_self">
-          
-          
-            
-          
-          【试】Kali 安装笔记今天得到了一块新的固态硬盘，在物理机上安装了一次 Kali ，总结一下安装心得；
-
-
-
-
-安装环境：
-
-
-
-电脑型号
-小米 Pro
-备注
-
-
-
-运行内存
-8G
-
-
-
-固态存储
-256G
-
-
-
-CPU
-x86
-普普通通的CPU
-
-
-
-安装过程
-由于是单硬盘安装，只要不断 &gt; 下一步 &gt; 下一步 就好，在这里说几个注意事项；
-
-检查网络硬件的时候，需要一个 路由器 
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2020/01/12/%E3%80%90Linux%E3%80%91Kali%20%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" target="_self">
+        <div>
+          【试】Kali 安装笔记今天得到了一块新的固态硬盘，在物理机上安装了一次 Kali ，总结一下安装心得；     安装环境：    电脑型号 小米 Pro 备注    运行内存 8G    固态存储 256G    CPU x86 普普通通的CPU    安装过程 由于是单硬盘安装，只要不断 &gt; 下一步 &gt; 下一步 就好，在这里说几个注意事项；  检查网络硬件的时候，需要一个 路由器
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -668,20 +646,34 @@ x86
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/Linux/">#Linux</a>
             
-              <a href="/tags/Kali/">Kali</a>
+              <a href="/tags/Kali/">#Kali</a>
             
           </div>
         
@@ -706,15 +698,12 @@ x86
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2019/10/03/%E4%B8%8A%E7%BD%91/-Windows%E7%BF%BB%E5%A2%99%E6%95%99%E5%AD%A6/" target="_self">
-          
-          
-            
-          
-          Windows/MacOS 使用Clash科学上网
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2019/10/03/%E4%B8%8A%E7%BD%91/-Windows%E7%BF%BB%E5%A2%99%E6%95%99%E5%AD%A6/" target="_self">
+        <div>
+          Windows&#x2F;MacOS 使用Clash科学上网
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -726,18 +715,32 @@ x86
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%A4%A7%E9%BE%84%E7%94%B7%E5%AD%A9%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/">大龄男孩网上冲浪</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E9%BE%84%E7%94%B7%E5%AD%A9%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/" class="category-chain-item">大龄男孩网上冲浪</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E4%B8%8A%E7%BD%91/">上网</a>
+              <a href="/tags/%E4%B8%8A%E7%BD%91/">#上网</a>
             
           </div>
         
@@ -762,15 +765,12 @@ x86
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2019/10/02/%E4%B8%8A%E7%BD%91/-iPhone-iPad%E4%BD%BF%E7%94%A8-Shadowrocket%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" target="_self">
-          
-          
-            
-          
-          在iPhone/iPad使用 Shadowrocket科学上网
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2019/10/02/%E4%B8%8A%E7%BD%91/-iPhone-iPad%E4%BD%BF%E7%94%A8-Shadowrocket%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" target="_self">
+        <div>
+          在iPhone&#x2F;iPad使用 Shadowrocket科学上网
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -782,11 +782,25 @@ x86
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%A4%A7%E9%BE%84%E7%94%B7%E5%AD%A9%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/">大龄男孩网上冲浪</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E9%BE%84%E7%94%B7%E5%AD%A9%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/" class="category-chain-item">大龄男孩网上冲浪</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -811,22 +825,12 @@ x86
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91-Kali-%E5%88%87%E6%8D%A2%E8%AF%AD%E8%A8%80%E4%B8%BA%E4%B8%AD%E6%96%87/" target="_self">
-          
-          
-            
-          
-          系统介绍
-博主使用的系统是2020版的 VMWare 虚拟机版本，系统运行流畅，其中 VMware 是15 Pro，配置为：2个内存各 1 G，运行起来还是十分流畅的，平时切在副屏上，运行效果跟两个电脑是一样的。
-
-
-语言设置
-
-运行apt install ttf-wqy-zenhei命令安装中文字体;
-运行dpkg–reconfigure locales命令设置系统时区，点击回车之后出现如下界面
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2019/07/03/%E3%80%90Linux%E3%80%91-Kali-%E5%88%87%E6%8D%A2%E8%AF%AD%E8%A8%80%E4%B8%BA%E4%B8%AD%E6%96%87/" target="_self">
+        <div>
+          系统介绍 博主使用的系统是2020版的 VMWare 虚拟机版本，系统运行流畅，其中 VMware 是15 Pro，配置为：2个内存各 1 G，运行起来还是十分流畅的，平时切在副屏上，运行效果跟两个电脑是一样的。   语言设置  运行apt install ttf-wqy-zenhei命令安装中文字体; 运行dpkg–reconfigure locales命令设置系统时区，点击回车之后出现如下界面
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -838,22 +842,36 @@ x86
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Kali/">Kali</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Kali/" class="category-chain-item">Kali</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/Linux/">#Linux</a>
             
-              <a href="/tags/Debian/">Debian</a>
+              <a href="/tags/Debian/">#Debian</a>
             
-              <a href="/tags/Kali/">Kali</a>
+              <a href="/tags/Kali/">#Kali</a>
             
           </div>
         
@@ -865,29 +883,25 @@ x86
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E5%80%99%E9%81%87%E5%88%B0grub-install-Error-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%EF%BC%8C%E8%B6%85%E8%AF%A6%E7%BB%86%E5%82%BB%E7%93%9C%E5%BC%8F%E6%95%99%E7%A8%8B/" target="_self">
-          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="【Linux】安装系统的时候遇到grub-install Error 问题的解决，超详细傻瓜式教程">
+        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85Linux%E7%B3%BB%E7%BB%9F%E5%90%8E%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/" target="_self">
+          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="【Linux】安装Linux系统后换源操作">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E5%80%99%E9%81%87%E5%88%B0grub-install-Error-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%EF%BC%8C%E8%B6%85%E8%AF%A6%E7%BB%86%E5%82%BB%E7%93%9C%E5%BC%8F%E6%95%99%E7%A8%8B/" target="_self">
-          【Linux】安装系统的时候遇到grub-install Error 问题的解决，超详细傻瓜式教程
+        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85Linux%E7%B3%BB%E7%BB%9F%E5%90%8E%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/" target="_self">
+          【Linux】安装Linux系统后换源操作
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E5%80%99%E9%81%87%E5%88%B0grub-install-Error-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%EF%BC%8C%E8%B6%85%E8%AF%A6%E7%BB%86%E5%82%BB%E7%93%9C%E5%BC%8F%E6%95%99%E7%A8%8B/" target="_self">
-          
-          
-            
-          
-          前言
-这篇博客写于2020年5月11日，最初发布在我的 CSDN 博客上，当时的我刚玩烂了虚拟机，感觉有些卡顿，所以想换成实体机系统，最好的解决方案就是 双系统 ，一开始我只是实验性的安装了一次，装在了我的外接磁盘上，安装成功，在后面无论怎么安装都失败，我甚至尝试卸载了 Win 系统，只装一个 Ubuntu 系统，也是失败，后来就经历了大概一个月左右的拆机阶段，在一个月的时间里我的笔记本都处于各类
-        </a>
-      </p>
+      
+      <a class="index-excerpt " href="/2019/07/03/%E3%80%90Linux%E3%80%91%E5%AE%89%E8%A3%85Linux%E7%B3%BB%E7%BB%9F%E5%90%8E%E6%8D%A2%E6%BA%90%E6%93%8D%E4%BD%9C/" target="_self">
+        <div>
+          Linux 换源  换源简介  什么是源？  源是 Linux 系统中的一个文件，可以说是 Linux 的灵魂，一个 Linux 配置的源文件决定了 Linux 系统可以获取哪些资源，获取哪些文件，源文件损坏意味着 Linux 系统无法下载  &#x2F; 更新等；  为什么要换源？  除了部分国内的 Linux 系统（Deepin &#x2F; 麒麟 集成了国内的源，所以不用换）以外，国外的系统，类似于Ubuntu
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -899,20 +913,34 @@ x86
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Error/">Error</a>
+              <a href="/tags/Linux/">#Linux</a>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/%E5%85%A5%E9%97%A8/">#入门</a>
             
           </div>
         
@@ -949,7 +977,7 @@ x86
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -957,68 +985,69 @@ x86
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            &nbsp✨&nbsp 
-            <span id="busuanzi_value_site_pv"></span>
-             times
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            &nbsp💫&nbsp 
-            <span id="busuanzi_value_site_uv"></span>
-             nums
-          </span>
-      
-    
-  </div>
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        备案号：鲁ICP备2022010174号
-      </a>
-    </span>
     
-  </div>
-
+      <span id="busuanzi_container_site_pv" style="display: none">
+        &nbsp✨&nbsp 
+        <span id="busuanzi_value_site_pv"></span>
+         times
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        &nbsp💫&nbsp 
+        <span id="busuanzi_value_site_uv"></span>
+         nums
+      </span>
+    
+    
+  
+</div>
 
   
-</footer>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      备案号：鲁ICP备2022010174号
+    </a>
+  </span>
+  
+</div>
 
+  
+  
+</div>
 
+  </footer>
 
-
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -1037,10 +1066,7 @@ x86
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
 
-
-  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -1050,13 +1076,8 @@ x86
 
 
 
-  
-    
-  
 
-
-
-
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1064,35 +1085,15 @@ x86
 
 
 
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>
