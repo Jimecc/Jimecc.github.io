@@ -318,12 +318,17 @@ Eureka Client 通过注册中心进行访问是个Java客户端，用于简
           
           Zookeeper
 
+配置
+主启动
 
-
-
-
-
-
+@EnableDiscoveryClient
+@SpringBootApplication
+// 主启动
+public class Run&#123;
+  public static void mian(String[] args)&#123;
+    SpringApplication.run(Run.class,args)
+  &#125;
+&#125;
 
         </a>
       </p>
