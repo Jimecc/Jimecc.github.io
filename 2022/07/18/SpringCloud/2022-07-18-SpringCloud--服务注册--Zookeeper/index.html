@@ -16,24 +16,21 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="分布式文件系统 FastDFS  Github    1. 分布式文件系统应用场景互联网海量非结构化数据的存储需求  电商网站：海量商品图片 视频网站：海量视频文件 网盘：海量文件 社交网站：海量图片   2.FastDFS 介绍2.1 简介​    FastDFS是一个开源的高性能分布式文件系统 (DFS）。它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。主要解决了海量数据">
+  <meta name="description" content="Consul官网中文网  简介Go 语言开发的  服务注册与发现 健康检查 KV 存储 多数据中心 可视化 Web 界面  &lt;dependency&gt; 	&lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;   &lt;artifactId&gt;spring-cloud-stater-consul-discovery&lt;&#x2F;artifactId&gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中间件 | FastDFS">
-<meta property="og:url" content="http://jjjime.github.io/2022/07/15/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6%20|%20FastDFS/index.html">
+<meta property="og:title" content="SpringCloud | 服务注册 | Zookeeper">
+<meta property="og:url" content="http://jjjime.github.io/2022/07/18/SpringCloud/2022-07-18-SpringCloud--%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C--Zookeeper/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="分布式文件系统 FastDFS  Github    1. 分布式文件系统应用场景互联网海量非结构化数据的存储需求  电商网站：海量商品图片 视频网站：海量视频文件 网盘：海量文件 社交网站：海量图片   2.FastDFS 介绍2.1 简介​    FastDFS是一个开源的高性能分布式文件系统 (DFS）。它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。主要解决了海量数据">
+<meta property="og:description" content="Consul官网中文网  简介Go 语言开发的  服务注册与发现 健康检查 KV 存储 多数据中心 可视化 Web 界面  &lt;dependency&gt; 	&lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;   &lt;artifactId&gt;spring-cloud-stater-consul-discovery&lt;&#x2F;artifactId&gt;">
 <meta property="og:locale">
-<meta property="og:image" content="https://files.catbox.moe/2u957r.png">
-<meta property="og:image" content="https://files.catbox.moe/quiwiq.png">
-<meta property="article:published_time" content="2022-07-15T07:36:49.000Z">
-<meta property="article:modified_time" content="2022-07-18T12:48:27.930Z">
+<meta property="article:published_time" content="2022-07-18T10:25:36.000Z">
+<meta property="article:modified_time" content="2022-07-18T13:02:22.066Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="中间件">
+<meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://files.catbox.moe/2u957r.png">
   
-  <title>中间件 | FastDFS ｜ 我是猫</title>
+  <title>SpringCloud | 服务注册 | Zookeeper ｜ 我是猫</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -228,9 +225,9 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="中间件 | FastDFS">
+            <span class="h2" id="subtitle" title="SpringCloud | 服务注册 | Zookeeper">
               
-                中间件 | FastDFS
+                SpringCloud | 服务注册 | Zookeeper
               
             </span>
 
@@ -245,8 +242,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-07-15 15:36" pubdate>
-        July 15, 2022 pm
+      <time datetime="2022-07-18 18:25" pubdate>
+        July 18, 2022 pm
       </time>
     </span>
   
@@ -256,7 +253,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      196 字
     </span>
   
 
@@ -265,7 +262,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      1 分钟
     </span>
   
 
@@ -298,66 +295,31 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">中间件 | FastDFS</h1>
+            <h1 style="display: none">SpringCloud | 服务注册 | Zookeeper</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 minutes ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="分布式文件系统-FastDFS"><a href="#分布式文件系统-FastDFS" class="headerlink" title="分布式文件系统 FastDFS"></a>分布式文件系统 FastDFS</h1><br>
+              <h1 id="Consul"><a href="#Consul" class="headerlink" title="Consul"></a>Consul</h1><div><div style="width:100%;height:85px;background:#eef7fa;border-radius:10px;text-align:center;padding:22px 0px;"><div><a target="_blank" rel="noopener" href="https://learn.hashicorp.com/consul" style="font-size:24px;margin-right:15px"><b>官网</b></a></div></div><div style="margin:5px 0;width:100%;height:85px;background:#eef7fa;border-radius:10px;text-align:center;padding:22px 0px;"><div><a target="_blank" rel="noopener" href="https://www.springcloud.cc/spring-cloud-consul.html" style="font-size:24px;margin-right:15px"><b>中文网</b></a></div></div></div>
 
-<div style="width:100%;height:85px;background:#eef7fa;border-radius:10px;text-align:center;padding:22px 0px;"><div><img style="width:25px;border-radius:5px;margin:0 10px  9px 0" src="https://files.catbox.moe/2u957r.png" srcset="/img/loading.gif" lazyload/><a target="_blank" rel="noopener" href="https://github.com/happyfish100/fastdfs" style="font-size:24px;margin-right:15px"><b>Github</b></a></div></div>
-
-<br>
-
-<h2 id="1-分布式文件系统应用场景"><a href="#1-分布式文件系统应用场景" class="headerlink" title="1. 分布式文件系统应用场景"></a>1. 分布式文件系统应用场景</h2><p>互联网海量非结构化数据的存储需求</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong><font color=orange>Go 语言</font>开发的</strong></p>
 <ul>
-<li>电商网站：海量商品图片</li>
-<li>视频网站：海量视频文件</li>
-<li>网盘：海量文件</li>
-<li>社交网站：海量图片</li>
+<li>服务注册与发现</li>
+<li>健康检查</li>
+<li>KV 存储</li>
+<li>多数据中心</li>
+<li>可视化 Web 界面</li>
 </ul>
-<p><br><br></p>
-<h2 id="2-FastDFS-介绍"><a href="#2-FastDFS-介绍" class="headerlink" title="2.FastDFS 介绍"></a>2.FastDFS 介绍</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><p>​    FastDFS是一个开源的高性能分布式文件系统 (DFS）。它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。主要解决了海量数据存储问题，特别适合以中小文件（建议范国：4KB &lt; file_size&lt;500MB） 为载体的在线服务。<br>​    FastDFS设计是用来存储小文件的，过大的文件处理方案是拆分为小文件，可跟踪小文件的上传情况。如果应用场景都是处理大文件，可能选择其他分布式文件系统方案会更合适。</p>
-<br>
+<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-stater-consul-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<h3 id="2-2-特性"><a href="#2-2-特性" class="headerlink" title="2.2 特性"></a>2.2 特性</h3><p>FastDFS为互联网量身定制，充分考虑了冗余备份、负载构衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭<br>建一套高性能的文件服务器集群提供文件上传、下载等服务。<br><strong>优点：</strong></p>
-<ul>
-<li><p>文件不分块存储，文件和系统中的文件对应。</p>
-</li>
-<li><p>对文件内容做hash处理，避免出现重复文件，节约磁盘空间。</p>
-</li>
-<li><p>下载文件支持HTTP协议，可基于内置WebServer或外部Web Server。</p>
-</li>
-<li><p>支持在线扩容，动态添加卷。</p>
-</li>
-<li><p>支持文件冗余备份和负载均衡。</p>
-</li>
-<li><p>存储服务器上可以保存文件属性 (meta-data)v2.0网络通信采用ibevent，支持大并发访问，整体性能更好。</p>
-</li>
-</ul>
-<p><strong>缺点</strong></p>
-<ul>
-<li>直接按文件存储，可直接查看文件内容，缺乏文件安全性。</li>
-<li>数据同步无校验，存在静默1口问题，降低系统可用性。</li>
-<li>单线程数据同步，仅适合存储小文件 （4KB到500MB之间）。</li>
-<li>备份数根据存储分卷（分组）决定，缺乏文件备份数设置灵活性。</li>
-<li>单个挂载点异常会导致整个存储节点下线。</li>
-<li>缺乏多机房容灾支持。</li>
-<li>静态的负载均衡机制。</li>
-</ul>
-<p>优点与缺点并存，但针对中小型系统已经完全足够使用了。</p>
-<br>
 
-<h3 id="2-3-角色"><a href="#2-3-角色" class="headerlink" title="2.3 角色"></a>2.3 角色</h3><ul>
-<li>Tracker server：跟踪服务器，主要做调度工作，起到均衡的作用;负责管理所有的storageserver和 group，每个storage 在启动后会连接 Tracker，告知自己所属 group 等信息，并保持周期性心跳。</li>
-<li>storage server：存储服务器，主要提供容量和备份服务；以group 为单位，每个group内可以有多台 storage server, 数据互为备份。</li>
-<li>Client：客户端，上传下载数据的服务器，也就是我们自己的项目所部署在的服务器。</li>
-</ul>
-<div style="text-align:center;padding:20px 5px;border:1px solid #eae6e6;border-radius:15px"><img style="width:80%" src="https://files.catbox.moe/quiwiq.png" srcset="/img/loading.gif" lazyload  /><br><br><span style="color:darkgray">👆FastDFS 架构图</span></div><br>
 
 
             </div>
@@ -368,7 +330,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+                      <a class="hover-with-bg" href="/categories/SpringCloud/">SpringCloud</a>
                     
                   </div>
                 
@@ -378,7 +340,7 @@
                     
                       <a class="hover-with-bg" href="/tags/Java/">Java</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+                      <a class="hover-with-bg" href="/tags/SpringCloud/">SpringCloud</a>
                     
                   </div>
                 
@@ -395,18 +357,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/16/%E5%8D%9A%E5%AE%A2-%E6%B5%8B%E8%AF%95-hexo-fluid-netlify-%E7%9A%84%E5%90%8E%E5%8F%B0%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">博客 | 测试 Hexo-Fluid-Netlify 的后台编辑功能</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/13/Java%20%7C%20%E5%88%B7%E9%A2%98/J%20%7C%20/">
-                        <span class="hidden-mobile">Java | 刷题 |</span>
+                      <a href="/2022/07/18/SpringCloud/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/">
+                        <span class="hidden-mobile">SpringCloud | 服务注册 | Zookeeper</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
