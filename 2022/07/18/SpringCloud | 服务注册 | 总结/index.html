@@ -16,24 +16,23 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="前言   前一段时间在 Kali 上安装了 Deepin-wine ，并且安装了QQ&#x2F;微信，链接及教程【点击此处】可以查看，但是这种方式安装 wine 虚拟机存在小小的问题，具体如下：   在 Ubuntu 上安装较顺利，但是 Kali 上安装出现的问题较多 安装 KDE-install.sh的过程中提示 i386 错误 使用 apt -f install并不能解决这个依赖问题 直接安装以来也提示">
+  <meta name="description" content="组件名 语言 服务健康检查 对外暴露接口 Spring Cloud 继承 CAP    Eureka Java 可配支持 HTTP 已集成 AP   Consul Go 支持 HTTP&#x2F;DNS 已集成 CP   Zookeeper Java 支持 客户端 已集成 CP   👆CAP 架构图   一致性（C）：在分布式系统中的所有数据备份，在同一时刻是否同样的值。（等同于所有节点访问同一份最">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Linux】Debian 系 Kali 使用 Wine 虚拟机安装 QQ&#x2F;微信 等常用软件">
-<meta property="og:url" content="http://jjjime.github.io/2021/03/10/%E3%80%90Linux%E3%80%91Debian-%E7%B3%BB-Kali-%E4%BD%BF%E7%94%A8-Wine-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-QQ%E5%BE%AE%E4%BF%A1-%E7%AD%89%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/index.html">
+<meta property="og:title" content="SpringCloud | 服务注册 | 总结">
+<meta property="og:url" content="http://jjjime.github.io/2022/07/18/SpringCloud%20|%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20|%20%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="前言   前一段时间在 Kali 上安装了 Deepin-wine ，并且安装了QQ&#x2F;微信，链接及教程【点击此处】可以查看，但是这种方式安装 wine 虚拟机存在小小的问题，具体如下：   在 Ubuntu 上安装较顺利，但是 Kali 上安装出现的问题较多 安装 KDE-install.sh的过程中提示 i386 错误 使用 apt -f install并不能解决这个依赖问题 直接安装以来也提示">
+<meta property="og:description" content="组件名 语言 服务健康检查 对外暴露接口 Spring Cloud 继承 CAP    Eureka Java 可配支持 HTTP 已集成 AP   Consul Go 支持 HTTP&#x2F;DNS 已集成 CP   Zookeeper Java 支持 客户端 已集成 CP   👆CAP 架构图   一致性（C）：在分布式系统中的所有数据备份，在同一时刻是否同样的值。（等同于所有节点访问同一份最">
 <meta property="og:locale">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/2159067/202102/2159067-20210216215846765-289127058.png">
-<meta property="article:published_time" content="2021-03-10T09:33:59.000Z">
-<meta property="article:modified_time" content="2022-06-17T22:38:39.817Z">
+<meta property="og:image" content="https://files.catbox.moe/is21nr.png">
+<meta property="article:published_time" content="2022-07-18T10:25:36.000Z">
+<meta property="article:modified_time" content="2022-07-18T13:23:09.962Z">
 <meta property="article:author" content="不食花生的猫">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Debian">
-<meta property="article:tag" content="Kali">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img2020.cnblogs.com/blog/2159067/202102/2159067-20210216215846765-289127058.png">
+<meta name="twitter:image" content="https://files.catbox.moe/is21nr.png">
   
-  <title>【Linux】Debian 系 Kali 使用 Wine 虚拟机安装 QQ/微信 等常用软件 ｜ 我是猫</title>
+  <title>SpringCloud | 服务注册 | 总结 ｜ 我是猫</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -228,9 +227,9 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="【Linux】Debian 系 Kali 使用 Wine 虚拟机安装 QQ/微信 等常用软件">
+            <span class="h2" id="subtitle" title="SpringCloud | 服务注册 | 总结">
               
-                【Linux】Debian 系 Kali 使用 Wine 虚拟机安装 QQ/微信 等常用软件
+                SpringCloud | 服务注册 | 总结
               
             </span>
 
@@ -245,8 +244,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-10 17:33" pubdate>
-        March 10, 2021 pm
+      <time datetime="2022-07-18 18:25" pubdate>
+        July 18, 2022 pm
       </time>
     </span>
   
@@ -256,7 +255,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      225 字
     </span>
   
 
@@ -265,7 +264,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      1 分钟
     </span>
   
 
@@ -298,125 +297,57 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【Linux】Debian 系 Kali 使用 Wine 虚拟机安装 QQ/微信 等常用软件</h1>
+            <h1 style="display: none">SpringCloud | 服务注册 | 总结</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：a month ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
-<br>
+              <table>
+<thead>
+<tr>
+<th>组件名</th>
+<th>语言</th>
+<th>服务健康检查</th>
+<th>对外暴露接口</th>
+<th>Spring Cloud 继承</th>
+<th>CAP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Eureka</td>
+<td>Java</td>
+<td>可配支持</td>
+<td>HTTP</td>
+<td>已集成</td>
+<td>AP</td>
+</tr>
+<tr>
+<td>Consul</td>
+<td>Go</td>
+<td>支持</td>
+<td>HTTP/DNS</td>
+<td>已集成</td>
+<td>CP</td>
+</tr>
+<tr>
+<td>Zookeeper</td>
+<td>Java</td>
+<td>支持</td>
+<td>客户端</td>
+<td>已集成</td>
+<td>CP</td>
+</tr>
+</tbody></table>
+<div style="text-align:center;padding:20px 5px;border:1px solid #eae6e6;border-radius:15px"><img style="width:80%;border-radius:10px" src="https://files.catbox.moe/is21nr.png" srcset="/img/loading.gif" lazyload  /><br><br><span style="color:darkgray">👆CAP 架构图</span></div><br>
 
-<p>前一段时间在 Kali 上安装了 Deepin-wine ，并且安装了QQ/微信，链接及教程<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hskcool/p/14227695.html">【点击此处】</a>可以查看，但是这种方式安装 wine 虚拟机存在小小的问题，具体如下：</p>
 <blockquote>
-<ul>
-<li>在 Ubuntu 上安装较顺利，但是 Kali 上安装出现的问题较多</li>
-<li>安装 KDE-install.sh的过程中提示 i386 错误<ul>
-<li>使用 <code>apt -f install</code>并不能解决这个依赖问题</li>
-<li>直接安装以来也提示报错</li>
-</ul>
-</li>
-<li>忽略依赖直接安装，结束后虽然安装了 QQ/微信 但是打不开</li>
-<li>仅能安装大牛打包的 <code>deb</code> 文件，不能安装 Windows 上的 <code>.exe</code> 文件，所以选择有限（大概不超过10种）</li>
-<li>正确安装好软件之后，由于字体不匹配，中文全部由小方框代替<ul>
-<li>可以移植 Windows 的中文字体来解决这一问题，但是比较麻烦</li>
-<li>也许将系统语言调整成中文也可以解决，但是我没有尝试过</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>前一段时间我在网上闲逛的时候，发现了另一种安装方式，类似于在 Linux 上构造一个微型的 Windows 虚拟机，基本上解决了如上的所有问题，具体如下：</p>
-<blockquote>
-<ul>
-<li>无 i386 报错</li>
-<li>中文正常显示</li>
-<li>可以直接安装 <code>.exe</code> 文件</li>
-</ul>
-</blockquote>
-<p>具体安装过程看以下博客（原文地址在博客结尾会写出）：</p>
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-
-
-
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><hr>
-<br>
-
-<br>
-
-
-<h4 id="开启kali的i386支持"><a href="#开启kali的i386支持" class="headerlink" title="开启kali的i386支持"></a>开启kali的i386支持</h4><hr>
-<blockquote>
-<p>开启支持：dpkg –add-architecture  i386<br>更新一下：apt updata &amp;&amp; apt upgrade</p>
-</blockquote>
-<br>
-
-<h4 id="安装wine并设置环境变量"><a href="#安装wine并设置环境变量" class="headerlink" title="安装wine并设置环境变量"></a>安装wine并设置环境变量</h4><hr>
-<p>因为 Kali 默认安装wine64 ，所以使用如下命令安装wine32：</p>
-<blockquote>
-<p>apt install wine32</p>
-</blockquote>
-<p>安装结束后在<code>～/.bashrc</code>文件（在root模式下，使用自己常用的如 vim 或 leafpad 打开就可以）最后添加以下环境变量，默认使用wine32</p>
-<blockquote>
-<p> export WINEPREFIX=~/win32<br> export WINEARCH=win32</p>
-</blockquote>
-<p> 安装winetricks 以用来安装wine所需的支持库</p>
-<blockquote>
-<p> apt-get install winetrick5</p>
-</blockquote>
-<p>加载一下环境变量</p>
-<blockquote>
-<p>source ~/.bashrc </p>
-</blockquote>
-<p>安装一下支持文件</p>
-<blockquote>
-<p>apt install winbind<br>apt install wine32-preloader<br>winetricks riched20</p>
-</blockquote>
-<br>
-
-<h4 id="安装微信"><a href="#安装微信" class="headerlink" title="安装微信"></a>安装微信</h4><hr>
-<p>去<a target="_blank" rel="noopener" href="https://weixin.qq.com/cgi-bin/readtemplate?uin=&stype=&promote=&fr=&lang=zh_CN&ADTAG=&check=false&nav=download&t=weixin_download_list&loc=readtemplate,weixin,body,6">【微信官网】</a>下载微信的 <code>.exe</code> 安装包，并使用以下命令进行安装：</p>
-<blockquote>
-<p>wine WeChatSetup.exe </p>
-</blockquote>
-<p>安装结束，桌面会出现微信的图标，双击打开就可以正常使用了，界面如下：</p>
-<div align=center>
-<img style="width:350px" src="https://img2020.cnblogs.com/blog/2159067/202102/2159067-20210216215846765-289127058.png" srcset="/img/loading.gif" lazyload alt="二维码">
-</div>
-
-
-
-
-
-
-
-
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><hr>
-<blockquote>
-<ul>
-<li>如果在安装过程中出现任何错误，请回到前一步重新执行</li>
-<li>如果在安装过程中更新环境变量出现错误，请忽略</li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wislove/article/details/96199363?ops_request_misc=&request_id=&biz_id=102&utm_term=kali%20%E5%AE%89%E8%A3%85%20wine&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-96199363.first_rank_v2_pc_rank_v29&spm=1018.2226.3001.4187">博客原文地址</a></li>
-</ul>
+<p>一致性（C）：在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/4905336">分布式系统</a>中的所有数据备份，在同一时刻是否同样的值。（等同于所有节点访问同一份最新的数据副本）</p>
+<p>可用性（A）：保证每个请求不管成功或者失败都有响应。</p>
+<p>分区容忍性（P）：系统中任意信息的丢失或失败不会影响系统的继续运作。 </p>
 </blockquote>
 
             </div>
@@ -427,7 +358,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                      <a class="hover-with-bg" href="/categories/SpringCloud/">SpringCloud</a>
                     
                   </div>
                 
@@ -435,11 +366,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
                     
-                      <a class="hover-with-bg" href="/tags/Debian/">Debian</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Kali/">Kali</a>
+                      <a class="hover-with-bg" href="/tags/SpringCloud/">SpringCloud</a>
                     
                   </div>
                 
@@ -456,9 +385,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/31/%E3%80%90Java%E3%80%91super%20%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                      <a href="/2022/07/18/SpringCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【Java】super 的使用</span>
+                        <span class="hidden-mobile">SpringCloud | 服务注册 | Consul</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -466,8 +395,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/03/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E7%AE%97%E6%B3%95%E7%9A%84-%E6%A6%82%E5%BF%B5-%E4%B8%8E-%E6%80%A7%E8%B4%A8/">
-                        <span class="hidden-mobile">【学】左程云 算法的 概念 与 性质</span>
+                      <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/">
+                        <span class="hidden-mobile">SpringCloud | 服务注册 | Eurek</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
