@@ -18,19 +18,19 @@
   <meta name="keywords" content="">
   <meta name="description" content="Eureka Eureka 包括两个组件（C&#x2F;S 架构 类似于服务器与客户端）  Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。   Eureka Client 通过注册中心进行访问是个Java客户端，用于简化 Eu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringCloud | Eureka Server">
+<meta property="og:title" content="SpringCloud | Eurek">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/12/SpringCloud/%E3%80%90SrpingCloud%E3%80%91%20Eureka%20Server/index.html">
 <meta property="og:site_name" content="我是猫">
 <meta property="og:description" content="Eureka Eureka 包括两个组件（C&#x2F;S 架构 类似于服务器与客户端）  Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。   Eureka Client 通过注册中心进行访问是个Java客户端，用于简化 Eu">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-07-12T09:57:19.000Z">
-<meta property="article:modified_time" content="2022-07-18T07:32:37.112Z">
+<meta property="article:modified_time" content="2022-07-18T09:48:54.667Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>SpringCloud | Eureka Server ｜ 我是猫</title>
+  <title>SpringCloud | Eurek ｜ 我是猫</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -225,9 +225,9 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="SpringCloud | Eureka Server">
+            <span class="h2" id="subtitle" title="SpringCloud | Eurek">
               
-                SpringCloud | Eureka Server
+                SpringCloud | Eurek
               
             </span>
 
@@ -253,7 +253,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.4k 字
+      3.2k 字
     </span>
   
 
@@ -262,7 +262,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      10 分钟
     </span>
   
 
@@ -295,16 +295,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SpringCloud | Eureka Server</h1>
+            <h1 style="display: none">SpringCloud | Eurek</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：39 minutes ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="Eureka"><a href="#Eureka" class="headerlink" title="Eureka"></a>Eureka</h2><blockquote>
+              <h1 id="Eureka"><a href="#Eureka" class="headerlink" title="Eureka"></a>Eureka</h1><blockquote>
 <h3 id="Eureka-包括两个组件（C-S-架构-类似于服务器与客户端）"><a href="#Eureka-包括两个组件（C-S-架构-类似于服务器与客户端）" class="headerlink" title="Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）"></a>Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）</h3></blockquote>
 <blockquote>
 <p><strong>Eureka Server <font color=red>提供服务注册服务</font></strong><br>各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。</p>
@@ -353,8 +353,6 @@
 
 <p><strong>Eureka Client</strong></p>
 <div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
-<span class="token annotation punctuation">@EnableFeignClients</span> <span class="token comment">// 启动 feign</span>
-<span class="token annotation punctuation">@EnableHystrix</span> <span class="token comment">// 启动 hystrix</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CloudConsumerFeignHystrixOrder80Application</span> <span class="token punctuation">&#123;</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -363,7 +361,7 @@
 
     <span class="token punctuation">&#125;</span>
 
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">eureka:
   client:
@@ -380,6 +378,45 @@
 #    lease-renewal-interval-in-seconds: 1
 #    Eureka服务端在收到最后一次心跳后等待时间上限，单位为秒(默认是90秒)，超时将剔除服务
 #    lease-expiration-duration-in-seconds: 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+
+
+<h2 id="服务发现-Discovery"><a href="#服务发现-Discovery" class="headerlink" title="服务发现 Discovery"></a>服务发现 Discovery</h2><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">discovery</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> serives <span class="token operator">=</span> discoveryClient<span class="token punctuation">.</span><span class="token function">getServices</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> element <span class="token operator">:</span> services<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"****element:"</span><span class="token operator">+</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  
+  <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ServiceInstance</span><span class="token punctuation">></span></span> instances <span class="token operator">=</span> discoveryClient<span class="token punctuation">.</span><span class="token function">getInstances</span><span class="token punctuation">(</span><span class="token string">"CLOUD_PAYMENT_SERVICE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">ServiceInstance</span> instance <span class="token operator">:</span> instances<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span>instance<span class="token punctuation">.</span><span class="token function">getServiceId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>instance<span class="token punctuation">.</span><span class="token function">getHost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>instance<span class="token punctuation">.</span><span class="token function">getPost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>instance<span class="token punctuation">.</span><span class="token function">getUri</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>discoveryClient<span class="token punctuation">;</span>
+  
+<span class="token punctuation">&#125;</span>
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableEurekaClient</span> <span class="token comment">// 启动服务发现</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">Run</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+<h2 id="Eureka-自我保护机制"><a href="#Eureka-自我保护机制" class="headerlink" title="Eureka 自我保护机制"></a>Eureka 自我保护机制</h2><blockquote>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3></blockquote>
+<blockquote>
+<p>（默认开启）保护模式主要用于一组客户端和Eureka Server之间存在网络分区场景下的保护，一旦进入保护模式，<font color=red><strong>Eureka Server将会尝试保护其服务注册表中的信息，不再删除服务注朋表中的数据，也就是不会注销任何微服务。</strong></font></p>
+</blockquote>
+<blockquote>
+<p>某时刻某一个微服务不可用了，Eureka 不会立刻清理，依旧会对改为服务的信息进行保存。</p>
+<p>属于 CAP 里面的 AP 分支。</p>
+</blockquote>
 
             </div>
             <hr>
