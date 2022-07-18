@@ -13,29 +13,24 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="black">
-  <meta name="description" content="nginx 安装过程中遇到的错误以及解决办法">
+  <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="nginx 安装过程中遇到的错误以及解决办法">
+  <meta name="description" content="Eureka Eureka 包括两个组件（C&#x2F;S 架构 类似于服务器与客户端）  Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。   Eureka Client 通过注册中心进行访问是个Java客户端，用于简化 Eu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【纠错篇】 安装 Nginx 报错">
-<meta property="og:url" content="http://jjjime.github.io/2022/06/09/nginx/%E3%80%90%E7%BA%A0%E9%94%99%E7%AF%87%E3%80%91-%E5%AE%89%E8%A3%85-Nginx-%E6%8A%A5%E9%94%99/index.html">
+<meta property="og:title" content="SpringCloud | Eureka Server">
+<meta property="og:url" content="http://jjjime.github.io/2022/07/12/SpringCloud/%E3%80%90SrpingCloud%E3%80%91%20Eureka%20Server/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="nginx 安装过程中遇到的错误以及解决办法">
+<meta property="og:description" content="Eureka Eureka 包括两个组件（C&#x2F;S 架构 类似于服务器与客户端）  Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。   Eureka Client 通过注册中心进行访问是个Java客户端，用于简化 Eu">
 <meta property="og:locale">
-<meta property="og:image" content="https://files.catbox.moe/pzzehv.png">
-<meta property="og:image" content="https://files.catbox.moe/4an2rk.png">
-<meta property="og:image" content="https://files.catbox.moe/et9ri8.png">
-<meta property="og:image" content="https://files.catbox.moe/6pxib8.png">
-<meta property="article:published_time" content="2022-06-09T07:55:44.000Z">
-<meta property="article:modified_time" content="2022-06-17T22:39:50.901Z">
+<meta property="article:published_time" content="2022-07-12T09:57:19.000Z">
+<meta property="article:modified_time" content="2022-07-18T07:32:37.112Z">
 <meta property="article:author" content="不食花生的猫">
-<meta property="article:tag" content="nginx">
-<meta property="article:tag" content="纠错篇">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://files.catbox.moe/pzzehv.png">
   
-  <title>【纠错篇】 安装 Nginx 报错 ｜ 我是猫</title>
+  <title>SpringCloud | Eureka Server ｜ 我是猫</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -230,9 +225,9 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="【纠错篇】 安装 Nginx 报错">
+            <span class="h2" id="subtitle" title="SpringCloud | Eureka Server">
               
-                【纠错篇】 安装 Nginx 报错
+                SpringCloud | Eureka Server
               
             </span>
 
@@ -247,8 +242,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-06-09 15:55" pubdate>
-        June 9, 2022 pm
+      <time datetime="2022-07-12 17:57" pubdate>
+        July 12, 2022 pm
       </time>
     </span>
   
@@ -258,7 +253,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      356 字
+      2.4k 字
     </span>
   
 
@@ -267,7 +262,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      8 分钟
     </span>
   
 
@@ -300,42 +295,91 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【纠错篇】 安装 Nginx 报错</h1>
+            <h1 style="display: none">SpringCloud | Eureka Server</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：a month ago
+                  本文最后更新于：a minute ago
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="在-CentOS8-上安装-Nginx-遇到的问题以及解决办法"><a href="#在-CentOS8-上安装-Nginx-遇到的问题以及解决办法" class="headerlink" title="在 CentOS8 上安装 Nginx 遇到的问题以及解决办法"></a>在 CentOS8 上安装 Nginx 遇到的问题以及解决办法</h1><ul>
-<li><font color=red>注意：</font>这边可能会遇到两个问题，如如果遇到请参考下面方法，没有遇到就跳过：</li>
-</ul>
-<img style="width:900px" src="https://files.catbox.moe/pzzehv.png" srcset="/img/loading.gif" lazyload>
+              <h2 id="Eureka"><a href="#Eureka" class="headerlink" title="Eureka"></a>Eureka</h2><blockquote>
+<h3 id="Eureka-包括两个组件（C-S-架构-类似于服务器与客户端）"><a href="#Eureka-包括两个组件（C-S-架构-类似于服务器与客户端）" class="headerlink" title="Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）"></a>Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）</h3></blockquote>
+<blockquote>
+<p><strong>Eureka Server <font color=red>提供服务注册服务</font></strong><br>各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。</p>
+</blockquote>
+<blockquote>
+<p><strong>Eureka Client <font color=red>通过注册中心进行访问</font></strong><br>是个Java客户端，用于简化 Eureka Server 的交互，客户端同时也具备个内置的、使用轮询(round-robin)负载算法的负载均衡器在应用启动后，将会向Eureka Server发送心跳(默认周期为30秒）。如果Eureka Server在多个心跳周期内没有接收到某个节点的心跳，Eureka Server将会从服务注册表中把这个服务节点移除（默认90秒）。</p>
+</blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-netflix-eureka-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka-server --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-netflix-eureka-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!-- 图形监控https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
 
+<h2 id="单击部署-Eureka"><a href="#单击部署-Eureka" class="headerlink" title="单击部署 Eureka"></a>单击部署 Eureka</h2><p><strong>Eureka Server</strong></p>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableEurekaServer</span> <span class="token comment">// 设置为服务注册中心 EurekaServer</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CloudEurekaServer7001Application</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">CloudEurekaServer7001Application</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"启动成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">eureka:
+  instance:
+    hostname: localhost  #eureka服务端的实例名字
+  client:
+    register-with-eureka: false    #表示不向注册中心注册自己
+    fetch-registry: false   #表示自己就是注册中心，职责是维护服务实例，并不需要去检索服务
+    service-url:
+      #设置与eureka server交互的地址查询服务和注册服务都需要依赖这个地址
+      defaultZone: http:&#x2F;&#x2F;$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;&#x2F;eureka&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<p><font size=4 color=orange>对于问题 1</font>：进入到:<code>/解压缩后的文件夹下的/objs</code>下，使用 vim 打开 Makefile 并删除下列代码中的<code>-Werror</code></p>
-<div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 删除前
-CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g　
-# 删除后
-CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -g　<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p><strong>Eureka Client</strong></p>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableFeignClients</span> <span class="token comment">// 启动 feign</span>
+<span class="token annotation punctuation">@EnableHystrix</span> <span class="token comment">// 启动 hystrix</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CloudConsumerFeignHystrixOrder80Application</span> <span class="token punctuation">&#123;</span>
 
-<p><font color=orange size-4>问题 2</font>：进入到下方文件夹，使用 vim 打开<code>ngx-user.c</code>后注释掉下面一行代码</p>
-<img style="width:900px" src="https://files.catbox.moe/4an2rk.png" srcset="/img/loading.gif" lazyload>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">CloudConsumerFeignHystrixOrder80Application</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"启动成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cd.current_salt[0] &#x3D; ~salt[0];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+    <span class="token punctuation">&#125;</span>
 
-<p>两个问题修改之后的效果：</p>
-<img style="width:600px" src="https://files.catbox.moe/et9ri8.png" srcset="/img/loading.gif" lazyload>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<img style="width:600px" src="https://files.catbox.moe/6pxib8.png" srcset="/img/loading.gif" lazyload>
-
-<hr>
-<p><font color=#7baf23 size=2>问题已解决！</font></p>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">eureka:
+  client:
+    register-with-eureka: true #是否向注册中心注册自己
+    fetchRegistry: true #是否从注册中心抓取已有的注册信息 默认true，集群必须设置为true
+    service-url:
+      #      设置与eureka server交互的地址查询服务和注册服务都需要依赖这个地址
+      #      defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka #单机版
+      defaultZone: http:&#x2F;&#x2F;eureka7001.com:7001&#x2F;eureka,http:&#x2F;&#x2F;eureka7002.com:7002&#x2F;eureka  #集群版
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true  #访问路径可以显示IP地址
+#    Eureka客户端向服务端发送心跳的时间间隔，单位为秒(默认是30秒)
+#    lease-renewal-interval-in-seconds: 1
+#    Eureka服务端在收到最后一次心跳后等待时间上限，单位为秒(默认是90秒)，超时将剔除服务
+#    lease-expiration-duration-in-seconds: 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
             </div>
             <hr>
@@ -345,7 +389,7 @@ CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -g　<sp
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+                      <a class="hover-with-bg" href="/categories/SpringCloud/">SpringCloud</a>
                     
                   </div>
                 
@@ -353,9 +397,9 @@ CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -g　<sp
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/nginx/">nginx</a>
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%BA%A0%E9%94%99%E7%AF%87/">纠错篇</a>
+                      <a class="hover-with-bg" href="/tags/SpringCloud/">SpringCloud</a>
                     
                   </div>
                 
@@ -372,9 +416,9 @@ CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -g　<sp
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/">
+                      <a href="/2022/07/13/MySQL/MySQL%20%7C%20%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【Nginx】 Nginx 全</span>
+                        <span class="hidden-mobile">MySQL | 刷题笔记</span>
                         <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
@@ -382,8 +426,8 @@ CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -g　<sp
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/23/%E3%80%90Java%E3%80%91-%E6%B3%9B%E5%9E%8B/">
-                        <span class="hidden-mobile">【Java】 泛型</span>
+                      <a href="/2022/07/12/SpringCloud/%E3%80%90SrpingCloud%E3%80%91%20%E7%83%AD%E9%83%A8%E7%BD%B2/">
+                        <span class="hidden-mobile">【SpringBoot】 热部署</span>
                         <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
