@@ -248,11 +248,12 @@
           
             
           
-          OpenFeign
+          OpenFeign@FeignClient
+
  Feign是一个声明式WebService客户端。使用Feign能让编写Web Service客户端更加简单。
 
 
-它的使用方法是定义一个服务接口然后在上面添加注解。Feign也支持可拔插式的编码器和解码器。Spring Cloud对Feign进行了封装，使其支持了Spring MVC标准注解和HttpMessageConverters。 Feign可以与Eureka和Rib
+它的使用方法是定义一个服务接口然后在上面添加注解。Feign也支持可拔插式的编码器和解码器。Spring Cloud对Feign进行了封装，使其支持了Spring MVC标准注解和HttpMessageConverters。 Feign
         </a>
       </p>
 
@@ -986,7 +987,7 @@ Github
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -995,7 +996,7 @@ Github
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

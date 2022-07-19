@@ -8,7 +8,7 @@
     <link href="/2022/07/19/SpringCloud--%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1--OpenFeign/"/>
     <url>/2022/07/19/SpringCloud--%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1--OpenFeign/</url>
     
-    <content type="html"><![CDATA[<h1 id="OpenFeign"><a href="#OpenFeign" class="headerlink" title="OpenFeign"></a><a href="https://spring.io/projects/spring-cloud-openfeign"><font color=black>OpenFeign</font></a></h1><blockquote><p> Feign是一个声明式WebService客户端。使用Feign能让编写Web Service客户端更加简单。</p></blockquote><blockquote><p>它的使用方法是定义一个服务接口然后在上面添加注解。Feign也支持可拔插式的编码器和解码器。Spring Cloud对Feign进行了封装，使其支持了Spring MVC标准注解和HttpMessageConverters。 Feign可以与Eureka和Ribbon组合使用以支持负载均衡</p></blockquote><p>Feign 是一个声明式的 Web 服务客户端，让编写 Web 服务客户端变得非常容易，只需要创建一个接口并在接口上加上注释就可以了。</p><p><font color=#2b61a7><b>Feign能干什么</b></font><br>Feign旨在使编写Java Http客户端变得更容易。<br>前面在使用Ribbon+ RestTemplate时，利用RestTemplate对http请求的封装处理，形成了一套模版化的调用方法。但是在实际开发中，由于对服务依赖的调用可能不止一处，往往</p><p>一个接口会被多处调用，所以通常都会针对每个微服务自行封装一些客户端类来包装这些依赖服务的调用。所以，Feign在此基础上做了进一步封装，由他来帮助我们定义和实现依赖服务接口的定义。在Feign的实现下我们只需创建一个接口并使用注解的方式来配置它(以前是Dao接口上面标注Mapper注解,现在是一个微服务接口上面标注Feign注解即可，即可完成对服务提供方的接口鄉定，简化了使用Spring cloud Ribbon时，自动封装服务调用客户端的开发量</p><p><font color=#2b61a7><b>Feign集成了Ribbon</b></font></p><p>利用Ribbon维护了Payment的服务列表信息，并日通过轮询实现了客户端的负载均衡。而与Ribbon不同的是，通过feign只需要定义服务绑定接口且以声明式的方法，优雅而简单的实现了服务调用。</p><table><thead><tr><th>Feign</th><th>OpenFeign</th></tr></thead><tbody><tr><td>Feign是Spring Cloud组件中的一个轻量级RESTful的HTTP服务客户端Feign内置了Ribbon，用来做客户端负载均衡，去调用服务注册中心的服务。Feign的使用方式是：使用Feign的注解定义接口，调用这个接口就可以调用服务注册中心的服务。</td><td>openFeign是Spring Cloud 在Feign的基础上支持了SpringMVc的注解，如@Reques Mapping等等。OpenFeign的@ FeignClient可以解析SpringMVC的@RequestMapping注解下的接口，并通过动态代理的方式产生实现类，实现类中做负载均衡并调用其他服务。</td></tr></tbody></table><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-feign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>]]></content>
+    <content type="html"><![CDATA[<h1 id="OpenFeign"><a href="#OpenFeign" class="headerlink" title="OpenFeign"></a><a href="https://spring.io/projects/spring-cloud-openfeign"><font color=black>OpenFeign</font></a></h1><p><font color=orange><b>@FeignClient</b></font></p><blockquote><p> Feign是一个声明式WebService客户端。使用Feign能让编写Web Service客户端更加简单。</p></blockquote><blockquote><p>它的使用方法是定义一个服务接口然后在上面添加注解。Feign也支持可拔插式的编码器和解码器。Spring Cloud对Feign进行了封装，使其支持了Spring MVC标准注解和HttpMessageConverters。 Feign可以与Eureka和Ribbon组合使用以支持负载均衡</p></blockquote><p>Feign 是一个声明式的 Web 服务客户端，让编写 Web 服务客户端变得非常容易，只需要创建一个接口并在接口上加上注释就可以了。</p><p><font color=#2b61a7><b>Feign能干什么</b></font><br>Feign旨在使编写Java Http客户端变得更容易。<br>前面在使用Ribbon+ RestTemplate时，利用RestTemplate对http请求的封装处理，形成了一套模版化的调用方法。但是在实际开发中，由于对服务依赖的调用可能不止一处，往往</p><p>一个接口会被多处调用，所以通常都会针对每个微服务自行封装一些客户端类来包装这些依赖服务的调用。所以，Feign在此基础上做了进一步封装，由他来帮助我们定义和实现依赖服务接口的定义。在Feign的实现下我们只需创建一个接口并使用注解的方式来配置它(以前是Dao接口上面标注Mapper注解,现在是一个微服务接口上面标注Feign注解即可，即可完成对服务提供方的接口鄉定，简化了使用Spring cloud Ribbon时，自动封装服务调用客户端的开发量</p><p><font color=#2b61a7><b>Feign集成了Ribbon</b></font></p><p>利用Ribbon维护了Payment的服务列表信息，并日通过轮询实现了客户端的负载均衡。而与Ribbon不同的是，通过feign只需要定义服务绑定接口且以声明式的方法，优雅而简单的实现了服务调用。</p><table><thead><tr><th>Feign</th><th>OpenFeign</th></tr></thead><tbody><tr><td>Feign是Spring Cloud组件中的一个轻量级RESTful的HTTP服务客户端Feign内置了Ribbon，用来做客户端负载均衡，去调用服务注册中心的服务。Feign的使用方式是：使用Feign的注解定义接口，调用这个接口就可以调用服务注册中心的服务。</td><td>openFeign是Spring Cloud 在Feign的基础上支持了SpringMVc的注解，如@Reques Mapping等等。OpenFeign的@ FeignClient可以解析SpringMVC的@RequestMapping注解下的接口，并通过动态代理的方式产生实现类，实现类中做负载均衡并调用其他服务。</td></tr></tbody></table><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-feign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>]]></content>
     
     
     <categories>
@@ -906,6 +906,33 @@
   
   
   <entry>
+    <title>【初探篇】 Nginx 创建脚本文件（交由 systemctl 控制）</title>
+    <link href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/"/>
+    <url>/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>中间件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>nginx</tag>
+      
+      <tag>初探篇</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>【Nginx】 Nginx 全</title>
     <link href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/"/>
     <url>/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/</url>
@@ -952,33 +979,6 @@
       <tag>nginx</tag>
       
       <tag>纠错篇</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>【初探篇】 Nginx 创建脚本文件（交由 systemctl 控制）</title>
-    <link href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/"/>
-    <url>/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    <categories>
-      
-      <category>中间件</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>nginx</tag>
-      
-      <tag>初探篇</tag>
       
     </tags>
     
@@ -1517,7 +1517,7 @@
     <link href="/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E8%BF%9E%E6%8E%A5github%20%E4%BB%93%E5%BA%93/"/>
     <url>/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E8%BF%9E%E6%8E%A5github%20%E4%BB%93%E5%BA%93/</url>
     
-    <content type="html"><![CDATA[<h2 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h2><p>以下所有的设置都只是为了从本地仓库上载到自己的Github仓库而非clone，因为hexo博客的特点就是在本地创建库，生成相应的文件后使用命令<code>hexo d</code>上载到自己的博客仓库，因此连接自己的GitHub仓库是必不可少的步骤，否则只能localhost看看了，其他人无法访问的。</p><span id="more"></span><h3 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h3><hr><p>在终端中运行以下命令（这是四条命令的组合命令，请将所有的Mail与UserName改成自己的用户名和ID）：</p><div class="note note-default">            <p>git config –global user.name “username”  &amp;&amp;  git config –global user.email “<a href="mailto:&#101;&#x6d;&#x61;&#x69;&#108;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#109;">&#101;&#x6d;&#x61;&#x69;&#108;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#109;</a>“ &amp;&amp;  ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#x6d;&#x61;&#x69;&#108;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#109;">&#x65;&#x6d;&#x61;&#x69;&#108;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#109;</a>“ &amp;&amp; cat ~/.ssh/id_rsa.pub</p>          </div><p>执行过后会输出自己的 <span class="label label-info">Key值</span> ，然后打开Github-点击右上角头像-设置</p><p><img src="https://i.loli.net/2021/09/30/B4GNzqDkYxCaZEh.png"></p><p>选择 SSH &amp; GPG Keys</p><p><img src="https://i.loli.net/2021/09/30/Cm1QlABhTdfp4H9.png"></p><p>点击右上角的New SSH KEY 将自己一开始获取的 <span class="label label-info">Key值</span> 复制进去就好了，记得提交哦～</p><p><img src="https://i.loli.net/2021/09/30/rE4gb7aCS8Rqoec.png"></p><p>嗯结束了，结束的有些突然，但是还是结束了</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h2><p>以下所有的设置都只是为了从本地仓库上载到自己的Github仓库而非clone，因为hexo博客的特点就是在本地创建库，生成相应的文件后使用命令<code>hexo d</code>上载到自己的博客仓库，因此连接自己的GitHub仓库是必不可少的步骤，否则只能localhost看看了，其他人无法访问的。</p><span id="more"></span><h3 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h3><hr><p>在终端中运行以下命令（这是四条命令的组合命令，请将所有的Mail与UserName改成自己的用户名和ID）：</p><div class="note note-default">            <p>git config –global user.name “username”  &amp;&amp;  git config –global user.email “<a href="mailto:&#x65;&#x6d;&#97;&#105;&#x6c;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#111;&#x6d;">&#x65;&#x6d;&#97;&#105;&#x6c;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#111;&#x6d;</a>“ &amp;&amp;  ssh-keygen -t rsa -C “<a href="mailto:&#101;&#109;&#97;&#x69;&#108;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#101;&#109;&#97;&#x69;&#108;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;</a>“ &amp;&amp; cat ~/.ssh/id_rsa.pub</p>          </div><p>执行过后会输出自己的 <span class="label label-info">Key值</span> ，然后打开Github-点击右上角头像-设置</p><p><img src="https://i.loli.net/2021/09/30/B4GNzqDkYxCaZEh.png"></p><p>选择 SSH &amp; GPG Keys</p><p><img src="https://i.loli.net/2021/09/30/Cm1QlABhTdfp4H9.png"></p><p>点击右上角的New SSH KEY 将自己一开始获取的 <span class="label label-info">Key值</span> 复制进去就好了，记得提交哦～</p><p><img src="https://i.loli.net/2021/09/30/rE4gb7aCS8Rqoec.png"></p><p>嗯结束了，结束的有些突然，但是还是结束了</p>]]></content>
     
     
     <categories>

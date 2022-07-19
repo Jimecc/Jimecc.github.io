@@ -77,9 +77,10 @@ collections:      # https://www.netlifycms.org/docs/configuration-options/#colle
               - label: "高度"
                 name: "banner_img_height"
                 widget: "number"
-#              - label: "文章封面图(默认)"
-#                name: "default_index_img"
-#                widget: "image"
+              - label: "文章封面图(默认)"
+                name: "default_index_img"
+                widget: "image"
+                required: false
           - label: "归档页"
             name: "archive"
             widget: "object"
