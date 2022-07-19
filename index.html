@@ -251,14 +251,14 @@
           [TOC]
 
 
-Github
+转载自 Github
 
 
 
 
 
 [Markdown+Typora/VSCode 超全教程] 给大一新生安利的文本神器Sakiyary 2022/7/16
-😂 简要介绍Markdown 是一种轻量型标记语言, 是一种语法. 以 .md 结尾的文本文件就是 Markdown 文件. 相较于 Word, 它更加像是 HTML 语言或是 $\LaTeX$, 并不是最淳朴的那种”所见即所得”. 它
+😂 简要介绍Markdown 是一种轻量型标记语言, 是一种语法. 以 .md 结尾的文本文件就是 Markdown 文件. 相较于 Word, 它更加像是 HTML 语言或是 $\LaTeX$, 并不是最淳朴的那种”所见即所得
         </a>
       </p>
 
@@ -615,39 +615,36 @@ xml.dependency
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
-          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="SpringCloud | 服务注册 | Zookeeper">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
+          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="SpringCloud | 服务注册 | Eurek">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
-          SpringCloud | 服务注册 | Zookeeper
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
+          SpringCloud | 服务注册 | Eurek
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
           
           
             
           
-          Zookeeper
+          Eureka
 
-配置
-主启动
 
-@EnableDiscoveryClient
-@SpringBootApplication
-// 主启动
-public class Run&#123;
-  public static void mian(String[] args)&#123;
-    SpringApplication.run(Run.class,args)
-  &#125;
-&#125;
 
+
+Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）
+
+Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。
+
+
+Eureka Client 通过注册中心进行访问是个Java客户端，用于简
         </a>
       </p>
 
@@ -686,36 +683,39 @@ public class Run&#123;
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
-          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="SpringCloud | 服务注册 | Eurek">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="SpringCloud | 服务注册 | Zookeeper">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
-          SpringCloud | 服务注册 | Eurek
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+          SpringCloud | 服务注册 | Zookeeper
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
           
           
             
           
-          Eureka
+          Zookeeper
 
+配置
+主启动
 
+@EnableDiscoveryClient
+@SpringBootApplication
+// 主启动
+public class Run&#123;
+  public static void mian(String[] args)&#123;
+    SpringApplication.run(Run.class,args)
+  &#125;
+&#125;
 
-
-Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）
-
-Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。
-
-
-Eureka Client 通过注册中心进行访问是个Java客户端，用于简
         </a>
       </p>
 
