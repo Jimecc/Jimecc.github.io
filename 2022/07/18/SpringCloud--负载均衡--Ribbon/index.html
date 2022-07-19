@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/8iv9bi.png">
 <meta property="article:published_time" content="2022-07-18T13:39:09.000Z">
-<meta property="article:modified_time" content="2022-07-19T03:50:01.257Z">
+<meta property="article:modified_time" content="2022-07-19T03:51:56.636Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -255,7 +255,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      923 字
+      868 字
     </span>
   
 
@@ -318,50 +318,40 @@
 <p><font color=#2b61a7><strong>Ribbon本地负载均衡客户端 VS Nginx服务端负载均衡区别</strong></font><br>Nginx是服务器负载均衡，客户端所有请求都会交给nginx，然后由nginx实现转发请求。即负载均衡是由服务端实现的。</p>
 <p>Ribbon本地负载均衡，在调用微服务接口时候，会在注册中心上获取注册信息服务列表之后缓存到JVM本地，从而在本地实现RPC远程服务调用技术。</p>
 <h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p><font color=Green><strong>IRule</strong></font>：根据特定算法从服务列表中选取一个要访问的服务</p>
-<table border='0' cellpadding='0' cellspacing='0' width='1126' style='border-collapse: 
- collapse;table-layout:fixed;width:844pt'>
- <col width='413' style='mso-width-source:userset;width:309.75pt'>
- <col width='713' style='mso-width-source:userset;width:534.75pt'>
- <tr height='37' class='x69' style='mso-height-source:userset;height:28pt' id='r0'>
-<td height='35' class='x70' width='413' style='height:26.5pt;width:309.75pt;'>接口名</td>
-<td class='x71' width='713' style='width:534.75pt;'>作用</td>
- </tr>
- <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r1'>
-<td height='21' class='x72' style='height:16.1pt;'>com.netflix.loadbalancer.RoundRobinRule</td>
-<td class='x73'>轮询</td>
- </tr>
- <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r2'>
-<td height='21' class='x72' style='height:16.1pt;'>com.netflix.loadbalancer.RandomRule</td>
-<td class='x73'>随机</td>
- </tr>
- <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r3'>
-<td height='21' class='x72' style='height:16.1pt;'>com.netflix.loadbalancer.RetryRule</td>
-<td class='x73'>先按照RoundRobinRule的策略获取服务，如果获取服务失败则在指定时间内会进行重</td>
- </tr>
- <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r4'>
-<td height='21' class='x72' style='height:16.1pt;'>WeightedResponseTimeRule</td>
-<td class='x73'>对RoundRobinRule的扩展，响应速度越快的实例选择权重越大，越容易被选择</td>
- </tr>
- <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r5'>
-<td height='21' class='x72' style='height:16.1pt;'>BestAvailableRule</td>
-<td class='x73'>会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，然后选择一个并发量最小的服务</td>
- </tr>
- <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r6'>
-<td height='21' class='x72' style='height:16.1pt;'>Availability FilteringRule</td>
-<td class='x73'>先过滤掉故障实例，再选择并发较小的实例</td>
- </tr>
- <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r7'>
-<td height='21' class='x72' style='height:16.1pt;'>ZoneAvoidanceRule</td>
-<td class='x73'>默认规则,复合判断server所在区域的性能和server的可用性选择服务器</td>
- </tr>
-<![if supportMisalignedColumns]>
- <tr height='0' style='display:none'>
-  <td width='413' style='width:309.75pt'></td>
-  <td width='713' style='width:534.75pt'></td>
- </tr>
- <![endif]>
-</table>
+<br>
 
+<table>
+<thead>
+<tr>
+<th align="left">接口名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">com.netflix.loadbalancer.RoundRobinRule</td>
+<td>轮询</td>
+</tr>
+<tr>
+<td align="left">com.netflix.loadbalancer.RandomRule</td>
+<td>随机</td>
+</tr>
+<tr>
+<td align="left">com.netflix.loadbalancer.RetryRule</td>
+<td>先按照RoundRobinRule的策略获取服务，如果获取服务失败则在指定时间内会进行重</td>
+</tr>
+<tr>
+<td align="left">WeightedResponseTimeRule</td>
+<td>对RoundRobinRule的扩展，响应速度越快的实例选择权重越大，越容易被选择</td>
+</tr>
+<tr>
+<td align="left">BestAvailableRule</td>
+<td>会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，然后选择一个并发量最小的服务</td>
+</tr>
+<tr>
+<td align="left">Availability FilteringRule</td>
+<td>先过滤掉故障实例，再选择并发较小的实例</td>
+</tr>
+</tbody></table>
 
             </div>
             <hr>
@@ -404,7 +394,7 @@
                     
                       <a href="/2022/07/18/SpringCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20%E6%80%BB%E7%BB%93/">
                         <span class="hidden-mobile">SpringCloud | 服务注册 | 总结</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Sekva afiŝo</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -439,7 +429,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -465,7 +455,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -474,7 +464,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">ŝlosivorto</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
