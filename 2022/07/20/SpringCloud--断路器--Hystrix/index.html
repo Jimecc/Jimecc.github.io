@@ -16,17 +16,17 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="GitHub （已停止运维）  相关概念  服务雪崩多个微服务之间调用的时候，假设微服务A调用微服务B和微服务C，微服务B和微服务C又调用其它的微服务，这就是所谓的 “扇出”。如果扇出的链路上某个微服务的调用响应时间过长或者不可用，对微服务A的调用就会占用越来越多的系统资源，进而引起系统崩溃，所谓的 “雪崩效应”。 对于高流量的应用来说，单一的后端依赖可能会导致所有服务器上的所有资">
+  <meta name="description" content="GitHub （已停止运维）      @HystrixCommand(fallbackMethod&#x3D;&quot;paymentInfo_TImeOutHandler&quot;)  相关概念  服务雪崩多个微服务之间调用的时候，假设微服务A调用微服务B和微服务C，微服务B和微服务C又调用其它的微服务，这就是所谓的 “扇出”。如果扇出的链路上某个微服务的调用响应时间过长或者不可用，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 服务降级 | Hystrix">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/20/SpringCloud--%E6%96%AD%E8%B7%AF%E5%99%A8--Hystrix/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="GitHub （已停止运维）  相关概念  服务雪崩多个微服务之间调用的时候，假设微服务A调用微服务B和微服务C，微服务B和微服务C又调用其它的微服务，这就是所谓的 “扇出”。如果扇出的链路上某个微服务的调用响应时间过长或者不可用，对微服务A的调用就会占用越来越多的系统资源，进而引起系统崩溃，所谓的 “雪崩效应”。 对于高流量的应用来说，单一的后端依赖可能会导致所有服务器上的所有资">
+<meta property="og:description" content="GitHub （已停止运维）      @HystrixCommand(fallbackMethod&#x3D;&quot;paymentInfo_TImeOutHandler&quot;)  相关概念  服务雪崩多个微服务之间调用的时候，假设微服务A调用微服务B和微服务C，微服务B和微服务C又调用其它的微服务，这就是所谓的 “扇出”。如果扇出的链路上某个微服务的调用响应时间过长或者不可用，">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/0hcf7z.png">
 <meta property="og:image" content="https://files.catbox.moe/2u957r.png">
 <meta property="article:published_time" content="2022-07-20T01:08:35.000Z">
-<meta property="article:modified_time" content="2022-07-20T04:54:46.577Z">
+<meta property="article:modified_time" content="2022-07-20T04:59:02.224Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.1k 字
+      3.3k 字
     </span>
   
 
@@ -315,6 +315,11 @@
 
 <div style="width:100%;height:85px;background:#ffb0d2;border-radius:15px;text-align:center;padding:22px 0px;"><div><img style="width:25px;border-radius:5px;margin:0 10px  9px 30px" src="https://files.catbox.moe/2u957r.png" srcset="/img/loading.gif" lazyload/><a target="_blank" rel="noopener" href="https://github.com/Netflix/Hystrix" style="font-size:24px;margin-right:15px"><b>GitHub （已停止运维）</b></a></div></div>
 
+
+
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <code>@HystrixCommand(fallbackMethod=&quot;paymentInfo_TImeOutHandler&quot;)</code></li>
+</ul>
 <h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><br>
 
 <p><b><font color=#2b61a7 size=4>服务雪崩</font></b><br>多个微服务之间调用的时候，假设微服务A调用微服务B和微服务C，微服务B和微服务C又调用其它的微服务，这就是所谓的 <font color=red>“扇出”</font>。如果扇出的链路上某个微服务的调用响应时间过长或者不可用，对微服务A的调用就会占用越来越多的系统资源，进而引起系统崩溃，所谓的 “雪崩效应”。</p>
@@ -426,25 +431,25 @@ eureka:
 
 <p><font color=red><b>以上两个方法，一个点击后就会响应，一个需要等待三秒后才会响应。</b></font>当timeout 的请求过多时，容易造成 tomcat 阻塞，从而导致无法请求。</p>
 <h2 id="🪵-服务降级-超时-🐢-宕机-☠️-后"><a href="#🪵-服务降级-超时-🐢-宕机-☠️-后" class="headerlink" title="🪵 服务降级 | 超时 🐢 宕机 ☠️ 后"></a>🪵 服务降级 | 超时 🐢 <del>宕机</del> ☠️ 后</h2><p><strong>配置替代编码</strong></p>
-<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
-<span class="token annotation punctuation">@Slf4j</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PaymentController</span><span class="token punctuation">&#123;</span>
-  <span class="token annotation punctuation">@Resource</span>
-  <span class="token keyword">private</span> <span class="token class-name">PaymentService</span> paymentService<span class="token punctuation">;</span>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PaymentService</span><span class="token punctuation">&#123;</span>
   
-  <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;server.port&#125;"</span><span class="token punctuation">)</span>
-  <span class="token keyword">private</span> <span class="token class-name">String</span> serverPort<span class="token punctuation">;</span>
+  <span class="token annotation punctuation">@HystrixCommand</span><span class="token punctuation">(</span>fallbackMethod<span class="token operator">=</span><span class="token string">"paymentInfo_TImeOutHandler"</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">paymentInfo_Timeout</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span><span class="token punctuation">&#123;</span>
+      <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token function">cathc</span><span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+      e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token string">"线程池：\t "</span><span class="token operator">+</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"paymentIngo_OK,id\t"</span><span class="token operator">+</span>id<span class="token operator">+</span><span class="token string">"\tO(∩_∩)O哈哈~\t耗时三秒钟"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
   
-  <span class="token comment">// 三秒之内可以接受，超过3秒的不接收</span>
-  <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/payment/hystrix/timeout/&#123;id&#125;"</span><span class="token punctuation">)</span>
-  <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">payment_Tiemout</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token class-name">String</span> result <span class="token operator">=</span> paymentService<span class="token punctuation">.</span><span class="token function">paymentInfo_Timeout</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"result:"</span><span class="token operator">+</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">paymentInfo_TimeOutHandler</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"线程池：\t "</span><span class="token operator">+</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"paymentIngo_OK,id\t"</span><span class="token operator">+</span>id<span class="token operator">+</span><span class="token string">"\to(╥﹏╥)o 呜呜~"</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<p>设置自身调用超时时间的峰值，峰值内可以正常运行<br>超过了需要有兜底的方法处理，作服务降级（Fallback）</p>
+<p>设置自身调用超时时间的峰值，峰值内可以正常运行。<br>超过了需要有兜底的方法处理，作服务降级（Fallback）。</p>
 
             </div>
             <hr>
@@ -484,7 +489,7 @@ eureka:
                       <a href="/2022/07/20/%E6%B5%8B%E8%AF%95%20%7C%20JMeter%20%7C%20%E9%AB%98%E5%B9%B6%E5%8F%91%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">测试 | JMeter | 高并发测试工具</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
@@ -493,7 +498,7 @@ eureka:
                     
                       <a href="/2022/07/19/Markdown/">
                         <span class="hidden-mobile">Markdown 常用语法</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -528,7 +533,7 @@ eureka:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -554,7 +559,7 @@ eureka:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -563,7 +568,7 @@ eureka:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
