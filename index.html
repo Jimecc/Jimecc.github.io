@@ -330,7 +330,11 @@ GitHub （已停止运维）
 
 
 
-重点@HystrixCommand(fallbackMethod=&quot;paymentInfo_TImeOutHandler&quot;,commandProperties=&#123;@HystrixProperty(name=&quot;execution.isolation.thread.timeoutInMilliseconds&q
+重点
+@HystrixCommand(fallbackMethod=”paymentInfo_TImeOutHandler”,commandProperties={@HystrixProperty(name=”execution.isolation.thread.timeoutInMilliseconds”,value=”3000”)})
+
+
+@
         </a>
       </p>
 
