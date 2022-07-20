@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/0hcf7z.png">
 <meta property="og:image" content="https://files.catbox.moe/2u957r.png">
 <meta property="article:published_time" content="2022-07-20T01:08:35.000Z">
-<meta property="article:modified_time" content="2022-07-20T04:52:15.121Z">
+<meta property="article:modified_time" content="2022-07-20T04:54:46.577Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.7k 字
+      3.1k 字
     </span>
   
 
@@ -265,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      10 分钟
     </span>
   
 
@@ -425,7 +425,27 @@ eureka:
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <p><font color=red><b>以上两个方法，一个点击后就会响应，一个需要等待三秒后才会响应。</b></font>当timeout 的请求过多时，容易造成 tomcat 阻塞，从而导致无法请求。</p>
-<h2 id="🪵-服务降级-超时-🐢-宕机-☠️-后"><a href="#🪵-服务降级-超时-🐢-宕机-☠️-后" class="headerlink" title="🪵 服务降级 | 超时 🐢 宕机 ☠️ 后"></a>🪵 服务降级 | 超时 🐢 宕机 ☠️ 后</h2>
+<h2 id="🪵-服务降级-超时-🐢-宕机-☠️-后"><a href="#🪵-服务降级-超时-🐢-宕机-☠️-后" class="headerlink" title="🪵 服务降级 | 超时 🐢 宕机 ☠️ 后"></a>🪵 服务降级 | 超时 🐢 <del>宕机</del> ☠️ 后</h2><p><strong>配置替代编码</strong></p>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PaymentController</span><span class="token punctuation">&#123;</span>
+  <span class="token annotation punctuation">@Resource</span>
+  <span class="token keyword">private</span> <span class="token class-name">PaymentService</span> paymentService<span class="token punctuation">;</span>
+  
+  <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;server.port&#125;"</span><span class="token punctuation">)</span>
+  <span class="token keyword">private</span> <span class="token class-name">String</span> serverPort<span class="token punctuation">;</span>
+  
+  <span class="token comment">// 三秒之内可以接受，超过3秒的不接收</span>
+  <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/payment/hystrix/timeout/&#123;id&#125;"</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">payment_Tiemout</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token class-name">Integer</span> id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> result <span class="token operator">=</span> paymentService<span class="token punctuation">.</span><span class="token function">paymentInfo_Timeout</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"result:"</span><span class="token operator">+</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>设置自身调用超时时间的峰值，峰值内可以正常运行<br>超过了需要有兜底的方法处理，作服务降级（Fallback）</p>
+
             </div>
             <hr>
             <div>
@@ -464,7 +484,7 @@ eureka:
                       <a href="/2022/07/20/%E6%B5%8B%E8%AF%95%20%7C%20JMeter%20%7C%20%E9%AB%98%E5%B9%B6%E5%8F%91%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">测试 | JMeter | 高并发测试工具</span>
-                        <span class="visible-mobile">Vorheriger</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -473,7 +493,7 @@ eureka:
                     
                       <a href="/2022/07/19/Markdown/">
                         <span class="hidden-mobile">Markdown 常用语法</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -508,7 +528,7 @@ eureka:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -534,7 +554,7 @@ eureka:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -543,7 +563,7 @@ eureka:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
