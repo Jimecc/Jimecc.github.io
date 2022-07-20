@@ -24,7 +24,7 @@
 <meta property="og:description" content="OpenFeign@FeignClient   Feign是一个声明式WebService客户端。使用Feign能让编写Web Service客户端更加简单。   它的使用方法是定义一个服务接口然后在上面添加注解。Feign也支持可拔插式的编码器和解码器。Spring Cloud对Feign进行了封装，使其支持了Spring MVC标准注解和HttpMessageConverters。 Feign">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-07-19T05:32:37.000Z">
-<meta property="article:modified_time" content="2022-07-19T10:25:06.699Z">
+<meta property="article:modified_time" content="2022-07-20T01:02:05.917Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -253,7 +253,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      2.4k 字
     </span>
   
 
@@ -262,7 +262,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      7 分钟
     </span>
   
 
@@ -299,7 +299,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：6 hours ago
+                  本文最后更新于：29 minutes ago
                 
               </p>
             
@@ -385,7 +385,39 @@
 
 
 
-<h2 id="Feign-超时控制"><a href="#Feign-超时控制" class="headerlink" title="Feign 超时控制"></a>Feign 超时控制</h2>
+<h2 id="Feign-超时控制"><a href="#Feign-超时控制" class="headerlink" title="Feign 超时控制"></a>Feign 超时控制</h2><p><strong>写在客户端</strong></p>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## 设置肺功能客户端超时时间（OpenFeign 默认支持 ribbon）
+ribbon:
+	## 指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间
+	ReadTimeout: 5000
+	## 指的是建立连接后从服务器读取到可用资源所用的时间
+	ConnectTimeout: 5000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+
+
+
+
+<h2 id="Feign-日志级别"><a href="#Feign-日志级别" class="headerlink" title="Feign 日志级别"></a>Feign 日志级别</h2><p><code>/config/FeignConfig</code></p>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">logging:
+	level:
+		com.xxx.xxx.service.PaymentFeignService: debug<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">feign<span class="token punctuation">.</span></span><span class="token class-name">Logger</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Configuration</span>
+publicclass <span class="token class-name">FeignConfig</span><span class="token punctuation">&#123;</span>
+  <span class="token annotation punctuation">@Bean</span>
+  <span class="token class-name">Logger</span><span class="token punctuation">.</span>level <span class="token function">feignLoggerLevel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">// 详细日志</span>
+    <span class="token keyword">return</span> <span class="token class-name">Logger<span class="token punctuation">.</span>Level</span><span class="token punctuation">.</span>FULL<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
             </div>
             <hr>
             <div>
@@ -424,7 +456,7 @@
                       <a href="/2022/07/19/Markdown/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Markdown 常用语法</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
@@ -433,7 +465,7 @@
                     
                       <a href="/2022/07/18/SpringCloud--%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1--Ribbon/">
                         <span class="hidden-mobile">Sprin gCloud | 负载均衡 | Ribbon</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -468,7 +500,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -494,7 +526,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -503,7 +535,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

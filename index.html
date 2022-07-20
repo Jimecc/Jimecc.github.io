@@ -229,6 +229,69 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/07/20/SpringCloud--%E6%96%AD%E8%B7%AF%E5%99%A8--Hystrix/" target="_self">
+          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="SpringCloud | 断路器 | Hystrix">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/20/SpringCloud--%E6%96%AD%E8%B7%AF%E5%99%A8--Hystrix/" target="_self">
+          SpringCloud | 断路器 | Hystrix
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/07/20/SpringCloud--%E6%96%AD%E8%B7%AF%E5%99%A8--Hystrix/" target="_self">
+          
+          
+            
+          
+          GitHub （已停止运维）
+
+相关概念
+
+服务雪崩多个微服务之间调用的时候，假设微服务A调用微服务B和微服务C，微服务B和微服务C又调用其它的微服务，这就是所谓的 “扇出”。如果扇出的链路上某个微服务的调用响应时间过长或者不可用，对微服务A的调用就会占用越来越多的系统资源，进而引起系统崩溃，所谓的 “雪崩效应”。
+对于高流量的应用来说，单一的后端依赖可能会导致所有服务器上的所有资源都在几秒钟内饱
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-20 09:08" pubdate>
+              2022-07-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/SpringCloud/">SpringCloud</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/SpringCloud/">SpringCloud</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2022/07/19/Markdown/" target="_self">
           <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="Markdown 常用语法">
         </a>
@@ -615,36 +678,39 @@ xml.dependency
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
-          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="SpringCloud | 服务注册 | Eurek">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="SpringCloud | 服务注册 | Zookeeper">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
-          SpringCloud | 服务注册 | Eurek
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+          SpringCloud | 服务注册 | Zookeeper
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
           
           
             
           
-          Eureka
+          Zookeeper
 
+配置
+主启动
 
+@EnableDiscoveryClient
+@SpringBootApplication
+// 主启动
+public class Run&#123;
+  public static void mian(String[] args)&#123;
+    SpringApplication.run(Run.class,args)
+  &#125;
+&#125;
 
-
-Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）
-
-Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。
-
-
-Eureka Client 通过注册中心进行访问是个Java客户端，用于简
         </a>
       </p>
 
@@ -683,39 +749,36 @@ Eureka Client 通过注册中心进行访问是个Java客户端，用于简
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
-          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="SpringCloud | 服务注册 | Zookeeper">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
+          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="SpringCloud | 服务注册 | Eurek">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
-          SpringCloud | 服务注册 | Zookeeper
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
+          SpringCloud | 服务注册 | Eurek
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
           
           
             
           
-          Zookeeper
+          Eureka
 
-配置
-主启动
 
-@EnableDiscoveryClient
-@SpringBootApplication
-// 主启动
-public class Run&#123;
-  public static void mian(String[] args)&#123;
-    SpringApplication.run(Run.class,args)
-  &#125;
-&#125;
 
+
+Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）
+
+Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。
+
+
+Eureka Client 通过注册中心进行访问是个Java客户端，用于简
         </a>
       </p>
 
@@ -897,83 +960,11 @@ public class Run&#123;
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/15/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6%20%7C%20FastDFS/" target="_self">
-          <img src="/images/uploads/jimecc.png" srcset="/img/loading.gif" lazyload alt="中间件 | FastDFS">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/15/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6%20%7C%20FastDFS/" target="_self">
-          中间件 | FastDFS
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/07/15/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E4%B8%AD%E9%97%B4%E4%BB%B6%20%7C%20FastDFS/" target="_self">
-          
-          
-            
-          
-          分布式文件系统 FastDFS
-
-Github
-
-
-
-1. 分布式文件系统应用场景互联网海量非结构化数据的存储需求
-
-电商网站：海量商品图片
-视频网站：海量视频文件
-网盘：海量文件
-社交网站：海量图片
-
-
-2.FastDFS 介绍2.1 简介​    FastDFS是一个开源的高性能分布式文件系统 (DFS）。它的主要功能包括：文件存储，文件同步和文件访问，以及高容量和负载平衡。主要解决了海量数据
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-15 15:36" pubdate>
-              2022-07-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Java/">Java</a>
-            
-              <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#board">9</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -998,7 +989,7 @@ Github
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1007,7 +998,7 @@ Github
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
