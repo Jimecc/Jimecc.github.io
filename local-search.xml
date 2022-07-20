@@ -324,11 +324,11 @@
   
   
   <entry>
-    <title>Java | 刷题 |</title>
-    <link href="/2022/07/13/Java%20%7C%20%E5%88%B7%E9%A2%98/J%20%7C%20/"/>
-    <url>/2022/07/13/Java%20%7C%20%E5%88%B7%E9%A2%98/J%20%7C%20/</url>
+    <title>Java | 刷题 | 接口</title>
+    <link href="/2022/07/13/Java%20%7C%20%E5%88%B7%E9%A2%98/J%20%7C%20%E6%8E%A5%E5%8F%A3/"/>
+    <url>/2022/07/13/Java%20%7C%20%E5%88%B7%E9%A2%98/J%20%7C%20%E6%8E%A5%E5%8F%A3/</url>
     
-    <content type="html"><![CDATA[<h2 id="Java-刷题"><a href="#Java-刷题" class="headerlink" title="Java | 刷题 |"></a>Java | 刷题 |</h2><hr>]]></content>
+    <content type="html"><![CDATA[<h2 id="Java-刷题-接口"><a href="#Java-刷题-接口" class="headerlink" title="Java | 刷题 | 接口"></a>Java | 刷题 | 接口</h2><hr><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">interface</span> <span class="token class-name">Action</span><span class="token punctuation">&#123;</span>      <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">&#125;</span><span class="token keyword">class</span> <span class="token class-name">Hero</span> <span class="token keyword">implements</span> <span class="token class-name">Action</span><span class="token punctuation">&#123;</span>  <span class="token comment">//……  &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div><p><strong>接口方法默认是public abstract的，且实现该接口的类中对应的方法的可见性不能小于接口方法的可见性。</strong></p>]]></content>
     
     
     <categories>
@@ -349,11 +349,11 @@
   
   
   <entry>
-    <title>Java | 刷题 | 接口</title>
-    <link href="/2022/07/13/Java%20%7C%20%E5%88%B7%E9%A2%98/J%20%7C%20%E6%8E%A5%E5%8F%A3/"/>
-    <url>/2022/07/13/Java%20%7C%20%E5%88%B7%E9%A2%98/J%20%7C%20%E6%8E%A5%E5%8F%A3/</url>
+    <title>Java | 刷题 |</title>
+    <link href="/2022/07/13/Java%20%7C%20%E5%88%B7%E9%A2%98/J%20%7C%20/"/>
+    <url>/2022/07/13/Java%20%7C%20%E5%88%B7%E9%A2%98/J%20%7C%20/</url>
     
-    <content type="html"><![CDATA[<h2 id="Java-刷题-接口"><a href="#Java-刷题-接口" class="headerlink" title="Java | 刷题 | 接口"></a>Java | 刷题 | 接口</h2><hr><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">interface</span> <span class="token class-name">Action</span><span class="token punctuation">&#123;</span>      <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">&#125;</span><span class="token keyword">class</span> <span class="token class-name">Hero</span> <span class="token keyword">implements</span> <span class="token class-name">Action</span><span class="token punctuation">&#123;</span>  <span class="token comment">//……  &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div><p><strong>接口方法默认是public abstract的，且实现该接口的类中对应的方法的可见性不能小于接口方法的可见性。</strong></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Java-刷题"><a href="#Java-刷题" class="headerlink" title="Java | 刷题 |"></a>Java | 刷题 |</h2><hr>]]></content>
     
     
     <categories>
@@ -933,33 +933,6 @@
   
   
   <entry>
-    <title>【初探篇】 Nginx 动静分离（css\js\img与 html 分离）</title>
-    <link href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91-Nginx-%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB/"/>
-    <url>/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91-Nginx-%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    <categories>
-      
-      <category>中间件</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>nginx</tag>
-      
-      <tag>初探篇</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>【初探篇】 Nginx 负载均衡</title>
     <link href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91-Nginx-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
     <url>/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91-Nginx-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
@@ -979,6 +952,33 @@
       <tag>nginx</tag>
       
       <tag>中间件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>【初探篇】 Nginx 动静分离（css\js\img与 html 分离）</title>
+    <link href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91-Nginx-%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB/"/>
+    <url>/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91-Nginx-%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>中间件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>nginx</tag>
+      
+      <tag>初探篇</tag>
       
     </tags>
     
@@ -1014,33 +1014,6 @@
   
   
   <entry>
-    <title>【Nginx】 Nginx 全</title>
-    <link href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/"/>
-    <url>/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/</url>
-    
-    <content type="html"><![CDATA[<h2 id="相关配置说明"><a href="#相关配置说明" class="headerlink" title="相关配置说明"></a>相关配置说明</h2><p>服务器版本：CentOS8 来自腾讯云的轻量级服务器，大家可以去淘宝买，48/年</p><p>Nginx 版本：<a href="http://nginx.org/download/nginx-1.2.1.tar.gz">nginx-1.2.1.tar.gz</a></p><p><br><br><br></p><h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><ul><li><p>下载 Nginx 安装包<a href="http://nginx.org/download/">【下载链接】</a></p></li><li><p>上传到 CentOS 任意地址（可以放在<code>/home/your_username/</code>下）</p></li><li><p>使用下面命令解压缩</p></li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tar zxvf nginx-*.tar.gx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><ul><li>使用下列命令进入包内（注意，版本不同请手动替换<code>*</code>，也可以灵活使用 <code>tab 键</code>）</li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd nginx-*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><ul><li>使用下列命令查看相关依赖</li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.&#x2F;configure<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><ul><li>执行下列命令（可能是将依赖放到<code>/usr/local/nginx</code>文件夹下，但是这个文件夹是安装 nginx 的文件夹，请大佬们解惑）</li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><ul><li>执行以下两个命令进行安装</li></ul><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">makemake install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div><ul><li><font color=red>注意：</font>这边可能会遇到两个问题，如如果遇到请参考下面方法，没有遇到就跳过：</li></ul></br><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h4 id="基础配置说明"><a href="#基础配置说明" class="headerlink" title="基础配置说明"></a>基础配置说明</h4><p>配置文件位置 <code>/usr/local/nginx/conf/index.conf</code></p><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 开启进程数量worker_processes  1;# 默认可以有多少个连接events &#123;    worker_connections  1024;&#125;# http &#123;# 引入其他依赖文件 # mime.types 是请求头    include       mime.types;        default_type  application&#x2F;octet-stream;# 零拷贝    sendfile        on;# 保持连接，超时时间    keepalive_timeout  65;# 一个主机    server &#123;    # 监听端口号        listen       80;        # 主机名称        server_name  localhost;# url 一个主机下面可以有好几个 location 默认页        location &#x2F; &#123;            root   html;            index  index.html index.htm;        &#125;        #        error_page   500 502 503 504  &#x2F;50x.html;        location &#x3D; &#x2F;50x.html &#123;            root   html;        &#125;    &#125;  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><p>mime.types文件</p><div class="code-wrapper"><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">types <span class="token punctuation">&#123;</span>    text<span class="token operator">/</span>html                             html htm shtml<span class="token punctuation">;</span>    text<span class="token operator">/</span>css                              css<span class="token punctuation">;</span>    text<span class="token operator">/</span>xml                              xml<span class="token punctuation">;</span>   …………此处省略很多    video<span class="token operator">/</span>x<span class="token operator">-</span>ms<span class="token operator">-</span>wmv                        wmv<span class="token punctuation">;</span>    video<span class="token operator">/</span>x<span class="token operator">-</span>msvideo                       avi<span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><h1 id="Nginx-创建脚本文件"><a href="#Nginx-创建脚本文件" class="headerlink" title="Nginx 创建脚本文件"></a>Nginx 创建脚本文件</h1><p><font size=2 color=darkgray>nginx.service</font></p><ul><li>新建一个脚本文件：<code>/usr/lib/systemd/system/nginx.service</code>（允许使用<code>systemctl</code>管理 nginx）</li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Unit]Description&#x3D;nginx   -   web serverAfter&#x3D;network.target remote-fs.target nss-lookup.target[Service]Type&#x3D;forkingPIDFile&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;nginx.pidExecStartPre&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -t -c &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.confExecStart&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -c &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.confExecReload&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s reloadExecStop&#x3D;&#x2F;url&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s stopExecQuit&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s quitPrivateTmp&#x3D;true[Install]WantedBy&#x3D;multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><h1 id="Nginx-负载均衡机制"><a href="#Nginx-负载均衡机制" class="headerlink" title="Nginx 负载均衡机制"></a>Nginx 负载均衡机制</h1><p>配置文件位置<code>/usr/local/nginx/conf/nginx.conf</code></p><h4 id="方式一：轮询、权重、备用机器、下线"><a href="#方式一：轮询、权重、备用机器、下线" class="headerlink" title="方式一：轮询、权重、备用机器、下线"></a>方式一：轮询、权重、备用机器、下线</h4><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 配置多个代理，名字叫 abcdefg，下方可用，可以轮询（并且配置权重）upstream abcdefg&#123;# 权重为 8 的及其server 110.40.191.50:80 weight&#x3D;8;#备用机器  server 110.40.191.51:80 backup;  # down 下线，不参与轮询  server 110.40.191.52:80 down;&#125;server &#123;        listen       80;        server_name  localhost;        location &#x2F; &#123;        # 配置代理proxy_pass http:&#x2F;&#x2F;abcdefg;        &#125;        error_page   500 502 503 504  &#x2F;50x.html;        location &#x3D; &#x2F;50x.html &#123;            root   html;        &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><p><font color=gray size=2>缺点：无法保持会话。</font></p><h4 id="方式二：ip-hash"><a href="#方式二：ip-hash" class="headerlink" title="方式二：ip_hash"></a>方式二：ip_hash</h4><p>不太用（不适合当下大环境，更换 ip 之后重新 hash，那么我在旅行中的火车上一直更换移动基站，就一直 hash）</p><h4 id="方式三-least-conn"><a href="#方式三-least-conn" class="headerlink" title="方式三 least_conn"></a>方式三 least_conn</h4><p>最少连接数访问（不太常用、不太合理）</p><p>有可能因为我配置的权重较低，导致其连接数较少。</p><h4 id="方式四：fair"><a href="#方式四：fair" class="headerlink" title="方式四：fair"></a>方式四：fair</h4><p>根据后端服务器响应时间来转发请求（需要安装插件）</p><h4 id="方式五：-url-hash"><a href="#方式五：-url-hash" class="headerlink" title="方式五： url_hash"></a>方式五： url_hash</h4><p>（定向流量转发）根据 url 取 hash 值，相同的 hash 值转发到同一个服务器上</p><h1 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h1><p>两台服务器，其中B负责跑项目，A机器负责代理到 B 机器(B机器中不包含 css|js</p><p>|img文件)</p><p>A 机器：</p><h4 id="方式一"><a href="#方式一" class="headerlink" title="方式一:"></a>方式一:</h4><p><font size=3>直接将需要的静态文件全部写全</font></p><p><code>/usr/local/nginx/conf/nginx.conf</code></p><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">location &#x2F; &#123;# 代理转发到 B，其中ipAddress与port分别为B中的ip以及端口proxy_pass ipAddress:port;&#125;# A机器中的 css 文件的位置，存储在&#x2F;nginx&#x2F;html下（可以自己更换位置）location &#x2F;css&#123;  root html;  index index.html index.htm;&#125;# A机器中的 js 文件的位置，存储在&#x2F;nginx&#x2F;html下（可以自己更换位置）location &#x2F;js&#123;  root html;  index index.html index.htm;&#125;# A机器中的 img 文件的位置，存储在&#x2F;nginx&#x2F;html下（可以自己更换位置）location &#x2F;img&#123;  root html;  index index.html index.htm;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><h4 id="方式二：正则匹配"><a href="#方式二：正则匹配" class="headerlink" title="方式二：正则匹配"></a>方式二：正则匹配</h4><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">location &#x2F; &#123;# 代理转发到 B，其中ipAddress与port分别为B中的ip以及端口proxy_pass ipAddress:port;&#125;# location ~*(css|js|img)&#123;  root html;  index index.html index.htm;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>]]></content>
-    
-    
-    <categories>
-      
-      <category>中间件</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>nginx</tag>
-      
-      <tag>中间件</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>【纠错篇】 安装 Nginx 报错</title>
     <link href="/2022/06/09/nginx/%E3%80%90%E7%BA%A0%E9%94%99%E7%AF%87%E3%80%91-%E5%AE%89%E8%A3%85-Nginx-%E6%8A%A5%E9%94%99/"/>
     <url>/2022/06/09/nginx/%E3%80%90%E7%BA%A0%E9%94%99%E7%AF%87%E3%80%91-%E5%AE%89%E8%A3%85-Nginx-%E6%8A%A5%E9%94%99/</url>
@@ -1060,6 +1033,33 @@
       <tag>nginx</tag>
       
       <tag>纠错篇</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>【Nginx】 Nginx 全</title>
+    <link href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/"/>
+    <url>/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="相关配置说明"><a href="#相关配置说明" class="headerlink" title="相关配置说明"></a>相关配置说明</h2><p>服务器版本：CentOS8 来自腾讯云的轻量级服务器，大家可以去淘宝买，48/年</p><p>Nginx 版本：<a href="http://nginx.org/download/nginx-1.2.1.tar.gz">nginx-1.2.1.tar.gz</a></p><p><br><br><br></p><h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><ul><li><p>下载 Nginx 安装包<a href="http://nginx.org/download/">【下载链接】</a></p></li><li><p>上传到 CentOS 任意地址（可以放在<code>/home/your_username/</code>下）</p></li><li><p>使用下面命令解压缩</p></li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tar zxvf nginx-*.tar.gx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><ul><li>使用下列命令进入包内（注意，版本不同请手动替换<code>*</code>，也可以灵活使用 <code>tab 键</code>）</li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd nginx-*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><ul><li>使用下列命令查看相关依赖</li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.&#x2F;configure<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><ul><li>执行下列命令（可能是将依赖放到<code>/usr/local/nginx</code>文件夹下，但是这个文件夹是安装 nginx 的文件夹，请大佬们解惑）</li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><ul><li>执行以下两个命令进行安装</li></ul><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">makemake install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div><ul><li><font color=red>注意：</font>这边可能会遇到两个问题，如如果遇到请参考下面方法，没有遇到就跳过：</li></ul></br><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h4 id="基础配置说明"><a href="#基础配置说明" class="headerlink" title="基础配置说明"></a>基础配置说明</h4><p>配置文件位置 <code>/usr/local/nginx/conf/index.conf</code></p><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 开启进程数量worker_processes  1;# 默认可以有多少个连接events &#123;    worker_connections  1024;&#125;# http &#123;# 引入其他依赖文件 # mime.types 是请求头    include       mime.types;        default_type  application&#x2F;octet-stream;# 零拷贝    sendfile        on;# 保持连接，超时时间    keepalive_timeout  65;# 一个主机    server &#123;    # 监听端口号        listen       80;        # 主机名称        server_name  localhost;# url 一个主机下面可以有好几个 location 默认页        location &#x2F; &#123;            root   html;            index  index.html index.htm;        &#125;        #        error_page   500 502 503 504  &#x2F;50x.html;        location &#x3D; &#x2F;50x.html &#123;            root   html;        &#125;    &#125;  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><p>mime.types文件</p><div class="code-wrapper"><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">types <span class="token punctuation">&#123;</span>    text<span class="token operator">/</span>html                             html htm shtml<span class="token punctuation">;</span>    text<span class="token operator">/</span>css                              css<span class="token punctuation">;</span>    text<span class="token operator">/</span>xml                              xml<span class="token punctuation">;</span>   …………此处省略很多    video<span class="token operator">/</span>x<span class="token operator">-</span>ms<span class="token operator">-</span>wmv                        wmv<span class="token punctuation">;</span>    video<span class="token operator">/</span>x<span class="token operator">-</span>msvideo                       avi<span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><h1 id="Nginx-创建脚本文件"><a href="#Nginx-创建脚本文件" class="headerlink" title="Nginx 创建脚本文件"></a>Nginx 创建脚本文件</h1><p><font size=2 color=darkgray>nginx.service</font></p><ul><li>新建一个脚本文件：<code>/usr/lib/systemd/system/nginx.service</code>（允许使用<code>systemctl</code>管理 nginx）</li></ul><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Unit]Description&#x3D;nginx   -   web serverAfter&#x3D;network.target remote-fs.target nss-lookup.target[Service]Type&#x3D;forkingPIDFile&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;nginx.pidExecStartPre&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -t -c &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.confExecStart&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -c &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.confExecReload&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s reloadExecStop&#x3D;&#x2F;url&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s stopExecQuit&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s quitPrivateTmp&#x3D;true[Install]WantedBy&#x3D;multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><h1 id="Nginx-负载均衡机制"><a href="#Nginx-负载均衡机制" class="headerlink" title="Nginx 负载均衡机制"></a>Nginx 负载均衡机制</h1><p>配置文件位置<code>/usr/local/nginx/conf/nginx.conf</code></p><h4 id="方式一：轮询、权重、备用机器、下线"><a href="#方式一：轮询、权重、备用机器、下线" class="headerlink" title="方式一：轮询、权重、备用机器、下线"></a>方式一：轮询、权重、备用机器、下线</h4><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 配置多个代理，名字叫 abcdefg，下方可用，可以轮询（并且配置权重）upstream abcdefg&#123;# 权重为 8 的及其server 110.40.191.50:80 weight&#x3D;8;#备用机器  server 110.40.191.51:80 backup;  # down 下线，不参与轮询  server 110.40.191.52:80 down;&#125;server &#123;        listen       80;        server_name  localhost;        location &#x2F; &#123;        # 配置代理proxy_pass http:&#x2F;&#x2F;abcdefg;        &#125;        error_page   500 502 503 504  &#x2F;50x.html;        location &#x3D; &#x2F;50x.html &#123;            root   html;        &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><p><font color=gray size=2>缺点：无法保持会话。</font></p><h4 id="方式二：ip-hash"><a href="#方式二：ip-hash" class="headerlink" title="方式二：ip_hash"></a>方式二：ip_hash</h4><p>不太用（不适合当下大环境，更换 ip 之后重新 hash，那么我在旅行中的火车上一直更换移动基站，就一直 hash）</p><h4 id="方式三-least-conn"><a href="#方式三-least-conn" class="headerlink" title="方式三 least_conn"></a>方式三 least_conn</h4><p>最少连接数访问（不太常用、不太合理）</p><p>有可能因为我配置的权重较低，导致其连接数较少。</p><h4 id="方式四：fair"><a href="#方式四：fair" class="headerlink" title="方式四：fair"></a>方式四：fair</h4><p>根据后端服务器响应时间来转发请求（需要安装插件）</p><h4 id="方式五：-url-hash"><a href="#方式五：-url-hash" class="headerlink" title="方式五： url_hash"></a>方式五： url_hash</h4><p>（定向流量转发）根据 url 取 hash 值，相同的 hash 值转发到同一个服务器上</p><h1 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h1><p>两台服务器，其中B负责跑项目，A机器负责代理到 B 机器(B机器中不包含 css|js</p><p>|img文件)</p><p>A 机器：</p><h4 id="方式一"><a href="#方式一" class="headerlink" title="方式一:"></a>方式一:</h4><p><font size=3>直接将需要的静态文件全部写全</font></p><p><code>/usr/local/nginx/conf/nginx.conf</code></p><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">location &#x2F; &#123;# 代理转发到 B，其中ipAddress与port分别为B中的ip以及端口proxy_pass ipAddress:port;&#125;# A机器中的 css 文件的位置，存储在&#x2F;nginx&#x2F;html下（可以自己更换位置）location &#x2F;css&#123;  root html;  index index.html index.htm;&#125;# A机器中的 js 文件的位置，存储在&#x2F;nginx&#x2F;html下（可以自己更换位置）location &#x2F;js&#123;  root html;  index index.html index.htm;&#125;# A机器中的 img 文件的位置，存储在&#x2F;nginx&#x2F;html下（可以自己更换位置）location &#x2F;img&#123;  root html;  index index.html index.htm;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><h4 id="方式二：正则匹配"><a href="#方式二：正则匹配" class="headerlink" title="方式二：正则匹配"></a>方式二：正则匹配</h4><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">location &#x2F; &#123;# 代理转发到 B，其中ipAddress与port分别为B中的ip以及端口proxy_pass ipAddress:port;&#125;# location ~*(css|js|img)&#123;  root html;  index index.html index.htm;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>中间件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>nginx</tag>
+      
+      <tag>中间件</tag>
       
     </tags>
     
@@ -1598,7 +1598,7 @@
     <link href="/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E8%BF%9E%E6%8E%A5github%20%E4%BB%93%E5%BA%93/"/>
     <url>/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E8%BF%9E%E6%8E%A5github%20%E4%BB%93%E5%BA%93/</url>
     
-    <content type="html"><![CDATA[<h2 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h2><p>以下所有的设置都只是为了从本地仓库上载到自己的Github仓库而非clone，因为hexo博客的特点就是在本地创建库，生成相应的文件后使用命令<code>hexo d</code>上载到自己的博客仓库，因此连接自己的GitHub仓库是必不可少的步骤，否则只能localhost看看了，其他人无法访问的。</p><span id="more"></span><h3 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h3><hr><p>在终端中运行以下命令（这是四条命令的组合命令，请将所有的Mail与UserName改成自己的用户名和ID）：</p><div class="note note-default">            <p>git config –global user.name “username”  &amp;&amp;  git config –global user.email “<a href="mailto:&#x65;&#109;&#x61;&#105;&#108;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#99;&#111;&#109;">&#x65;&#109;&#x61;&#105;&#108;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#99;&#111;&#109;</a>“ &amp;&amp;  ssh-keygen -t rsa -C “<a href="mailto:&#101;&#109;&#x61;&#105;&#108;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#101;&#109;&#x61;&#105;&#108;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a>“ &amp;&amp; cat ~/.ssh/id_rsa.pub</p>          </div><p>执行过后会输出自己的 <span class="label label-info">Key值</span> ，然后打开Github-点击右上角头像-设置</p><p><img src="https://i.loli.net/2021/09/30/B4GNzqDkYxCaZEh.png"></p><p>选择 SSH &amp; GPG Keys</p><p><img src="https://i.loli.net/2021/09/30/Cm1QlABhTdfp4H9.png"></p><p>点击右上角的New SSH KEY 将自己一开始获取的 <span class="label label-info">Key值</span> 复制进去就好了，记得提交哦～</p><p><img src="https://i.loli.net/2021/09/30/rE4gb7aCS8Rqoec.png"></p><p>嗯结束了，结束的有些突然，但是还是结束了</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h2><p>以下所有的设置都只是为了从本地仓库上载到自己的Github仓库而非clone，因为hexo博客的特点就是在本地创建库，生成相应的文件后使用命令<code>hexo d</code>上载到自己的博客仓库，因此连接自己的GitHub仓库是必不可少的步骤，否则只能localhost看看了，其他人无法访问的。</p><span id="more"></span><h3 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h3><hr><p>在终端中运行以下命令（这是四条命令的组合命令，请将所有的Mail与UserName改成自己的用户名和ID）：</p><div class="note note-default">            <p>git config –global user.name “username”  &amp;&amp;  git config –global user.email “<a href="mailto:&#x65;&#109;&#x61;&#x69;&#108;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#x6d;">&#x65;&#109;&#x61;&#x69;&#108;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#x6d;</a>“ &amp;&amp;  ssh-keygen -t rsa -C “<a href="mailto:&#101;&#109;&#97;&#x69;&#108;&#x40;&#103;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#101;&#109;&#97;&#x69;&#108;&#x40;&#103;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a>“ &amp;&amp; cat ~/.ssh/id_rsa.pub</p>          </div><p>执行过后会输出自己的 <span class="label label-info">Key值</span> ，然后打开Github-点击右上角头像-设置</p><p><img src="https://i.loli.net/2021/09/30/B4GNzqDkYxCaZEh.png"></p><p>选择 SSH &amp; GPG Keys</p><p><img src="https://i.loli.net/2021/09/30/Cm1QlABhTdfp4H9.png"></p><p>点击右上角的New SSH KEY 将自己一开始获取的 <span class="label label-info">Key值</span> 复制进去就好了，记得提交哦～</p><p><img src="https://i.loli.net/2021/09/30/rE4gb7aCS8Rqoec.png"></p><p>嗯结束了，结束的有些突然，但是还是结束了</p>]]></content>
     
     
     <categories>
@@ -1725,33 +1725,6 @@
   
   
   <entry>
-    <title>【Error】权限 不够/ 受阻 一类问题的解决方法</title>
-    <link href="/2021/01/05/%E3%80%90Linux%E3%80%91-%E6%9D%83%E9%99%90-%E4%B8%8D%E5%A4%9F-%E5%8F%97%E9%98%BB-%E4%B8%80%E7%B1%BB%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <url>/2021/01/05/%E3%80%90Linux%E3%80%91-%E6%9D%83%E9%99%90-%E4%B8%8D%E5%A4%9F-%E5%8F%97%E9%98%BB-%E4%B8%80%E7%B1%BB%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    
-    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><hr><p>在 Linux 中可能会遇到两种权限问题，第一种只要在命令最前方＋<code>sudo</code>便可以执行，这是使用 root 身份进行执行，另一种则不仅会出现在使用命令中，如在某个文件夹右击删除某个内容时，也会出现<code>权限不够，是否跳过？</code>这一类提示，这时候只要执行如下命令便可以解决：</p><blockquote><p>chmod 777 文件（或文件夹）名称</p></blockquote><p>在所有使用 root 无法解决，或在图形用户化界面操作无法解决时，都可以打开 终端 并且输入如上命令解决</p><br><br><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><hr><p>如果对你有帮助的话，可以【关注】作者，且右下角可对作者进行打赏哦</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Error</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Error</tag>
-      
-      <tag>Linux</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>【Springboot】Spring Framework 5 框架</title>
     <link href="/2021/01/05/%E3%80%90Springboot%E3%80%91Spring-Framework-5-%E6%A1%86%E6%9E%B6%E7%B3%BB%E5%88%97/"/>
     <url>/2021/01/05/%E3%80%90Springboot%E3%80%91Spring-Framework-5-%E6%A1%86%E6%9E%B6%E7%B3%BB%E5%88%97/</url>
@@ -1771,6 +1744,33 @@
       <tag>Java</tag>
       
       <tag>Springboot</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>【Error】权限 不够/ 受阻 一类问题的解决方法</title>
+    <link href="/2021/01/05/%E3%80%90Linux%E3%80%91-%E6%9D%83%E9%99%90-%E4%B8%8D%E5%A4%9F-%E5%8F%97%E9%98%BB-%E4%B8%80%E7%B1%BB%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <url>/2021/01/05/%E3%80%90Linux%E3%80%91-%E6%9D%83%E9%99%90-%E4%B8%8D%E5%A4%9F-%E5%8F%97%E9%98%BB-%E4%B8%80%E7%B1%BB%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><hr><p>在 Linux 中可能会遇到两种权限问题，第一种只要在命令最前方＋<code>sudo</code>便可以执行，这是使用 root 身份进行执行，另一种则不仅会出现在使用命令中，如在某个文件夹右击删除某个内容时，也会出现<code>权限不够，是否跳过？</code>这一类提示，这时候只要执行如下命令便可以解决：</p><blockquote><p>chmod 777 文件（或文件夹）名称</p></blockquote><p>在所有使用 root 无法解决，或在图形用户化界面操作无法解决时，都可以打开 终端 并且输入如上命令解决</p><br><br><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><hr><p>如果对你有帮助的话，可以【关注】作者，且右下角可对作者进行打赏哦</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Error</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Error</tag>
+      
+      <tag>Linux</tag>
       
     </tags>
     
