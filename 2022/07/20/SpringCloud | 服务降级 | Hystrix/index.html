@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/0hcf7z.png">
 <meta property="og:image" content="https://files.catbox.moe/2u957r.png">
 <meta property="article:published_time" content="2022-07-20T01:08:35.000Z">
-<meta property="article:modified_time" content="2022-07-20T09:17:25.187Z">
+<meta property="article:modified_time" content="2022-07-20T09:21:54.766Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5k 字
+      5.2k 字
     </span>
   
 
@@ -334,7 +334,12 @@
 <blockquote>
 <p>@EnableCircuitBreaker</p>
 </blockquote>
-<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><br>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><p><b><font color=#2b61a7 size=4>服务降级</font></b></p>
+<p>服务降级一般是指在服务器压力剧增的时候，根据实际业务使用情况以及流量，对一些服务和页面有策略的不处理或者用一种简单的方式进行处理，从而释放服务器资源的资源以保证核心业务的正常高效运行。</p>
+<p><b><font color=#2b61a7 size=4>服务熔断</font></b></p>
+<p>类比保险丝大大最大服务访问后，直接拒绝访问，拉闸限电，然后调用服务降级的方法并返回友好提示。</p>
+<p>服务降级 ⇨ 进行熔断 ⇨ 回复调用链路</p>
+<br>
 
 <p><b><font color=#2b61a7 size=4>服务雪崩</font></b><br>多个微服务之间调用的时候，假设微服务A调用微服务B和微服务C，微服务B和微服务C又调用其它的微服务，这就是所谓的 <font color=red>“扇出”</font>。如果扇出的链路上某个微服务的调用响应时间过长或者不可用，对微服务A的调用就会占用越来越多的系统资源，进而引起系统崩溃，所谓的 “雪崩效应”。</p>
 <p>对于高流量的应用来说，单一的后端依赖可能会导致所有服务器上的所有资源都在几秒钟内饱和。比失败更糟糕的是，这些应用程序还可能导致服务之问的延迟增加，备份队列，线程和其他系统资源紧张，导致整个系统发生更多的级联故障。这些都表示需要对故障和延迟进行隔离和管理，以便单个依赖关系的失败，不能取消整个应用程序或系统。</p>
