@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://files.catbox.moe/2u957r.png">
 <meta property="og:image" content="https://files.catbox.moe/rpp4e9.png">
 <meta property="article:published_time" content="2022-07-20T01:08:35.000Z">
-<meta property="article:modified_time" content="2022-07-20T11:03:02.464Z">
+<meta property="article:modified_time" content="2022-07-20T11:46:34.141Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -257,7 +257,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.2k 字
+      6.7k 字
     </span>
   
 
@@ -266,7 +266,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20 分钟
+      21 分钟
     </span>
   
 
@@ -553,7 +553,58 @@ eureka:
 
 <br>
 
-<h2 id="服务熔断-恢复调用链路"><a href="#服务熔断-恢复调用链路" class="headerlink" title="服务熔断 | 恢复调用链路"></a>服务熔断 | 恢复调用链路</h2><div style="text-align:center;border:1px solid lightgray;padding:15px;border-radius:15px">
+<h2 id="服务熔断-恢复调用链路"><a href="#服务熔断-恢复调用链路" class="headerlink" title="服务熔断 | 恢复调用链路"></a>服务熔断 | 恢复调用链路</h2><h4 id="断路器触发条件"><a href="#断路器触发条件" class="headerlink" title="断路器触发条件"></a><b><font color=#2b61a7 size=4>断路器触发条件</font></b></h4><table border='0' cellpadding='0' cellspacing='0' width='1297' style='border-collapse: 
+ collapse;table-layout:fixed;width:972pt'>
+ <col width='399' style='mso-width-source:userset;width:299.25pt'>
+ <col width='673' style='mso-width-source:userset;width:504.75pt'>
+ <col width='144' style='mso-width-source:userset;width:108pt'>
+ <col width='81' style='mso-width-source:userset;width:60.75pt'>
+ <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r0'>
+<td colspan='2' height='21' class='x69' width='1072' style='border-bottom:1px solid #9DC3E6;height:16.1pt;'>方法名</td>
+<td class='x70' width='144' style='width:108pt;'>作用</td>
+<td class='x71' width='81' style='width:60.75pt;'>备注</td>
+ </tr>
+ <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r1'>
+<td colspan='2' height='21' class='x72' style='border-bottom:1px solid #9DC3E6;height:16.1pt;'>fallbackMethod = "paymentCircuitBreakerFallback",</td>
+<td class='x73'></td>
+<td class='x74'></td>
+ </tr>
+ <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r2'>
+<td rowspan='5' height='116' class='x75' style='border-bottom:1px solid #9DC3E6;height:87.7pt;'>commandProperties = {}</td>
+<td class='x76'>@HystrixProperty(name = "circuitBreaker.enabled", value = "true"),</td>
+<td class='x77'>是否开启断路器</td>
+<td class='x78'></td>
+ </tr>
+ <tr height='24' style='mso-height-source:userset;height:18pt' id='r3'>
+<td class='x79'><font class="font0">@HystrixProperty</font><font class="font26">(</font><font class="font27">name = </font><font class="font28">"circuitBreaker.requestVolumeThreshold"</font><font class="font29">, </font><font class="font27">value = </font><font class="font28">"10"</font><font class="font26">)</font><font class="font29">,</font></td>
+<td class='x73'>请求次数</td>
+<td class='x74'></td>
+ </tr>
+ <tr height='24' style='mso-height-source:userset;height:18pt' id='r4'>
+<td class='x76' style='overflow:hidden;'><font class="font0">@HystrixProperty</font><font class="font26">(</font><font class="font27">name = </font><font class="font28">"circuitBreaker.sleepWindowInMilliseconds"</font><font class="font29">, </font><font class="font27">value = </font><font class="font28">"10000"</font><font class="font26">)</font><font class="font29">,</font></td>
+<td class='x77'>时间窗口期</td>
+<td class='x78'></td>
+ </tr>
+ <tr height='24' style='mso-height-source:userset;height:18pt' id='r5'>
+<td class='x79'><font class="font0">@HystrixProperty</font><font class="font26">(</font><font class="font27">name = </font><font class="font28">"circuitBreaker.errorThresholdPercentage"</font><font class="font29">, </font><font class="font27">value = </font><font class="font28">"60"</font><font class="font26">)</font><font class="font29">,</font></td>
+<td colspan='2' class='x73' style='mso-ignore:colspan;border-right:1px solid #9DC3E6;'>失败率达到多少后跳闸</td>
+ </tr>
+ <tr height='23' style='mso-height-source:userset;height:17.6pt' id='r6'>
+<td class='x76' style='overflow:hidden;'>@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")</td>
+<td class='x77'>超时处理</td>
+<td class='x78'></td>
+ </tr>
+<![if supportMisalignedColumns]>
+ <tr height='0' style='display:none'>
+  <td width='399' style='width:299.25pt'></td>
+  <td width='673' style='width:504.75pt'></td>
+  <td width='144' style='width:108pt'></td>
+  <td width='81' style='width:60.75pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+<div style="text-align:center;border:1px solid lightgray;padding:15px;border-radius:15px">
   <img  style="width:50%;border-radius:15px;border:1px solid #f5f7f9" src="https://files.catbox.moe/rpp4e9.png" srcset="/img/loading.gif" lazyload/>
 </div>
 
