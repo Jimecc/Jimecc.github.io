@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/srel0u.png">
 <meta property="article:published_time" content="2022-07-20T15:52:40.000Z">
-<meta property="article:modified_time" content="2022-07-20T16:34:37.344Z">
+<meta property="article:modified_time" content="2022-07-20T16:45:07.038Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="刷题">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.4k 字
     </span>
   
 
@@ -265,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      5 分钟
     </span>
   
 
@@ -328,7 +328,7 @@
 </tr>
 <tr>
 <td>时间复杂度</td>
-<td>O(n)</td>
+<td><em>O</em>(<em>n</em>)</td>
 </tr>
 <tr>
 <td>方法</td>
@@ -391,19 +391,13 @@
 
 <h4 id="代码阅读"><a href="#代码阅读" class="headerlink" title="代码阅读"></a>代码阅读</h4><p><strong>核心</strong>：只经历了一次循环</p>
 <blockquote>
-<p> ∵ 若是字符串的长度是 0 则重复字符串长度必为 0</p>
-<p>∴ 先判断长度是否为 0，如果是则直接返回 0</p>
-</blockquote>
-<blockquote>
-<p>若是长度不为 0，则创建一个 HashMap&lt;Character, Integer&gt;</p>
-<p>执行一个循环，循环次数为字符串长度，每次循环的 i 对应字符串中 i+1 的字符</p>
-<p>若是 map 中已经存在了当前字符串中 i+1 的字符，则：</p>
-<ul>
-<li>取 left 与</li>
-</ul>
+<p>其实就是一个队列,比如例题中的 abcabcbb，进入这个队列（窗口）为 abc 满足题目要求，当再进入 a，队列变成了 abca，这时候不满足要求。所以，我们要移动这个队列！</p>
+<p>如何移动？</p>
+<p>我们只要把队列的左边的元素移出就行了，直到满足题目要求！</p>
+<p>一直维持这样的队列，找出队列出现最长的长度时候，求出解！</p>
 </blockquote>
 <h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><blockquote>
-<p> 字符串：<code>asdibdga</code>；</p>
+<p> <strong>字符串</strong>：<code>asdibdga</code>；</p>
 <p>进入循环，目前 left 是 0，max 是 0；</p>
 <p>循环到<code>asdib</code>没有出现重复，以上字符都被放到 HashMap 中，目前 <code>max</code>=5，<code>i </code>= 4，<code>i-left+1</code>=5，因此<code>max</code> = Math.max(5,5)；</p>
 <p>遍历到 <code>d</code> 的时候，出现了第一个字符，这里会取一个最大值，是在 <code>left</code> 和第一次出现 <code>d</code> 的位置取最大值，很明显，出现 <code>d</code> 的位置更大，因此 <code>left</code> 变成了3；而在 HashMap 中的<code>d</code>的位置变成了 5</p>
@@ -416,6 +410,12 @@
 <p><code>a</code> 的位置更新为 7</p>
 <p>对 <code>max</code>=5 和 7-3+1=5 取最大值，<code>max</code> 依旧是 5</p>
 <p>∴ return 5</p>
+</blockquote>
+<blockquote>
+<p><strong>字符串</strong>： <code>bcdaghjalk</code></p>
+<p>进入循环，循环到 <code>j</code>，长度为 7，left=0</p>
+<p>遇到 <code>a</code>，left=Math.max(0,4)=4</p>
+<p>这时候<code>a</code>的位置更新到 7，也就是舍弃了左侧 <code>bcd</code>，窗口变成了<code>ghja</code>，此时 max 是 8，[a,a) 之间的距离是4&lt;8，不取。</p>
 </blockquote>
 
             </div>
@@ -461,7 +461,7 @@
                     
                       <a href="/2022/07/20/%E6%B5%8B%E8%AF%95%20%7C%20JMeter%20%7C%20%E9%AB%98%E5%B9%B6%E5%8F%91%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
                         <span class="hidden-mobile">测试 | JMeter | 高并发测试工具</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -496,7 +496,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -522,7 +522,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -531,7 +531,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
