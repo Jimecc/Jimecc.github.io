@@ -16,17 +16,17 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="GitHub （已停止运维）    重点 1-1 方法 @HystrixCommand(fallbackMethod&#x3D;”paymentInfo_TImeOutHandler”,commandProperties&#x3D;{@HystrixProperty(name&#x3D;”execution.isolation.thread.timeoutInMilliseconds”,value&#x3D;”3000”">
+  <meta name="description" content="GitHub （已停止运维）    运行 超时 宕机   重点 1-1 方法 @HystrixCommand(fallbackMethod&#x3D;”paymentInfo_TImeOutHandler”,commandProperties&#x3D;{@HystrixProperty(name&#x3D;”execution.isolation.thread.timeoutInMilliseconds”,va">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 服务降级 | Hystrix">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/20/SpringCloud%20|%20%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7%20|%20Hystrix/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="GitHub （已停止运维）    重点 1-1 方法 @HystrixCommand(fallbackMethod&#x3D;”paymentInfo_TImeOutHandler”,commandProperties&#x3D;{@HystrixProperty(name&#x3D;”execution.isolation.thread.timeoutInMilliseconds”,value&#x3D;”3000”">
+<meta property="og:description" content="GitHub （已停止运维）    运行 超时 宕机   重点 1-1 方法 @HystrixCommand(fallbackMethod&#x3D;”paymentInfo_TImeOutHandler”,commandProperties&#x3D;{@HystrixProperty(name&#x3D;”execution.isolation.thread.timeoutInMilliseconds”,va">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/0hcf7z.png">
 <meta property="og:image" content="https://files.catbox.moe/2u957r.png">
 <meta property="article:published_time" content="2022-07-20T01:08:35.000Z">
-<meta property="article:modified_time" content="2022-07-20T09:13:53.414Z">
+<meta property="article:modified_time" content="2022-07-20T09:17:25.187Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -310,13 +310,17 @@
               <div style="text-align:center;border:1px solid darkgray;padding:10px;border-radius:15px">
   <img  style="width:230px;border-radius:15px" src="https://files.catbox.moe/0hcf7z.png" srcset="/img/loading.gif" lazyload/>
 </div>
-
 <br>
 
 <div style="width:100%;height:85px;background:#ffb0d2;border-radius:15px;text-align:center;padding:22px 0px;"><div><img style="width:25px;border-radius:5px;margin:0 10px  9px 30px" src="https://files.catbox.moe/2u957r.png" srcset="/img/loading.gif" lazyload/><a target="_blank" rel="noopener" href="https://github.com/Netflix/Hystrix" style="font-size:24px;margin-right:15px"><b>GitHub （已停止运维）</b></a></div></div>
 
-
-
+<blockquote>
+<ul>
+<li>运行</li>
+<li>超时</li>
+<li>宕机</li>
+</ul>
+</blockquote>
 <h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><blockquote>
 <p><strong>1-1 方法</strong></p>
 <p>@HystrixCommand(fallbackMethod=”paymentInfo_TImeOutHandler”,commandProperties={@HystrixProperty(name=”execution.isolation.thread.timeoutInMilliseconds”,value=”3000”)})</p>
@@ -507,7 +511,7 @@ eureka:
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <blockquote>
-<p>这样写的话，当出现问题的时候，会调用实现方法中的</p>
+<p>这样写的话，当出现问题的时候，会调用类方法中的方法</p>
 </blockquote>
 
             </div>
