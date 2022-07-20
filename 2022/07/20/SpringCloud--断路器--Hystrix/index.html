@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/0hcf7z.png">
 <meta property="og:image" content="https://files.catbox.moe/2u957r.png">
 <meta property="article:published_time" content="2022-07-20T01:08:35.000Z">
-<meta property="article:modified_time" content="2022-07-20T02:00:32.236Z">
+<meta property="article:modified_time" content="2022-07-20T02:35:24.910Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      963 字
+      1.3k 字
     </span>
   
 
@@ -265,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      4 分钟
     </span>
   
 
@@ -322,7 +322,7 @@
 <p>所以，通常当你发现一个模块下的某个实例失败后，这时候这个模块依然还会接收流量，然后这个有问题的模块还调用了其他的模块，这样就会发生级联故障，或者叫雪崩。</p>
 <p><b><font color=#2b61a7 size=4>什么是 Hystrix</font></b></p>
 <p>Hystrix是一个用于处理分布式系统的<font color=red>延迟</font>和<font color=red>容错</font>的开源库，在分布式系统里，许多依赖不可避免的会调用失败，比如超时、异常等，Hystrix能够保证在-个依赖出问题的情况下，<font color=red>不会导致整体服务失败，避免级联故障，以提高分布式系统的弹性。</font></p>
-<p>“断路器” 本身是一种开关装置，当某个服务单元发生故障之后，通过断路器的故障监控(类似熔断保险丝），<font color=red>向调用方返回一个符合预期的、可处理的备选响应 （FallBack），而不是长时间的等待或者抛出调用方无法处理的异常，</font>这样就保证了服务调用方的线程不会被长时间、不必要地占用，从而避免了故障在分布式系统中的蔓延，乃至雪崩。</p>
+<p><strong>“断路器”</strong> 本身是一种开关装置，当某个服务单元发生故障之后，通过断路器的故障监控(类似熔断保险丝），<font color=red>向调用方返回一个符合预期的、可处理的备选响应 <font color=green><strong>（FallBack）</strong></font>，而不是长时间的等待或者抛出调用方无法处理的异常，</font>这样就保证了服务调用方的线程不会被长时间、不必要地占用，从而避免了故障在分布式系统中的蔓延，乃至雪崩。</p>
 <br>
 
 <br>
@@ -350,6 +350,33 @@
         <span class="token keyword">return</span> <span class="token string">"Hello "</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"!"</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+
+
+<h2 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h2><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-netflix-hystrix<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>x.y.z<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># application.yml
+server:
+	port: 1234
+	
+spring:
+	application:
+		name: xxx
+
+eureka:
+	client:
+		register-with-eureka: true
+		fetch-registry: true
+		service-url:
+			defaultZone: http:&#x2F;&#x2F;eureka7001.com:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
             </div>
             <hr>
             <div>
