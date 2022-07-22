@@ -16,16 +16,16 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。 Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发藤原可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进行路由。">
+  <meta name="description" content="概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。 Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进行路由。 Filter（过滤） 指的是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 路由网关 | SpringCloud GateWay">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/22/SpringCloud--%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7--Hystrix/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。 Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发藤原可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进行路由。">
+<meta property="og:description" content="概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。 Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进行路由。 Filter（过滤） 指的是">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/z2zbg2.png">
 <meta property="article:published_time" content="2022-07-22T12:57:18.000Z">
-<meta property="article:modified_time" content="2022-07-22T13:18:12.302Z">
+<meta property="article:modified_time" content="2022-07-22T13:22:17.527Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -255,7 +255,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      167 字
+      233 字
     </span>
   
 
@@ -306,8 +306,15 @@
               </p>
             
             <div class="markdown-body">
-              <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。</p>
-<p>Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发藤原可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），<font color=red>如果请求与断言相匹配则进行路由。</font></p>
+              <br>
+
+<br>
+
+
+
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>Route（路由）</strong> 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。</p>
+<p><strong>Predicate（断言）</strong>参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），<font color=red>如果请求与断言相匹配则进行路由。</font></p>
+<p><strong>Filter（过滤）</strong> 指的是 Spring 框架中 GatewayFilter 的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改。</p>
 <div style="text-align:center"><img style="border:1px solid darkgray;border-radius:15px;padding:10px;width:70%" src="https://files.catbox.moe/z2zbg2.png" srcset="/img/loading.gif" lazyload /></div>
             </div>
             <hr>
