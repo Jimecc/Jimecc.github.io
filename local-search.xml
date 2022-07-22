@@ -31,6 +31,33 @@
   
   
   <entry>
+    <title>报错 | SpringCloud GateWay 启动报错</title>
+    <link href="/2022/07/22/%E3%80%90Error%E3%80%91%7C%20SpringCloud-GateWay-%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99/"/>
+    <url>/2022/07/22/%E3%80%90Error%E3%80%91%7C%20SpringCloud-GateWay-%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99/</url>
+    
+    <content type="html"><![CDATA[<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">Spring MVC found on classpath,which is incompatible with Spring Cloud Gateway at this time.Please remove spring-boot-starter-web dependency.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在 Gateway 端移除跟 web 有关的配置。</p><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Error</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>Error</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>SpringCloud | 路由网关 | GateWay 与 Zuul</title>
     <link href="/2022/07/22/SpringCloud--%E8%B7%AF%E7%94%B1%E7%BD%91%E5%85%B3--GateWay/"/>
     <url>/2022/07/22/SpringCloud--%E8%B7%AF%E7%94%B1%E7%BD%91%E5%85%B3--GateWay/</url>
@@ -498,9 +525,9 @@
     
     <tags>
       
-      <tag>刷题</tag>
-      
       <tag>MySQL</tag>
+      
+      <tag>刷题</tag>
       
     </tags>
     
@@ -1122,33 +1149,6 @@
   
   
   <entry>
-    <title>【纠错篇】 安装 Nginx 报错</title>
-    <link href="/2022/06/09/nginx/%E3%80%90%E7%BA%A0%E9%94%99%E7%AF%87%E3%80%91-%E5%AE%89%E8%A3%85-Nginx-%E6%8A%A5%E9%94%99/"/>
-    <url>/2022/06/09/nginx/%E3%80%90%E7%BA%A0%E9%94%99%E7%AF%87%E3%80%91-%E5%AE%89%E8%A3%85-Nginx-%E6%8A%A5%E9%94%99/</url>
-    
-    <content type="html"><![CDATA[<h1 id="在-CentOS8-上安装-Nginx-遇到的问题以及解决办法"><a href="#在-CentOS8-上安装-Nginx-遇到的问题以及解决办法" class="headerlink" title="在 CentOS8 上安装 Nginx 遇到的问题以及解决办法"></a>在 CentOS8 上安装 Nginx 遇到的问题以及解决办法</h1><ul><li><font color=red>注意：</font>这边可能会遇到两个问题，如如果遇到请参考下面方法，没有遇到就跳过：</li></ul><img style="width:900px" src="https://files.catbox.moe/pzzehv.png"><p><font size=4 color=orange>对于问题 1</font>：进入到:<code>/解压缩后的文件夹下的/objs</code>下，使用 vim 打开 Makefile 并删除下列代码中的<code>-Werror</code></p><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 删除前CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g　# 删除后CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -g　<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div><p><font color=orange size-4>问题 2</font>：进入到下方文件夹，使用 vim 打开<code>ngx-user.c</code>后注释掉下面一行代码</p><img style="width:900px" src="https://files.catbox.moe/4an2rk.png"><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cd.current_salt[0] &#x3D; ~salt[0];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><p>两个问题修改之后的效果：</p><img style="width:600px" src="https://files.catbox.moe/et9ri8.png"><img style="width:600px" src="https://files.catbox.moe/6pxib8.png"><hr><p><font color=#7baf23 size=2>问题已解决！</font></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>中间件</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>nginx</tag>
-      
-      <tag>纠错篇</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>【Nginx】 Nginx 全</title>
     <link href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/"/>
     <url>/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91%E5%85%A8/</url>
@@ -1168,6 +1168,33 @@
       <tag>nginx</tag>
       
       <tag>中间件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>【纠错篇】 安装 Nginx 报错</title>
+    <link href="/2022/06/09/nginx/%E3%80%90%E7%BA%A0%E9%94%99%E7%AF%87%E3%80%91-%E5%AE%89%E8%A3%85-Nginx-%E6%8A%A5%E9%94%99/"/>
+    <url>/2022/06/09/nginx/%E3%80%90%E7%BA%A0%E9%94%99%E7%AF%87%E3%80%91-%E5%AE%89%E8%A3%85-Nginx-%E6%8A%A5%E9%94%99/</url>
+    
+    <content type="html"><![CDATA[<h1 id="在-CentOS8-上安装-Nginx-遇到的问题以及解决办法"><a href="#在-CentOS8-上安装-Nginx-遇到的问题以及解决办法" class="headerlink" title="在 CentOS8 上安装 Nginx 遇到的问题以及解决办法"></a>在 CentOS8 上安装 Nginx 遇到的问题以及解决办法</h1><ul><li><font color=red>注意：</font>这边可能会遇到两个问题，如如果遇到请参考下面方法，没有遇到就跳过：</li></ul><img style="width:900px" src="https://files.catbox.moe/pzzehv.png"><p><font size=4 color=orange>对于问题 1</font>：进入到:<code>/解压缩后的文件夹下的/objs</code>下，使用 vim 打开 Makefile 并删除下列代码中的<code>-Werror</code></p><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 删除前CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g　# 删除后CFLAGS &#x3D;  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -g　<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div><p><font color=orange size-4>问题 2</font>：进入到下方文件夹，使用 vim 打开<code>ngx-user.c</code>后注释掉下面一行代码</p><img style="width:900px" src="https://files.catbox.moe/4an2rk.png"><div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cd.current_salt[0] &#x3D; ~salt[0];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><p>两个问题修改之后的效果：</p><img style="width:600px" src="https://files.catbox.moe/et9ri8.png"><img style="width:600px" src="https://files.catbox.moe/6pxib8.png"><hr><p><font color=#7baf23 size=2>问题已解决！</font></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>中间件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>nginx</tag>
+      
+      <tag>纠错篇</tag>
       
     </tags>
     
@@ -1408,9 +1435,9 @@
     
     <tags>
       
-      <tag>Springboot</tag>
-      
       <tag>Error</tag>
+      
+      <tag>Springboot</tag>
       
     </tags>
     
@@ -1551,8 +1578,8 @@
   
   <entry>
     <title>【维护小破站】博客重新搭建</title>
-    <link href="/2021/10/07/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA/"/>
-    <url>/2021/10/07/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA/</url>
+    <link href="/2021/10/07/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%89%AF%E6%9C%AC/"/>
+    <url>/2021/10/07/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%89%AF%E6%9C%AC/</url>
     
     <content type="html"><![CDATA[<h2 id="前言-吐槽一下遇到的离谱问题"><a href="#前言-吐槽一下遇到的离谱问题" class="headerlink" title="前言 吐槽一下遇到的离谱问题"></a>前言 <font size=3>吐槽一下遇到的离谱问题</font></h2><div class="note note-danger">            <p>很离谱！很奇葩！把本地的博客放到了TencentCloud之后，默认语言变成了阿拉伯文！</p>          </div><p>找了很久的问题，最后确认是NexT<span class="label label-primary">主题配置文件</span>出了问题，最后索性直接重新搭建了。</p><p><img src="https://i.loli.net/2021/10/07/AB7XDgIbhe5yCmq.png" alt="阿拉伯文版博客"></p><br><br><h2 id="前期准备相关配置及版本"><a href="#前期准备相关配置及版本" class="headerlink" title="前期准备相关配置及版本"></a>前期准备<font size=3>相关配置及版本</font></h2><hr><div class="note note-primary">            <p>相关配置：</p><ul><li>MacBook M1 Air</li><li>NexT version 8.8.0</li><li>Tencent Cloud CentOS 8.2 64bit</li><li>Nodejs 14.16.1</li><li>文件传输：<a href="bt.cn">宝塔</a></li></ul>          </div><hr><br><br><h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="安装-宝塔"><a href="#安装-宝塔" class="headerlink" title="安装 宝塔"></a>安装 宝塔</h3><p>在TencentCloud 安装Hexo与NexT主题很简单，使用<span class="label label-primary">git</span>与<span class="label label-primary">vim</span>便可以完成，但是仅仅使用<span class="label label-primary">vim</span>来修改配置则太麻烦了，况且美化的过程工作量还不小，询问过<a href="https://imfurry.com/">【狐狸】</a>之后，采取了他的办法，用宝塔来实现一个简单的“桌面”，宝塔的安装命令如下：</p><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># CentOSyum install -y wget &amp;&amp; wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install_6.0.sh &amp;&amp; sh install.sh# Ubuntu&#x2F;Deepinwget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh# Debianwget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu_6.0.sh &amp;&amp; bash install.sh# Fedorawget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install_6.0.sh &amp;&amp; bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><ul><li>安装Nodejs</li><li>使用<span class="label label-primary">npm</span>直接安装hexo</li><li>详情请见<a href="http://110.40.191.51:4000/2021/09/29/Hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85Hexo%E5%8D%9A%E5%AE%A2/">【Hexo博客安装】</a></li></ul><h3 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装NexT主题</h3><ul><li>去<a href="https://github.com/next-theme/hexo-theme-next">NexT主题仓库</a>克隆下来</li></ul><div class="note note-danger">            <p>git clone  <a href="https://github.com/next-theme/hexo-theme-next.git">https://github.com/next-theme/hexo-theme-next.git</a> </p>          </div><ul><li>打开Hexo配置文件 并将theme改为next</li></ul><p>![图片](/Users/hsk/Library/Application Support/typora-user-images/MyMac_2021-10-07 下午4.44.57.png)</p><ul><li>更多配置详情请看<a href="http://110.40.191.51:4000/2021/09/30/Hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E8%AE%B02-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%961/?highlight=hexo">【NexT主题升级】</a></li></ul>]]></content>
     
@@ -1576,8 +1603,8 @@
   
   <entry>
     <title>【维护小破站】博客重新搭建</title>
-    <link href="/2021/10/07/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%89%AF%E6%9C%AC/"/>
-    <url>/2021/10/07/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%89%AF%E6%9C%AC/</url>
+    <link href="/2021/10/07/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA/"/>
+    <url>/2021/10/07/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA/</url>
     
     <content type="html"><![CDATA[<h2 id="前言-吐槽一下遇到的离谱问题"><a href="#前言-吐槽一下遇到的离谱问题" class="headerlink" title="前言 吐槽一下遇到的离谱问题"></a>前言 <font size=3>吐槽一下遇到的离谱问题</font></h2><div class="note note-danger">            <p>很离谱！很奇葩！把本地的博客放到了TencentCloud之后，默认语言变成了阿拉伯文！</p>          </div><p>找了很久的问题，最后确认是NexT<span class="label label-primary">主题配置文件</span>出了问题，最后索性直接重新搭建了。</p><p><img src="https://i.loli.net/2021/10/07/AB7XDgIbhe5yCmq.png" alt="阿拉伯文版博客"></p><br><br><h2 id="前期准备相关配置及版本"><a href="#前期准备相关配置及版本" class="headerlink" title="前期准备相关配置及版本"></a>前期准备<font size=3>相关配置及版本</font></h2><hr><div class="note note-primary">            <p>相关配置：</p><ul><li>MacBook M1 Air</li><li>NexT version 8.8.0</li><li>Tencent Cloud CentOS 8.2 64bit</li><li>Nodejs 14.16.1</li><li>文件传输：<a href="bt.cn">宝塔</a></li></ul>          </div><hr><br><br><h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="安装-宝塔"><a href="#安装-宝塔" class="headerlink" title="安装 宝塔"></a>安装 宝塔</h3><p>在TencentCloud 安装Hexo与NexT主题很简单，使用<span class="label label-primary">git</span>与<span class="label label-primary">vim</span>便可以完成，但是仅仅使用<span class="label label-primary">vim</span>来修改配置则太麻烦了，况且美化的过程工作量还不小，询问过<a href="https://imfurry.com/">【狐狸】</a>之后，采取了他的办法，用宝塔来实现一个简单的“桌面”，宝塔的安装命令如下：</p><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># CentOSyum install -y wget &amp;&amp; wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install_6.0.sh &amp;&amp; sh install.sh# Ubuntu&#x2F;Deepinwget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh# Debianwget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu_6.0.sh &amp;&amp; bash install.sh# Fedorawget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install_6.0.sh &amp;&amp; bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><ul><li>安装Nodejs</li><li>使用<span class="label label-primary">npm</span>直接安装hexo</li><li>详情请见<a href="http://110.40.191.51:4000/2021/09/29/Hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E8%AE%B01-%E5%AE%89%E8%A3%85Hexo%E5%8D%9A%E5%AE%A2/">【Hexo博客安装】</a></li></ul><h3 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装NexT主题</h3><ul><li>去<a href="https://github.com/next-theme/hexo-theme-next">NexT主题仓库</a>克隆下来</li></ul><div class="note note-danger">            <p>git clone  <a href="https://github.com/next-theme/hexo-theme-next.git">https://github.com/next-theme/hexo-theme-next.git</a> </p>          </div><ul><li>打开Hexo配置文件 并将theme改为next</li></ul><p>![图片](/Users/hsk/Library/Application Support/typora-user-images/MyMac_2021-10-07 下午4.44.57.png)</p><ul><li>更多配置详情请看<a href="http://110.40.191.51:4000/2021/09/30/Hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E8%AE%B02-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%961/?highlight=hexo">【NexT主题升级】</a></li></ul>]]></content>
     
@@ -1706,7 +1733,7 @@
     <link href="/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E8%BF%9E%E6%8E%A5github%20%E4%BB%93%E5%BA%93/"/>
     <url>/2021/09/30/%E5%8D%9A%E5%AE%A2/%E3%80%90Hexo%E3%80%91Hexo%E8%BF%9E%E6%8E%A5github%20%E4%BB%93%E5%BA%93/</url>
     
-    <content type="html"><![CDATA[<h2 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h2><p>以下所有的设置都只是为了从本地仓库上载到自己的Github仓库而非clone，因为hexo博客的特点就是在本地创建库，生成相应的文件后使用命令<code>hexo d</code>上载到自己的博客仓库，因此连接自己的GitHub仓库是必不可少的步骤，否则只能localhost看看了，其他人无法访问的。</p><span id="more"></span><h3 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h3><hr><p>在终端中运行以下命令（这是四条命令的组合命令，请将所有的Mail与UserName改成自己的用户名和ID）：</p><div class="note note-default">            <p>git config –global user.name “username”  &amp;&amp;  git config –global user.email “<a href="mailto:&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#109;">&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#109;</a>“ &amp;&amp;  ssh-keygen -t rsa -C “<a href="mailto:&#101;&#109;&#x61;&#105;&#108;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#109;">&#101;&#109;&#x61;&#105;&#108;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#109;</a>“ &amp;&amp; cat ~/.ssh/id_rsa.pub</p>          </div><p>执行过后会输出自己的 <span class="label label-info">Key值</span> ，然后打开Github-点击右上角头像-设置</p><p><img src="https://i.loli.net/2021/09/30/B4GNzqDkYxCaZEh.png"></p><p>选择 SSH &amp; GPG Keys</p><p><img src="https://i.loli.net/2021/09/30/Cm1QlABhTdfp4H9.png"></p><p>点击右上角的New SSH KEY 将自己一开始获取的 <span class="label label-info">Key值</span> 复制进去就好了，记得提交哦～</p><p><img src="https://i.loli.net/2021/09/30/rE4gb7aCS8Rqoec.png"></p><p>嗯结束了，结束的有些突然，但是还是结束了</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h2><p>以下所有的设置都只是为了从本地仓库上载到自己的Github仓库而非clone，因为hexo博客的特点就是在本地创建库，生成相应的文件后使用命令<code>hexo d</code>上载到自己的博客仓库，因此连接自己的GitHub仓库是必不可少的步骤，否则只能localhost看看了，其他人无法访问的。</p><span id="more"></span><h3 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h3><hr><p>在终端中运行以下命令（这是四条命令的组合命令，请将所有的Mail与UserName改成自己的用户名和ID）：</p><div class="note note-default">            <p>git config –global user.name “username”  &amp;&amp;  git config –global user.email “<a href="mailto:&#101;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#101;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a>“ &amp;&amp;  ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#109;&#97;&#105;&#108;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#x65;&#109;&#97;&#105;&#108;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a>“ &amp;&amp; cat ~/.ssh/id_rsa.pub</p>          </div><p>执行过后会输出自己的 <span class="label label-info">Key值</span> ，然后打开Github-点击右上角头像-设置</p><p><img src="https://i.loli.net/2021/09/30/B4GNzqDkYxCaZEh.png"></p><p>选择 SSH &amp; GPG Keys</p><p><img src="https://i.loli.net/2021/09/30/Cm1QlABhTdfp4H9.png"></p><p>点击右上角的New SSH KEY 将自己一开始获取的 <span class="label label-info">Key值</span> 复制进去就好了，记得提交哦～</p><p><img src="https://i.loli.net/2021/09/30/rE4gb7aCS8Rqoec.png"></p><p>嗯结束了，结束的有些突然，但是还是结束了</p>]]></content>
     
     
     <categories>
@@ -1849,9 +1876,9 @@
     
     <tags>
       
-      <tag>Linux</tag>
-      
       <tag>Error</tag>
+      
+      <tag>Linux</tag>
       
     </tags>
     
@@ -2194,9 +2221,9 @@
     
     <tags>
       
-      <tag>Linux</tag>
-      
       <tag>Error</tag>
+      
+      <tag>Linux</tag>
       
     </tags>
     
