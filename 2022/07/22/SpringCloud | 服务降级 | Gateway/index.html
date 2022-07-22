@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/z2zbg2.png">
 <meta property="og:image" content="https://files.catbox.moe/q8xgyo.png">
 <meta property="article:published_time" content="2022-07-22T12:57:18.000Z">
-<meta property="article:modified_time" content="2022-07-22T13:43:07.946Z">
+<meta property="article:modified_time" content="2022-07-22T13:54:03.583Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      540 字
+      1.2k 字
     </span>
   
 
@@ -265,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      4 分钟
     </span>
   
 
@@ -322,6 +322,53 @@
 <p>客户端向 SpringCloudGateway 发出请求。然后在 Gateway Handler Mapping 中找到与请求相匹配的路由，将其发送到 Gateway Web Handler。</p>
 <p><strong>Handler</strong>再通过指定的过滤器链来将请求发送到我们实际的服务执行业务逻辑，然后返回，过滤器之间用虚线分开是因为过滤器可能会在发送代理请求之前（”pre”）或之后（“post”）执行业务逻辑。</p>
 <p><strong>Filter</strong> 在”pre” 类型的过滤器可以做参数校验、权限校验、流量监控、日志输出、协议转换等，在”post”类型的过滤器中可以做相应内容、响应头的修改，日志的修改，日志的输出，流量监控等有着非常重要的作用。</p>
+<br>
+
+<br>
+
+<br>
+
+
+
+
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+	port: 9527
+	
+spring:
+	application: 
+		name: cloud-gateway
+	cloud:
+		gateway:
+			routes:
+				- id: payment_routh
+					uri: http:&#x2F;&#x2F;localhost:8001
+					predicates:
+						- Path&#x3D;&#x2F;payment&#x2F;get&#x2F;**
+        - id: payment_routh2
+					uri: http:&#x2F;&#x2F;localhost:8001
+					predicates:
+						- Path&#x3D;&#x2F;payment&#x2F;lb&#x2F;**
+						
+## 注册进 Eureka
+eureka:
+	instance:
+		hostname: cloud-gateway-service
+	client:
+		service-url:
+			register-with-eureka: true
+			fetch-registry: true
+			defaultZone: http:&#x2F;&#x2F;eureka7001.com:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 主启动类</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableEurekaClient</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GateWayMain9527</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">GateWayMain9527</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
 
             </div>
             <hr>
