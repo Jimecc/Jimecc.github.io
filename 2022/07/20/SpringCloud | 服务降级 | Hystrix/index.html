@@ -16,19 +16,19 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="GitHub （已停止运维）    运行 超时 宕机       How Does it work？          重点 1-1 方法 @HystrixCommand(fallbackMethod&#x3D;”paymentInfo_TImeOutHandler”,commandProperties&#x3D;{@HystrixProperty(name&#x3D;”execution.isolation.t">
+  <meta name="description" content="GitHub （已停止运维）    运行 超时 宕机       How Does it work？       选择construct a HystrixCommand或者HystrixObservableCommand 选择方法 判断缓存中是否有 是：返回缓存结果 否：向下执行   断路器是否打开 是：服务降级 FallBack 否：向下执行   判断线程池是否满了？ 是：服务降">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 服务降级 | Hystrix">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/20/SpringCloud%20|%20%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7%20|%20Hystrix/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="GitHub （已停止运维）    运行 超时 宕机       How Does it work？          重点 1-1 方法 @HystrixCommand(fallbackMethod&#x3D;”paymentInfo_TImeOutHandler”,commandProperties&#x3D;{@HystrixProperty(name&#x3D;”execution.isolation.t">
+<meta property="og:description" content="GitHub （已停止运维）    运行 超时 宕机       How Does it work？       选择construct a HystrixCommand或者HystrixObservableCommand 选择方法 判断缓存中是否有 是：返回缓存结果 否：向下执行   断路器是否打开 是：服务降级 FallBack 否：向下执行   判断线程池是否满了？ 是：服务降">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/0hcf7z.png">
 <meta property="og:image" content="https://files.catbox.moe/2u957r.png">
 <meta property="og:image" content="https://files.catbox.moe/woi3j5.png">
 <meta property="og:image" content="https://files.catbox.moe/rpp4e9.png">
 <meta property="article:published_time" content="2022-07-20T01:08:35.000Z">
-<meta property="article:modified_time" content="2022-07-22T09:14:13.213Z">
+<meta property="article:modified_time" content="2022-07-22T09:36:03.404Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -258,7 +258,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      7.3k 字
+      8k 字
     </span>
   
 
@@ -267,7 +267,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23 分钟
+      25 分钟
     </span>
   
 
@@ -304,7 +304,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：a few seconds ago
+                  本文最后更新于：3 minutes ago
                 
               </p>
             
@@ -333,6 +333,31 @@
 
 <br>
 
+<ol>
+<li>选择<code>construct a HystrixCommand</code>或者<code>HystrixObservableCommand</code></li>
+<li>选择方法</li>
+<li>判断缓存中是否有<ol>
+<li><font color=red><strong>是</strong></font>：返回缓存结果</li>
+<li><font color=green><strong>否</strong></font>：向下执行</li>
+</ol>
+</li>
+<li>断路器是否打开<ol>
+<li><font color=red><strong>是</strong></font>：服务降级 FallBack</li>
+<li><font color=green><strong>否</strong></font>：向下执行</li>
+</ol>
+</li>
+<li>判断线程池是否满了？<ol>
+<li><font color=red><strong>是</strong></font>：服务降级 FallBack</li>
+<li><font color=green><strong>否</strong></font>：向下执行</li>
+</ol>
+</li>
+<li><code>construct()</code> <strong>OR</strong> <code>run()</code></li>
+<li>是否<strong>失败</strong>或者<strong>超时</strong>？<ol>
+<li><font color=red><strong>是</strong></font>：服务降级 FallBack，并报告给断路器</li>
+<li><font color=green><strong>否</strong></font>：<font color=Green>正常执行</font>，并报告给断路器</li>
+</ol>
+</li>
+</ol>
 <br>
 
 
@@ -642,7 +667,15 @@ eureka:
 <li>再有请求调用的时候，将不会调用主逻辑，而是直接调用降级fallback通过断路器，实现了自动地发现错误并将降级逻辑切换为主逻辑，减少响应延迟的效果。</li>
 <li>原来的主逻辑要如何恢复呢？<br>对于这一问题，hystrix也为我们实现了自动恢复功能。当断路器打开，对主逻辑进行熔断之后，hystrix会启动一个休眠时间窗，在这个时间窗内，降级逻辑是临时的成为主逻辑，当休眠时间窗到期，断路器将进入半开状态，释放一次请求到原来的主逻辑上，如果此次请求正常返回，那么断路器将继续闭合，主逻辑恢复，如果这次请求依然有问题，断路器继续进入打开状态，休眠时间窗重新计时。</li>
 </ol>
-<h2 id="🏀-服务限流-😦"><a href="#🏀-服务限流-😦" class="headerlink" title="🏀 服务限流 | 😦"></a>🏀 服务限流 | 😦</h2>
+<h2 id="🏀-仪表盘操作界面-😦"><a href="#🏀-仪表盘操作界面-😦" class="headerlink" title="🏀 仪表盘操作界面 | 😦"></a>🏀 仪表盘操作界面 | 😦</h2><p>除了隔离依赖服务的调用以外，Hystrix还提供了<font color=red><b>准实时的调用监控 (Hystrix Dashboard)<br></b></font>，Hystrix会持续地记录所有通过Hystrix发起的请求的执行信息，并以统计报表和图形的形式展示给用户，包括每秒执行多少请求多少成功，多少失败等。Netflix通过hystrix-metrics-event-stream项目实现了对以上指标的监控。Spring Cloud也提供了Hystrix Dashboard的整合，对监控内容转化成可视化界面。</p>
+<h4 id="新建-Module"><a href="#新建-Module" class="headerlink" title="新建 Module"></a>新建 Module</h4><h4 id="添加-Dependency"><a href="#添加-Dependency" class="headerlink" title="添加 Dependency"></a>添加 Dependency</h4><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-stater-netflix-hystrix-dashboard<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h4 id="application-yml"><a href="#application-yml" class="headerlink" title="application.yml"></a>application.yml</h4><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+
+
             </div>
             <hr>
             <div>
