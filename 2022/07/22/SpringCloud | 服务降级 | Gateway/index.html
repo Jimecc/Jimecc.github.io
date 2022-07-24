@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/z2zbg2.png">
 <meta property="og:image" content="https://files.catbox.moe/q8xgyo.png">
 <meta property="article:published_time" content="2022-07-22T12:57:18.000Z">
-<meta property="article:modified_time" content="2022-07-22T13:54:03.583Z">
+<meta property="article:modified_time" content="2022-07-23T16:24:00.903Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.7k 字
     </span>
   
 
@@ -265,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      5 分钟
     </span>
   
 
@@ -302,7 +302,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 hours ago
+                  本文最后更新于：a day ago
                 
               </p>
             
@@ -316,6 +316,8 @@
 <p><strong>Predicate（断言）</strong>参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），<font color=red>如果请求与断言相匹配则进行路由。</font></p>
 <p><strong>Filter（过滤）</strong> 指的是 Spring 框架中 GatewayFilter 的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改。</p>
 <div style="text-align:center"><img style="border:1px solid darkgray;border-radius:15px;padding:10px;width:70%" src="https://files.catbox.moe/z2zbg2.png" srcset="/img/loading.gif" lazyload /></div>
+
+
 
 <h3 id="执行过程："><a href="#执行过程：" class="headerlink" title="执行过程："></a><strong>执行过程</strong>：</h3><div style="text-align:center"><img style="width:60%" src="https://files.catbox.moe/q8xgyo.png" srcset="/img/loading.gif" lazyload/></div>
 
@@ -332,7 +334,7 @@
 
 
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h4 id="方式一-「-application-yml-中配置路由-」"><a href="#方式一-「-application-yml-中配置路由-」" class="headerlink" title="方式一 「 application.yml 中配置路由 」"></a>方式一 「 application.yml 中配置路由 」</h4><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
 	port: 9527
 	
 spring:
@@ -340,10 +342,14 @@ spring:
 		name: cloud-gateway
 	cloud:
 		gateway:
+		# 路由
 			routes:
-				- id: payment_routh
+					# 路由 ID ，没有固定规则但是要求唯一，建议配合服务名
+				- id: payment_routh 
+					# 屁屁额后提供服务的路由地址
 					uri: http:&#x2F;&#x2F;localhost:8001
 					predicates:
+						# 断言，路径匹配的进行路由
 						- Path&#x3D;&#x2F;payment&#x2F;get&#x2F;**
         - id: payment_routh2
 					uri: http:&#x2F;&#x2F;localhost:8001
@@ -358,7 +364,7 @@ eureka:
 		service-url:
 			register-with-eureka: true
 			fetch-registry: true
-			defaultZone: http:&#x2F;&#x2F;eureka7001.com:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+			defaultZone: http:&#x2F;&#x2F;eureka7001.com:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 主启动类</span>
 <span class="token annotation punctuation">@SpringBootApplication</span>
@@ -369,7 +375,20 @@ eureka:
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
+<h4 id="方式二-「-Java编码方式-」"><a href="#方式二-「-Java编码方式-」" class="headerlink" title="方式二 「 Java编码方式 」"></a>方式二 「 Java编码方式 」</h4><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// com.jim.springcloud.config</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GateWayConfig</span><span class="token punctuation">&#123;</span>
 
+  <span class="token annotation punctuation">@Bean</span>
+  <span class="token keyword">public</span> <span class="token class-name">RouteLocator</span> <span class="token function">customRouteLocator</span><span class="token punctuation">(</span><span class="token class-name">RouteLocatorBuilder</span> routeLocatorBuilder<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">RouteLocatorBuilder<span class="token punctuation">.</span>Builder</span> routes <span class="token operator">=</span> routeLocatorBuilder<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// id （localhost:端口号）+用户访问路径 实际给的地址</span>
+    routes<span class="token punctuation">.</span><span class="token function">route</span><span class="token punctuation">(</span><span class="token string">"path_route_atguigu"</span><span class="token punctuation">,</span>r <span class="token operator">-></span> r<span class="token punctuation">.</span><span class="token function">path</span><span class="token punctuation">(</span><span class="token string">"/guonei"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">uri</span><span class="token punctuation">(</span><span class="token string">"http://news.baidu.com/guonei"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> routes<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h4 id="方式三-「-跳转到-Eureka-」"><a href="#方式三-「-跳转到-Eureka-」" class="headerlink" title="方式三 「 跳转到 Eureka 」"></a>方式三 「 跳转到 Eureka 」</h4>
             </div>
             <hr>
             <div>
@@ -405,13 +424,19 @@ eureka:
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/07/23/%E6%97%A5%E8%AE%B0/%E6%97%A5%E8%AE%B0%E3%80%919%E5%8F%B7%E7%BA%BF%E5%9C%B0%E9%93%81%E7%9A%84%E5%B0%8F%E5%A5%B3%E5%AD%A9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【日记】9号线地铁的小女孩</span>
+                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
                       <a href="/2022/07/22/%E3%80%90Error%E3%80%91%7C%20SpringCloud-GateWay-%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99/">
                         <span class="hidden-mobile">报错 | SpringCloud GateWay 启动报错</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Sekva afiŝo</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -446,7 +471,7 @@ eureka:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -472,7 +497,7 @@ eureka:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -481,7 +506,7 @@ eureka:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">ŝlosivorto</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
