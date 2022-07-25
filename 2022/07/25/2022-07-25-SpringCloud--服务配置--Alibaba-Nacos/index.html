@@ -16,16 +16,17 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="概念是什么？ SpringCloud Config 为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同的微服务应用的所有环境提供了一个中心化的外部配置。 怎么用？ SpringCloud Config分为服务端和客户端两部分。 服务端也称为分布式配置中心，它是一个独立的微服务应用，用来连接配置服务器并为客户端提供获取配置信息，加密&#x2F;解密信息等访问接口 客户端则是通过指">
+  <meta name="description" content="概念是什么？ SpringCloud Config 为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同的微服务应用的所有环境提供了一个中心化的外部配置。   能干嘛？  集中管理配置文件 不同环境不同配置，动态化的解析更新，分环境部署，比如：dev&#x2F;test&#x2F;prod&#x2F;beta&#x2F;release 运行期间动态调整配置，不再需要在每个服务部署的机器上编写配置文件，服务会向">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 服务配置 | Config">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/25/2022-07-25-SpringCloud--%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE--Alibaba-Nacos/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="概念是什么？ SpringCloud Config 为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同的微服务应用的所有环境提供了一个中心化的外部配置。 怎么用？ SpringCloud Config分为服务端和客户端两部分。 服务端也称为分布式配置中心，它是一个独立的微服务应用，用来连接配置服务器并为客户端提供获取配置信息，加密&#x2F;解密信息等访问接口 客户端则是通过指">
+<meta property="og:description" content="概念是什么？ SpringCloud Config 为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同的微服务应用的所有环境提供了一个中心化的外部配置。   能干嘛？  集中管理配置文件 不同环境不同配置，动态化的解析更新，分环境部署，比如：dev&#x2F;test&#x2F;prod&#x2F;beta&#x2F;release 运行期间动态调整配置，不再需要在每个服务部署的机器上编写配置文件，服务会向">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/l794tk.png">
+<meta property="og:image" content="https://files.catbox.moe/5ja5us.jpeg">
 <meta property="article:published_time" content="2022-07-25T04:54:28.000Z">
-<meta property="article:modified_time" content="2022-07-25T06:16:06.823Z">
+<meta property="article:modified_time" content="2022-07-25T06:25:26.304Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -255,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      300 字
+      554 字
     </span>
   
 
@@ -264,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      2 分钟
     </span>
   
 
@@ -314,10 +315,21 @@
 
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>是什么？</strong></p>
 <p>SpringCloud Config 为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为<font color=red>各个不同的微服务应用</font>的所有环境提供了一个<font color=red>中心化的外部配置</font>。</p>
+<div style="text-align:center"><img style="width:80%;" src="https://files.catbox.moe/5ja5us.jpeg" srcset="/img/loading.gif" lazyload/></div>
+
+<p><strong>能干嘛？</strong></p>
+<ol>
+<li>集中管理配置文件</li>
+<li>不同环境不同配置，动态化的解析更新，分环境部署，比如：dev/test/prod/beta/release</li>
+<li>运行期间动态调整配置，不再需要在每个服务部署的机器上编写配置文件，服务会向配置中心统一拉去配置自己的信息</li>
+<li>当配置发生变动时，服务不需要重启计科感知到配置的变化并应用新的配置</li>
+<li>将配置信息以 REST 接口的形式暴露</li>
+</ol>
 <p><strong>怎么用？</strong></p>
 <p>SpringCloud Config分为<font color=red>服务端和客户端两部分</font>。</p>
 <p>服务端也称为<font color=red>分布式配置中心，它是一个独立的微服务应用</font>，用来连接配置服务器并为客户端提供获取配置信息，加密/解密信息等访问接口</p>
 <p>客户端则是通过指定的配蛋中心来管理应用资源，以及与业务相关的配置内容，并在启动的时候从配置中心获取和加载配置信息配置服务器默认采用git来存储配置信息，这样就有助于对环境配置进行版本管理，并且可以通过git客户端工具来方便的管理和访问配置内容。</p>
+<p><strong>由于 SpringCloud Config 默认使用 Git 来存储配置文件（也有其他方式比如支持 SVN 和本地文件），但最推荐的还是 Git，而且使用的是 http/https 访问的方式。</strong></p>
 
             </div>
             <hr>
