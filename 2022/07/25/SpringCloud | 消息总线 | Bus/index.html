@@ -16,18 +16,18 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="相关概念    Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。 概念Spring Cloud Bus是用来将分布式系统的节点与轻量级消息系统链接起来的框架，它整台了Java的事件处理机制和消息中间体的功能。 支持的中间件RabbitMQ 与 Kafka 能干什么Spring Cloud Bus能管理和传播分布式系统间的消息，就像一个">
+  <meta name="description" content="相关概念  破坏了微服务模块单一性，万一他挂了，不仅不能通知，还不能参与原先的服务；破坏了微服务各个节点的对等性；有一定的局限性。劣徒，微服务在迁移时，他的网络地址常常会发生变化，如果此时要做到自动刷新，那就回增加更多的修改。 Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。 概念Spring Cloud Bus是用来将分布式系统的节">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 消息总线 | Bus">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/25/SpringCloud%20|%20%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF%20|%20Bus/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="相关概念    Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。 概念Spring Cloud Bus是用来将分布式系统的节点与轻量级消息系统链接起来的框架，它整台了Java的事件处理机制和消息中间体的功能。 支持的中间件RabbitMQ 与 Kafka 能干什么Spring Cloud Bus能管理和传播分布式系统间的消息，就像一个">
+<meta property="og:description" content="相关概念  破坏了微服务模块单一性，万一他挂了，不仅不能通知，还不能参与原先的服务；破坏了微服务各个节点的对等性；有一定的局限性。劣徒，微服务在迁移时，他的网络地址常常会发生变化，如果此时要做到自动刷新，那就回增加更多的修改。 Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。 概念Spring Cloud Bus是用来将分布式系统的节">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/tx6kxj.jpeg">
 <meta property="og:image" content="https://files.catbox.moe/gic4xb.jpeg">
 <meta property="og:image" content="https://files.catbox.moe/gw6yds.png">
 <meta property="article:published_time" content="2022-07-25T10:16:54.000Z">
-<meta property="article:modified_time" content="2022-07-25T11:29:05.808Z">
+<meta property="article:modified_time" content="2022-07-25T11:57:24.585Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -257,7 +257,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      506 字
+      1.6k 字
     </span>
   
 
@@ -266,7 +266,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      5 分钟
     </span>
   
 
@@ -312,20 +312,71 @@
 
 <h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><div style="text-align:center"><img src="https://files.catbox.moe/gic4xb.jpeg" srcset="/img/loading.gif" lazyload style="width:80%;border-radius:25px;border:1px solid darkgray;padding:10px"></div>
 
-
-
+<p><font color=darkgray>破坏了微服务模块单一性，万一他挂了，不仅不能通知，还不能参与原先的服务；破坏了微服务各个节点的对等性；有一定的局限性。劣徒，微服务在迁移时，他的网络地址常常会发生变化，如果此时要做到自动刷新，那就回增加更多的修改。</font></p>
 <p>Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。</p>
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Spring Cloud Bus是用来将分布式系统的节点与轻量级消息系统链接起来的框架，它整台了Java的事件处理机制和消息中间体的功能。</p>
 <h3 id="支持的中间件"><a href="#支持的中间件" class="headerlink" title="支持的中间件"></a>支持的中间件</h3><p><strong><font color=orange>RabbitMQ</font> 与 <font color=orange>Kafka</font></strong></p>
 <h3 id="能干什么"><a href="#能干什么" class="headerlink" title="能干什么"></a>能干什么</h3><p>Spring Cloud Bus能管理和传播分布式系统间的消息，就像一个分布式执行器，可用于广播状态更改、事件推送等，也可以当作微服务间的通信通道。</p>
 <div style="text-align:center"><img src="https://files.catbox.moe/gw6yds.png" srcset="/img/loading.gif" lazyload style="width:80%;border-radius:25px;border:1px solid darkgray;padding:10px"></div>
 
+<p>两种方式：</p>
+<p>1） 利用消息总线触发一个客户端/bus/refresh，进而刷新所有客户端的配置</p>
+<p>2） 利用消息总线触发一个服务端 ConfigServer 的/bus/refresh端点，进而刷新所有客户端的配置</p>
 <h3 id="什么是总线？"><a href="#什么是总线？" class="headerlink" title="什么是总线？"></a>什么是总线？</h3><p>什么是总线<br>在微服务架构的系统中，通常会使用<font color=red>轻量级的消息代理</font>来构建一个<font color=red>共用的消息主题</font>，并让系统中所有微服务实例都连接上来。由于<font color=red>该主题中产生的消息会被所有实例监听和消费，所以称它为消息总线。</font>在总线上的各个实例，都可以方便地广播一些需要让其他连接在该主题上的实例都知道的消息。</p>
 <h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>Config Client 实例都监听 MQ 中同个topic(默认是SpringCloudBus)。当一个服务刷新数据的时候，它会把这个信息放入到Topic中，这样其它监听同一Topic的服务就能得到通知，然后去更新自身的配置。</p>
-<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><ol>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ol>
 <li>新建 Module <code>cloud-config-client-3366</code> </li>
-<li></li>
+<li>yml 配置</li>
 </ol>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## bootstrap.yml
+server:
+	port: 3366
+
+spring:
+	application:
+		name: config-client
+	cloud:
+		config:
+			label: master # 分支名称
+			name: config	# 配置文件名称
+			profile: dev	# 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http:&#x2F;&#x2F;config-3344.com:3344&#x2F;master&#x2F;config-dev
+			uri: http:&#x2F;&#x2F;localhost:3344 # 配置中心地址
+			
+eureka:
+	client:
+		service-url:
+			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka
+			
+management:
+	endpoints:
+		web:
+			exposure:
+				include: &quot;*&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableEurekaClient</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConfigClientMain3366</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">ConfigClientMain3366</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RefreshScope</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConfigClientController</span><span class="token punctuation">&#123;</span>
+  
+  <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;server.port&#125;"</span><span class="token punctuation">)</span>
+  <span class="token keyword">private</span> <span class="token class-name">String</span> serverPort<span class="token punctuation">;</span>
+  
+  <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;config.info&#125;"</span><span class="token punctuation">)</span>
+  <span class="token keyword">private</span> <span class="token class-name">String</span> configInfo<span class="token punctuation">;</span>
+  
+  <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/cnofigInfo"</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">configInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">"ServerPort:"</span><span class="token operator">+</span>serverPort<span class="token operator">+</span><span class="token string">"\t\n\nConfigInfo:"</span><span class="token operator">+</span>configInfo<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
 
             </div>
             <hr>
