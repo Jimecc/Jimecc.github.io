@@ -244,8 +244,14 @@
           
           
 
-Bus 支持两种消息总线 RabbitMQ 与 Kafka
+相关概念
 
+
+
+Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。
+概念Spring Cloud Bus是用来将分布式系统的节点与轻量级消息系统链接起来的框架，它整台了Java的事件处理机制和消息中间体的功能。
+支持的中间件RabbitMQ 与 Kafka
+能干什么Spring Cloud Bus能管理和传播分布式系统间的消息，就像一个
         </a>
       </p>
 
@@ -951,7 +957,7 @@ How Does it work？
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
