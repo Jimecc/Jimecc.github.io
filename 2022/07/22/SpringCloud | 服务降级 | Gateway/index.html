@@ -16,17 +16,17 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="核心逻辑：路由转发 + 执行过滤器链 概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。 Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进行路由">
+  <meta name="description" content="核心逻辑：路由转发 + 执行过滤器链 🥥 概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。 Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 路由网关 | SpringCloud GateWay">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/22/SpringCloud%20|%20%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7%20|%20Gateway/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="核心逻辑：路由转发 + 执行过滤器链 概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。 Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进行路由">
+<meta property="og:description" content="核心逻辑：路由转发 + 执行过滤器链 🥥 概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。 Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/z2zbg2.png">
 <meta property="og:image" content="https://files.catbox.moe/q8xgyo.png">
 <meta property="article:published_time" content="2022-07-22T12:57:18.000Z">
-<meta property="article:modified_time" content="2022-07-23T16:24:00.903Z">
+<meta property="article:modified_time" content="2022-07-25T03:49:43.300Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      2.4k 字
     </span>
   
 
@@ -265,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      8 分钟
     </span>
   
 
@@ -302,7 +302,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：a day ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
@@ -312,7 +312,7 @@
 <br>
 
 <p><font color=red><strong>核心逻辑</strong></font>：路由转发 + 执行过滤器链</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>Route（路由）</strong> 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。</p>
+<h2 id="🥥-概念"><a href="#🥥-概念" class="headerlink" title="🥥 概念"></a>🥥 概念</h2><p><strong>Route（路由）</strong> 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。</p>
 <p><strong>Predicate（断言）</strong>参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），<font color=red>如果请求与断言相匹配则进行路由。</font></p>
 <p><strong>Filter（过滤）</strong> 指的是 Spring 框架中 GatewayFilter 的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改。</p>
 <div style="text-align:center"><img style="border:1px solid darkgray;border-radius:15px;padding:10px;width:70%" src="https://files.catbox.moe/z2zbg2.png" srcset="/img/loading.gif" lazyload /></div>
@@ -334,7 +334,7 @@
 
 
 
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h4 id="方式一-「-application-yml-中配置路由-」"><a href="#方式一-「-application-yml-中配置路由-」" class="headerlink" title="方式一 「 application.yml 中配置路由 」"></a>方式一 「 application.yml 中配置路由 」</h4><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+<h2 id="🥥-路由"><a href="#🥥-路由" class="headerlink" title="🥥 路由"></a>🥥 路由</h2><h4 id="方式一-「-application-yml-中配置路由-」"><a href="#方式一-「-application-yml-中配置路由-」" class="headerlink" title="方式一 「 application.yml 中配置路由 」"></a>方式一 「 application.yml 中配置路由 」</h4><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
 	port: 9527
 	
 spring:
@@ -388,7 +388,50 @@ eureka:
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<h4 id="方式三-「-跳转到-Eureka-」"><a href="#方式三-「-跳转到-Eureka-」" class="headerlink" title="方式三 「 跳转到 Eureka 」"></a>方式三 「 跳转到 Eureka 」</h4>
+<h4 id="方式三-「-配合-Ribbon-实现负载均衡-」"><a href="#方式三-「-配合-Ribbon-实现负载均衡-」" class="headerlink" title="方式三 「 配合 Ribbon 实现负载均衡 」"></a>方式三 「 配合 Ribbon 实现负载均衡 」</h4><p>默认情况下 Gateway 会根据注册中心注册的服务列表，以注册中心上的微服务名为路径创建<b><font color=orange>动态路由进行转发，从而实现动态路由的功能。</font></b></p>
+ <div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+	port: 9527
+	
+spring:
+	application: 
+		name: cloud-gateway
+  cloud:
+  	gateway:
+  		discovery:
+  			locator:
+  				enabled: true
+	cloud:
+		gateway:
+		# 路由
+			routes:
+					# 路由 ID ，没有固定规则但是要求唯一，建议配合服务名
+				- id: payment_routh 
+					## uri: http:&#x2F;&#x2F;localhost:8001
+					uri: lb:&#x2F;&#x2F;cloud-payment-service
+					predicates:
+						# 断言，路径匹配的进行路由
+						- Path&#x3D;&#x2F;payment&#x2F;get&#x2F;**
+        - id: payment_routh2
+        	## uri: http:&#x2F;&#x2F;localhost:8001
+	        uri: lb:&#x2F;&#x2F;cloud-payment-service
+					predicates:
+						- Path&#x3D;&#x2F;payment&#x2F;lb&#x2F;**
+						
+## 注册进 Eureka
+eureka:
+	instance:
+		hostname: cloud-gateway-service
+	client:
+		service-url:
+			register-with-eureka: true
+			fetch-registry: true
+			defaultZone: http:&#x2F;&#x2F;eureka7001.com:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+
+
+<h2 id="🥥-Gateway-常用的-Predicates"><a href="#🥥-Gateway-常用的-Predicates" class="headerlink" title="🥥 Gateway 常用的 Predicates"></a>🥥 Gateway 常用的 Predicates</h2>
             </div>
             <hr>
             <div>
@@ -427,7 +470,7 @@ eureka:
                       <a href="/2022/07/23/%E6%97%A5%E8%AE%B0/%E6%97%A5%E8%AE%B0%E3%80%919%E5%8F%B7%E7%BA%BF%E5%9C%B0%E9%93%81%E7%9A%84%E5%B0%8F%E5%A5%B3%E5%AD%A9/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">【日记】9号线地铁的小女孩</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -436,7 +479,7 @@ eureka:
                     
                       <a href="/2022/07/22/%E3%80%90Error%E3%80%91%7C%20SpringCloud-GateWay-%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99/">
                         <span class="hidden-mobile">报错 | SpringCloud GateWay 启动报错</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -471,7 +514,7 @@ eureka:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -497,7 +540,7 @@ eureka:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -506,7 +549,7 @@ eureka:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

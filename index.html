@@ -304,8 +304,8 @@
 
 
 核心逻辑：路由转发 + 执行过滤器链
-概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。
-Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进行路由
+🥥 概念Route（路由） 路由是构建网关的基本模块，它由 ID，目标 URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由。
+Predicate（断言）参考的是 Java8 的 java.util.funcation.Predicate，开发人员可以匹配 HTTP 请求中的所有内容（例如请求头或者请求参数），如果请求与断言相匹配则进
         </a>
       </p>
 
@@ -935,7 +935,7 @@ OpenFeign@FeignClient
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -944,7 +944,7 @@ OpenFeign@FeignClient
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
