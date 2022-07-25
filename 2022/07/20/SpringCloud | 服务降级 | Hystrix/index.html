@@ -16,25 +16,26 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="[TOC]        GitHub （已停止运维）    运行 超时 宕机       How Does it work？       选择construct a HystrixCommand或者HystrixObservableCommand 选择方法 判断缓存中是否有 是：返回缓存结果 否：向下执行   断路器是否打开 是：服务降级 FallBack 否：向下执行   判断线程池是否满了？">
+  <meta name="description" content="[TOC]        GitHub （已停止运维）    运行 超时 宕机       How Does it work？       选择construct a HystrixCommand或者HystrixObservableCommand 选择方法 判断缓存中是否有 是：返回缓存结果 否：向下执行   断路器是否打开 是：服务降级 FallBack 否：向下执行   判断线程池是否满">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 服务降级 | Hystrix">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/20/SpringCloud%20|%20%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7%20|%20Hystrix/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="[TOC]        GitHub （已停止运维）    运行 超时 宕机       How Does it work？       选择construct a HystrixCommand或者HystrixObservableCommand 选择方法 判断缓存中是否有 是：返回缓存结果 否：向下执行   断路器是否打开 是：服务降级 FallBack 否：向下执行   判断线程池是否满了？">
+<meta property="og:description" content="[TOC]        GitHub （已停止运维）    运行 超时 宕机       How Does it work？       选择construct a HystrixCommand或者HystrixObservableCommand 选择方法 判断缓存中是否有 是：返回缓存结果 否：向下执行   断路器是否打开 是：服务降级 FallBack 否：向下执行   判断线程池是否满">
 <meta property="og:locale">
+<meta property="og:image" content="https://files.catbox.moe/5pf4tu.png">
 <meta property="og:image" content="https://files.catbox.moe/0hcf7z.png">
 <meta property="og:image" content="https://files.catbox.moe/2u957r.png">
 <meta property="og:image" content="https://files.catbox.moe/woi3j5.png">
 <meta property="og:image" content="https://files.catbox.moe/rpp4e9.png">
 <meta property="og:image" content="https://files.catbox.moe/2ecbho.png">
 <meta property="article:published_time" content="2022-07-20T01:08:35.000Z">
-<meta property="article:modified_time" content="2022-07-22T13:17:30.553Z">
+<meta property="article:modified_time" content="2022-07-25T05:33:18.483Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://files.catbox.moe/0hcf7z.png">
+<meta name="twitter:image" content="https://files.catbox.moe/5pf4tu.png">
   
   <title>SpringCloud | 服务降级 | Hystrix ｜ 我是猫</title>
 
@@ -305,12 +306,14 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 days ago
+                  本文最后更新于：6 minutes ago
                 
               </p>
             
             <div class="markdown-body">
-              <p>[TOC]</p>
+              <div style="text-align:center"><img style="width:80%;border:1px solid #eae6e6;border-radius:15px" src="https://files.catbox.moe/5pf4tu.png" srcset="/img/loading.gif" lazyload/></div>
+
+<p>[TOC]</p>
 <div style="text-align:center;border:1px solid darkgray;padding:10px;border-radius:15px">
   <img  style="width:230px;border-radius:15px" src="https://files.catbox.moe/0hcf7z.png" srcset="/img/loading.gif" lazyload/>
 </div>
@@ -781,7 +784,7 @@ eureka:
                       <a href="/2022/07/20/%E6%B5%8B%E8%AF%95%20%7C%20JMeter%20%7C%20%E9%AB%98%E5%B9%B6%E5%8F%91%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">测试 | JMeter | 高并发测试工具</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -790,7 +793,7 @@ eureka:
                     
                       <a href="/2022/07/19/Markdown/">
                         <span class="hidden-mobile">Markdown 常用语法</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -825,7 +828,7 @@ eureka:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -851,7 +854,7 @@ eureka:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -860,7 +863,7 @@ eureka:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
