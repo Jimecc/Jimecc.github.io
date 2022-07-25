@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/l794tk.png">
 <meta property="og:image" content="https://files.catbox.moe/5ja5us.jpeg">
 <meta property="article:published_time" content="2022-07-25T04:54:28.000Z">
-<meta property="article:modified_time" content="2022-07-25T06:36:22.526Z">
+<meta property="article:modified_time" content="2022-07-25T08:09:47.749Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      2k 字
     </span>
   
 
@@ -265,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      6 分钟
     </span>
   
 
@@ -332,11 +332,13 @@
 <p><strong>由于 SpringCloud Config 默认使用 Git 来存储配置文件（也有其他方式比如支持 SVN 和本地文件），但最推荐的还是 Git，而且使用的是 http/https 访问的方式。</strong></p>
 <h2 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a><strong>配置步骤</strong></h2><ol>
 <li>在 GitHub 上创建一个 springcloud-config 的 Repository</li>
-<li>获得 <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:xxxx/xxxx</li>
+<li>获得 <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;">&#x67;&#x69;&#x74;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;</a>:xxxx/xxxx</li>
 <li>本地硬盘目录上新建 git 仓库并 clone</li>
 <li>此时再本地磁盘下有一个 springcloud-config</li>
 <li>新建 Module 模块 cloud-ocnfig-center-3344，它即为 Cloud 的配置中心模块</li>
 <li>POM</li>
+<li>YML</li>
+<li>主启动类</li>
 </ol>
 <div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
 	port: 3344
@@ -358,8 +360,55 @@ eureka:
 		service-url:
 			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableConfigServer</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainAppConfigCenter3344</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">MainAppConfigCenter3344</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
+
+<h2 id="五种配置文件"><a href="#五种配置文件" class="headerlink" title="五种配置文件"></a>五种配置文件</h2><blockquote>
+<p>**label:**分支</p>
+<p><strong>name：</strong>服务名</p>
+<p><strong>profiles：</strong>环境（dev/test/prod）</p>
+</blockquote>
+<p>/{application}/{profile}[/{label}]</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/config/dev/master">http://config-3344.com:3344/config/dev/master</a></li>
+<li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/config/test/master">http://config-3344.com:3344/config/test/master</a></li>
+<li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/config/prod/master">http://config-3344.com:3344/config/prod/master</a></li>
+</ul>
+<p>/{application}-{profile}.yml</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/config-dev.yml">http://config-3344.com:3344/config-dev.yml</a></li>
+<li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/config-test.yml">http://config-3344.com:3344/config-test.yml</a></li>
+<li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/config-prod.yml">http://config-3344.com:3344/config-prod.yml</a></li>
+</ul>
+<p>/{label}/{application}-{profile}.yml</p>
+<ul>
+<li><p>Master 分支</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="http://config-3344.com:3344/master/config-dev.tml">http://config-3344.com:3344/master/config-dev.tml</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://config-3344.com:3344/master/config-test.yml">http://config-3344.com:3344/master/config-test.yml</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://config-3344.com:3344/master/config-prod.yml">http://config-3344.com:3344/master/config-prod.yml</a></p>
+</li>
+</ul>
+</li>
+<li><p>Dev 分支</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/dev/config-dev.tml">http://config-3344.com:3344/dev/config-dev.tml</a></li>
+<li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/dev/config-test.tml">http://config-3344.com:3344/dev/config-test.tml</a></li>
+<li><a target="_blank" rel="noopener" href="http://config-3344.com:3344/dev/config-prod.tml">http://config-3344.com:3344/dev/config-prod.tml</a></li>
+</ul>
+</li>
+</ul>
+<p>/{application}-{profile}.properties</p>
+<p>/{label}/{application}-{profile}.properties</p>
 
             </div>
             <hr>
@@ -402,7 +451,7 @@ eureka:
                     
                       <a href="/2022/07/23/%E6%97%A5%E8%AE%B0/%E6%97%A5%E8%AE%B0%E3%80%919%E5%8F%B7%E7%BA%BF%E5%9C%B0%E9%93%81%E7%9A%84%E5%B0%8F%E5%A5%B3%E5%AD%A9/">
                         <span class="hidden-mobile">【日记】9号线地铁的小女孩</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -437,7 +486,7 @@ eureka:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -463,7 +512,7 @@ eureka:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -472,7 +521,7 @@ eureka:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
