@@ -244,11 +244,10 @@
           
           
 
-相关概念
-
-破坏了微服务模块单一性，万一他挂了，不仅不能通知，还不能参与原先的服务；破坏了微服务各个节点的对等性；有一定的局限性。劣徒，微服务在迁移时，他的网络地址常常会发生变化，如果此时要做到自动刷新，那就回增加更多的修改。
-Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。
-概念Spring Cloud Bus是用来将分布式系统的节
+相关概念Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。
+概念Spring Cloud Bus是用来将分布式系统的节点与轻量级消息系统链接起来的框架，它整台了Java的事件处理机制和消息中间体的功能。
+支持的中间件RabbitMQ 与 Kafka
+能干什么Spring Cloud Bus能管理和传播分布式系统间的消息，就像一个分布式执
         </a>
       </p>
 
@@ -289,13 +288,13 @@ Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/25/2022-07-25-SpringCloud--%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE--Alibaba-Nacos/" target="_self">
+        <a href="/2022/07/25/SpringCloud%20%7C%20Config/" target="_self">
           SpringCloud | 服务配置 | Config
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/25/2022-07-25-SpringCloud--%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE--Alibaba-Nacos/" target="_self">
+        <a href="/2022/07/25/SpringCloud%20%7C%20Config/" target="_self">
           
           
             
@@ -306,6 +305,11 @@ Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷
 
 
 
+ConfigClientMain
+端口：3344
+作用：中心化的外部配置
+
+
 
 概念是什么？
 SpringCloud Config 为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同的微服务应用的所有环境提供了一个中心化的外部配置。
@@ -314,8 +318,7 @@ SpringCloud Config 为微服务架构中的微服务提供集中化的外部配�
 能干嘛？
 
 集中管理配置文件
-不同环境不同配置，动态化的解析更新，分环境部署，比如：dev/test/prod/beta/release
-运行期间动态调整配置，不再需要在每个服务部署的机器上编写配置文
+不同环境不同配置，动态化的解析更新，分环境部署，比如：dev/test/prod/beta/
         </a>
       </p>
 
