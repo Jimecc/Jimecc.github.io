@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/l794tk.png">
 <meta property="og:image" content="https://files.catbox.moe/5ja5us.jpeg">
 <meta property="article:published_time" content="2022-07-25T04:54:28.000Z">
-<meta property="article:modified_time" content="2022-07-25T06:25:26.304Z">
+<meta property="article:modified_time" content="2022-07-25T06:36:22.526Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      554 字
+      1.1k 字
     </span>
   
 
@@ -265,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      3 分钟
     </span>
   
 
@@ -330,6 +330,36 @@
 <p>服务端也称为<font color=red>分布式配置中心，它是一个独立的微服务应用</font>，用来连接配置服务器并为客户端提供获取配置信息，加密/解密信息等访问接口</p>
 <p>客户端则是通过指定的配蛋中心来管理应用资源，以及与业务相关的配置内容，并在启动的时候从配置中心获取和加载配置信息配置服务器默认采用git来存储配置信息，这样就有助于对环境配置进行版本管理，并且可以通过git客户端工具来方便的管理和访问配置内容。</p>
 <p><strong>由于 SpringCloud Config 默认使用 Git 来存储配置文件（也有其他方式比如支持 SVN 和本地文件），但最推荐的还是 Git，而且使用的是 http/https 访问的方式。</strong></p>
+<h2 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a><strong>配置步骤</strong></h2><ol>
+<li>在 GitHub 上创建一个 springcloud-config 的 Repository</li>
+<li>获得 <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:xxxx/xxxx</li>
+<li>本地硬盘目录上新建 git 仓库并 clone</li>
+<li>此时再本地磁盘下有一个 springcloud-config</li>
+<li>新建 Module 模块 cloud-ocnfig-center-3344，它即为 Cloud 的配置中心模块</li>
+<li>POM</li>
+</ol>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+	port: 3344
+	
+spring:
+	application:
+		name: cloud-config-center
+	cloud:
+		config:
+			server:
+				git:
+					uri: git@github.com:zzyybs&#x2F;springcloud-config.git
+					search-paths:
+						- springcloud-config
+			label: master
+			
+eureka:
+	client:
+		service-url:
+			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
 
             </div>
             <hr>
@@ -372,7 +402,7 @@
                     
                       <a href="/2022/07/23/%E6%97%A5%E8%AE%B0/%E6%97%A5%E8%AE%B0%E3%80%919%E5%8F%B7%E7%BA%BF%E5%9C%B0%E9%93%81%E7%9A%84%E5%B0%8F%E5%A5%B3%E5%AD%A9/">
                         <span class="hidden-mobile">【日记】9号线地铁的小女孩</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -407,7 +437,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -433,7 +463,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -442,7 +472,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
