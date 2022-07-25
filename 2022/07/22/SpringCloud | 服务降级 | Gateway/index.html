@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/z2zbg2.png">
 <meta property="og:image" content="https://files.catbox.moe/q8xgyo.png">
 <meta property="article:published_time" content="2022-07-22T12:57:18.000Z">
-<meta property="article:modified_time" content="2022-07-25T04:12:56.982Z">
+<meta property="article:modified_time" content="2022-07-25T04:17:05.164Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.2k 字
+      3.4k 字
     </span>
   
 
@@ -461,6 +461,16 @@ eureka:
 				## 需要一个 key-value 键值对，key 是 username；value 是 zzyy
 				- Cookie&#x3D;username,zzyy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
+<h3 id="Header-请求头"><a href="#Header-请求头" class="headerlink" title="Header 请求头"></a>Header 请求头</h3><p>两个参数：一个是属性名称和一个正则表达式，这个属性值和正则表达式匹配执行</p>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">spring:
+	cloud:
+		gateway:
+			routes:
+			- id: header_route
+				uri: https:&#x2F;&#x2F;example.org
+				predicates:
+				- Header&#x3D;x-Request-Id,\d+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
 
             </div>
             <hr>
@@ -500,7 +510,7 @@ eureka:
                       <a href="/2022/07/23/%E6%97%A5%E8%AE%B0/%E6%97%A5%E8%AE%B0%E3%80%919%E5%8F%B7%E7%BA%BF%E5%9C%B0%E9%93%81%E7%9A%84%E5%B0%8F%E5%A5%B3%E5%AD%A9/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">【日记】9号线地铁的小女孩</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Antaŭa afiŝo</span>
                       </a>
                     
                   </article>
@@ -509,7 +519,7 @@ eureka:
                     
                       <a href="/2022/07/22/%E3%80%90Error%E3%80%91%7C%20SpringCloud-GateWay-%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99/">
                         <span class="hidden-mobile">报错 | SpringCloud GateWay 启动报错</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Sekva afiŝo</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -544,7 +554,7 @@ eureka:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -570,7 +580,7 @@ eureka:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -579,7 +589,7 @@ eureka:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">ŝlosivorto</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
