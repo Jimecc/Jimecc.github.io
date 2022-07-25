@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://files.catbox.moe/gw6yds.png">
 <meta property="og:image" content="https://files.catbox.moe/gic4xb.jpeg">
 <meta property="article:published_time" content="2022-07-25T10:16:54.000Z">
-<meta property="article:modified_time" content="2022-07-25T12:37:33.850Z">
+<meta property="article:modified_time" content="2022-07-25T12:42:21.907Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -257,7 +257,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      3k 字
     </span>
   
 
@@ -266,7 +266,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      9 分钟
     </span>
   
 
@@ -429,8 +429,40 @@ management:
 	endpoints:
 	web:
 		exposure:
-			include: &quot;*&quot;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+			include: &quot;*&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p><strong>3366 追加以下代码</strong></p>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## bootstrap.yml
+server:
+	port: 3366
+
+spring:
+	application:
+		name: config-client
+	cloud:
+		config:
+			label: master # 分支名称
+			name: config	# 配置文件名称
+			profile: dev	# 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http:&#x2F;&#x2F;config-3344.com:3344&#x2F;master&#x2F;config-dev
+			uri: http:&#x2F;&#x2F;localhost:3344 # 配置中心地址
+			
+	## 追加代码
+	rabbitmq:
+		host: localhost
+		port: 5672
+		username: guest
+		password: guest
+			
+eureka:
+	client:
+		service-url:
+			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka
+			
+management:
+	endpoints:
+	web:
+		exposure:
+			include: &quot;*&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
             </div>
