@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/l794tk.png">
 <meta property="og:image" content="https://files.catbox.moe/5ja5us.jpeg">
 <meta property="article:published_time" content="2022-07-25T04:54:28.000Z">
-<meta property="article:modified_time" content="2022-07-25T08:19:21.995Z">
+<meta property="article:modified_time" content="2022-07-25T08:58:00.139Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -256,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.1k 字
+      3.6k 字
     </span>
   
 
@@ -265,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7 分钟
+      11 分钟
     </span>
   
 
@@ -333,7 +333,7 @@
 <p><strong>由于 SpringCloud Config 默认使用 Git 来存储配置文件（也有其他方式比如支持 SVN 和本地文件），但最推荐的还是 Git，而且使用的是 http/https 访问的方式。</strong></p>
 <h2 id="🧑🏻‍🔧-配置步骤-Server-端"><a href="#🧑🏻‍🔧-配置步骤-Server-端" class="headerlink" title="🧑🏻‍🔧 配置步骤 | Server 端"></a>🧑🏻‍🔧 配置步骤 | Server 端</h2><ol>
 <li>在 GitHub 上创建一个 springcloud-config 的 Repository</li>
-<li>获得 <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a>:xxxx/xxxx</li>
+<li>获得 <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;">&#x67;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;</a>:xxxx/xxxx</li>
 <li>本地硬盘目录上新建 git 仓库并 clone</li>
 <li>此时再本地磁盘下有一个 springcloud-config</li>
 <li>新建 Module 模块 cloud-ocnfig-center-3344，它即为 Cloud 的配置中心模块</li>
@@ -341,6 +341,13 @@
 <li>YML</li>
 <li>主启动类</li>
 </ol>
+<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-config-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
 <div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
 	port: 3344
 	
@@ -416,7 +423,65 @@ eureka:
 
 
 
-<h2 id="📺-配置步骤-Config-Client-客户端"><a href="#📺-配置步骤-Config-Client-客户端" class="headerlink" title="📺 配置步骤 | Config Client | 客户端"></a>📺 配置步骤 | Config Client | 客户端</h2>
+<h2 id="📺-配置步骤-Config-Client-客户端"><a href="#📺-配置步骤-Config-Client-客户端" class="headerlink" title="📺 配置步骤 | Config Client | 客户端"></a>📺 配置步骤 | Config Client | 客户端</h2><h3 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h3><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-config<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h3 id="bootstrap-yml"><a href="#bootstrap-yml" class="headerlink" title="bootstrap.yml"></a>bootstrap.yml</h3><h4 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h4><p>application.yml 是用户级的资源配置项</p>
+<p>bootstrap.yml 是系统级的，<font color=red><b>优先级更高。</b></font></p>
+<blockquote>
+<p>Spring Cloud会创建”Bootstrap Context”，作为Spring应用的 Application Context’的父上下文。初始化的时候，<code>Bootstrap context</code> 负责从外部源加载配置属性并解析配置。这两个上下文共享一个从外部获取的Environment。</p>
+<p><code>Bootstrap</code>属性有高优先级，默认情况下，它们不会被本地配置覆盖。<code>Bootstrap context</code>和<code>Application Context</code>有着不同的约定所以新增了一个bootstrap.yml文件，保<code>&#39;Bootstrap Context</code> 和 <code>Application Context</code> 配置的分离。</p>
+<p><font color=red><b>要将Client模块下的application.yml文件改为bootstrap.yml,这是很关键的，</b></font>因为bootstrap.yml是比application.yml先加载的。bootstrap.yml优先级高于application.yml。</p>
+</blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## bootstrap.yml
+server:
+	port: 3355
+
+spring:
+	application:
+		name: config-client
+	cloud:
+		config:
+			label: master # 分支名称
+			name: config	# 配置文件名称
+			profile: dev	# 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http:&#x2F;&#x2F;config-3344.com:3344&#x2F;master&#x2F;config-dev
+			uri: http:&#x2F;&#x2F;localhost:3344 # 配置中心地址
+			
+eureka:
+	client:
+		service-url:
+			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+<h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><ol>
+<li><strong>主启动</strong></li>
+</ol>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableEurekaClient</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConfigClientMain3355</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+      <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">ConfigClientMain3355</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<ol start="2">
+<li><strong>业务类</strong></li>
+</ol>
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConfigClientController</span><span class="token punctuation">&#123;</span>
+  <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;config.info&#125;"</span><span class="token punctuation">)</span>
+  <span class="token keyword">private</span> <span class="token class-name">String</span> configInfo<span class="token punctuation">;</span>
+  
+  <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/configInfo"</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getCOnfigInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> configInfo<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
             </div>
             <hr>
             <div>
