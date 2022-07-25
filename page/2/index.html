@@ -531,30 +531,32 @@ xml.dependency
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
-          SpringCloud | 服务注册 | Eurek
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+          SpringCloud | 服务注册 | Zookeeper
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
           
           
             
           
           
 
-Eureka
+Zookeeper
 
+配置
+主启动
 
-
-
-Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）
-
-Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。
-
-
-Eureka Client 通过注册中心进行访问是个Java客户端，用
+@EnableDiscoveryClient
+@SpringBootApplication
+// 主启动
+public class Run&#123;
+  public static void mian(String[] args)&#123;
+    SpringApplication.run(Run.class,args)
+  &#125;
+&#125
         </a>
       </p>
 
@@ -595,32 +597,30 @@ Eureka Client 通过注册中心进行访问是个Java客户端，用
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
-          SpringCloud | 服务注册 | Zookeeper
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
+          SpringCloud | 服务注册 | Eurek
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+        <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/" target="_self">
           
           
             
           
           
 
-Zookeeper
+Eureka
 
-配置
-主启动
 
-@EnableDiscoveryClient
-@SpringBootApplication
-// 主启动
-public class Run&#123;
-  public static void mian(String[] args)&#123;
-    SpringApplication.run(Run.class,args)
-  &#125;
-&#125
+
+
+Eureka 包括两个组件（C/S 架构 类似于服务器与客户端）
+
+Eureka Server 提供服务注册服务各个微服务节点通过配置启动后，会在Eureka Server中进行注册，这样Eureka Server中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观看到。
+
+
+Eureka Client 通过注册中心进行访问是个Java客户端，用
         </a>
       </p>
 
@@ -942,7 +942,7 @@ Github
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -951,7 +951,7 @@ Github
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
