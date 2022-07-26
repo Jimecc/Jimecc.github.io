@@ -19,15 +19,15 @@
   <meta name="description" content="定位    概念问题在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何-环出现高延时或错误都会引起整个请求最后的失败。 当要管理下图中的大型项目时，就需要对相关联路进行跟踪：   作用 提供了一套完整的服务跟踪方案，在分布式系统中提供追踪解决方案并兼容支持 zi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 链路追踪 | Sleuth">
-<meta property="og:url" content="http://jjjime.github.io/2022/07/25/SpringCloud%20|%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%20|%20Sleuth/index.html">
+<meta property="og:url" content="http://jjjime.github.io/2022/07/26/SpringCloud%20|%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%20|%20Sleuth/index.html">
 <meta property="og:site_name" content="我是猫">
 <meta property="og:description" content="定位    概念问题在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何-环出现高延时或错误都会引起整个请求最后的失败。 当要管理下图中的大型项目时，就需要对相关联路进行跟踪：   作用 提供了一套完整的服务跟踪方案，在分布式系统中提供追踪解决方案并兼容支持 zi">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/7qho39.png">
 <meta property="og:image" content="https://files.catbox.moe/onvs1o.png">
 <meta property="og:image" content="https://files.catbox.moe/1keeb7.png">
-<meta property="article:published_time" content="2022-07-25T13:21:45.000Z">
-<meta property="article:modified_time" content="2022-07-26T09:45:11.375Z">
+<meta property="article:published_time" content="2022-07-26T09:45:33.000Z">
+<meta property="article:modified_time" content="2022-07-26T09:45:34.325Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -246,8 +246,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-07-25 21:21" pubdate>
-        July 25, 2022 pm
+      <time datetime="2022-07-26 17:45" pubdate>
+        July 26, 2022 pm
       </time>
     </span>
   
@@ -364,19 +364,13 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20%7C%20Stream/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SpringCloud | 消息驱动 | Stream</span>
-                        <span class="visible-mobile">Vorheriger</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF%20%7C%20Bus/">
-                        <span class="hidden-mobile">SpringCloud | 消息总线 | Bus</span>
-                        <span class="visible-mobile">Nächster</span>
+                      <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20%7C%20Stream/">
+                        <span class="hidden-mobile">SpringCloud | 消息驱动 | Stream</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -411,7 +405,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -437,7 +431,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -446,7 +440,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

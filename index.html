@@ -231,13 +231,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20%7C%20Stream/" target="_self">
-          SpringCloud | 消息驱动 | Stream
+        <a href="/2022/07/26/SpringCloud%20%7C%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%20%7C%20Sleuth/" target="_self">
+          SpringCloud | 链路追踪 | Sleuth
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20%7C%20Stream/" target="_self">
+        <a href="/2022/07/26/SpringCloud%20%7C%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%20%7C%20Sleuth/" target="_self">
           
           
             
@@ -246,14 +246,21 @@
 
 
 
-[toc]
+
+
+
+
+
 定位
 
 
 
-概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。
-核心思想：Binder Implementations 绑定器对象
-什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对
+概念问题在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何-环出现高延时或错误都会引起整个请求最后的失败。
+当要管理下图中的大型项目时，就需要对相关联路进行跟踪：
+
+
+作用
+提供了一套完整的服务跟踪方案，在分布式系统中提供追踪解决方案并兼容支持 zi
         </a>
       </p>
 
@@ -261,8 +268,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-25 21:21" pubdate>
-              2022-07-25
+            <time datetime="2022-07-26 17:45" pubdate>
+              2022-07-26
             </time>
           </div>
         
@@ -294,13 +301,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/25/SpringCloud%20%7C%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%20%7C%20Sleuth/" target="_self">
-          SpringCloud | 链路追踪 | Sleuth
+        <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20%7C%20Stream/" target="_self">
+          SpringCloud | 消息驱动 | Stream
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/25/SpringCloud%20%7C%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%20%7C%20Sleuth/" target="_self">
+        <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20%7C%20Stream/" target="_self">
           
           
             
@@ -309,21 +316,14 @@
 
 
 
-
-
-
-
-
+[toc]
 定位
 
 
 
-概念问题在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何-环出现高延时或错误都会引起整个请求最后的失败。
-当要管理下图中的大型项目时，就需要对相关联路进行跟踪：
-
-
-作用
-提供了一套完整的服务跟踪方案，在分布式系统中提供追踪解决方案并兼容支持 zi
+概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。
+核心思想：Binder Implementations 绑定器对象
+什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对
         </a>
       </p>
 
@@ -919,7 +919,7 @@ O(n)
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -928,7 +928,7 @@ O(n)
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
