@@ -16,22 +16,22 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="定位    概念问题在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何-环出现高延时或错误都会引起整个请求最后的失败。 当要管理下图中的大型项目时，就需要对相关联路进行跟踪：   作用 提供了一套完整的服务跟踪方案，在分布式系统中提供追踪解决方案并兼容支持 zip">
+  <meta name="description" content="定位        概念问题在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何-环出现高延时或错误都会引起整个请求最后的失败。 当要管理下图中的大型项目时，就需要对相关联路进行跟踪：   作用 提供了一套完整的服务跟踪方案，在分布式系统中提供追踪解决方案并兼容支持">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 链路追踪 | Sleuth">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/26/SpringCloud%20|%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%20|%20Sleuth/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="定位    概念问题在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何-环出现高延时或错误都会引起整个请求最后的失败。 当要管理下图中的大型项目时，就需要对相关联路进行跟踪：   作用 提供了一套完整的服务跟踪方案，在分布式系统中提供追踪解决方案并兼容支持 zip">
+<meta property="og:description" content="定位        概念问题在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何-环出现高延时或错误都会引起整个请求最后的失败。 当要管理下图中的大型项目时，就需要对相关联路进行跟踪：   作用 提供了一套完整的服务跟踪方案，在分布式系统中提供追踪解决方案并兼容支持">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/7qho39.png">
-<meta property="og:image" content="https://files.catbox.moe/j5xuou.png">
+<meta property="og:image" content="https://files.catbox.moe/j3pgte.png">
 <meta property="og:image" content="https://files.catbox.moe/onvs1o.png">
 <meta property="og:image" content="https://files.catbox.moe/1keeb7.png">
 <meta property="og:image" content="https://files.catbox.moe/575fla.png">
 <meta property="og:image" content="https://files.catbox.moe/8ck4er.png">
 <meta property="og:image" content="https://files.catbox.moe/5q9g2l.png">
 <meta property="article:published_time" content="2022-07-26T09:45:33.000Z">
-<meta property="article:modified_time" content="2022-07-26T10:16:03.247Z">
+<meta property="article:modified_time" content="2022-07-26T10:27:35.954Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -261,7 +261,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      385 字
+      695 字
     </span>
   
 
@@ -270,7 +270,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      2 分钟
     </span>
   
 
@@ -312,7 +312,7 @@
               </p>
             
             <div class="markdown-body">
-              <div style="border:1px solid gray;border-radius:15px;text-align:center;display:flex;padding:0px"><div><a target="_blank" rel="noopener" href="https://spring.io/projects/spring-cloud-sleuth"><img style="border-radius:15px;width:30%" src="https://files.catbox.moe/7qho39.png" srcset="/img/loading.gif" lazyload/></a></div><div style="margin-top:15px"><a target="_blank" rel="noopener" href="https://zipkin.io/pages/quickstart.html"><img style="border-radius:15px;width:13%;" src="https://files.catbox.moe/j5xuou.png" srcset="/img/loading.gif" lazyload/></a></div></div>
+              <div style="border:1px solid gray;border-radius:15px;text-align:center;display:flex;padding:0px"><div><a target="_blank" rel="noopener" href="https://spring.io/projects/spring-cloud-sleuth"><img style="border-radius:15px;width:30%" src="https://files.catbox.moe/7qho39.png" srcset="/img/loading.gif" lazyload/></a></div><div style="margin-top:13px;margin-right:120px"><a target="_blank" rel="noopener" href="https://zipkin.io/pages/quickstart.html"><img style="border-radius:15px;width:48%;" src="https://files.catbox.moe/j3pgte.png" srcset="/img/loading.gif" lazyload/></a></div></div>
 
 
 
@@ -323,6 +323,10 @@
 <h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><div style="text-align:center"><img style="width:80%;border:1px solid #eae6e6;border-radius:15px" src="https://files.catbox.moe/onvs1o.png" srcset="/img/loading.gif" lazyload/></div>
 
 
+
+<br>
+
+<br>
 
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何-环出现高延时或错误都会引起整个请求最后的失败。</p>
 <p>当要管理下图中的大型项目时，就需要对相关联路进行跟踪：</p>
@@ -335,8 +339,6 @@
 
 <br>
 
-<br>
-
 <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>自从 SPC 『 F 』 版开始就不再需要安装 zipkin 了，只需要安装 jar 包。</p>
 <p>快速开始：</p>
 <div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">curl -sSL https:&#x2F;&#x2F;zipkin.io&#x2F;quickstart.sh | bash -s
@@ -345,11 +347,40 @@ java -jar zipkin.jar<span aria-hidden="true" class="line-numbers-rows"><span></s
 <div style="text-align:center"><img style="border-radius:15px;width:80%" src="https://files.catbox.moe/575fla.png" srcset="/img/loading.gif" lazyload/></div>
 
 <p>表示一请求链路，一条链路通过Trace ld唯一标识，Span标识发起的请求信息，各span通过parent id 关联起来。</p>
+<br>
+
+<br>
+
 <h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><div style="text-align:center;padding:20px 5px;border:1px solid #eae6e6;border-radius:15px"><img style="width:80%" src="https://files.catbox.moe/8ck4er.png" srcset="/img/loading.gif" lazyload  /><br><br><span style="color:darkgray">👆官方架构图</span></div><br>
 
 <div style="text-align:center;padding:20px 5px;border:1px solid #eae6e6;border-radius:15px"><img style="width:80%" src="https://files.catbox.moe/5q9g2l.png" srcset="/img/loading.gif" lazyload  /><br><br><span style="color:darkgray">👆简化图</span></div><br>
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2>
+<br>
+
+<br>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- Sleuth --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-zipkin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+	port: 8001
+
+spring:
+	application:
+		name: cloud-paymrnt-service
+		zipkin:
+			base-url: http:&#x2F;&#x2F;localhost:9411
+		sleuth:
+			sampler:
+				# 采样率介于 0~1 之间，1 代表全部采集
+				probability: 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
             </div>
             <hr>
             <div>
