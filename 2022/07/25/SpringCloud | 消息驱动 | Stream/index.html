@@ -24,8 +24,10 @@
 <meta property="og:description" content="概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。 核心思想：Binder Implementations 绑定器对象 什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对象交互。通过我们配置来b">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/33p0oa.png">
+<meta property="og:image" content="https://files.catbox.moe/cbr386.jpeg">
+<meta property="og:image" content="https://files.catbox.moe/heh9sh.jpg">
 <meta property="article:published_time" content="2022-07-25T13:21:45.000Z">
-<meta property="article:modified_time" content="2022-07-25T16:52:57.263Z">
+<meta property="article:modified_time" content="2022-07-26T05:35:24.419Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -255,7 +257,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      531 字
+      885 字
     </span>
   
 
@@ -264,7 +266,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      3 分钟
     </span>
   
 
@@ -315,8 +317,8 @@
 <h3 id="什么是Spring-CloudStream"><a href="#什么是Spring-CloudStream" class="headerlink" title="什么是Spring CloudStream"></a>什么是Spring CloudStream</h3><p>官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。<br>应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对象交互。<br>通过我们配置来binding（绑定），而Spring Cloud Stream 的binder对象负责与消息中间件交互。<br>所以，我们只需要搞清楚如何与 Spring Cloud Stream 交互就可以方便使用消息驱动的方式。</p>
 <p>通过使用Spring Integration来连接消息代理中间件以实现消息事件驱动。<br>Spring Cloud Stream 为一些供应商的消息中间件产品提供了个性化的自动化配置实现，引用了发布-订阅、消费组、分区的三个核心概念。<br><font color=red><strong>目前仅支持RabbitMQ、 Kafka。</strong></font></p>
 <div style="display:flex">
-  <div style="height:500px;width:100%;background:#CCCCFF;border-radius:30px 3px 3px 30px">
-    <div style="font-size:32px;width:100%;text-align:center;margin-top:20px;border:2px solid white;border-top:0;border-left:0;border-right:0;padding:20px 0px">引入之前
+  <div style="height:500px;width:100%;background:#CCCCFF;border-radius:30px 30px 30px 30px;padding:0px 5px">
+    <div style="font-size:32px;width:100%;text-align:center;margin-top:20px;border:2px solid white;border-top:0;border-left:0;border-right:0;padding:10px 0px">引入之前
     </div>
     <div style="margin-top:25px;padding:0 15px">
       <div style="color:white;font-size:16px;border:1px solid darkgray;border-top:0;border-left:0;border-right:0;padding:10px 0"><b>
@@ -330,19 +332,13 @@
       </b></div><br>
     </div>
   </div>
-  <div style="height:500px;width:100%;background:#FFCCCC;border-radius:3px 30px 30px 3px">
-    <div style="color:white;font-size:32px;width:100%;text-align:center;margin-top:20px;border:2px solid white;border-top:0;border-left:0;border-right:0;padding:20px 0px">
+  <div style="height:500px;width:100%;background:#FFCCCC;border-radius:30px 30px 30px 30px;padding:0 5px">
+    <div style="color:white;font-size:32px;width:100%;text-align:center;margin-top:20px;border:2px solid white;border-top:0;border-left:0;border-right:0;padding:10px 0px">
     引入之后
     </div>
     <div style="margin-top:25px;padding:0 15px">
       <div style="color:white;font-size:16px;border:1px solid darkgray;border-top:0;border-left:0;border-right:0;padding:10px 0"><b>
-        生产者/消费者之间靠<span style="color:red;margin-top:5px">消息媒介</span>传递信息内容 Message
-      </b></div><br>
-      <div style="color:white;font-size:16px;border:1px solid darkgray;border-top:0;border-left:0;border-right:0;padding:10px 0"><b>
-        消息必须走特定的<span style="color:red;margin-top:5px">通道</span>
-      </b></div><br>      
-      <div style="color:white;font-size:16px;border:1px solid darkgray;border-top:0;border-left:0;border-right:0;padding:10px 0"><b>
-        消息通道里的消息如何被消费？谁负责收发<span style="color:red;margin-top:5px">处理</span>
+        通过定义绑定器 Binder 作为中间层，实现了应用程序与<span style="color:red;margin-top:5px">消息中间件细节之间的隔离。</span>
       </b></div><br>
     </div>
   </div>
@@ -350,14 +346,60 @@
 
 
 
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="SpringCloud-Stream-官方架构图"><a href="#SpringCloud-Stream-官方架构图" class="headerlink" title="SpringCloud Stream 官方架构图"></a>SpringCloud Stream 官方架构图</h3><div style="text-align:center"><img style="width:80%" src="https://files.catbox.moe/cbr386.jpeg" srcset="/img/loading.gif" lazyload/></div>
 
 
 
 
 
+<h3 id="SpringCloud-Stream-标准流程套路"><a href="#SpringCloud-Stream-标准流程套路" class="headerlink" title="SpringCloud Stream 标准流程套路"></a>SpringCloud Stream 标准流程套路</h3><div style="text-align:center"><img style="width:80%" src="https://files.catbox.moe/heh9sh.jpg" srcset="/img/loading.gif" lazyload/></div>
 
+<br>
 
-
+<table>
+<thead>
+<tr>
+<th>组成</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Binder</strong></td>
+<td>很方便的连接中间件，屏蔽差异。</td>
+</tr>
+<tr>
+<td><strong>Channel</strong></td>
+<td>通道，是队列 Queue 的一种抽象，在消息通讯系统中就是实现存储和转发的媒介，通过 Channel 对队列进行配置。</td>
+</tr>
+<tr>
+<td><strong>Source 和 Sink</strong></td>
+<td>可以简单理解为参照对象时 SpringCloud Sream 自身，从 Stream 发布消息就是输出，接收消息就是输入。</td>
+</tr>
+<tr>
+<td><strong>MiddleWare</strong></td>
+<td>中间件，目前只支持 RabbitMQ 与 Kafka</td>
+</tr>
+<tr>
+<td><strong>@Input</strong></td>
+<td>注解标识输入通道，通过该输入通道接受到的消息进入应用程序</td>
+</tr>
+<tr>
+<td><strong>@Output</strong></td>
+<td>注解标识输出通道，发布的消息将通过该通道离开应用程序</td>
+</tr>
+<tr>
+<td><strong>@StreamListener</strong></td>
+<td>监听队列，用于消费者的队列的消息接收</td>
+</tr>
+<tr>
+<td><strong>@EnableBinding</strong></td>
+<td>指信道 channel 和 exchange 绑定在一起</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 
             </div>
             <hr>
