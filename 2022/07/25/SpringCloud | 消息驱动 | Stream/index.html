@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://files.catbox.moe/heh9sh.jpg">
 <meta property="og:image" content="https://files.catbox.moe/rz7uu6.png">
 <meta property="article:published_time" content="2022-07-25T13:21:45.000Z">
-<meta property="article:modified_time" content="2022-07-26T07:54:23.004Z">
+<meta property="article:modified_time" content="2022-07-26T07:56:24.287Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -259,7 +259,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.1k 字
+      4.8k 字
     </span>
   
 
@@ -268,7 +268,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      15 分钟
     </span>
   
 
@@ -550,6 +550,42 @@ eureka:
 
 <p>注意在Stream中处于同一个group中的多个消费者是竞争关系，就能够保证消息只会被其中一个应用消费一次。<font color=red>不同组是可以全面消费的(重复消费）</font></p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>自定义配置分组，将两个消费者放在同一个分组内，解决重复消费问题。</p>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+	port: 8801
+
+spring:
+	application:
+		name: cloud-stream-provider
+	cloud:
+		stream:
+			binders: # 在此配置要绑定的 rabbitmq 服务信息
+				defaultRabbit:	# 表示定义的名称，用于 binding 整合
+					type: rabbit	# 消息组件类型
+					environment:	# 设置 rabbitmq 的相关环境配置
+						spring:
+							rabbitmq:
+								host: localhost
+								port: 5672
+								username: guest
+								password: guest
+			bindings:	# 服务器整合处理
+				input:	# 这个名字是一个通道的名称
+					destination: studyExchange # 表示要使用的 Exchange 名称定义
+					content-type: application&#x2F;json # 设置消息类型，本次为 JSON，文本则设置 text&#x2F;plain
+					binder: defaultRabbit # 设置要绑定的消息服务的具体设置
+					## 在 8802 与 8803 中都加入下列代码，放入同一个组中
+					group: groupA
+eureka:
+	client: # Eureka 客户端注册
+	service-url:
+		defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka
+	instance:
+		lease-renewal-interval-in-seconds: 2 	# 设置心跳的时间间隔（默认 30 秒） 
+	lease-expirationduration-in-seconds: 5	# 如果现在超过了 5 秒的间隔（默认 90 秒）
+	instance-id: receive-8802.com # 在信息列表时显示主机名称
+	prefer-ip-address: true # 访问路径变为 IP 地址
+			<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
 
             </div>
             <hr>
