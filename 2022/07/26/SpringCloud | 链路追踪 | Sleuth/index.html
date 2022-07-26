@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://files.catbox.moe/8ck4er.png">
 <meta property="og:image" content="https://files.catbox.moe/5q9g2l.png">
 <meta property="article:published_time" content="2022-07-26T09:45:33.000Z">
-<meta property="article:modified_time" content="2022-07-26T10:28:53.708Z">
+<meta property="article:modified_time" content="2022-07-26T12:05:33.059Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -261,7 +261,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      695 字
+      708 字
     </span>
   
 
@@ -373,12 +373,13 @@ java -jar zipkin.jar<span aria-hidden="true" class="line-numbers-rows"><span></s
 spring:
 	application:
 		name: cloud-paymrnt-service
+		
 		zipkin:
 			base-url: http:&#x2F;&#x2F;localhost:9411
 		sleuth:
 			sampler:
-				# 采样率介于 0~1 之间，1 代表全部采集
-				probability: 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+				# 采样率介于 [0,1] 之间，1 代表全部采集，一般使用 0.5 就够了
+				probability: 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
             </div>
