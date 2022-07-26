@@ -16,19 +16,19 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="定位    概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。 核心思想：Binder Implementations 绑定器对象 什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对象交互。通过">
+  <meta name="description" content="[toc] 定位    概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。 核心思想：Binder Implementations 绑定器对象 什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 消息驱动 | Stream">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/25/SpringCloud%20|%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20|%20Stream/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="定位    概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。 核心思想：Binder Implementations 绑定器对象 什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对象交互。通过">
+<meta property="og:description" content="[toc] 定位    概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。 核心思想：Binder Implementations 绑定器对象 什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/33p0oa.png">
 <meta property="og:image" content="https://files.catbox.moe/ecsq3v.png">
 <meta property="og:image" content="https://files.catbox.moe/cbr386.jpeg">
 <meta property="og:image" content="https://files.catbox.moe/heh9sh.jpg">
 <meta property="article:published_time" content="2022-07-25T13:21:45.000Z">
-<meta property="article:modified_time" content="2022-07-26T06:18:36.027Z">
+<meta property="article:modified_time" content="2022-07-26T06:37:24.187Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -258,7 +258,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.6k 字
+      3.4k 字
     </span>
   
 
@@ -267,7 +267,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      11 分钟
     </span>
   
 
@@ -313,6 +313,7 @@
 
 
 
+<p>[toc]</p>
 <h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><div style="text-align:center"><img style="width:80%;border:1px solid #eae6e6;border-radius:15px" src="https://files.catbox.moe/ecsq3v.png" srcset="/img/loading.gif" lazyload/></div>
 
 
@@ -412,7 +413,7 @@
 <li>cloud-stream-rabbitmq-consumer8802 作为消息接收模块</li>
 <li>cloud-stream-rabbitmq-consumer8803 作为消息接收模块</li>
 </ol>
-<h3 id="cloud-stream-rabbitmq-provider8801"><a href="#cloud-stream-rabbitmq-provider8801" class="headerlink" title="cloud-stream-rabbitmq-provider8801"></a>cloud-stream-rabbitmq-provider8801</h3><h4 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h4><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+<h3 id="生产者模块-cloud-stream-rabbitmq-provider8801"><a href="#生产者模块-cloud-stream-rabbitmq-provider8801" class="headerlink" title="生产者模块 | cloud-stream-rabbitmq-provider8801"></a>生产者模块 | cloud-stream-rabbitmq-provider8801</h3><h4 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h4><div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-stream-rabbit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
@@ -485,6 +486,41 @@ spring:
     <span class="token keyword">return</span> messageProvider<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h3 id="接收者模块-cloud-stream-rabbitmq-consumer8802"><a href="#接收者模块-cloud-stream-rabbitmq-consumer8802" class="headerlink" title="接收者模块 | cloud-stream-rabbitmq-consumer8802"></a>接收者模块 | cloud-stream-rabbitmq-consumer8802</h3><h4 id="Application-yml"><a href="#Application-yml" class="headerlink" title="Application.yml"></a>Application.yml</h4><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+	port: 8801
+
+spring:
+	application:
+		name: cloud-stream-provider
+	cloud:
+		stream:
+			binders: # 在此配置要绑定的 rabbitmq 服务信息
+				defaultRabbit:	# 表示定义的名称，用于 binding 整合
+					type: rabbit	# 消息组件类型
+					environment:	# 设置 rabbitmq 的相关环境配置
+						spring:
+							rabbitmq:
+								host: localhost
+								port: 5672
+								username: guest
+								password: guest
+			bindings:	# 服务器整合处理
+				input:	# 这个名字是一个通道的名称
+					destination: studyExchange # 表示要使用的 Exchange 名称定义
+					content-type: application&#x2F;json # 设置消息类型，本次为 JSON，文本则设置 text&#x2F;plain
+					binder: defaultRabbit # 设置要绑定的消息服务的具体设置
+					
+eureka:
+	client: # Eureka 客户端注册
+	service-url:
+		defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka
+	instance:
+		lease-renewal-interval-in-seconds: 2 	# 设置心跳的时间间隔（默认 30 秒） 
+	lease-expirationduration-in-seconds: 5	# 如果现在超过了 5 秒的间隔（默认 90 秒）
+	instance-id: receive-8802.com # 在信息列表时显示主机名称
+	prefer-ip-address: true # 访问路径变为 IP 地址
+			<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
             </div>
