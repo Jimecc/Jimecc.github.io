@@ -16,18 +16,19 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。 核心思想：Binder Implementations 绑定器对象 什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对象交互。通过我们配置来b">
+  <meta name="description" content="定位    概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。 核心思想：Binder Implementations 绑定器对象 什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对象交互。通过">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 消息驱动 | Stream">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/25/SpringCloud%20|%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20|%20Stream/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。 核心思想：Binder Implementations 绑定器对象 什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对象交互。通过我们配置来b">
+<meta property="og:description" content="定位    概念屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。 核心思想：Binder Implementations 绑定器对象 什么是Spring CloudStream官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对象交互。通过">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/33p0oa.png">
+<meta property="og:image" content="https://files.catbox.moe/ecsq3v.png">
 <meta property="og:image" content="https://files.catbox.moe/cbr386.jpeg">
 <meta property="og:image" content="https://files.catbox.moe/heh9sh.jpg">
 <meta property="article:published_time" content="2022-07-25T13:21:45.000Z">
-<meta property="article:modified_time" content="2022-07-26T05:36:07.344Z">
+<meta property="article:modified_time" content="2022-07-26T06:01:08.016Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -257,7 +258,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      885 字
+      1.7k 字
     </span>
   
 
@@ -266,7 +267,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      5 分钟
     </span>
   
 
@@ -312,6 +313,10 @@
 
 
 
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><div style="text-align:center"><img style="width:80%;border:1px solid #eae6e6;border-radius:15px" src="https://files.catbox.moe/ecsq3v.png" srcset="/img/loading.gif" lazyload/></div>
+
+
+
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>屏蔽底层消息中间件的差异，降低切换成本，统一消息的编程模型。</p>
 <p>核心思想：Binder Implementations 绑定器对象</p>
 <h3 id="什么是Spring-CloudStream"><a href="#什么是Spring-CloudStream" class="headerlink" title="什么是Spring CloudStream"></a>什么是Spring CloudStream</h3><p>官方定义 Spring Cloud Stream 是一个构建消息驱动微服务的框架。<br>应用程序通过 inputs 或者 outputs 来与 Spring Cloud Stream中binder对象交互。<br>通过我们配置来binding（绑定），而Spring Cloud Stream 的binder对象负责与消息中间件交互。<br>所以，我们只需要搞清楚如何与 Spring Cloud Stream 交互就可以方便使用消息驱动的方式。</p>
@@ -347,12 +352,6 @@
 
 
 <h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="SpringCloud-Stream-官方架构图"><a href="#SpringCloud-Stream-官方架构图" class="headerlink" title="SpringCloud Stream 官方架构图"></a>SpringCloud Stream 官方架构图</h3><div style="text-align:center"><img style="width:80%" src="https://files.catbox.moe/cbr386.jpeg" srcset="/img/loading.gif" lazyload/></div>
-
-
-
-
-
-<h3 id="SpringCloud-Stream-标准流程套路"><a href="#SpringCloud-Stream-标准流程套路" class="headerlink" title="SpringCloud Stream 标准流程套路"></a>SpringCloud Stream 标准流程套路</h3><div style="text-align:center"><img style="width:80%" src="https://files.catbox.moe/heh9sh.jpg" srcset="/img/loading.gif" lazyload/></div>
 
 <br>
 
@@ -396,6 +395,55 @@
 <td>指信道 channel 和 exchange 绑定在一起</td>
 </tr>
 </tbody></table>
+<br>
+
+<br>
+
+<h3 id="SpringCloud-Stream-标准流程套路"><a href="#SpringCloud-Stream-标准流程套路" class="headerlink" title="SpringCloud Stream 标准流程套路"></a>SpringCloud Stream 标准流程套路</h3><div style="text-align:center"><img style="width:80%" src="https://files.catbox.moe/heh9sh.jpg" srcset="/img/loading.gif" lazyload/></div>
+
+<br>
+
+<br>
+
+<br>
+
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="新建模块"><a href="#新建模块" class="headerlink" title="新建模块"></a>新建模块</h3><ol>
+<li>cloud-stream-rabbitmq-provider8801 作为生产者进行发消息模块</li>
+<li>cloud-stream-rabbitmq-consumer8802 作为消息接收模块</li>
+<li>cloud-stream-rabbitmq-consumer8803 作为消息接收模块</li>
+</ol>
+<h3 id="cloud-stream-rabbitmq-provider8801"><a href="#cloud-stream-rabbitmq-provider8801" class="headerlink" title="cloud-stream-rabbitmq-provider8801"></a>cloud-stream-rabbitmq-provider8801</h3><p>pom.xml</p>
+<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-stream-rabbit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<p>application.yml</p>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
+	port: 8801
+
+spring:
+	application:
+		name: cloud-stream-provider
+	cloud:
+		stream:
+			binders: # 在此配置要绑定的 rabbitmq 服务信息
+				defaultRabbit:	# 表示定义的名称，用于 binding 整合
+					type: rabbit	# 消息组件类型
+					environment:	# 设置 rabbitmq 的相关环境配置
+						spring:
+							rabbitmq:
+								host: localhost
+								port: 5672
+								username: guest
+								password: guest
+			bindings:	# 服务器整合处理
+				output:	# 这个名字是一个通道的名称
+					destination: studyExchange # 表示要使用的 Exchange 名称定义
+					content-type: application&#x2F;json # 设置消息类型，本次为 JSON，文本则设置 text&#x2F;plain
+					binder: defaultRabbit # 设置要绑定的消息服务的具体设置
+			<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
 
             </div>
             <hr>
@@ -438,7 +486,7 @@
                     
                       <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF%20%7C%20Bus/">
                         <span class="hidden-mobile">SpringCloud | 消息总线 | Bus</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -473,7 +521,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -499,7 +547,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -508,7 +556,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
