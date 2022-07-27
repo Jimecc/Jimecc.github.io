@@ -258,7 +258,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.2k 字
+      3k 字
     </span>
   
 
@@ -267,7 +267,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      9 分钟
     </span>
   
 
@@ -336,30 +336,30 @@
 <li>新建 Module <code>cloud-config-client-3366</code> </li>
 <li>yml 配置</li>
 </ol>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## bootstrap.yml
-server:
-	port: 3366
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">## bootstrap.yml</span>
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+	<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3366</span>
 
-spring:
-	application:
-		name: config-client
-	cloud:
-		config:
-			label: master # 分支名称
-			name: config	# 配置文件名称
-			profile: dev	# 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http:&#x2F;&#x2F;config-3344.com:3344&#x2F;master&#x2F;config-dev
-			uri: http:&#x2F;&#x2F;localhost:3344 # 配置中心地址
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+	<span class="token key atrule">application</span><span class="token punctuation">:</span>
+		<span class="token key atrule">name</span><span class="token punctuation">:</span> config<span class="token punctuation">-</span>client
+	<span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+		<span class="token key atrule">config</span><span class="token punctuation">:</span>
+			<span class="token key atrule">label</span><span class="token punctuation">:</span> master <span class="token comment"># 分支名称</span>
+			<span class="token key atrule">name</span><span class="token punctuation">:</span> config	<span class="token comment"># 配置文件名称</span>
+			<span class="token key atrule">profile</span><span class="token punctuation">:</span> dev	<span class="token comment"># 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http://config-3344.com:3344/master/config-dev</span>
+			<span class="token key atrule">uri</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">3344</span> <span class="token comment"># 配置中心地址</span>
 			
-eureka:
-	client:
-		service-url:
-			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+	<span class="token key atrule">client</span><span class="token punctuation">:</span>
+		<span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+			<span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>7001/eureka
 			
-management:
-	endpoints:
-		web:
-			exposure:
-				include: &quot;*&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token key atrule">management</span><span class="token punctuation">:</span>
+	<span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+		<span class="token key atrule">web</span><span class="token punctuation">:</span>
+			<span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+				<span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">"*"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableEurekaClient</span>
 <span class="token annotation punctuation">@SpringBootApplication</span>
@@ -400,85 +400,85 @@ management:
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <p><strong>3344 总控中 yml 追加下列代码</strong></p>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## application.yml
-management:
-	endpoints:
-	web:
-		exposure:
-			include: &#96;bus-refresh&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">## application.yml</span>
+<span class="token key atrule">management</span><span class="token punctuation">:</span>
+	<span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+	<span class="token key atrule">web</span><span class="token punctuation">:</span>
+		<span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+			<span class="token key atrule">include</span><span class="token punctuation">:</span> `bus<span class="token punctuation">-</span>refresh`<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <p><strong>3355 追加以下代码</strong></p>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## bootstrap.yml
-server:
-	port: 3355
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">## bootstrap.yml</span>
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+	<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3355</span>
 
-spring:
-	application:
-		name: config-client
-	cloud:
-		config:
-			label: master # 分支名称
-			name: config	# 配置文件名称
-			profile: dev	# 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http:&#x2F;&#x2F;config-3344.com:3344&#x2F;master&#x2F;config-dev
-			uri: http:&#x2F;&#x2F;localhost:3344 # 配置中心地址
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+	<span class="token key atrule">application</span><span class="token punctuation">:</span>
+		<span class="token key atrule">name</span><span class="token punctuation">:</span> config<span class="token punctuation">-</span>client
+	<span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+		<span class="token key atrule">config</span><span class="token punctuation">:</span>
+			<span class="token key atrule">label</span><span class="token punctuation">:</span> master <span class="token comment"># 分支名称</span>
+			<span class="token key atrule">name</span><span class="token punctuation">:</span> config	<span class="token comment"># 配置文件名称</span>
+			<span class="token key atrule">profile</span><span class="token punctuation">:</span> dev	<span class="token comment"># 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http://config-3344.com:3344/master/config-dev</span>
+			<span class="token key atrule">uri</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">3344</span> <span class="token comment"># 配置中心地址</span>
 			
-	## 追加代码
-	rabbitmq:
-		host: localhost
-		port: 5672
-		username: guest
-		password: guest
+	<span class="token comment">## 追加代码</span>
+	<span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
+		<span class="token key atrule">host</span><span class="token punctuation">:</span> localhost
+		<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">5672</span>
+		<span class="token key atrule">username</span><span class="token punctuation">:</span> guest
+		<span class="token key atrule">password</span><span class="token punctuation">:</span> guest
 			
-eureka:
-	client:
-		service-url:
-			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+	<span class="token key atrule">client</span><span class="token punctuation">:</span>
+		<span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+			<span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>7001/eureka
 			
-management:
-	endpoints:
-	web:
-		exposure:
-			include: &quot;*&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token key atrule">management</span><span class="token punctuation">:</span>
+	<span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+	<span class="token key atrule">web</span><span class="token punctuation">:</span>
+		<span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+			<span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">"*"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <p><strong>3366 追加以下代码</strong></p>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## bootstrap.yml
-server:
-	port: 3366
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">## bootstrap.yml</span>
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+	<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3366</span>
 
-spring:
-	application:
-		name: config-client
-	cloud:
-		config:
-			label: master # 分支名称
-			name: config	# 配置文件名称
-			profile: dev	# 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http:&#x2F;&#x2F;config-3344.com:3344&#x2F;master&#x2F;config-dev
-			uri: http:&#x2F;&#x2F;localhost:3344 # 配置中心地址
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+	<span class="token key atrule">application</span><span class="token punctuation">:</span>
+		<span class="token key atrule">name</span><span class="token punctuation">:</span> config<span class="token punctuation">-</span>client
+	<span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+		<span class="token key atrule">config</span><span class="token punctuation">:</span>
+			<span class="token key atrule">label</span><span class="token punctuation">:</span> master <span class="token comment"># 分支名称</span>
+			<span class="token key atrule">name</span><span class="token punctuation">:</span> config	<span class="token comment"># 配置文件名称</span>
+			<span class="token key atrule">profile</span><span class="token punctuation">:</span> dev	<span class="token comment"># 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http://config-3344.com:3344/master/config-dev</span>
+			<span class="token key atrule">uri</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">3344</span> <span class="token comment"># 配置中心地址</span>
 			
-	## 追加代码
-	rabbitmq:
-		host: localhost
-		port: 5672
-		username: guest
-		password: guest
+	<span class="token comment">## 追加代码</span>
+	<span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
+		<span class="token key atrule">host</span><span class="token punctuation">:</span> localhost
+		<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">5672</span>
+		<span class="token key atrule">username</span><span class="token punctuation">:</span> guest
+		<span class="token key atrule">password</span><span class="token punctuation">:</span> guest
 			
-eureka:
-	client:
-		service-url:
-			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+	<span class="token key atrule">client</span><span class="token punctuation">:</span>
+		<span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+			<span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>7001/eureka
 			
-management:
-	endpoints:
-	web:
-		exposure:
-			include: &quot;*&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token key atrule">management</span><span class="token punctuation">:</span>
+	<span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+	<span class="token key atrule">web</span><span class="token punctuation">:</span>
+		<span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+			<span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">"*"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
 
 
 
-<h2 id="📐-SpringCloud-Bus-动态刷新定点通知"><a href="#📐-SpringCloud-Bus-动态刷新定点通知" class="headerlink" title="📐 SpringCloud Bus 动态刷新定点通知"></a>📐 SpringCloud Bus 动态刷新定点通知</h2><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">curl -X POST http:&#x2F;&#x2F;localhost:配置中心端口号&#x2F;actuator&#x2F;bus-refresh&#x2F;&#123;destination&#125;
-# &#123;destination&#125; 是微服务的名称+端口号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<h2 id="📐-SpringCloud-Bus-动态刷新定点通知"><a href="#📐-SpringCloud-Bus-动态刷新定点通知" class="headerlink" title="📐 SpringCloud Bus 动态刷新定点通知"></a>📐 SpringCloud Bus 动态刷新定点通知</h2><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">curl <span class="token punctuation">-</span>X POST http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>配置中心端口号/actuator/bus<span class="token punctuation">-</span>refresh/<span class="token punctuation">&#123;</span>destination<span class="token punctuation">&#125;</span>
+<span class="token comment"># &#123;destination&#125; 是微服务的名称+端口号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 
 
             </div>
@@ -519,7 +519,7 @@ management:
                       <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20%7C%20Stream/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">SpringCloud | 消息驱动 | Stream</span>
-                        <span class="visible-mobile">Vorheriger</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -528,7 +528,7 @@ management:
                     
                       <a href="/2022/07/25/SpringCloud%20%7C%20Config/">
                         <span class="hidden-mobile">SpringCloud | 服务配置 | Config</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -563,7 +563,7 @@ management:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -589,7 +589,7 @@ management:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -598,7 +598,7 @@ management:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

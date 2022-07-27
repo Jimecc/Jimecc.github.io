@@ -261,7 +261,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      708 字
+      698 字
     </span>
   
 
@@ -367,19 +367,19 @@ java -jar zipkin.jar<span aria-hidden="true" class="line-numbers-rows"><span></s
 
 
 
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
-	port: 8001
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+	<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8001</span>
 
-spring:
-	application:
-		name: cloud-paymrnt-service
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+	<span class="token key atrule">application</span><span class="token punctuation">:</span>
+		<span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>paymrnt<span class="token punctuation">-</span>service
 		
-		zipkin:
-			base-url: http:&#x2F;&#x2F;localhost:9411
-		sleuth:
-			sampler:
-				# 采样率介于 [0,1] 之间，1 代表全部采集，一般使用 0.5 就够了
-				probability: 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+		<span class="token key atrule">zipkin</span><span class="token punctuation">:</span>
+			<span class="token key atrule">base-url</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">9411</span>
+		<span class="token key atrule">sleuth</span><span class="token punctuation">:</span>
+			<span class="token key atrule">sampler</span><span class="token punctuation">:</span>
+				<span class="token comment"># 采样率介于 [0,1] 之间，1 代表全部采集，一般使用 0.5 就够了</span>
+				<span class="token key atrule">probability</span><span class="token punctuation">:</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
             </div>
@@ -420,7 +420,7 @@ spring:
                       <a href="/2022/07/27/SpringCloud%20%7C%20Alibaba%20%7C%20SpringCloud-Alibaba/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">SpringCloud | Alibaba | 相关概念</span>
-                        <span class="visible-mobile">Vorheriger</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -429,7 +429,7 @@ spring:
                     
                       <a href="/2022/07/25/SpringCloud%20%7C%20%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%20%7C%20Stream/">
                         <span class="hidden-mobile">SpringCloud | 消息驱动 | Stream</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -464,7 +464,7 @@ spring:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -490,7 +490,7 @@ spring:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -499,7 +499,7 @@ spring:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

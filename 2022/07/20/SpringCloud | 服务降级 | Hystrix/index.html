@@ -451,20 +451,20 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>x.y.z<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># application.yml
-server:
-	port: 1234
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># application.yml</span>
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+	<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">1234</span>
 	
-spring:
-	application:
-		name: xxx
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+	<span class="token key atrule">application</span><span class="token punctuation">:</span>
+		<span class="token key atrule">name</span><span class="token punctuation">:</span> xxx
 
-eureka:
-	client:
-		register-with-eureka: true
-		fetch-registry: true
-		service-url:
-			defaultZone: http:&#x2F;&#x2F;eureka7001.com:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+	<span class="token key atrule">client</span><span class="token punctuation">:</span>
+		<span class="token key atrule">register-with-eureka</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+		<span class="token key atrule">fetch-registry</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+		<span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+			<span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 主启动 com.xxx.springcloud.PaymentHystrixMain</span>
 <span class="token annotation punctuation">@ApringBootApplicatioin</span>
@@ -685,8 +685,8 @@ eureka:
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<h4 id="3-application-yml"><a href="#3-application-yml" class="headerlink" title="3. application.yml"></a>3. application.yml</h4><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
-	port: 8000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<h4 id="3-application-yml"><a href="#3-application-yml" class="headerlink" title="3. application.yml"></a>3. application.yml</h4><div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+	<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 
 <h4 id="4-主启动类"><a href="#4-主启动类" class="headerlink" title="4. 主启动类"></a>4. 主启动类</h4><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
 <span class="token annotation punctuation">@EnableHystrixDashboard</span>
@@ -784,7 +784,7 @@ eureka:
                       <a href="/2022/07/20/%E6%B5%8B%E8%AF%95%20%7C%20JMeter%20%7C%20%E9%AB%98%E5%B9%B6%E5%8F%91%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">测试 | JMeter | 高并发测试工具</span>
-                        <span class="visible-mobile">Vorheriger</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -793,7 +793,7 @@ eureka:
                     
                       <a href="/2022/07/19/Markdown/">
                         <span class="hidden-mobile">Markdown 常用语法</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -828,7 +828,7 @@ eureka:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -854,7 +854,7 @@ eureka:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -863,7 +863,7 @@ eureka:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

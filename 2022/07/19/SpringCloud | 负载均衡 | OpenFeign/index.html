@@ -392,12 +392,12 @@
 
 
 <h2 id="Feign-超时控制"><a href="#Feign-超时控制" class="headerlink" title="Feign 超时控制"></a>Feign 超时控制</h2><p><strong>写在客户端</strong></p>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## 设置肺功能客户端超时时间（OpenFeign 默认支持 ribbon）
-ribbon:
-	## 指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间
-	ReadTimeout: 5000
-	## 指的是建立连接后从服务器读取到可用资源所用的时间
-	ConnectTimeout: 5000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">## 设置肺功能客户端超时时间（OpenFeign 默认支持 ribbon）</span>
+<span class="token key atrule">ribbon</span><span class="token punctuation">:</span>
+	<span class="token comment">## 指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间</span>
+	<span class="token key atrule">ReadTimeout</span><span class="token punctuation">:</span> <span class="token number">5000</span>
+	<span class="token comment">## 指的是建立连接后从服务器读取到可用资源所用的时间</span>
+	<span class="token key atrule">ConnectTimeout</span><span class="token punctuation">:</span> <span class="token number">5000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
 
@@ -406,9 +406,9 @@ ribbon:
 
 
 <h2 id="Feign-日志级别"><a href="#Feign-日志级别" class="headerlink" title="Feign 日志级别"></a>Feign 日志级别</h2><p><code>/config/FeignConfig</code></p>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">logging:
-	level:
-		com.xxx.xxx.service.PaymentFeignService: debug<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">logging</span><span class="token punctuation">:</span>
+	<span class="token key atrule">level</span><span class="token punctuation">:</span>
+		<span class="token key atrule">com.xxx.xxx.service.PaymentFeignService</span><span class="token punctuation">:</span> debug<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
 
 
 
@@ -462,7 +462,7 @@ publicclass <span class="token class-name">FeignConfig</span><span class="token 
                       <a href="/2022/07/19/Markdown/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Markdown 常用语法</span>
-                        <span class="visible-mobile">Vorheriger</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -471,7 +471,7 @@ publicclass <span class="token class-name">FeignConfig</span><span class="token 
                     
                       <a href="/2022/07/18/SpringCloud%20%7C%20%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20%7C%20Ribbon/">
                         <span class="hidden-mobile">Sprin gCloud | 服务调用 | Ribbon</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -506,7 +506,7 @@ publicclass <span class="token class-name">FeignConfig</span><span class="token 
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -532,7 +532,7 @@ publicclass <span class="token class-name">FeignConfig</span><span class="token 
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -541,7 +541,7 @@ publicclass <span class="token class-name">FeignConfig</span><span class="token 
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
