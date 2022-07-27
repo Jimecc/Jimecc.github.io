@@ -735,26 +735,26 @@ Swagger2 接口文档：http://110.40.191.51:8081/doc.html
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91-Nginx-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" target="_self">
-          <img src="https://files.catbox.moe/qxphc5.png" srcset="/img/loading.gif" lazyload alt="【初探篇】 Nginx 负载均衡">
+        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/" target="_self">
+          <img src="https://files.catbox.moe/qxphc5.png" srcset="/img/loading.gif" lazyload alt="【初探篇】 Nginx 创建脚本文件（交由 systemctl 控制）">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91-Nginx-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" target="_self">
-          【初探篇】 Nginx 负载均衡
+        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/" target="_self">
+          【初探篇】 Nginx 创建脚本文件（交由 systemctl 控制）
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91-Nginx-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" target="_self">
+        <a href="/2022/06/09/nginx/%E3%80%90%E5%88%9D%E6%8E%A2%E7%AF%87%E3%80%91Nginx%20%E5%88%9B%E5%BB%BA%20systemctl%20%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/" target="_self">
           
           
             
           
-          nginx 入门笔记
+          新建一个脚本文件：`/usr/lib/systemd/system/nginx.service`（允许使用`systemctl`管理 nginx）
         </a>
       </p>
 
@@ -781,7 +781,7 @@ Swagger2 接口文档：http://110.40.191.51:8081/doc.html
             
               <a href="/tags/nginx/">nginx</a>
             
-              <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+              <a href="/tags/%E5%88%9D%E6%8E%A2%E7%AF%87/">初探篇</a>
             
           </div>
         
@@ -818,7 +818,7 @@ Swagger2 接口文档：http://110.40.191.51:8081/doc.html
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -827,7 +827,7 @@ Swagger2 接口文档：http://110.40.191.51:8081/doc.html
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
