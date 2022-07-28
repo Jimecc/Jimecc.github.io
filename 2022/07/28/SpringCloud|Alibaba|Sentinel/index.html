@@ -26,8 +26,9 @@
 <meta property="og:image" content="https://files.catbox.moe/4c8dsu.png">
 <meta property="og:image" content="https://files.catbox.moe/05vjsu.png">
 <meta property="og:image" content="https://files.catbox.moe/dlcefi.png">
+<meta property="og:image" content="https://files.catbox.moe/xnqyjr.png">
 <meta property="article:published_time" content="2022-07-28T11:34:08.000Z">
-<meta property="article:modified_time" content="2022-07-28T14:32:08.973Z">
+<meta property="article:modified_time" content="2022-07-28T16:33:06.193Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -258,7 +259,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2k 字
     </span>
   
 
@@ -304,7 +305,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：a few seconds ago
+                  本文最后更新于：a minute ago
                 
               </p>
             
@@ -436,17 +437,17 @@
 <hr>
 <ul>
 <li>资源名：唯一名称，默认请求路径</li>
-<li>针对来源：Sentine!可以针对调用者进行限流，填写微服务名，默认default（不区分来源</li>
+<li>针对来源：Sentinel可以针对调用者进行限流，填写微服务名，默认default（不区分来源）</li>
 <li>阈值类型 单机阈值：<ul>
-<li>QPS（每秒钟的请求数量）：当调用该ap的QPS达到國值的时候，进行限流</li>
-<li>线程数：当调国该api的线程数达到國值的时候，进行限流</li>
+<li>QPS（每秒钟的请求数量）：当调用该api的QPS达到阈值的时候，进行限流</li>
+<li>线程数：当调用该api的线程数达到阈值的时候，进行限流</li>
 </ul>
 </li>
 <li>是否集群：不需要集群</li>
 <li>流控模式：<ul>
-<li>直接：api达到限流条件时，直接限流</li>
-<li>关联：当关联的资源达到司值时，就限流自己</li>
-<li>链路：只记录指定链路上的流量(指定资源人入口资源进来的流量，如果达到阈值，就进行限流）【ap级别的针对来源】</li>
+<li><strong>直接</strong>：api达到限流条件时，直接限流</li>
+<li><strong>关联</strong>：当关联的资源达到阈值时，就限流自己</li>
+<li><strong>链路</strong>：只记录指定链路上的流量(指定资源人入口资源进来的流量，如果达到阈值，就进行限流）【api级别的针对来源】</li>
 </ul>
 </li>
 <li>流控效果：<ul>
@@ -455,36 +456,51 @@
 </ul>
 </li>
 </ul>
-<h3 id="流控模式"><a href="#流控模式" class="headerlink" title="流控模式"></a>流控模式</h3><ul>
-<li><strong>直接→快速失败</strong><font color=red><b>（默认）</b></font></li>
-</ul>
-<table>
+<h3 id="流控模式"><a href="#流控模式" class="headerlink" title="流控模式"></a>流控模式</h3><h4 id="1-直接（默认）"><a href="#1-直接（默认）" class="headerlink" title="1. 直接（默认）"></a>1. 直接<font color=red>（默认）</font></h4><table>
 <thead>
 <tr>
 <th>名称</th>
 <th>阈值</th>
 <th>说明</th>
-<th>报错</th>
 <th>备注</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>QPS（每秒请求数）</td>
 <td>N</td>
-<td>当每秒请求数超过 N 时直接报错</td>
-<td>Blocked by Sentinel（flow limiting）</td>
+<td>当每秒请求数超过 N 时直接报错。</td>
 <td>拒之门外</td>
 </tr>
 <tr>
 <td>线程</td>
 <td>N</td>
-<td>当每秒 x</td>
-<td>Blocked by Sentinel（flow limiting）</td>
+<td>当每秒线程超过 N 个则直接报错。</td>
 <td>关门打狗</td>
 </tr>
+</tbody></table>
+<h4 id="2-关联"><a href="#2-关联" class="headerlink" title="2. 关联"></a>2. 关联</h4><p>当关联的资源达到阈值时，就限流自己（B 惹事，A 挂了）。</p>
+<div style="text-align:center"><img style="width:75%;border:1px solid #eae6e6;border-radius:5px" src="https://files.catbox.moe/xnqyjr.png" srcset="/img/loading.gif" lazyload/></div>
+
+<h4 id="3-链路"><a href="#3-链路" class="headerlink" title="3. 链路"></a>3. 链路</h4><h3 id="流控效果"><a href="#流控效果" class="headerlink" title="流控效果"></a>流控效果</h3><p>快速失败：直接失败，报错：</p>
+<table>
+<thead>
 <tr>
+<th>流控效果</th>
+<th>效果</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>直接失败</td>
+<td>超过阈值直接报错</td>
+<td>Blocked by Sentinel（flow limiting）</td>
+</tr>
+<tr>
+<td>预热</td>
+<td>公式：阈值除以 coldFactor（默认 3），经过预热时长后才会达到阈值。</td>
 <td></td>
-<td></td>
+</tr>
+<tr>
 <td></td>
 <td></td>
 <td></td>
@@ -536,7 +552,7 @@
                     
                       <a href="/2022/07/28/%E5%89%8D%E7%AB%AF/css/CSS%20%7C%20%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/">
                         <span class="hidden-mobile">CSS | 颜色显示</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Sekva afiŝo</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -571,7 +587,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -597,7 +613,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -606,7 +622,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">ŝlosivorto</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
