@@ -266,7 +266,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14 分钟
+      13 分钟
     </span>
   
 
@@ -339,7 +339,7 @@
 <p><strong>由于 SpringCloud Config 默认使用 Git 来存储配置文件（也有其他方式比如支持 SVN 和本地文件），但最推荐的还是 Git，而且使用的是 http/https 访问的方式。</strong></p>
 <h2 id="🧑🏻‍🔧-配置步骤-Server-端"><a href="#🧑🏻‍🔧-配置步骤-Server-端" class="headerlink" title="🧑🏻‍🔧 配置步骤 | Server 端"></a>🧑🏻‍🔧 配置步骤 | Server 端</h2><ol>
 <li>在 GitHub 上创建一个 springcloud-config 的 Repository</li>
-<li>获得 <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#103;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;</a>:xxxx/xxxx</li>
+<li>获得 <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a>:xxxx/xxxx</li>
 <li>本地硬盘目录上新建 git 仓库并 clone</li>
 <li>此时再本地磁盘下有一个 springcloud-config</li>
 <li>新建 Module 模块 cloud-ocnfig-center-3344，它即为 Cloud 的配置中心模块</li>
@@ -354,25 +354,25 @@
 
 
 
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">server:
-	port: 3344
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+	<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3344</span>
 	
-spring:
-	application:
-		name: cloud-config-center
-	cloud:
-		config:
-			server:
-				git:
-					uri: git@github.com:zzyybs&#x2F;springcloud-config.git
-					search-paths:
-						- springcloud-config
-			label: master
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+	<span class="token key atrule">application</span><span class="token punctuation">:</span>
+		<span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>config<span class="token punctuation">-</span>center
+	<span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+		<span class="token key atrule">config</span><span class="token punctuation">:</span>
+			<span class="token key atrule">server</span><span class="token punctuation">:</span>
+				<span class="token key atrule">git</span><span class="token punctuation">:</span>
+					<span class="token key atrule">uri</span><span class="token punctuation">:</span> git@github.com<span class="token punctuation">:</span>zzyybs/springcloud<span class="token punctuation">-</span>config.git
+					<span class="token key atrule">search-paths</span><span class="token punctuation">:</span>
+						<span class="token punctuation">-</span> springcloud<span class="token punctuation">-</span>config
+			<span class="token key atrule">label</span><span class="token punctuation">:</span> master
 			
-eureka:
-	client:
-		service-url:
-			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+	<span class="token key atrule">client</span><span class="token punctuation">:</span>
+		<span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+			<span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>7001/eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
 <span class="token annotation punctuation">@EnableConfigServer</span>
@@ -441,24 +441,24 @@ eureka:
 <p><code>Bootstrap</code>属性有高优先级，默认情况下，它们不会被本地配置覆盖。<code>Bootstrap context</code>和<code>Application Context</code>有着不同的约定所以新增了一个bootstrap.yml文件，保<code>&#39;Bootstrap Context</code> 和 <code>Application Context</code> 配置的分离。</p>
 <p><font color=red><b>要将Client模块下的application.yml文件改为bootstrap.yml,这是很关键的，</b></font>因为bootstrap.yml是比application.yml先加载的。bootstrap.yml优先级高于application.yml。</p>
 </blockquote>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## bootstrap.yml
-server:
-	port: 3355
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">## bootstrap.yml</span>
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+	<span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3355</span>
 
-spring:
-	application:
-		name: config-client
-	cloud:
-		config:
-			label: master # 分支名称
-			name: config	# 配置文件名称
-			profile: dev	# 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http:&#x2F;&#x2F;config-3344.com:3344&#x2F;master&#x2F;config-dev
-			uri: http:&#x2F;&#x2F;localhost:3344 # 配置中心地址
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+	<span class="token key atrule">application</span><span class="token punctuation">:</span>
+		<span class="token key atrule">name</span><span class="token punctuation">:</span> config<span class="token punctuation">-</span>client
+	<span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+		<span class="token key atrule">config</span><span class="token punctuation">:</span>
+			<span class="token key atrule">label</span><span class="token punctuation">:</span> master <span class="token comment"># 分支名称</span>
+			<span class="token key atrule">name</span><span class="token punctuation">:</span> config	<span class="token comment"># 配置文件名称</span>
+			<span class="token key atrule">profile</span><span class="token punctuation">:</span> dev	<span class="token comment"># 读取后缀名成 # 上述综合为：master 分支上的 config-dev.yml 的配置文件被读取为：http://config-3344.com:3344/master/config-dev</span>
+			<span class="token key atrule">uri</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">3344</span> <span class="token comment"># 配置中心地址</span>
 			
-eureka:
-	client:
-		service-url:
-			defaultZone: http:&#x2F;&#x2F;localhost:7001&#x2F;eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+	<span class="token key atrule">client</span><span class="token punctuation">:</span>
+		<span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+			<span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>7001/eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <div style="text-align:center"><img style="wisth:80%;border-radius:20px" src="https://files.catbox.moe/hb6la5.png" srcset="/img/loading.gif" lazyload/></div>
 
@@ -501,12 +501,12 @@ eureka:
 <ol start="2">
 <li>修改Client - yml，暴露监控端口</li>
 </ol>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">## 追加以下
-management:
-	endpoints:
-		web:
-			exposure:
-				include: &quot;*&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment">## 追加以下</span>
+<span class="token key atrule">management</span><span class="token punctuation">:</span>
+	<span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+		<span class="token key atrule">web</span><span class="token punctuation">:</span>
+			<span class="token key atrule">exposure</span><span class="token punctuation">:</span>
+				<span class="token key atrule">include</span><span class="token punctuation">:</span> <span class="token string">"*"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 <ol start="3">
 <li>@RefreshScope 业务类 Controller 修改</li>
