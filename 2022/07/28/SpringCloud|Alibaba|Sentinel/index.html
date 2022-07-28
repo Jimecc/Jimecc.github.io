@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://files.catbox.moe/dlcefi.png">
 <meta property="og:image" content="https://files.catbox.moe/xnqyjr.png">
 <meta property="article:published_time" content="2022-07-28T11:34:08.000Z">
-<meta property="article:modified_time" content="2022-07-28T17:14:41.472Z">
+<meta property="article:modified_time" content="2022-07-28T17:33:56.459Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -259,7 +259,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      2.3k 字
     </span>
   
 
@@ -268,7 +268,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      7 分钟
     </span>
   
 
@@ -432,7 +432,7 @@
 
 
 
-<h2 id="🏀-元素介绍"><a href="#🏀-元素介绍" class="headerlink" title="🏀 元素介绍"></a>🏀 元素介绍</h2><h3 id="流控规则"><a href="#流控规则" class="headerlink" title="流控规则"></a>流控规则</h3><h4 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h4><div style="text-align:center"><img style="width:50%;border:1px solid #eae6e6;border-radius:5px" src="https://files.catbox.moe/dlcefi.png" srcset="/img/loading.gif" lazyload/></div>
+<h2 id="🏀-流控-流控规则-流控效果"><a href="#🏀-流控-流控规则-流控效果" class="headerlink" title="🏀 流控 | 流控规则 | 流控效果"></a>🏀 流控 | 流控规则 | 流控效果</h2><h3 id="流控规则"><a href="#流控规则" class="headerlink" title="流控规则"></a>流控规则</h3><h4 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h4><div style="text-align:center"><img style="width:50%;border:1px solid #eae6e6;border-radius:5px" src="https://files.catbox.moe/dlcefi.png" srcset="/img/loading.gif" lazyload/></div>
 
 <hr>
 <ul>
@@ -503,9 +503,17 @@
 <tr>
 <td>排队等待</td>
 <td>依次处理请求</td>
-<td></td>
+<td>必须要是 QPS</td>
 </tr>
 </tbody></table>
+<h2 id="熔断降级"><a href="#熔断降级" class="headerlink" title="熔断降级"></a>熔断降级</h2><h3 id="降级策略"><a href="#降级策略" class="headerlink" title="降级策略"></a>降级策略</h3><h4 id="RT-（平均响应时间，秒级）"><a href="#RT-（平均响应时间，秒级）" class="headerlink" title="RT （平均响应时间，秒级）"></a><strong><font color=#2b61a7>RT （平均响应时间，秒级）</font></strong></h4><p>平均响应时间 <strong><font color=#2b61a7>超出阈值</font><font color=red> 且 </font><font color=#2b61a7>在时间窗口内通过的请求</font> ≥ 5</strong>，两个条件同时满足后触发降级<br>窗口期过后关闭断路器<br>RT最大4900（更大的需要通过-Dcsp.sentinel.statistic.max.rt=XXXX才能生效）异常比列（秒级）</p>
+<h4 id="异常比列（秒级）"><a href="#异常比列（秒级）" class="headerlink" title="异常比列（秒级）"></a><font color=#2b61a7>异常比列（秒级）</font></h4><p>QPS ≥ 5且异常比例（秒级统计）超过阈值时，触发降级；时间窗口结束后，关闭降级</p>
+<h4 id="异常数（分钟级）"><a href="#异常数（分钟级）" class="headerlink" title="异常数（分钟级）"></a><font color=#2b61a7>异常数（分钟级）</font></h4><p>异常数（分钟统计）超过阈值时，出发降级，时间窗口结束后，关闭降级</p>
+<div style="background-image: linear-gradient(to right,#CE9FFC,#7367F0);width:100%;padding:15px 15px;border-radius:15px;color:white;"><b>Sentinel 熔断降级会在调用链路中某个资源出现不稳定状态时（例如调用超时或异常比例升高），对这个资源的调用进行限制，让请求快速失败，避免影响到其它的资源而导致级联错误。
+  <br>当资源被降级后，在接下来的降级时间窗口之内，对该资源的调用都自动熔断（默认行为是抛出 DegradeException）。</b></div>
+
+
+
 
             </div>
             <hr>
