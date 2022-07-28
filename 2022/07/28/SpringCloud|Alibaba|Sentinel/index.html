@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://files.catbox.moe/dlcefi.png">
 <meta property="og:image" content="https://files.catbox.moe/xnqyjr.png">
 <meta property="article:published_time" content="2022-07-28T11:34:08.000Z">
-<meta property="article:modified_time" content="2022-07-28T18:00:17.126Z">
+<meta property="article:modified_time" content="2022-07-28T18:08:43.555Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -506,7 +506,8 @@
 <td>必须要是 QPS</td>
 </tr>
 </tbody></table>
-<h2 id="熔断降级"><a href="#熔断降级" class="headerlink" title="熔断降级"></a>熔断降级</h2><h3 id="降级策略"><a href="#降级策略" class="headerlink" title="降级策略"></a>降级策略</h3><h4 id="RT-（平均响应时间-秒级）"><a href="#RT-（平均响应时间-秒级）" class="headerlink" title="RT （平均响应时间 | 秒级）"></a><strong><font color=#2b61a7>RT （平均响应时间 | 秒级）</font></strong></h4><table>
+<h2 id="熔断降级"><a href="#熔断降级" class="headerlink" title="熔断降级"></a>熔断降级</h2><h3 id="降级策略"><a href="#降级策略" class="headerlink" title="降级策略"></a>降级策略</h3><h4 id="RT-（平均响应时间-秒级）"><a href="#RT-（平均响应时间-秒级）" class="headerlink" title="RT （平均响应时间 | 秒级）"></a><strong><font color=#2b61a7>RT （平均响应时间 | 秒级）</font></strong></h4><p>平均响应时间 <strong>超出阈值 且 在时间窗口内通过的请求 ≥ 5</strong>，两个条件同时满足后触发降级 窗口期过后关闭断路器 RT最大4900（更大的需要通过-Dcsp.sentinel.statistic.max.rt=XXXX才能生效）异常比列（秒级）</p>
+<table>
 <thead>
 <tr>
 <th>参数名</th>
@@ -526,10 +527,8 @@
 <td><font color=white>—————————————————————————————————–</font></td>
 </tr>
 </tbody></table>
-<p>平均响应时间 <strong><font color=#2b61a7>超出阈值</font><font color=red> 且 </font><font color=#2b61a7>在时间窗口内通过的请求</font> ≥ 5</strong>，两个条件同时满足后触发降级<br>窗口期过后关闭断路器<br>RT最大4900（更大的需要通过-Dcsp.sentinel.statistic.max.rt=XXXX才能生效）异常比列（秒级）</p>
-<br>
-
-<h4 id="异常比列（秒级）"><a href="#异常比列（秒级）" class="headerlink" title="异常比列（秒级）"></a><font color=#2b61a7>异常比列（秒级）</font></h4><table>
+<h4 id="异常比列（秒级）"><a href="#异常比列（秒级）" class="headerlink" title="异常比列（秒级）"></a><font color=#2b61a7>异常比列（秒级）</font></h4><p><font color=#2b61a7><b>QPS ≥ 5</b></font> <font color=red><strong>且</strong></font> <font color=#2b61a7><b>异常比例（秒级统计）超过阈值</b></font>时，触发降级；时间窗口结束后，关闭降级</p>
+<table>
 <thead>
 <tr>
 <th>参数名</th>
@@ -555,10 +554,27 @@
 </tbody></table>
 <br>
 
-<p><font color=#2b61a7><b>QPS ≥ 5</b></font> <font color=red><strong>且</strong></font> <font color=#2b61a7><b>异常比例（秒级统计）超过阈值</b></font>时，触发降级；时间窗口结束后，关闭降级</p>
-<br>
-
 <h4 id="异常数（分钟级）"><a href="#异常数（分钟级）" class="headerlink" title="异常数（分钟级）"></a><font color=#2b61a7>异常数（分钟级）</font></h4><p>异常数（分钟统计）超过阈值时，出发降级，时间窗口结束后，关闭降级</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>异常数</td>
+<td>一分钟内超过该数量就熔断降级</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>恢复时间</td>
+</tr>
+<tr>
+<td><font color=white>——————————————————————————————————</font></td>
+<td><font color=white>—————————————————————————————————–</font></td>
+</tr>
+</tbody></table>
 <div style="background-image: linear-gradient(to right,#CE9FFC,#7367F0);width:100%;padding:15px 15px;border-radius:15px;color:white;"><b>Sentinel 熔断降级会在调用链路中某个资源出现不稳定状态时（例如调用超时或异常比例升高），对这个资源的调用进行限制，让请求快速失败，避免影响到其它的资源而导致级联错误。
   <br>当资源被降级后，在接下来的降级时间窗口之内，对该资源的调用都自动熔断（默认行为是抛出 DegradeException）。</b></div>
 
@@ -616,7 +632,7 @@
                     
                       <a href="/2022/07/28/%E5%89%8D%E7%AB%AF/css/CSS%20%7C%20%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA/">
                         <span class="hidden-mobile">CSS | 颜色显示</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -651,7 +667,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -677,7 +693,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -686,7 +702,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
