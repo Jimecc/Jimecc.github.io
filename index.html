@@ -527,11 +527,13 @@ Nacos = Eureka + Config + Bus
 
 
 
-安装 Nacos
-在 GitHub 下载 Nacos RELEASE 版本
-解压缩
-cd nacos/bin
-启动
+
+特性：
+单机模式 ：用于测试和单机使用
+集群模式 ：用于生产环境，确保高可用
+多集群模式：用于多数据中心场景
+
+
 
         </a>
       </p>
@@ -948,7 +950,7 @@ SpringCloud Config 为微服务架构中的微服务提供集中化的外部配�
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
