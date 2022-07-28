@@ -18,7 +18,7 @@
   <meta name="keywords" content="">
   <meta name="description" content="前面四个字母分别为 Naming 与 Configuration 的前两个字母，最后的 s 为 Service。  [TOC] 概念是什么？一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台。 Nacos &#x3D; Eureka + Config + Bus     特性： 单机模式 ：用于测试和单机使用 集群模式 ：用于生产环境，确保高可用 多集群模式：用于多数据中心场景">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringCloud | Alibaba | Nacos | 服务注册">
+<meta property="og:title" content="SpringCloud | Alibaba | Nacos">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/27/SpringCloud%20|%20Alibaba%20|%20Nacos/index.html">
 <meta property="og:site_name" content="我是猫">
 <meta property="og:description" content="前面四个字母分别为 Naming 与 Configuration 的前两个字母，最后的 s 为 Service。  [TOC] 概念是什么？一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台。 Nacos &#x3D; Eureka + Config + Bus     特性： 单机模式 ：用于测试和单机使用 集群模式 ：用于生产环境，确保高可用 多集群模式：用于多数据中心场景">
@@ -32,9 +32,12 @@
 <meta property="og:image" content="https://files.catbox.moe/95nerp.png">
 <meta property="og:image" content="https://files.catbox.moe/dl4nzg.png">
 <meta property="og:image" content="https://files.catbox.moe/zb67fv.png">
+<meta property="og:image" content="https://files.catbox.moe/0dbton.png">
+<meta property="og:image" content="https://files.catbox.moe/wkr6u4.png">
+<meta property="og:image" content="https://files.catbox.moe/hwc0cw.png">
 <meta property="og:image" content="https://files.catbox.moe/2yqnnm.png">
 <meta property="article:published_time" content="2022-07-27T03:06:06.000Z">
-<meta property="article:modified_time" content="2022-07-28T08:56:02.638Z">
+<meta property="article:modified_time" content="2022-07-28T10:45:44.807Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -42,7 +45,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://files.catbox.moe/jyxm76.png">
   
-  <title>SpringCloud | Alibaba | Nacos | 服务注册 ｜ 我是猫</title>
+  <title>SpringCloud | Alibaba | Nacos ｜ 我是猫</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -237,9 +240,9 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="SpringCloud | Alibaba | Nacos | 服务注册">
+            <span class="h2" id="subtitle" title="SpringCloud | Alibaba | Nacos">
               
-                SpringCloud | Alibaba | Nacos | 服务注册
+                SpringCloud | Alibaba | Nacos
               
             </span>
 
@@ -265,7 +268,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.5k 字
+      7k 字
     </span>
   
 
@@ -274,7 +277,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20 分钟
+      22 分钟
     </span>
   
 
@@ -307,11 +310,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SpringCloud | Alibaba | Nacos | 服务注册</h1>
+            <h1 style="display: none">SpringCloud | Alibaba | Nacos</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：a few seconds ago
+                  本文最后更新于：an hour ago
                 
               </p>
             
@@ -647,7 +650,50 @@ spring:
 <span class="token attr-name">db.user.0</span><span class="token punctuation">=</span><span class="token attr-value">username</span>
 <span class="token attr-name">db.password.0</span><span class="token punctuation">=</span><span class="token attr-value">password</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
+<h3 id="Linux-Nacos-集群部署"><a href="#Linux-Nacos-集群部署" class="headerlink" title="Linux Nacos 集群部署"></a>Linux Nacos 集群部署</h3><p><strong>获取安装包：</strong> 可以 curl 或者下载到本地后上传到 Linux</p>
+<p><strong>依次执行下方命令：</strong>(2.1RELEASE 之后的版本已经有了-p 参数)</p>
+<div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 解压缩
+tar -zxvf nacos-server-x.x.x.tar.gz
 
+# copy 三份
+cp -r nacos &#x2F;myNacos&#x2F; 
+
+# 修改一下 application.properties 中的 mysql 数据库信息
+
+# 进入 bin 文件
+cd .&#x2F;myNacos&#x2F;nacos&#x2F;bin
+
+## 查看网卡ip
+hostname -i
+## copy得到 cluster.conf.example
+cp cluster.conf.example cluster.conf
+## 写入以下内容（IP 不可以是 127.0.0.1）
+## 目的是为了让这三个端口作为一个集群
+192.168.111.144:3333
+192.168.111.144:4444
+192.168.111.144:5555
+
+
+## 备份一下脚本
+cp startup.sh startup.sh.bk
+## 修改一下 startup.sh 脚本，接收 -p 端口号
+sudo vim startup.sh
+## 修改内容如下图所示
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+<div style="text-align:center"><img style="width:75%;border:1px solid #eae6e6;border-radius:25px" src="https://files.catbox.moe/0dbton.png" srcset="/img/loading.gif" lazyload/></div>
+
+<br>
+
+<div style="text-align:center"><img style="width:75%;border:1px solid #eae6e6;border-radius:25px" src="https://files.catbox.moe/wkr6u4.png" srcset="/img/loading.gif" lazyload/></div>
+
+<br>
+
+<h3 id="部署-Nginx"><a href="#部署-Nginx" class="headerlink" title="部署 Nginx"></a>部署 Nginx</h3><div style="text-align:center"><img style="width:75%;border:1px solid #eae6e6;border-radius:25px" src="https://files.catbox.moe/hwc0cw.png" srcset="/img/loading.gif" lazyload/></div>
+
+<br>
 
 <br>
 
@@ -824,16 +870,16 @@ spring:
                       <a href="/2022/07/27/SpringCloud%7CAlibaba%7CNacos%E5%9C%A8MacOS%E4%B8%8A%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">SpringCloud | Alibaba | Nacos 在 MacOS 上启动失败的解决方案</span>
-                        <span class="visible-mobile">上一篇</span>
+                        <span class="visible-mobile">Antaŭa afiŝo</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/27/SpringCloud%20%7C%20Alibaba%20%7C%20SpringCloud-Alibaba/">
-                        <span class="hidden-mobile">SpringCloud | Alibaba | 相关概念</span>
-                        <span class="visible-mobile">下一篇</span>
+                      <a href="/2022/07/27/SpringCloud%7CAlibaba%7CSentinel/">
+                        <span class="hidden-mobile">SpringCloud | Alibaba | Sentinel</span>
+                        <span class="visible-mobile">Sekva afiŝo</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -868,7 +914,7 @@ spring:
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -894,7 +940,7 @@ spring:
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -903,7 +949,7 @@ spring:
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+                 for="local-search-input">ŝlosivorto</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
