@@ -325,15 +325,15 @@
 <br>
 
 <p><strong>application.yml</strong></p>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
-	<span class="token key atrule">application</span><span class="token punctuation">:</span>
-		<span class="token key atrule">name</span><span class="token punctuation">:</span> consul<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>payment
-  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-  	<span class="token key atrule">consul</span><span class="token punctuation">:</span>
-  		<span class="token key atrule">host</span><span class="token punctuation">:</span> localhost
-  		<span class="token key atrule">prot</span><span class="token punctuation">:</span> <span class="token number">8500</span>
-  		<span class="token key atrule">discovery</span><span class="token punctuation">:</span>
-  			<span class="token key atrule">service-name</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span>spring.applicatioin.name<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">spring:
+	application:
+		name: consul-provider-payment
+  cloud:
+  	consul:
+  		host: localhost
+  		prot: 8500
+  		discovery:
+  			service-name: $&#123;spring.applicatioin.name&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
 
