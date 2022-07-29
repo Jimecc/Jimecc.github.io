@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://files.catbox.moe/t60a2p.png">
 <meta property="og:image" content="https://files.catbox.moe/sm1z18.png">
 <meta property="article:published_time" content="2022-07-29T15:16:29.000Z">
-<meta property="article:modified_time" content="2022-07-29T17:27:19.688Z">
+<meta property="article:modified_time" content="2022-07-29T17:32:23.675Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -303,7 +303,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 minutes ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
@@ -327,13 +327,16 @@
 
 <h2 id="⚽️-概述"><a href="#⚽️-概述" class="headerlink" title="⚽️ 概述"></a>⚽️ 概述</h2><h3 id="解决问题：分布式事务"><a href="#解决问题：分布式事务" class="headerlink" title="解决问题：分布式事务"></a>解决问题：分布式事务</h3><p>分布式之前，单机单库</p>
 <p>分布式之后，多机多库</p>
-<h3 id="能干嘛？"><a href="#能干嘛？" class="headerlink" title="能干嘛？"></a>能干嘛？</h3><div style="background-image: linear-gradient(to right,#CE9FFC,#7367F0);width:100%;padding:15px 15px;border-radius:15px;color:white;"><b><span style="color:#FFF720;font-size:23px">一个 ID（Transaction ID XID）</span><br>
+<h3 id="能干嘛？"><a href="#能干嘛？" class="headerlink" title="能干嘛？"></a>能干嘛？</h3><div style="background-image: linear-gradient(to right,#FEB692,#EA5455);width:100%;padding:15px 15px;border-radius:15px;color:white;"><b><span style="color:#FFF720;font-size:23px">一个 ID（Transaction ID XID）</span><br>
 全局唯一的事务 ID<br><br><span style="color:#FFF720;font-size:23px">三个组件模型</span><br>
-  Transaction Coordinator（TC）<br>Transaction Manager（TM）<br>Resource Manager（RM）<br><br><span style="color:#FFF720;font-size:23px">三个组件模型 | 说明</span><br><span style="color:#FEC163;font-size:20px">TC：</span>事务协调器，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚<br><span style="color:#FEC163;font-size:20px">TM：</span>控制全局事务的边界，负责开启一个全局事务，并最终发起全局提交或全局回滚决议<br><span style="color:#FEC163;font-size:20px">RM：</span>控制分支事务，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交</b><br></div>
+  Transaction Coordinator（TC）<br>Transaction Manager（TM）<br>Resource Manager（RM）<br><br><span style="color:#FFF720;font-size:23px">三个组件模型 | 说明</span><br><span style="color:white;font-size:20px">TC：</span>事务协调器，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚<br><span style="color:white;font-size:20px">TM：</span>控制全局事务的边界，负责开启一个全局事务，并最终发起全局提交或全局回滚决议<br><span style="color:white;font-size:20px">RM：</span>控制分支事务，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交</b><br></div>
 
+<br>
 
+<p><strong>执行流程</strong></p>
+<br>
 
-<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><div style="padding:5px 10px;width:100%;text-align:center"><img style="border:1px solid gray;background:white;width:70%;padding:0 8px;border-radius:20px;margin-top:5px" src="https://files.catbox.moe/sm1z18.png" srcset="/img/loading.gif" lazyload></div>
+<div style="padding:5px 10px;width:100%;text-align:center"><img style="border:1px solid gray;background:white;width:70%;padding:0 8px;border-radius:20px;margin-top:5px" src="https://files.catbox.moe/sm1z18.png" srcset="/img/loading.gif" lazyload></div>
 
 <ol>
 <li>TM 向 TC 申请开启一个全局事务，全局事务创建成功并生成一个全局唯一的 XID</li>
