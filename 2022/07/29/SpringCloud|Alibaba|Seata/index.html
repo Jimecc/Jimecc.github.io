@@ -16,18 +16,18 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="[TOC]        ⚽️ 概述分布式事务的问题分布式之前，单机单库分布式之后，多机多库  能干嘛？一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型 Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）  TC：事务协调器，维护全局事务的运行状态，负责协">
+  <meta name="description" content="[TOC]        ⚽️ 概述分布式事务的问题分布式之前，单机单库分布式之后，多机多库  能干嘛？一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）三个组件模型 | 说明TC：事务协调器，维护全局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | Alibaba | Seata">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/29/SpringCloud|Alibaba|Seata/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="[TOC]        ⚽️ 概述分布式事务的问题分布式之前，单机单库分布式之后，多机多库  能干嘛？一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型 Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）  TC：事务协调器，维护全局事务的运行状态，负责协">
+<meta property="og:description" content="[TOC]        ⚽️ 概述分布式事务的问题分布式之前，单机单库分布式之后，多机多库  能干嘛？一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）三个组件模型 | 说明TC：事务协调器，维护全局">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/t60a2p.png">
 <meta property="og:image" content="https://files.catbox.moe/nym9g3.png">
 <meta property="og:image" content="https://files.catbox.moe/sm1z18.png">
 <meta property="article:published_time" content="2022-07-29T15:16:29.000Z">
-<meta property="article:modified_time" content="2022-07-29T17:14:59.669Z">
+<meta property="article:modified_time" content="2022-07-29T17:25:02.863Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -258,7 +258,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      270 字
+      414 字
     </span>
   
 
@@ -329,12 +329,20 @@
 <h2 id="⚽️-概述"><a href="#⚽️-概述" class="headerlink" title="⚽️ 概述"></a>⚽️ 概述</h2><div style="background-image: linear-gradient(to right,#CE9FFC,#7367F0);width:100%;padding:21px;border-radius:15px;color:white;"><b><span style="color:#FFF720"><h2 style="color:white">分布式事务的问题</h2></span><br>分布式之前，单机单库<br>分布式之后，多机多库</b><br></div><div style="padding:5px 10px;width:100%;text-align:center"><img style="border:1px solid gray;background:white;width:50%;padding:0 8px;border-radius:20px;margin-top:5px" src="https://files.catbox.moe/nym9g3.png" srcset="/img/loading.gif" lazyload></div>
 
 <h3 id="能干嘛？"><a href="#能干嘛？" class="headerlink" title="能干嘛？"></a>能干嘛？</h3><div style="background-image: linear-gradient(to right,#CE9FFC,#7367F0);width:100%;padding:15px 15px;border-radius:15px;color:white;"><b><span style="color:#FFF720;font-size:23px">一个 ID（Transaction ID XID）</span><br>
-全局唯一的事务 ID<br><span style="color:#FFF720;font-size:23px">三个组件模型</span><br>
-Transaction Coordinator（TC）<br>Transaction Manager（TM）<br>Resource Manager（RM）</b><br></div><div style="padding:5px 10px;width:100%;text-align:center"><img style="border:1px solid gray;background:white;width:50%;padding:0 8px;border-radius:20px;margin-top:5px" src="https://files.catbox.moe/sm1z18.png" srcset="/img/loading.gif" lazyload></div>
+全局唯一的事务 ID<br><br><span style="color:#F55555;font-size:23px">三个组件模型</span><br>
+  Transaction Coordinator（TC）<br>Transaction Manager（TM）<br>Resource Manager（RM）<br><br><span style="color:#FFF720;font-size:23px">三个组件模型 | 说明</span><br><span style="color:#FEC163;font-size:20px">TC：</span>事务协调器，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚<br><span style="color:#FEC163;font-size:20px">TM：</span>控制全局事务的边界，负责开启一个全局事务，并最终发起全局提交或全局回滚决议<br><span style="color:#FEC163;font-size:20px">RM：</span>控制分支事务，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交</b><br></div>
 
-<p><font color=#2b61a7><strong>TC：</strong></font>事务协调器，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚</p>
-<p><font color=#2b61a7><strong>TM：</strong></font>控制全局事务的边界，负责开启一个全局事务，并最终发起全局提交或全局回滚决议</p>
-<p><font color=#2b61a7><strong>RM：</strong></font>控制分支事务，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交</p>
+
+
+<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><div style="padding:5px 10px;width:100%;text-align:center"><img style="border:1px solid gray;background:white;width:70%;padding:0 8px;border-radius:20px;margin-top:5px" src="https://files.catbox.moe/sm1z18.png" srcset="/img/loading.gif" lazyload></div>
+
+<ol>
+<li>TM 向 TC 申请开启一个全局事务，全局事务创建成功并生成一个全局唯一的 XID</li>
+<li>XID 在微服务调用链路的上下文中传播</li>
+<li>RM 向 TC 注册分支事务，将其纳入 XID 对应全局事务的管辖</li>
+<li>TM 向 TC 发起针对 XID 的全局提交或回滚决议</li>
+<li>TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求</li>
+</ol>
 
             </div>
             <hr>
@@ -381,7 +389,7 @@ Transaction Coordinator（TC）<br>Transaction Manager（TM）<br>Resource Manag
                     
                       <a href="/2022/07/28/SpringCloud%7CAlibaba%7CSentinel/">
                         <span class="hidden-mobile">SpringCloud | Alibaba | Sentinel</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -416,7 +424,7 @@ Transaction Coordinator（TC）<br>Transaction Manager（TM）<br>Resource Manag
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -442,7 +450,7 @@ Transaction Coordinator（TC）<br>Transaction Manager（TM）<br>Resource Manag
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -451,7 +459,7 @@ Transaction Coordinator（TC）<br>Transaction Manager（TM）<br>Resource Manag
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
