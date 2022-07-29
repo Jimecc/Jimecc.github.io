@@ -16,17 +16,17 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="[TOC]        ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多机多库 相关术语 | 及 | 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）三个组件模型 | 说明">
+  <meta name="description" content="[TOC]        ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多机多库 相关术语 &amp; 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）三个组件模型 | 说明">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | Alibaba | Seata">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/29/SpringCloud|Alibaba|Seata/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="[TOC]        ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多机多库 相关术语 | 及 | 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）三个组件模型 | 说明">
+<meta property="og:description" content="[TOC]        ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多机多库 相关术语 &amp; 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）三个组件模型 | 说明">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/t60a2p.png">
 <meta property="og:image" content="https://files.catbox.moe/sm1z18.png">
 <meta property="article:published_time" content="2022-07-29T15:16:29.000Z">
-<meta property="article:modified_time" content="2022-07-29T17:33:08.748Z">
+<meta property="article:modified_time" content="2022-07-29T17:33:18.352Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -257,7 +257,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      423 字
+      425 字
     </span>
   
 
@@ -327,7 +327,7 @@
 
 <h2 id="⚽️-概述"><a href="#⚽️-概述" class="headerlink" title="⚽️ 概述"></a>⚽️ 概述</h2><h3 id="解决问题：分布式事务"><a href="#解决问题：分布式事务" class="headerlink" title="解决问题：分布式事务"></a>解决问题：分布式事务</h3><p>分布式之前，单机单库</p>
 <p>分布式之后，多机多库</p>
-<h3 id="相关术语-及-处理流程"><a href="#相关术语-及-处理流程" class="headerlink" title="相关术语 | 及 | 处理流程"></a>相关术语 | 及 | 处理流程</h3><div style="background-image: linear-gradient(to right,#FEB692,#EA5455);width:100%;padding:15px 15px;border-radius:15px;color:white;"><b><span style="color:#FFF720;font-size:23px">一个 ID（Transaction ID XID）</span><br>
+<h3 id="相关术语-amp-处理流程"><a href="#相关术语-amp-处理流程" class="headerlink" title="相关术语 &amp; 处理流程"></a>相关术语 &amp; 处理流程</h3><div style="background-image: linear-gradient(to right,#FEB692,#EA5455);width:100%;padding:15px 15px;border-radius:15px;color:white;"><b><span style="color:#FFF720;font-size:23px">一个 ID（Transaction ID XID）</span><br>
 全局唯一的事务 ID<br><br><span style="color:#FFF720;font-size:23px">三个组件模型</span><br>
   Transaction Coordinator（TC）<br>Transaction Manager（TM）<br>Resource Manager（RM）<br><br><span style="color:#FFF720;font-size:23px">三个组件模型 | 说明</span><br><span style="color:white;font-size:20px">TC：</span>事务协调器，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚<br><span style="color:white;font-size:20px">TM：</span>控制全局事务的边界，负责开启一个全局事务，并最终发起全局提交或全局回滚决议<br><span style="color:white;font-size:20px">RM：</span>控制分支事务，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交</b><br></div>
 
