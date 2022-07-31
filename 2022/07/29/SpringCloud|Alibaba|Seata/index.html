@@ -16,17 +16,17 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="[TOC]        ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多0000机多库 相关术语 &amp; 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）三个组件模型">
+  <meta name="description" content="[TOC]   1.5.x 版本之后有重大变动       ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多0000机多库 相关术语 &amp; 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource M">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | Alibaba | Seata">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/29/SpringCloud|Alibaba|Seata/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="[TOC]        ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多0000机多库 相关术语 &amp; 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource Manager（RM）三个组件模型">
+<meta property="og:description" content="[TOC]   1.5.x 版本之后有重大变动       ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多0000机多库 相关术语 &amp; 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource M">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/t60a2p.png">
 <meta property="og:image" content="https://files.catbox.moe/sm1z18.png">
 <meta property="article:published_time" content="2022-07-29T15:16:29.000Z">
-<meta property="article:modified_time" content="2022-07-29T17:35:32.412Z">
+<meta property="article:modified_time" content="2022-07-30T16:26:03.976Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -257,7 +257,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      429 字
+      578 字
     </span>
   
 
@@ -266,7 +266,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      2 分钟
     </span>
   
 
@@ -303,7 +303,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：a few seconds ago
+                  本文最后更新于：a day ago
                 
               </p>
             
@@ -319,6 +319,8 @@
 
 <p>[TOC]</p>
 <br>
+
+<div style="border-radius:10px;padding:3px 5px;font-size:20px;width:100%;text-align:center;background:red;color:white"><b>1.5.x 版本之后有重大变动</b></div>
 
 <hr>
 <br>
@@ -348,6 +350,29 @@
 <li>TM 向 TC 发起针对 XID 的全局提交或回滚决议</li>
 <li>TC 调度 XID 下管辖的全部分支事务完成提交或回滚请求</li>
 </ol>
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<h2 id="🏀-安装"><a href="#🏀-安装" class="headerlink" title="🏀 安装"></a>🏀 安装</h2><h3 id="Github下载"><a href="#Github下载" class="headerlink" title="Github下载"></a><a target="_blank" rel="noopener" href="https://github.com/seata/seata">Github</a>下载</h3><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><strong><font color=#2b61a7>本地：</font></strong><code>@Transactional</code></p>
+<p><strong><font color=#2b61a7>全局：</font></strong><code>@GlobalTransactional</code>（Seata 的分布式交易解决方案）</p>
+<h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><p>备份后修改<code>/seata/conf/file.conf</code>文件，</p>
+<ul>
+<li>主要修改：<ul>
+<li>自定义事务组名称</li>
+<li>事务日志存储模式为 db</li>
+<li>数据库连接信息</li>
+</ul>
+</li>
+</ul>
 
             </div>
             <hr>
@@ -387,6 +412,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/07/31/SpringCloud%7CAlibaba%7CSentinel%E7%9A%84%E5%89%AF%E6%9C%AC/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">前端三剑客 | CSS</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
