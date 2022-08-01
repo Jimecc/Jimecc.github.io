@@ -329,11 +329,12 @@ CSS
 
 
 
+@GlobalTransactional
+参数: name="fsp-create-order"参数: rollbackFor=Exception.class发生任何报错就会回滚。
+
 ⚽️ 概述解决问题：分布式事务分布式之前，单机单库
 分布式之后，多0000机多库
-相关术语 &amp; 处理流程一个 ID（Transaction ID XID）
-全局唯一的事务 ID三个组件模型
-  Transaction Coordinator（TC）Transaction Manager（TM）Resource M
+相关术语 &amp; 处理流程一个 ID（Transac
         </a>
       </p>
 
@@ -981,7 +982,7 @@ SpringCloud Netfilx项目进入维护模式
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -990,7 +991,7 @@ SpringCloud Netfilx项目进入维护模式
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">ŝlosivorto</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

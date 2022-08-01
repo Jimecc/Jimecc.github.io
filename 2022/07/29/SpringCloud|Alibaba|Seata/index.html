@@ -16,17 +16,17 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="[TOC]   1.5.x 版本之后有重大变动       ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多0000机多库 相关术语 &amp; 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource M">
+  <meta name="description" content="[TOC]   1.5.x 版本之后有重大变动       @GlobalTransactional 参数: name&#x3D;&quot;fsp-create-order&quot;参数: rollbackFor&#x3D;Exception.class发生任何报错就会回滚。  ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多0000机多库 相关术语 &amp; 处理流程一个 ID（Transac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | Alibaba | Seata">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/29/SpringCloud|Alibaba|Seata/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="[TOC]   1.5.x 版本之后有重大变动       ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多0000机多库 相关术语 &amp; 处理流程一个 ID（Transaction ID XID） 全局唯一的事务 ID三个组件模型   Transaction Coordinator（TC）Transaction Manager（TM）Resource M">
+<meta property="og:description" content="[TOC]   1.5.x 版本之后有重大变动       @GlobalTransactional 参数: name&#x3D;&quot;fsp-create-order&quot;参数: rollbackFor&#x3D;Exception.class发生任何报错就会回滚。  ⚽️ 概述解决问题：分布式事务分布式之前，单机单库 分布式之后，多0000机多库 相关术语 &amp; 处理流程一个 ID（Transac">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/t60a2p.png">
 <meta property="og:image" content="https://files.catbox.moe/sm1z18.png">
 <meta property="article:published_time" content="2022-07-29T15:16:29.000Z">
-<meta property="article:modified_time" content="2022-07-31T18:17:16.283Z">
+<meta property="article:modified_time" content="2022-08-01T09:01:29.882Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -257,7 +257,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.6k 字
+      6.5k 字
     </span>
   
 
@@ -266,7 +266,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14 分钟
+      20 分钟
     </span>
   
 
@@ -303,7 +303,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 hours ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
@@ -326,6 +326,10 @@
 <br>
 
 <br>
+
+<div style="background-image: linear-gradient(to right,
+#CE9FFC,#7367F0);width:100%;padding:15px 15px;border-radius:15px;color:white;"><b><span style="color:#FFF720;font-size:23px">@GlobalTransactional</span><br>
+<span style="color:#FFF720"><b>参数: </b></span>name="fsp-create-order"<br><span style="color:#FFF720"><b>参数: </b></span>rollbackFor=Exception.class<br><br></b>发生任何报错就会回滚。<br></div>
 
 <h2 id="⚽️-概述"><a href="#⚽️-概述" class="headerlink" title="⚽️ 概述"></a>⚽️ 概述</h2><h3 id="解决问题：分布式事务"><a href="#解决问题：分布式事务" class="headerlink" title="解决问题：分布式事务"></a>解决问题：分布式事务</h3><p>分布式之前，单机单库</p>
 <p>分布式之后，多0000机多库</p>
@@ -374,7 +378,7 @@
 </li>
 </ul>
 <p><br><br><br><br><br><br><br></p>
-<h2 id="🥥-代码"><a href="#🥥-代码" class="headerlink" title="🥥 代码"></a>🥥 代码</h2><blockquote>
+<h2 id="🥥-代码-Controller-x2"><a href="#🥥-代码-Controller-x2" class="headerlink" title="🥥 代码 | Controller | x2"></a>🥥 代码 | Controller | x2</h2><blockquote>
 <p>新建订单 Order-Module</p>
 <p>新建库存 Storage_Module</p>
 <p>新建账户 Account_Module</p>
@@ -570,6 +574,97 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
+
+<br>
+
+<br>
+
+<h3 id="主启动"><a href="#主启动" class="headerlink" title="主启动"></a>主启动</h3><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableDiscoveryClient</span>
+<span class="token annotation punctuation">@EnableFeignClients</span>
+<span class="token annotation punctuation">@SpringBootApplication</span><span class="token punctuation">(</span>exclude <span class="token operator">=</span> <span class="token class-name">DataSourceAutoConfiguration</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SeataOrderMain2001</span><span class="token punctuation">&#123;</span>
+  
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">SeataOrderMain2001</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+<h2 id="代码-Storage"><a href="#代码-Storage" class="headerlink" title="代码 | Storage"></a>代码 | Storage</h2><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Order</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token class-name">Long</span> id<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> <span class="token class-name">Long</span> productId<span class="token punctuation">;</span>
+  <span class="token comment">// 总库存</span>
+  <span class="token keyword">private</span> <span class="token class-name">Integer</span> total<span class="token punctuation">;</span>
+  <span class="token comment">// 已用库存</span>
+  <span class="token keyword">private</span> <span class="token class-name">Integer</span> used<span class="token punctuation">;</span>
+  <span class="token comment">// 剩余库存</span>
+  <span class="token keyword">private</span> <span class="token class-name">Integer</span> residue<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">StorageDao</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">void</span> <span class="token function">decrease</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"producId"</span><span class="token punctuation">)</span> <span class="token class-name">Long</span> productId<span class="token punctuation">,</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"count"</span> <span class="token class-name">Integer</span> count<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>update</span><span class="token punctuation">></span></span>
+  UPDATE
+  	t_storage
+  SET
+  	used = used + #&#123;count&#125;,residue = residue - #&#123;count&#125;
+  WHERE
+  	product_id = #&#123;productId&#125;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>update</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<h3 id="💰-Money"><a href="#💰-Money" class="headerlink" title="💰 Money"></a>💰 Money</h3><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Order</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">private</span> <span class="token class-name">Long</span> id<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> <span class="token class-name">Long</span> userId<span class="token punctuation">;</span>
+  <span class="token comment">// 总库存</span>
+  <span class="token keyword">private</span> <span class="token class-name">BigDecimal</span> total<span class="token punctuation">;</span>
+  <span class="token comment">// 已用库存</span>
+  <span class="token keyword">private</span> <span class="token class-name">BigDecimal</span> used<span class="token punctuation">;</span>
+  <span class="token comment">// 剩余库存</span>
+  <span class="token keyword">private</span> <span class="token class-name">BigDecimal</span> residue<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">AccountDao</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">void</span> <span class="token function">decrease</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"userId"</span><span class="token punctuation">)</span> <span class="token class-name">Long</span> userId<span class="token punctuation">,</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"money"</span><span class="token punctuation">)</span> <span class="token class-name">BigDecimal</span> money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resultMap</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>BaseResultMap<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.xxx.xxx.xxx.entity.Account<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span> <span class="token attr-name">jdbcType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>BIGINT<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user_id<span class="token punctuation">"</span></span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>userId<span class="token punctuation">"</span></span> <span class="token attr-name">jdbyType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>BIGINT<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>total<span class="token punctuation">"</span></span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>total<span class="token punctuation">"</span></span> <span class="token attr-name">jdbyType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DECIMAL<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>used<span class="token punctuation">"</span></span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>used<span class="token punctuation">"</span></span> <span class="token attr-name">jdbyType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DECIMAL<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>residue<span class="token punctuation">"</span></span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>residue<span class="token punctuation">"</span></span> <span class="token attr-name">jdbyType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DECIMAL<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resultMap</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">AccountService</span><span class="token punctuation">&#123;</span>    
+  <span class="token class-name">CommonResult</span> <span class="token function">decrease</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"userId"</span><span class="token punctuation">)</span> <span class="token class-name">Long</span> userId<span class="token punctuation">,</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"money"</span><span class="token punctuation">)</span> <span class="token class-name">BigDecimal</span> money<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AccountServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">AccountService</span><span class="token punctuation">&#123;</span>
+  <span class="token annotation punctuation">@Resource</span>
+  <span class="token class-name">AccountDao</span> accountDao<span class="token punctuation">;</span>
+  
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">decrease</span><span class="token punctuation">(</span><span class="token class-name">Long</span> userId<span class="token punctuation">,</span><span class="token class-name">BigDecimal</span> money<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"---> 扣除账户余额开始"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    accountDao<span class="token punctuation">.</span><span class="token function">decrease</span><span class="token punctuation">(</span>userId<span class="token punctuation">,</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"---> 扣除账户余额结束"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
             </div>
             <hr>
             <div>
@@ -612,7 +707,7 @@
                       <a href="/2022/07/31/%E5%89%8D%E7%AB%AF/css/%E5%89%8D%E7%AB%AF%E4%B8%89%E5%89%91%E5%AE%A2%20%7C%20CSS/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">前端三剑客 | CSS</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Antaŭa afiŝo</span>
                       </a>
                     
                   </article>
@@ -621,7 +716,7 @@
                     
                       <a href="/2022/07/28/SpringCloud%7CAlibaba%7CSentinel/">
                         <span class="hidden-mobile">SpringCloud | Alibaba | Sentinel</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Sekva afiŝo</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -656,7 +751,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -682,7 +777,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -691,7 +786,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">ŝlosivorto</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
