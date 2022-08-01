@@ -25,8 +25,9 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/t60a2p.png">
 <meta property="og:image" content="https://files.catbox.moe/sm1z18.png">
+<meta property="og:image" content="https://files.catbox.moe/nnynz3.png">
 <meta property="article:published_time" content="2022-07-29T15:16:29.000Z">
-<meta property="article:modified_time" content="2022-08-01T09:01:29.882Z">
+<meta property="article:modified_time" content="2022-08-01T09:56:53.506Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -257,7 +258,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.5k 字
+      6.7k 字
     </span>
   
 
@@ -266,7 +267,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20 分钟
+      21 分钟
     </span>
   
 
@@ -303,7 +304,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：32 minutes ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
@@ -591,7 +592,7 @@
 
 
 
-<h2 id="代码-Storage"><a href="#代码-Storage" class="headerlink" title="代码 | Storage"></a>代码 | Storage</h2><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<h2 id="🎾-代码-Storage"><a href="#🎾-代码-Storage" class="headerlink" title="🎾 代码 | Storage"></a>🎾 代码 | Storage</h2><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token annotation punctuation">@AllArgsConstructor</span>
 <span class="token annotation punctuation">@NoArgsConstructor</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Order</span><span class="token punctuation">&#123;</span>
@@ -664,6 +665,25 @@
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
+
+
+<h2 id="🪃-Seata-的模式"><a href="#🪃-Seata-的模式" class="headerlink" title="🪃 Seata 的模式"></a>🪃 Seata 的模式</h2><p>AT 模式： 阿里cloud GTS</p>
+<ul>
+<li>一阶段：业务数据和回滚日志记录在同一个本地事务中提交，释放本地锁和连接资源</li>
+<li>二阶段：<ul>
+<li>提交异步化，非常快速的完成</li>
+<li>回滚通过一阶段的回滚日志进行反向补偿</li>
+</ul>
+</li>
+</ul>
+<p>在一阶段中，Seata会拦截“业务 SQL”</p>
+<ol>
+<li>解析 SQL 语义，找到“业务 SQL”，要更新的业务数据，在业务数据被更新前，将其保存成<code>before image</code></li>
+<li>执行”业务 SQL“，更新业务数据，在业务数据更新之后</li>
+<li>将其保存成“after image”，最后生成锁</li>
+</ol>
+<p>以上操作全部在一个数据库事务内完成，这样保证了一阶段操作的原子性</p>
+<div style="text-align:center"><img style="width:100%;border:1px solid #eae6e6;border-radius:15px" src="https://files.catbox.moe/nnynz3.png" srcset="/img/loading.gif" lazyload/></div>
 
             </div>
             <hr>
