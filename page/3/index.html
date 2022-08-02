@@ -543,14 +543,31 @@ OpenFeign@FeignClient
           
           
 
-RibbonNetflix Ribbon
+🍒 定位
 
 
 
 
-Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端 负载均衡的工具。
 
-简单的说，Ribbon是Netflix发布的开源项目，主要功能是提供客户端的软件负载均衡算法和服务调用。Ribbon客户端组件提供一系列完善的配置项如连接超时，重试等。简单的说，就是在配置文件中列出Load Balancer(简称LB）
+Ribbon  软负载均衡Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端 负载均衡的工具。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🌾 相关依赖&lt;dependency>
+	&lt;groupId>org.springframework.cloud&lt;/groupId>
+  &lt;artifactId>spring-cloud-
         </a>
       </p>
 
@@ -706,33 +723,69 @@ CP
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/07/18/SpringCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+        <a href="/2022/07/18/SpringCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Consul/" target="_self">
           SpringCloud | 服务注册 | Consul
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/07/18/SpringCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Zookeeper/" target="_self">
+        <a href="/2022/07/18/SpringCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Consul/" target="_self">
           
           
             
           
           
 
-Consul官网中文网
 
-简介Go 语言开发的
 
-服务注册与发现
-健康检查
-KV 存储
-多数据中心
-可视化 Web 界面
+相关网站官网中文网
 
-xml.dependency
-&lt;dependency>
-	&lt;groupId>org.springframework.cloud&lt;/groupId>
-  &lt;artifactId>spring-cloud-stater-consul-discovery
+🪃 安装【官网】下载后
+
+
+解压缩
+进入目录
+./consul agent -dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🌾 简介
+
+Go 语言开发的服务注册与发现、健康检查、KV 存储多数据中心、可视化 Web 界面
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🥝 配置使用服务端 | Client
+
+@SpringBootApplication
+@EnableDiscove
         </a>
       </p>
 
@@ -1003,7 +1056,7 @@ dataLogDir = /home/hsk/devtools/zookeeper/logs
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1012,7 +1065,7 @@ dataLogDir = /home/hsk/devtools/zookeeper/logs
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

@@ -16,19 +16,22 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="Consul官网中文网  简介Go 语言开发的  服务注册与发现 健康检查 KV 存储 多数据中心 可视化 Web 界面  xml.dependency &lt;dependency&gt; 	&lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;   &lt;artifactId&gt;spring-cloud-stater-consul-discovery">
+  <meta name="description" content="相关网站官网中文网  🪃 安装【官网】下载后   解压缩 进入目录 .&#x2F;consul agent -dev                 🌾 简介  Go 语言开发的服务注册与发现、健康检查、KV 存储多数据中心、可视化 Web 界面                  🥝 配置使用服务端 | Client  @SpringBootApplication @EnableDiscove">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 服务注册 | Consul">
-<meta property="og:url" content="http://jjjime.github.io/2022/07/18/SpringCloud%20|%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20|%20Zookeeper/index.html">
+<meta property="og:url" content="http://jjjime.github.io/2022/07/18/SpringCloud%20|%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20|%20Consul/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="Consul官网中文网  简介Go 语言开发的  服务注册与发现 健康检查 KV 存储 多数据中心 可视化 Web 界面  xml.dependency &lt;dependency&gt; 	&lt;groupId&gt;org.springframework.cloud&lt;&#x2F;groupId&gt;   &lt;artifactId&gt;spring-cloud-stater-consul-discovery">
+<meta property="og:description" content="相关网站官网中文网  🪃 安装【官网】下载后   解压缩 进入目录 .&#x2F;consul agent -dev                 🌾 简介  Go 语言开发的服务注册与发现、健康检查、KV 存储多数据中心、可视化 Web 界面                  🥝 配置使用服务端 | Client  @SpringBootApplication @EnableDiscove">
 <meta property="og:locale">
+<meta property="og:image" content="https://files.catbox.moe/1ztmt7.png">
+<meta property="og:image" content="https://files.catbox.moe/w8ytv6.png">
 <meta property="article:published_time" content="2022-07-18T10:25:36.000Z">
-<meta property="article:modified_time" content="2022-07-22T13:18:31.784Z">
+<meta property="article:modified_time" content="2022-08-02T14:19:22.400Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.catbox.moe/1ztmt7.png">
   
   <title>SpringCloud | 服务注册 | Consul ｜ 我是猫</title>
 
@@ -253,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      368 字
+      602 字
     </span>
   
 
@@ -262,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      2 分钟
     </span>
   
 
@@ -299,24 +302,72 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 days ago
+                  本文最后更新于：an hour ago
                 
               </p>
             
             <div class="markdown-body">
-              <br>
+              <div style="width:100%;text-align:center"><img style="border-radius:15px;width:40%" src="https://files.catbox.moe/1ztmt7.png" srcset="/img/loading.gif" lazyload/></div>
 
-<h1 id="Consul"><a href="#Consul" class="headerlink" title="Consul"></a>Consul</h1><div><div style="width:100%;height:85px;background:#eef7fa;border-radius:10px;text-align:center;padding:22px 0px;"><div><a target="_blank" rel="noopener" href="https://learn.hashicorp.com/consul" style="font-size:24px;margin-right:15px"><b>官网</b></a></div></div><div style="margin:5px 0;width:100%;height:85px;background:#eef7fa;border-radius:10px;text-align:center;padding:22px 0px;"><div><a target="_blank" rel="noopener" href="https://www.springcloud.cc/spring-cloud-consul.html" style="font-size:24px;margin-right:15px"><b>中文网</b></a></div></div></div>
+<br>
 
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong><font color=orange>Go 语言</font>开发的</strong></p>
-<ul>
-<li>服务注册与发现</li>
-<li>健康检查</li>
-<li>KV 存储</li>
-<li>多数据中心</li>
-<li>可视化 Web 界面</li>
-</ul>
-<p><strong>xml.dependency</strong></p>
+<h1 id="相关网站"><a href="#相关网站" class="headerlink" title="相关网站"></a>相关网站</h1><div><div style="width:100%;height:85px;background:#eef7fa;border-radius:10px;text-align:center;padding:22px 0px;"><div><a target="_blank" rel="noopener" href="https://learn.hashicorp.com/consul" style="font-size:24px;margin-right:15px"><b>官网</b></a></div></div><div style="margin:5px 0;width:100%;height:85px;background:#eef7fa;border-radius:10px;text-align:center;padding:22px 0px;"><div><a target="_blank" rel="noopener" href="https://www.springcloud.cc/spring-cloud-consul.html" style="font-size:24px;margin-right:15px"><b>中文网</b></a></div></div></div>
+
+<h2 id="🪃-安装"><a href="#🪃-安装" class="headerlink" title="🪃 安装"></a>🪃 安装</h2><p><a target="_blank" rel="noopener" href="https://www.consul.io/">【官网】</a>下载后</p>
+<blockquote>
+<ol>
+<li>解压缩</li>
+<li>进入目录</li>
+<li><strong>./consul agent -dev</strong></li>
+</ol>
+</blockquote>
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+<h2 id="🌾-简介"><a href="#🌾-简介" class="headerlink" title="🌾 简介"></a>🌾 简介</h2><br>
+
+<div style="border:0.05em solid black;text-align:center;padding:36px;border-radius:30px;background-image:linear-gradient(to left,#F6D242,#FF52E5);color:white"><div style="font-size:16px;font-weight:900"><span style="font-size:20px"><b><font color=freen>Go 语言</font>开发的<br><font size=3 color=white>服务注册与发现、健康检查、KV 存储<br>多数据中心、可视化 Web 界面</font></b></span></div></div>
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+<h2 id="🥝-配置使用"><a href="#🥝-配置使用" class="headerlink" title="🥝 配置使用"></a>🥝 配置使用</h2><h3 id="服务端-Client"><a href="#服务端-Client" class="headerlink" title="服务端 | Client"></a>服务端 | Client</h3><br>
+
+<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableDiscoveryClient</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PaymentMain8006</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">PaymentMain8006</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
 <div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-stater-consul-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
@@ -324,18 +375,36 @@
 
 <br>
 
-<p><strong>application.yml</strong></p>
-<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
-	<span class="token key atrule">application</span><span class="token punctuation">:</span>
-		<span class="token key atrule">name</span><span class="token punctuation">:</span> consul<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>payment
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8006</span>
+
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>payment
+
+    <span class="token comment"># Consul 服务中心地址</span>
   <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-  	<span class="token key atrule">consul</span><span class="token punctuation">:</span>
-  		<span class="token key atrule">host</span><span class="token punctuation">:</span> localhost
-  		<span class="token key atrule">prot</span><span class="token punctuation">:</span> <span class="token number">8500</span>
-  		<span class="token key atrule">discovery</span><span class="token punctuation">:</span>
-  			<span class="token key atrule">service-name</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span>spring.applicatioin.name<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+    <span class="token key atrule">consul</span><span class="token punctuation">:</span>
+      <span class="token key atrule">host</span><span class="token punctuation">:</span> localhost
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8500</span>
+      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
+        <span class="token key atrule">service-name</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span>spring.application.name<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
 
 
+
+<h2 id="🎨-视图"><a href="#🎨-视图" class="headerlink" title="🎨 视图"></a>🎨 视图</h2><div style="width:100%;text-align:center"><img style="border-radius:15px;width:90%" src="https://files.catbox.moe/w8ytv6.png" srcset="/img/loading.gif" lazyload/></div>
 
 
             </div>
@@ -376,7 +445,7 @@
                       <a href="/2022/07/18/SpringCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20%E6%80%BB%E7%BB%93/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">SpringCloud | 服务注册 | 总结</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
@@ -385,7 +454,7 @@
                     
                       <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/">
                         <span class="hidden-mobile">SpringCloud | 服务注册 | Eureka</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -420,7 +489,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -446,7 +515,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -455,7 +524,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">请在下方输入内容：</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
