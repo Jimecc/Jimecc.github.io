@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/ey90qe.png">
 <meta property="article:published_time" content="2022-07-18T10:25:36.000Z">
-<meta property="article:modified_time" content="2022-08-02T09:04:12.374Z">
+<meta property="article:modified_time" content="2022-08-02T10:15:09.716Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -255,7 +255,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.8k 字
+      5.2k 字
     </span>
   
 
@@ -264,7 +264,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15 分钟
+      16 分钟
     </span>
   
 
@@ -526,6 +526,8 @@
 
 <div style="border:0.05em solid black;text-align:center;padding:36px;border-radius:30px;background-image:linear-gradient(to right,#F6D242,#FF52E5);color:white"><div style="font-size:16px;font-weight:900">当EurekaServer 检测不到 EurekaClient 的心跳时，<span style="color:yellow">不会立刻注销该微服务。</span><br>（我不交房租了房东也不会立刻赶我走）<br><br><span style="color:yellow;font-size:20px"><b>防止因为网络或其它问题而误删除</b></span></div></div>
 
+<br>
+
 <div style="border:0.05em solid black;text-align:center;padding:36px;border-radius:30px;background-image:linear-gradient(to left,#72EDF2,#5151E5);color:white"><div style="font-size:20px;font-weight:900;color:yellow"><b>AP 模式</b></div><font><b>宁可保留不可用的微服务，也不会删除可能是好的微服务。</b></font></div></div>
 
 
@@ -536,20 +538,67 @@
 
 
 
-<h3 id="如何关闭自我保护"><a href="#如何关闭自我保护" class="headerlink" title="如何关闭自我保护"></a>如何关闭自我保护</h3> <div class="code-wrapper"><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 自我保护机制关闭</span>
+<h3 id="🎛-如何关闭自我保护"><a href="#🎛-如何关闭自我保护" class="headerlink" title="🎛 如何关闭自我保护"></a>🎛 如何关闭自我保护</h3><div style="border:0.05em solid black;text-align:center;padding:36px;border-radius:30px;background-image:linear-gradient(to right,#F6D242,#FF52E5);color:white"><div style="font-size:16px;font-weight:900"><span style="color:yellow;font-size:20px"><b>关闭自我保护<br><font size=3 color=white>👇 👇 👇 写在服务器端（Server 端） 👇 👇 👇</font></b></span></div></div>
+
+ <div class="code-wrapper"><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 自我保护机制关闭</span>
 <span class="token attr-name">eureka.server.enable-self-preservation</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
 <span class="token attr-name">eureka.server.eviction-interval-timer-in-ms</span><span class="token punctuation">=</span><span class="token attr-value">2000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token comment"># 关闭自我保护机制</span>
+  <span class="token key atrule">enable-self-preservation</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token comment"># 心跳时间 2 秒</span>
+  <span class="token key atrule">eviction-interval-timer-in-ms</span><span class="token punctuation">:</span> <span class="token number">2000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+
 
 <div class="code-wrapper"><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># Eureka 客户端向服务端发送心跳的时间间隔，单位为秒（默认 30 秒）</span>
 <span class="token attr-name">eureka.instance.lease-renewal-interval-in-seconds</span><span class="token punctuation">=</span><span class="token attr-value">1</span>
 <span class="token comment"># Eureka 服务端在收到最后一次心跳后等待时间上线，单位为秒（默认 90 秒）超时则剔除服务</span>
 <span class="token attr-name">eureka.instance.lease-expiration-duration-in-seconds</span><span class="token punctuation">=</span><span class="token attr-value">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
 
+<p><br><br></p>
+<br>
+
+<br>
+
+<br>
 
 
 
+<h2 id="🦀-其他相关配置"><a href="#🦀-其他相关配置" class="headerlink" title="🦀 其他相关配置"></a>🦀 其他相关配置</h2><div style="border:0.05em solid black;text-align:center;padding:36px;border-radius:30px;background-image:linear-gradient(to right,#F6D242,#FF52E5);color:white"><div style="font-size:16px;font-weight:900"><span style="color:yellow;font-size:20px"><b>其他相关配置<br><font size=3 color=white>👇 👇 👇 写在客户端（Client 端） 👇 👇 👇</font></b></span></div></div>
 
 
+
+<br>
+
+<br>
+
+<div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">instance</span><span class="token punctuation">:</span>
+  <span class="token comment"># 显示的 ID 名称</span>
+  <span class="token key atrule">instance-id</span><span class="token punctuation">:</span> payment8002
+  <span class="token comment"># 访问路径显示 IP 地址</span>
+  <span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 发送心跳间隔（默认90秒） 单位：秒</span>
+  <span class="token key atrule">lease-renewal-interval-in-seconds</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token comment"># Server 端收到最后一次心跳后等待时间</span>
+  <span class="token key atrule">lease-expiration-duration-in-seconds</span><span class="token punctuation">:</span> <span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
 
 
 
