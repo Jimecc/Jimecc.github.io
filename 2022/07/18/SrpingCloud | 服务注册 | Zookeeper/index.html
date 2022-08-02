@@ -16,16 +16,17 @@
   <meta name="description" content="猫是我">
   <meta name="author" content="不食花生的猫">
   <meta name="keywords" content="">
-  <meta name="description" content="Zookeeper  配置 主启动  @EnableDiscoveryClient @SpringBootApplication &#x2F;&#x2F; 主启动 public class Run&amp;#123;   public static void mian(String[] args)&amp;#123;     SpringApplication.run(Run.class,args)   &amp;#125; &amp;#1">
+  <meta name="description" content="🪵 Zookeeper  临时节点一定时间内有就留下，没有就清掉。            🥥 安装Apache下载后   修改&#x2F;zookeeper&#x2F;conf&#x2F;zoo.cfg文件 在文件末尾添加以下内容   dataDir &#x3D; &#x2F;home&#x2F;hsk&#x2F;devtools&#x2F;zookeeper&#x2F;data dataLogDir &#x3D; &#x2F;home&#x2F;hsk&#x2F;devtools&#x2F;zookeeper&#x2F;logs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud | 服务注册 | Zookeeper">
 <meta property="og:url" content="http://jjjime.github.io/2022/07/18/SrpingCloud%20|%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20|%20Zookeeper/index.html">
 <meta property="og:site_name" content="我是猫">
-<meta property="og:description" content="Zookeeper  配置 主启动  @EnableDiscoveryClient @SpringBootApplication &#x2F;&#x2F; 主启动 public class Run&amp;#123;   public static void mian(String[] args)&amp;#123;     SpringApplication.run(Run.class,args)   &amp;#125; &amp;#1">
+<meta property="og:description" content="🪵 Zookeeper  临时节点一定时间内有就留下，没有就清掉。            🥥 安装Apache下载后   修改&#x2F;zookeeper&#x2F;conf&#x2F;zoo.cfg文件 在文件末尾添加以下内容   dataDir &#x3D; &#x2F;home&#x2F;hsk&#x2F;devtools&#x2F;zookeeper&#x2F;data dataLogDir &#x3D; &#x2F;home&#x2F;hsk&#x2F;devtools&#x2F;zookeeper&#x2F;logs">
 <meta property="og:locale">
 <meta property="og:image" content="https://files.catbox.moe/1ajd1n.png">
+<meta property="og:image" content="https://files.catbox.moe/uycwq1.png">
 <meta property="article:published_time" content="2022-07-18T10:25:36.000Z">
-<meta property="article:modified_time" content="2022-07-25T05:38:34.611Z">
+<meta property="article:modified_time" content="2022-08-02T12:07:24.698Z">
 <meta property="article:author" content="不食花生的猫">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringCloud">
@@ -255,7 +256,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      2.2k 字
     </span>
   
 
@@ -264,7 +265,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      7 分钟
     </span>
   
 
@@ -301,7 +302,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 days ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
@@ -310,49 +311,164 @@
 
 <br>
 
-<h1 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h1><br>
+<h2 id="🪵-Zookeeper"><a href="#🪵-Zookeeper" class="headerlink" title="🪵 Zookeeper"></a>🪵 Zookeeper</h2><br>
 
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
-<li>主启动</li>
-</ul>
-<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableDiscoveryClient</span>
-<span class="token annotation punctuation">@SpringBootApplication</span>
-<span class="token comment">// 主启动</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Run</span><span class="token punctuation">&#123;</span>
-  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">mian</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">Run</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span>
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<div style="border:0.05em solid black;text-align:center;padding:36px;border-radius:30px;background-image:linear-gradient(to left,#F6D242,#FF52E5);color:white"><div style="font-size:16px;font-weight:900"><span style="color:yellow;font-size:20px"><b>临时节点<br><font size=3 color=white>一定时间内有就留下，没有就清掉。</font></b></span></div></div>
 
-<ul>
-<li>pom.xml</li>
-</ul>
-<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- pom.xml --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+<br>
+
+<br>
+
+<br>
+
+<Br>
+
+<br>
+
+<h2 id="🥥-安装"><a href="#🥥-安装" class="headerlink" title="🥥 安装"></a>🥥 安装</h2><p><a target="_blank" rel="noopener" href="https://zookeeper.apache.org/">Apache</a>下载后</p>
+<blockquote>
+<ol>
+<li>修改<code>/zookeeper/conf/zoo.cfg</code>文件</li>
+<li>在文件末尾添加以下内容</li>
+</ol>
+</blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">dataDir</span> <span class="token punctuation">=</span> <span class="token attr-value">/home/hsk/devtools/zookeeper/data</span>
+<span class="token attr-name">dataLogDir</span> <span class="token punctuation">=</span> <span class="token attr-value">/home/hsk/devtools/zookeeper/logs</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+
+<blockquote>
+<p>进入 <code>/zookeeper/bin</code>文件夹，执行下列命令</p>
+</blockquote>
+<div class="code-wrapper"><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 启动、重启、查看状态、关闭
+.&#x2F;zkServer.sh start
+.&#x2F;zkServer.sh restart
+.&#x2F;zkServer.sh status
+.&#x2F;zkServer.sh stop
+
+# 开启客户端
+.&#x2F;zkCli.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<Br>
+
+<br>
+
+<h2 id="🌾-使用"><a href="#🌾-使用" class="headerlink" title="🌾 使用"></a>🌾 使用</h2><h3 id="Server-服务端"><a href="#Server-服务端" class="headerlink" title="Server 服务端"></a>Server 服务端</h3><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableDiscoveryClient</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PaymentMain8004</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">PaymentMain8004</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+<div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-stater-zookeeper-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusions</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusions</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.zookeeper<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>zookeeper<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusions</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>excludsions</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-zookeeper-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<ul>
-<li>application.yml</li>
-</ul>
+<br>
+
 <div class="code-wrapper"><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
-	<span class="token key atrule">application</span><span class="token punctuation">:</span>
-		<span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>payment
-	<span class="token key atrule">cloud</span><span class="token punctuation">:</span>
-		<span class="token key atrule">zookeeper</span><span class="token punctuation">:</span>
-			<span class="token key atrule">connect-string</span><span class="token punctuation">:</span> IP<span class="token punctuation">:</span>端口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>provider<span class="token punctuation">-</span>payment
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">zookeeper</span><span class="token punctuation">:</span>
+      <span class="token key atrule">connect-string</span><span class="token punctuation">:</span> 192.168.200.176<span class="token punctuation">:</span><span class="token number">2181</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
 
 
-<h2 id="报错-服务器与jar包版本不一致"><a href="#报错-服务器与jar包版本不一致" class="headerlink" title="报错 | 服务器与jar包版本不一致"></a>报错 | 服务器与jar包版本不一致</h2> <div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+<h3 id="服务端-需要-LoadBalance"><a href="#服务端-需要-LoadBalance" class="headerlink" title="服务端 | 需要@LoadBalance"></a>服务端 | 需要<code>@LoadBalance</code></h3><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderZkController</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> INVOKE_URL <span class="token operator">=</span> <span class="token string">"http://cloud-provider-payment"</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Resource</span>
+    <span class="token keyword">private</span> <span class="token class-name">RestTemplate</span> restTemplate<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/consumer/payment/zk"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">paymentInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> result <span class="token operator">=</span> restTemplate<span class="token punctuation">.</span><span class="token function">getForObject</span><span class="token punctuation">(</span>INVOKE_URL<span class="token operator">+</span><span class="token string">"/payment/zk"</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<Br>
+
+<br>
+
+
+
+<h2 id="🥝-注册信息"><a href="#🥝-注册信息" class="headerlink" title="🥝 注册信息"></a>🥝 注册信息</h2><div class="code-wrapper"><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"cloud-provider-payment8004"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"df6f3be8-6e35-4076-86f1-0efc54a8ebc4"</span><span class="token punctuation">,</span>
+  <span class="token property">"address"</span><span class="token operator">:</span> <span class="token string">"macbookair.lan"</span><span class="token punctuation">,</span>
+  <span class="token property">"port"</span><span class="token operator">:</span> <span class="token number">8004</span><span class="token punctuation">,</span>
+  <span class="token property">"sslPort"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+  <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"@class"</span><span class="token operator">:</span> <span class="token string">"org.springframework.cloud.zookeeper.discovery.ZookeeperInstance"</span><span class="token punctuation">,</span>
+    <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"application-1"</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"cloud-provider-payment8004"</span><span class="token punctuation">,</span>
+    <span class="token property">"metadata"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"registrationTimeUTC"</span><span class="token operator">:</span> <span class="token number">1659438647773</span><span class="token punctuation">,</span>
+  <span class="token property">"serviceType"</span><span class="token operator">:</span> <span class="token string">"DYNAMIC"</span><span class="token punctuation">,</span>
+  <span class="token property">"uriSpec"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"parts"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"scheme"</span><span class="token punctuation">,</span>
+        <span class="token property">"variable"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"://"</span><span class="token punctuation">,</span>
+        <span class="token property">"variable"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"address"</span><span class="token punctuation">,</span>
+        <span class="token property">"variable"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">":"</span><span class="token punctuation">,</span>
+        <span class="token property">"variable"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"port"</span><span class="token punctuation">,</span>
+        <span class="token property">"variable"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+<br>
+
+
+<div><img style="width:100%;" src="https://files.catbox.moe/uycwq1.png" srcset="/img/loading.gif" lazyload></div>
+
+<br>
+
+<br>
+
+<br>
+
+<Br>
+
+<br>
+
+<h2 id="🙊-其他问题-报错-服务器与jar包版本不一致"><a href="#🙊-其他问题-报错-服务器与jar包版本不一致" class="headerlink" title="🙊 其他问题 | 报错 | 服务器与jar包版本不一致"></a>🙊 其他问题 | 报错 | 服务器与jar包版本不一致</h2> <div class="code-wrapper"><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-stater-zookeeper-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusions</span><span class="token punctuation">></span></span>
@@ -371,37 +487,11 @@
 
 
 
-<h2 id="Zookeeper-服务器"><a href="#Zookeeper-服务器" class="headerlink" title="Zookeeper 服务器"></a>Zookeeper 服务器</h2><ul>
-<li>临时节点</li>
-<li>带序号的临时节点</li>
-<li>持久节点</li>
-<li>带序号的持久节点</li>
-</ul>
-<p>一定时间内如果存在则保留，否则就删除。</p>
-<h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuraton</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ApplicationContextConfig</span><span class="token punctuation">&#123;</span>
-  
-  <span class="token annotation punctuation">@Bean</span>
-  <span class="token annotation punctuation">@LoadBalanced</span>
-  <span class="token keyword">public</span> <span class="token class-name">RestTemplate</span> <span class="token function">getRestTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RestTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
-<span class="token annotation punctuation">@Slf4j</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderZKController</span><span class="token punctuation">&#123;</span>
-  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> INVOKE_URL<span class="token operator">=</span><span class="token string">"htt o://cloud-provider-payment"</span><span class="token punctuation">;</span>
-  <span class="token annotation punctuation">@Resource</span>
-  <span class="token keyword">private</span> <span class="token class-name">RestTemplate</span> restTemplate<span class="token punctuation">;</span>
-  
-  
-  <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/consumer/payment/zk"</span><span class="token punctuation">)</span>
-  <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">paymentInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token class-name">String</span> result <span class="token operator">=</span> restTemplate<span class="token punctuation">.</span><span class="token function">getForObject</span><span class="token punctuation">(</span>INVOKE_URL<span class="token operator">+</span><span class="token string">"/payment/zk"</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+
+
+
+
 
 
             </div>
@@ -442,7 +532,7 @@
                       <a href="/2022/07/18/SrpingCloud%20%7C%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%20%7C%20Eureka/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">SpringCloud | 服务注册 | Eureka</span>
-                        <span class="visible-mobile">Vorheriger</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -451,7 +541,7 @@
                     
                       <a href="/2022/07/17/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%8E%8B%E5%B0%8F%E6%B3%A2-%E9%BB%84%E9%87%91%E6%97%B6%E4%BB%A3-1/">
                         <span class="hidden-mobile">读书笔记 | 王小波 | 黄金时代</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -486,7 +576,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -512,7 +602,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -521,7 +611,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

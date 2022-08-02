@@ -854,19 +854,30 @@ Eureka Client 通过注册中心进行访问是个Java
 
 
 
-Zookeeper
+🪵 Zookeeper
 
-配置
-主启动
+临时节点一定时间内有就留下，没有就清掉。
 
-@EnableDiscoveryClient
-@SpringBootApplication
-// 主启动
-public class Run&#123;
-  public static void mian(String[] args)&#123;
-    SpringApplication.run(Run.class,args)
-  &#125;
-&#1
+
+
+
+
+
+
+
+
+
+
+🥥 安装Apache下载后
+
+
+修改/zookeeper/conf/zoo.cfg文件
+在文件末尾添加以下内容
+
+
+dataDir = /home/hsk/devtools/zookeeper/data
+dataLogDir = /home/hsk/devtools/zookeeper/logs
+
         </a>
       </p>
 
@@ -992,7 +1003,7 @@ public class Run&#123;
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1001,7 +1012,7 @@ public class Run&#123;
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">请在下方输入内容：</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
